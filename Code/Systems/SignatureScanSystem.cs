@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureScanSystem.cs
-// One-shot Status scan. Runs only when the player clicks Scan Signature Bonuses.
+// One-shot Status scan. Runs only opening the mod Options or the player manually rescans.
 
 namespace SignatureBuildingControl
 {

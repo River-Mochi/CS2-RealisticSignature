@@ -27,45 +27,73 @@ namespace SignatureBuildingControl
             IList<IDictionaryEntryError> errors,
             Dictionary<string, int> indexCounts)
         {
-            string title = Mod.ShortName;
-
-            if (!string.IsNullOrEmpty(Mod.ModVersion))
-            {
-                title += $" ({Mod.ModVersion})";
-            }
-
             return new Dictionary<string, string>
             {
                 // Mod title
-                { m_Setting.GetSettingsLocaleID(), title },
+                {
+                    m_Setting.GetSettingsLocaleID(),
+                    Mod.ShortName
+                },
 
                 // Tabs
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.ActionsTab), "Actions" },
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.StatusTab), "Status" },
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.AboutTab), "About" },
+                {
+                    m_Setting.GetOptionTabLocaleID(
+                        SBCSettings.ActionsTab),
+                    "Actions"
+                },
+                {
+                    m_Setting.GetOptionTabLocaleID(
+                        SBCSettings.StatusTab),
+                    "Status"
+                },
+                {
+                    m_Setting.GetOptionTabLocaleID(
+                        SBCSettings.AboutTab),
+                    "About"
+                },
 
                 // Groups
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Signature Placement" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
-
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "SIGNATURE STATUS" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.StatusActionsGroup), "STATUS ACTIONS" },
-
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.DebugGroup), "Debug / Logging" },
+                { m_Setting.GetOptionGroupLocaleID( SBCSettings.PlacementGroup), "Multiple Signature Buildings" },
+                {
+                    m_Setting.GetOptionGroupLocaleID(
+                        SBCSettings.BonusGroup),
+                    "Signature Bonuses"
+                },
+                {
+                    m_Setting.GetOptionGroupLocaleID(
+                        SBCSettings.SignatureStatusGroup),
+                    "Signature Status"
+                },
+                {
+                    m_Setting.GetOptionGroupLocaleID(
+                        SBCSettings.StatusActionsGroup),
+                    "Status Actions"
+                },
+                {
+                    m_Setting.GetOptionGroupLocaleID(
+                        SBCSettings.AboutInfoGroup),
+                    "Info"
+                },
+                {
+                    m_Setting.GetOptionGroupLocaleID(
+                        SBCSettings.DebugGroup),
+                    "Debug / Logging"
+                },
 
                 // Placement
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.AllowMultipleSignatureBuildings)),
-                    "Allow Multiple Signature Buildings"
+                        nameof(
+                            SBCSettings.AllowMultipleSignatureBuildings)),
+                    "Allow multiple unique buildings"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.AllowMultipleSignatureBuildings)),
-                    "**ON** = allows more than one copy of a Signature building.\n" +
-                    "**OFF** = normal game placement rules.\n" +
-                    "Compatibility checks will avoid unnecessary changes when another mod already allows multiple unique buildings."
+                        nameof(
+                            SBCSettings.AllowMultipleSignatureBuildings)),
+                    "**ON** = place more than one copy of the same " +
+                    "Signature building.\n" +
+                    "**OFF** = game default: one of each."
                 },
 
                 // Bonus behavior
@@ -77,16 +105,13 @@ namespace SignatureBuildingControl
                 {
                     m_Setting.GetOptionDescLocaleID(
                         nameof(SBCSettings.SignatureBonuses)),
-                    "<Vanilla stacking> = every placed copy contributes its normal bonus.\n" +
-                    "<First copy only> = each Signature building type contributes its bonus once.\n" +
-                    "<No bonuses> = Signature city bonuses are disabled."
+                    "<First copy only> = each Signature building type " +
+                    "provides its bonus once.\n" +
+                    "<No Bonuses> = Signature city bonuses are disabled.\n" +
+                    "<Vanilla stacked bonuses> = every copy provides " +
+                    "its normal bonus."
                 },
 
-                {
-                    m_Setting.GetEnumValueLocaleID(
-                        SignatureBonusMode.VanillaStacking),
-                    "Vanilla stacking"
-                },
                 {
                     m_Setting.GetEnumValueLocaleID(
                         SignatureBonusMode.FirstCopyOnly),
@@ -95,63 +120,81 @@ namespace SignatureBuildingControl
                 {
                     m_Setting.GetEnumValueLocaleID(
                         SignatureBonusMode.NoBonuses),
-                    "No bonuses"
+                    "No Bonuses"
+                },
+                {
+                    m_Setting.GetEnumValueLocaleID(
+                        SignatureBonusMode.VanillaStacking),
+                    "Vanilla stacked bonuses"
                 },
 
                 // Status
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.StatusSignatureBuildings)),
+                        nameof(
+                            SBCSettings.StatusSignatureBuildings)),
                     "Signature buildings placed"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.StatusSignatureBuildings)),
-                    "Number of currently placed Signature buildings found by the last scan."
+                        nameof(
+                            SBCSettings.StatusSignatureBuildings)),
+                    "Signature buildings currently placed in the city."
                 },
 
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.StatusSignatureTypes)),
+                        nameof(
+                            SBCSettings.StatusSignatureTypes)),
                     "Unique Signature types"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.StatusSignatureTypes)),
-                    "Number of different Signature building prefabs currently placed."
+                        nameof(
+                            SBCSettings.StatusSignatureTypes)),
+                    "Different Signature building types currently placed."
                 },
 
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.StatusActiveBonusProviders)),
+                        nameof(
+                            SBCSettings.StatusActiveBonusProviders)),
                     "Active bonus providers"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.StatusActiveBonusProviders)),
-                    "Placed Signature buildings currently carrying the game's city bonus provider."
+                        nameof(
+                            SBCSettings.StatusActiveBonusProviders)),
+                    "Placed Signature buildings that currently have a " +
+                    "city-wide bonus."
                 },
 
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.StatusDuplicateBonusProviders)),
+                        nameof(
+                            SBCSettings.StatusDuplicateBonusProviders)),
                     "Duplicate bonus providers"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.StatusDuplicateBonusProviders)),
-                    "Extra copies of the same Signature type that currently provide city bonuses."
+                        nameof(
+                            SBCSettings.StatusDuplicateBonusProviders)),
+                    "Extra copies of the same Signature type that also " +
+                    "have a city-wide bonus."
                 },
 
                 {
                     m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.ScanSignatureBonuses)),
+                        nameof(
+                            SBCSettings.ScanSignatureBonuses)),
                     "Scan Signature Bonuses"
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.ScanSignatureBonuses)),
-                    "Scans the current city once and updates the Signature Status above."
+                        nameof(
+                            SBCSettings.ScanSignatureBonuses)),
+                    "Scans the current city once and refreshes " +
+                    "Signature Status."
                 },
 
                 // About
@@ -177,15 +220,10 @@ namespace SignatureBuildingControl
                     "Installed mod version and build type."
                 },
 
-                {
-                    m_Setting.GetOptionLabelLocaleID(
-                        nameof(SBCSettings.OpenLogButton)),
-                    "Open Log"
-                },
-                {
-                    m_Setting.GetOptionDescLocaleID(
-                        nameof(SBCSettings.OpenLogButton)),
-                    "Opens this mod's log file. If unavailable, opens the Logs folder."
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.OpenLogButton)),"Open Log"},
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.OpenLogButton)),
+                    "Opens this mod's log file. If unavailable, " +
+                    "opens the Logs folder."
                 },
             };
         }

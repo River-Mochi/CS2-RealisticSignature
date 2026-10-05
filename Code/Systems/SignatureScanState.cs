@@ -7,13 +7,15 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureScanState.cs
-// Small runtime-only state shared by the manual Signature scan and Options UI.
+// Runtime-only state for the one-shot Signature Status scan.
 
 namespace SignatureBuildingControl
 {
     internal static class SignatureScanState
     {
         private static bool s_ScanRequested;
+        private static bool s_AutomaticScanAttempted;
+        private static int s_UiVersion;
 
         public static bool HasSnapshot
         {
@@ -45,9 +47,36 @@ namespace SignatureBuildingControl
             private set;
         }
 
-        public static void RequestScan()
+        public static int GetUiVersion()
         {
+            return s_UiVersion;
+        }
+
+        public static bool TryRequestScan(bool force)
+        {
+            if (s_ScanRequested)
+            {
+                return false;
+            }
+
+            if (!force)
+            {
+                if (HasSnapshot ||
+                    s_AutomaticScanAttempted)
+                {
+                    return false;
+                }
+
+                s_AutomaticScanAttempted = true;
+            }
+
             s_ScanRequested = true;
+            return true;
+        }
+
+        public static void CancelRequest()
+        {
+            s_ScanRequested = false;
         }
 
         public static bool ConsumeRequest()
@@ -73,11 +102,13 @@ namespace SignatureBuildingControl
             DuplicateBonusProviders = duplicateBonusProviders;
 
             HasSnapshot = true;
+            s_UiVersion++;
         }
 
         public static void Clear()
         {
             s_ScanRequested = false;
+            s_AutomaticScanAttempted = false;
 
             HasSnapshot = false;
 
@@ -85,6 +116,8 @@ namespace SignatureBuildingControl
             SignatureTypes = 0;
             ActiveBonusProviders = 0;
             DuplicateBonusProviders = 0;
+
+            s_UiVersion++;
         }
     }
 }
