@@ -193,8 +193,8 @@ namespace SignatureBuildingControl
                     m_Setting.GetOptionDescLocaleID(
                         nameof(
                             SBCSettings.ScanSignatureBonuses)),
-                    "Scans the current city once and refreshes " +
-                    "Signature Status."
+                    "Scans the current city once and refreshes Signature Status.\n" +
+                    "Note: city is paused while in Options menu, so these numbers will not change until you run the city and make changes."
                 },
 
                 // About
