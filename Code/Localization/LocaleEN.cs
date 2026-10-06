@@ -53,11 +53,16 @@ namespace SignatureBuildingControl
                 },
 
                 // Groups
-                { m_Setting.GetOptionGroupLocaleID( SBCSettings.PlacementGroup), "Multiple Signature Buildings" },
+                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Signature Buildings" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleSignatureBuildings)), "Allow multiple copies" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleSignatureBuildings)),
+                    "**ON** = place more than one copy of the same Signature building.\n" +
+                    "**OFF** = game default: only one of each unique building."
+                },
+
+
                 {
-                    m_Setting.GetOptionGroupLocaleID(
-                        SBCSettings.BonusGroup),
-                    "Signature Bonuses"
+                    m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup),"Signature Bonuses"
                 },
                 {
                     m_Setting.GetOptionGroupLocaleID(
@@ -129,12 +134,14 @@ namespace SignatureBuildingControl
                 },
 
                 // Status
-                {
-                    m_Setting.GetOptionLabelLocaleID(
-                        nameof(
-                            SBCSettings.StatusSignatureBuildings)),
-                    "Signature buildings placed"
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Placement rule" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusPlacementRule)),
+                    "Current placement rule for Signature buildings."
                 },
+
+
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureBuildings)), "Signature buildings placed"},
                 {
                     m_Setting.GetOptionDescLocaleID(
                         nameof(

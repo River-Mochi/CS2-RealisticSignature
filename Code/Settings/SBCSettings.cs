@@ -24,29 +24,18 @@ namespace SignatureBuildingControl
 
     public enum SignatureBonusMode
     {
-        // Do not change these numbers after release.
         VanillaStacking = 0,
         FirstCopyOnly = 1,
         NoBonuses = 2,
     }
 
     [FileLocation("ModsSettings/SignatureBuildingControl/SignatureBuildingControl")]
-    [SettingsUITabOrder(
-        ActionsTab,
-        StatusTab,
-        AboutTab)]
+    [SettingsUITabOrder(ActionsTab, StatusTab, AboutTab)]
     [SettingsUIGroupOrder(
-        PlacementGroup,
-        BonusGroup,
-        SignatureStatusGroup,
-        StatusActionsGroup,
-        AboutInfoGroup,
-        DebugGroup)]
+        PlacementGroup, BonusGroup, SignatureStatusGroup, StatusActionsGroup,
+        AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        PlacementGroup,
-        BonusGroup,
-        SignatureStatusGroup,
-        StatusActionsGroup,
+        PlacementGroup, BonusGroup, SignatureStatusGroup, StatusActionsGroup,
         DebugGroup)]
     public sealed class SBCSettings : ModSetting
     {
@@ -56,10 +45,8 @@ namespace SignatureBuildingControl
 
         public const string PlacementGroup = "Placement";
         public const string BonusGroup = "Bonuses";
-
         public const string SignatureStatusGroup = "SignatureStatus";
         public const string StatusActionsGroup = "StatusActions";
-
         public const string AboutInfoGroup = "AboutInfo";
         public const string DebugGroup = "Debug";
 
@@ -69,42 +56,27 @@ namespace SignatureBuildingControl
             SetDefaults();
         }
 
-        // --------------------
-        // Actions
-        // --------------------
-
         [SettingsUISection(ActionsTab, PlacementGroup)]
-        public bool AllowMultipleSignatureBuildings
-        {
-            get;
-            set;
-        }
+        [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleSignatureBuildings))]
+        public bool AllowMultipleSignatureBuildings { get; set; }
 
-        [SettingsUIDropdown(
-            typeof(SBCSettings),
-            nameof(GetSignatureBonusDropdownItems))]
+        [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
         [SettingsUISection(ActionsTab, BonusGroup)]
-        public SignatureBonusMode SignatureBonuses
-        {
-            get;
-            set;
-        }
-
-        // --------------------
-        // Status
-        // --------------------
+        public SignatureBonusMode SignatureBonuses { get; set; }
 
         [Exclude]
-        [SettingsUIValueVersion(
-            typeof(SignatureScanState),
-            nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUIValueVersion(typeof(SignaturePlacementState), nameof(SignaturePlacementState.GetUiVersion))]
+        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        public string StatusPlacementRule => SignaturePlacementState.StatusText;
+
+        [Exclude]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(StatusTab, SignatureStatusGroup)]
         public string StatusSignatureBuildings
         {
             get
             {
                 EnsureAutomaticStatusScan();
-
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureBuildings.ToString()
                     : "—";
@@ -112,16 +84,13 @@ namespace SignatureBuildingControl
         }
 
         [Exclude]
-        [SettingsUIValueVersion(
-            typeof(SignatureScanState),
-            nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(StatusTab, SignatureStatusGroup)]
         public string StatusSignatureTypes
         {
             get
             {
                 EnsureAutomaticStatusScan();
-
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureTypes.ToString()
                     : "—";
@@ -129,16 +98,13 @@ namespace SignatureBuildingControl
         }
 
         [Exclude]
-        [SettingsUIValueVersion(
-            typeof(SignatureScanState),
-            nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(StatusTab, SignatureStatusGroup)]
         public string StatusActiveBonusProviders
         {
             get
             {
                 EnsureAutomaticStatusScan();
-
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.ActiveBonusProviders.ToString()
                     : "—";
@@ -146,16 +112,13 @@ namespace SignatureBuildingControl
         }
 
         [Exclude]
-        [SettingsUIValueVersion(
-            typeof(SignatureScanState),
-            nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(StatusTab, SignatureStatusGroup)]
         public string StatusDuplicateBonusProviders
         {
             get
             {
                 EnsureAutomaticStatusScan();
-
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.DuplicateBonusProviders.ToString()
                     : "—";
@@ -170,24 +133,21 @@ namespace SignatureBuildingControl
             set
             {
                 if (!value)
-                {
                     return;
-                }
+
+                GetPlacementSystem()?.ScheduleReconcile(
+                    AllowMultipleSignatureBuildings,
+                    "manual Status scan");
 
                 RequestStatusScan(force: true, logFailure: true);
             }
         }
 
-        // --------------------
-        // About
-        // --------------------
-
         [SettingsUISection(AboutTab, AboutInfoGroup)]
         public string ModNameDisplay => Mod.ModName;
 
         [SettingsUISection(AboutTab, AboutInfoGroup)]
-        public string ModVersionDisplay =>
-            $"{Mod.ModVersion} {Mod.BuildDisplayName}";
+        public string ModVersionDisplay => $"{Mod.ModVersion} {Mod.BuildDisplayName}";
 
         [SettingsUIButtonGroup(DebugGroup)]
         [SettingsUIButton]
@@ -197,9 +157,7 @@ namespace SignatureBuildingControl
             set
             {
                 if (value)
-                {
                     ShellOpen.OpenModLogOrLogsFolder();
-                }
             }
         }
 
@@ -207,6 +165,16 @@ namespace SignatureBuildingControl
         {
             AllowMultipleSignatureBuildings = false;
             SignatureBonuses = SignatureBonusMode.VanillaStacking;
+        }
+
+        private void SetAllowMultipleSignatureBuildings(bool value)
+        {
+            if (AllowMultipleSignatureBuildings == value)
+                return;
+
+            GetPlacementSystem()?.ScheduleReconcile(
+                value,
+                "Options setting changed");
         }
 
         private DropdownItem<int>[] GetSignatureBonusDropdownItems()
@@ -217,64 +185,64 @@ namespace SignatureBuildingControl
                 {
                     value = (int)SignatureBonusMode.FirstCopyOnly,
                     displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(
-                            SignatureBonusMode.FirstCopyOnly)),
+                        GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly)),
                 },
                 new()
                 {
                     value = (int)SignatureBonusMode.NoBonuses,
                     displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(
-                            SignatureBonusMode.NoBonuses)),
+                        GetEnumValueLocaleID(SignatureBonusMode.NoBonuses)),
                 },
                 new()
                 {
                     value = (int)SignatureBonusMode.VanillaStacking,
                     displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(
-                            SignatureBonusMode.VanillaStacking)),
+                        GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking)),
                 },
             };
         }
 
-        private static void EnsureAutomaticStatusScan()
+        private static SignaturePlacementSystem? GetPlacementSystem()
         {
-            RequestStatusScan(
-                force: false,
-                logFailure: false);
+            World? world = World.DefaultGameObjectInjectionWorld;
+
+            if (world == null || !world.IsCreated)
+                return null;
+
+            return world.GetOrCreateSystemManaged<SignaturePlacementSystem>();
         }
 
-        private static void RequestStatusScan(
-            bool force,
-            bool logFailure)
+        private static void EnsureAutomaticStatusScan()
+        {
+            if (!SignaturePlacementState.HasSnapshot)
+            {
+                GetPlacementSystem()?.ScheduleReconcile(
+                    Mod.Setting?.AllowMultipleSignatureBuildings ?? false,
+                    "Status opened");
+            }
+
+            RequestStatusScan(force: false, logFailure: false);
+        }
+
+        private static void RequestStatusScan(bool force, bool logFailure)
         {
             GameManager? gameManager = GameManager.instance;
 
-            if (gameManager == null ||
-                !gameManager.gameMode.IsGame())
-            {
+            if (gameManager == null || !gameManager.gameMode.IsGame())
                 return;
-            }
 
             World? world = World.DefaultGameObjectInjectionWorld;
 
-            if (world == null ||
-                !world.IsCreated)
+            if (world == null || !world.IsCreated)
             {
                 if (logFailure)
-                {
-                    LogUtils.Warn(
-                        $"{Mod.ModTag} Signature scan requested, " +
-                        "but no ECS World is available.");
-                }
+                    LogUtils.Warn($"{Mod.ModTag} Signature scan requested, but no ECS World is available.");
 
                 return;
             }
 
             if (!SignatureScanState.TryRequestScan(force))
-            {
                 return;
-            }
 
             try
             {

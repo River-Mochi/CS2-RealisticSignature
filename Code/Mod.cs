@@ -20,6 +20,7 @@ namespace SignatureBuildingControl
     using Game;
     using Game.Modding;
     using Game.SceneFlow;
+    using Unity.Entities;
 
     public sealed class Mod : IMod
     {
@@ -42,11 +43,7 @@ namespace SignatureBuildingControl
         public static readonly ILog s_Log =
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
-        public static SBCSettings? Setting
-        {
-            get;
-            private set;
-        }
+        public static SBCSettings? Setting { get; private set; }
 
         public static string BuildDisplayName =>
             kBuildType == "RELEASE" ? "Release" : "Debug";
@@ -58,17 +55,13 @@ namespace SignatureBuildingControl
             if (!s_BannerLogged)
             {
                 s_BannerLogged = true;
-
-                LogUtils.Info(
-                    $"{ModName} {ModTag} v{ModVersion} [{kBuildType}] OnLoad");
+                LogUtils.Info($"{ModName} {ModTag} v{ModVersion} [{kBuildType}] OnLoad");
             }
 
             GameManager? gameManager = GameManager.instance;
             if (gameManager == null)
             {
-                LogUtils.Warn(
-                    $"{ModTag} GameManager.instance is null; {ModName} cannot initialize.");
-
+                LogUtils.Warn($"{ModTag} GameManager.instance is null; {ModName} cannot initialize.");
                 return;
             }
 
@@ -77,44 +70,32 @@ namespace SignatureBuildingControl
 
             try
             {
-                LocalizationManager? localizationManager =
-                    gameManager.localizationManager;
+                LocalizationManager? localizationManager = gameManager.localizationManager;
 
                 if (localizationManager == null)
                 {
-                    LogUtils.Warn(
-                        $"{ModTag} LocalizationManager is null; locale sources were not registered.");
+                    LogUtils.Warn($"{ModTag} LocalizationManager is null; locale sources were not registered.");
                 }
                 else
                 {
-                    localizationManager.AddSource(
-                        "en-US",
-                        new LocaleEN(setting));
+                    localizationManager.AddSource("en-US", new LocaleEN(setting));
                 }
             }
             catch (Exception ex)
             {
                 LogUtils.Warn(
-                    $"{ModTag} Localization registration failed: " +
-                    $"{ex.GetType().Name}: {ex.Message}",
+                    $"{ModTag} Localization registration failed: {ex.GetType().Name}: {ex.Message}",
                     ex);
             }
 
             try
             {
                 SBCSettings defaults = new(this);
-
-                AssetDatabase.global.LoadSettings(
-                    ModId,
-                    setting,
-                    defaults,
-                    userSetting: true);
+                AssetDatabase.global.LoadSettings(ModId, setting, defaults, userSetting: true);
             }
             catch (Exception ex)
             {
-                LogUtils.Warn(
-                    $"{ModTag} LoadSettings failed; using defaults.",
-                    ex);
+                LogUtils.Warn($"{ModTag} LoadSettings failed; using defaults.", ex);
             }
 
             try
@@ -123,23 +104,30 @@ namespace SignatureBuildingControl
             }
             catch (Exception ex)
             {
-                LogUtils.Warn(
-                    $"{ModTag} RegisterInOptionsUI failed; mod options may be missing.",
-                    ex);
+                LogUtils.Warn($"{ModTag} RegisterInOptionsUI failed; mod options may be missing.", ex);
             }
 
-            // Manual Status scan.
-            // PrefabUpdate continues to run while the Options UI has the city paused.
-            // The scan system disables itself immediately after each requested scan.
-            updateSystem.UpdateAt<SignatureScanSystem>(
-                SystemUpdatePhase.PrefabUpdate);
+            updateSystem.UpdateAt<SignaturePlacementSystem>(SystemUpdatePhase.PrefabUpdate);
+            updateSystem.UpdateAt<SignatureScanSystem>(SystemUpdatePhase.PrefabUpdate);
         }
 
         public void OnDispose()
         {
+            try
+            {
+                World? world = World.DefaultGameObjectInjectionWorld;
+
+                world?.GetExistingSystemManaged<SignaturePlacementSystem>()
+                    ?.RestoreOwnedChangesForDispose();
+            }
+            catch
+            {
+            }
+
             Setting?.UnregisterInOptionsUI();
             Setting = null;
 
+            SignaturePlacementState.Clear();
             SignatureScanState.Clear();
         }
     }
