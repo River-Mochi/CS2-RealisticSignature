@@ -16,6 +16,7 @@ namespace SignatureBuildingControl
     using Colossal.Serialization.Entities;
     using CS2Shared.RiverMochi;
     using Game;
+    using Game.Objects;
     using Game.Prefabs;
     using Game.SceneFlow;
     using Game.UI.InGame;
