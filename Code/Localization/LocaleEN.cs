@@ -34,14 +34,12 @@ namespace SignatureBuildingControl
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(SBCSettings.ActionsTab), "Actions" },
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.StatusTab), "Status" },
                 { m_Setting.GetOptionTabLocaleID(SBCSettings.AboutTab), "About" },
 
                 // Groups
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Signature Buildings" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Signature Status" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.StatusActionsGroup), "Status Actions" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.DebugGroup), "Debug / Logging" },
 

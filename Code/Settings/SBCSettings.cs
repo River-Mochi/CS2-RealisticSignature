@@ -30,23 +30,21 @@ namespace SignatureBuildingControl
     }
 
     [FileLocation("ModsSettings/SignatureBuildingControl/SignatureBuildingControl")]
-    [SettingsUITabOrder(ActionsTab, StatusTab, AboutTab)]
+    [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
-        PlacementGroup, BonusGroup, SignatureStatusGroup, StatusActionsGroup,
+        PlacementGroup, BonusGroup, SignatureStatusGroup,
         AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        PlacementGroup, BonusGroup, SignatureStatusGroup, StatusActionsGroup,
+        PlacementGroup, BonusGroup, SignatureStatusGroup,
         DebugGroup)]
     public sealed class SBCSettings : ModSetting
     {
         public const string ActionsTab = "Actions";
-        public const string StatusTab = "Status";
         public const string AboutTab = "About";
 
         public const string PlacementGroup = "Placement";
         public const string BonusGroup = "Bonuses";
         public const string SignatureStatusGroup = "SignatureStatus";
-        public const string StatusActionsGroup = "StatusActions";
         public const string AboutInfoGroup = "AboutInfo";
         public const string DebugGroup = "Debug";
 
@@ -56,6 +54,10 @@ namespace SignatureBuildingControl
             SetDefaults();
         }
 
+        // --------------------
+        // Actions
+        // --------------------
+
         [SettingsUISection(ActionsTab, PlacementGroup)]
         [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleSignatureBuildings))]
         public bool AllowMultipleSignatureBuildings { get; set; }
@@ -64,19 +66,24 @@ namespace SignatureBuildingControl
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
 
+        // --------------------
+        // Signature Status
+        // --------------------
+
         [Exclude]
         [SettingsUIValueVersion(typeof(SignaturePlacementState), nameof(SignaturePlacementState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusPlacementRule => SignaturePlacementState.StatusText;
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusSignatureBuildings
         {
             get
             {
                 EnsureAutomaticStatusScan();
+
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureBuildings.ToString()
                     : "—";
@@ -85,12 +92,13 @@ namespace SignatureBuildingControl
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusSignatureTypes
         {
             get
             {
                 EnsureAutomaticStatusScan();
+
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureTypes.ToString()
                     : "—";
@@ -99,12 +107,13 @@ namespace SignatureBuildingControl
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusActiveBonusProviders
         {
             get
             {
                 EnsureAutomaticStatusScan();
+
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.ActiveBonusProviders.ToString()
                     : "—";
@@ -113,21 +122,22 @@ namespace SignatureBuildingControl
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusDuplicateBonusProviders
         {
             get
             {
                 EnsureAutomaticStatusScan();
+
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.DuplicateBonusProviders.ToString()
                     : "—";
             }
         }
 
-        [SettingsUIButtonGroup(StatusActionsGroup)]
+        [SettingsUIButtonGroup(SignatureStatusGroup)]
         [SettingsUIButton]
-        [SettingsUISection(StatusTab, StatusActionsGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public bool ScanSignatureBonuses
         {
             set
@@ -142,6 +152,10 @@ namespace SignatureBuildingControl
                 RequestStatusScan(force: true, logFailure: true);
             }
         }
+
+        // --------------------
+        // About
+        // --------------------
 
         [SettingsUISection(AboutTab, AboutInfoGroup)]
         public string ModNameDisplay => Mod.ModName;
@@ -236,7 +250,10 @@ namespace SignatureBuildingControl
             if (world == null || !world.IsCreated)
             {
                 if (logFailure)
-                    LogUtils.Warn($"{Mod.ModTag} Signature scan requested, but no ECS World is available.");
+                {
+                    LogUtils.Warn(
+                        $"{Mod.ModTag} Signature scan requested, but no ECS World is available.");
+                }
 
                 return;
             }
