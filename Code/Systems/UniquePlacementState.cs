@@ -38,7 +38,7 @@ namespace SignatureBuildingControl
                     GetCurrentAnarchyState();
 
                 bool unlimitedUniqueBuildingsInstalled =
-                    UnlimitedUniqueBuildingsCompatibility.IsInstalled();
+                    UniqueModsCompatibility.IsInstalled();
 
                 if (ourSetting && s_UniqueRestrictedBuildings == 0)
                     return "Multiple allowed";
@@ -77,7 +77,7 @@ namespace SignatureBuildingControl
                 AnarchyCompatibility.GetMultipleUniqueState();
 
             bool currentUnlimitedUniqueBuildings =
-                UnlimitedUniqueBuildingsCompatibility.IsInstalled();
+                UniqueModsCompatibility.IsInstalled();
 
             bool changed = false;
 

@@ -135,7 +135,7 @@ namespace SignatureBuildingControl
                 AnarchyCompatibility.GetMultipleUniqueState();
 
             bool unlimitedUniqueBuildingsInstalled =
-                UnlimitedUniqueBuildingsCompatibility.IsInstalled();
+                UniqueModsCompatibility.IsInstalled();
 
             if (allowMultiple)
             {
@@ -204,7 +204,7 @@ namespace SignatureBuildingControl
 
             // This mod is always-on when installed and clears Unique itself.
             // Do not fight it when our own toggle is switched OFF.
-            if (UnlimitedUniqueBuildingsCompatibility.IsInstalled())
+            if (UniqueModsCompatibility.IsInstalled())
             {
                 m_UniqueRemovedByUs.Clear();
                 return 0;
