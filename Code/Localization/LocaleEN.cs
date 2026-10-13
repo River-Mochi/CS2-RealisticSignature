@@ -37,35 +37,35 @@ namespace SignatureBuildingControl
                 { m_Setting.GetOptionTabLocaleID(SBCSettings.AboutTab), "About" },
 
                 // Groups
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Unique Buildings" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
+                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Unique Buildings" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Status" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.DebugGroup), "Debug / Logging" },
 
-                // Placement
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)),
-                    "**ON** = place multiple copies of any Unique building, including Signature buildings.\n" +
-                    "**OFF** = normal one-per-city rules unless another mod allows multiple Unique buildings."
-                },
-
-                // Bonuses
+                // Signature Bonuses
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.SignatureBonuses)), "Signature Bonuses" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.SignatureBonuses)),
                     "<First copy only> = each Signature building type provides its bonus once.\n" +
                     "<No Bonuses> = Signature bonuses are disabled.\n" +
-                    "<Vanilla stacked bonuses> = every copy provides its normal bonus."
+                    "<Normal game stacked bonuses> = every copy provides its normal game bonus."
                 },
 
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly), "First copy only" },
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses), "No Bonuses" },
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Vanilla stacked bonuses" },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Normal game stacked bonuses" },
+
+                // Multiple Unique
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)),
+                    "**ON** = place multiple copies of anything the game marks Unique, including Signature buildings.\n" +
+                    "**OFF** = normal one-per-city rules unless another mod allows multiple Unique items."
+                },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Unique placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusPlacementRule)),
-                    "Shows whether Unique buildings can currently be placed more than once."
+                    "Shows whether Unique items can currently be placed more than once."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureSummary)), "Signature buildings" },
@@ -73,10 +73,16 @@ namespace SignatureBuildingControl
                     "Shows total placed Signature buildings, different Signature types, and extra duplicate copies."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusCityWideEffects)), "City-wide effects" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusCityWideEffects)), "City-wide bonus effects" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusCityWideEffects)),
-                    "Counts only Signature buildings with city-wide effects.\n" +
-                    "Nearby/local effects are separate and are not included here."
+                    "Counts Signature buildings with city-wide bonus effects.\n" +
+                    "Nearby/local bonus effects are separate and are not included here."
+                },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusRedundantMods)), "Redundant mods detected" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusRedundantMods)),
+                    "Anarchy is supported and is not listed here.\n" +
+                    "Remove other Unlimited/Multiple Unique mods because this mod already provides that feature."
                 },
 
                 // About

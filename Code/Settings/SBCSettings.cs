@@ -32,18 +32,18 @@ namespace SignatureBuildingControl
     [FileLocation("ModsSettings/SignatureBuildingControl/SignatureBuildingControl")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
-        PlacementGroup, BonusGroup, SignatureStatusGroup,
+        BonusGroup, PlacementGroup, SignatureStatusGroup,
         AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        PlacementGroup, BonusGroup, SignatureStatusGroup,
+        BonusGroup, PlacementGroup, SignatureStatusGroup,
         DebugGroup)]
     public sealed class SBCSettings : ModSetting
     {
         public const string ActionsTab = "Actions";
         public const string AboutTab = "About";
 
-        public const string PlacementGroup = "Placement";
         public const string BonusGroup = "Bonuses";
+        public const string PlacementGroup = "Placement";
         public const string SignatureStatusGroup = "SignatureStatus";
         public const string AboutInfoGroup = "AboutInfo";
         public const string DebugGroup = "Debug";
@@ -55,16 +55,20 @@ namespace SignatureBuildingControl
         }
 
         // --------------------
-        // Actions
+        // Signature Bonuses
+        // --------------------
+
+        [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
+        [SettingsUISection(ActionsTab, BonusGroup)]
+        public SignatureBonusMode SignatureBonuses { get; set; }
+
+        // --------------------
+        // Multiple Unique
         // --------------------
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
         [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleUniqueBuildings))]
         public bool AllowMultipleUniqueBuildings { get; set; }
-
-        [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
-        [SettingsUISection(ActionsTab, BonusGroup)]
-        public SignatureBonusMode SignatureBonuses { get; set; }
 
         // --------------------
         // Status
@@ -131,6 +135,12 @@ namespace SignatureBuildingControl
             }
         }
 
+        [Exclude]
+        [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public string StatusRedundantMods =>
+            UniqueModsCompatibility.StatusText;
+
         // --------------------
         // About
         // --------------------
@@ -156,8 +166,8 @@ namespace SignatureBuildingControl
 
         public override void SetDefaults()
         {
-            AllowMultipleUniqueBuildings = true;
             SignatureBonuses = SignatureBonusMode.VanillaStacking;
+            AllowMultipleUniqueBuildings = true;
         }
 
         private void SetAllowMultipleUniqueBuildings(bool value)

@@ -7,20 +7,20 @@
 // ================= </copyright> ======================
 
 // File: Systems/UniquePlacementState.cs
-// Cached player-facing Unique building placement status.
+// Cached player-facing Unique placement status.
 
 namespace SignatureBuildingControl
 {
     internal static class UniquePlacementState
     {
         private static int s_UiVersion;
-        private static int s_TotalUniqueBuildings;
-        private static int s_UniqueRestrictedBuildings;
+        private static int s_TotalKnownUnique;
+        private static int s_RestrictedUnique;
+
+        private static int s_LastUniqueModsVersion;
 
         private static AnarchyMultipleUniqueState s_LastAnarchyState =
             AnarchyMultipleUniqueState.NotInstalled;
-
-        private static bool s_LastUnlimitedUniqueBuildingsInstalled;
 
         public static bool HasSnapshot { get; private set; }
 
@@ -28,7 +28,7 @@ namespace SignatureBuildingControl
         {
             get
             {
-                if (!HasSnapshot || s_TotalUniqueBuildings <= 0)
+                if (!HasSnapshot || s_TotalKnownUnique <= 0)
                     return "—";
 
                 bool ourSetting =
@@ -37,34 +37,29 @@ namespace SignatureBuildingControl
                 AnarchyMultipleUniqueState anarchyState =
                     GetCurrentAnarchyState();
 
-                bool unlimitedUniqueBuildingsInstalled =
-                    UniqueModsCompatibility.IsInstalled();
-
-                if (ourSetting && s_UniqueRestrictedBuildings == 0)
+                if (ourSetting && s_RestrictedUnique == 0)
                     return "Multiple allowed";
 
-                if (anarchyState == AnarchyMultipleUniqueState.On)
+                if (!ourSetting &&
+                    anarchyState == AnarchyMultipleUniqueState.On)
+                {
+                    return "Multiple allowed by Anarchy";
+                }
+
+                if (!ourSetting &&
+                    UniqueModsCompatibility.HasRedundantMods)
+                {
+                    return "Multiple unique enabled by another mod";
+                }
+
+                if (s_RestrictedUnique == 0)
                 {
                     return ourSetting
                         ? "Multiple allowed"
-                        : "Multiple allowed by Anarchy";
+                        : "Multiple unique enabled by another mod";
                 }
 
-                if (unlimitedUniqueBuildingsInstalled)
-                {
-                    return ourSetting
-                        ? "Multiple allowed"
-                        : "Multiple allowed by Unlimited Unique Buildings";
-                }
-
-                if (s_UniqueRestrictedBuildings == 0)
-                {
-                    return ourSetting
-                        ? "Multiple allowed"
-                        : "Multiple allowed by another mod";
-                }
-
-                if (s_UniqueRestrictedBuildings == s_TotalUniqueBuildings)
+                if (s_RestrictedUnique == s_TotalKnownUnique)
                     return "One of each";
 
                 return "Mixed rules";
@@ -73,13 +68,10 @@ namespace SignatureBuildingControl
 
         public static int GetUiVersion()
         {
+            bool changed = false;
+
             AnarchyMultipleUniqueState currentAnarchy =
                 AnarchyCompatibility.GetMultipleUniqueState();
-
-            bool currentUnlimitedUniqueBuildings =
-                UniqueModsCompatibility.IsInstalled();
-
-            bool changed = false;
 
             if (currentAnarchy != AnarchyMultipleUniqueState.Unknown &&
                 currentAnarchy != s_LastAnarchyState)
@@ -88,12 +80,12 @@ namespace SignatureBuildingControl
                 changed = true;
             }
 
-            if (currentUnlimitedUniqueBuildings !=
-                s_LastUnlimitedUniqueBuildingsInstalled)
-            {
-                s_LastUnlimitedUniqueBuildingsInstalled =
-                    currentUnlimitedUniqueBuildings;
+            int uniqueModsVersion =
+                UniqueModsCompatibility.GetUiVersion();
 
+            if (uniqueModsVersion != s_LastUniqueModsVersion)
+            {
+                s_LastUniqueModsVersion = uniqueModsVersion;
                 changed = true;
             }
 
@@ -104,19 +96,18 @@ namespace SignatureBuildingControl
         }
 
         public static void SetSnapshot(
-            int totalUniqueBuildings,
-            int uniqueRestrictedBuildings,
+            int totalKnownUnique,
+            int restrictedUnique,
             AnarchyMultipleUniqueState anarchyState,
-            bool unlimitedUniqueBuildingsInstalled)
+            int uniqueModsVersion)
         {
-            s_TotalUniqueBuildings = totalUniqueBuildings;
-            s_UniqueRestrictedBuildings = uniqueRestrictedBuildings;
+            s_TotalKnownUnique = totalKnownUnique;
+            s_RestrictedUnique = restrictedUnique;
 
             if (anarchyState != AnarchyMultipleUniqueState.Unknown)
                 s_LastAnarchyState = anarchyState;
 
-            s_LastUnlimitedUniqueBuildingsInstalled =
-                unlimitedUniqueBuildingsInstalled;
+            s_LastUniqueModsVersion = uniqueModsVersion;
 
             HasSnapshot = true;
             s_UiVersion++;
@@ -126,13 +117,14 @@ namespace SignatureBuildingControl
         {
             HasSnapshot = false;
 
-            s_TotalUniqueBuildings = 0;
-            s_UniqueRestrictedBuildings = 0;
+            s_TotalKnownUnique = 0;
+            s_RestrictedUnique = 0;
 
             s_LastAnarchyState =
                 AnarchyMultipleUniqueState.NotInstalled;
 
-            s_LastUnlimitedUniqueBuildingsInstalled = false;
+            s_LastUniqueModsVersion =
+                UniqueModsCompatibility.GetUiVersion();
 
             s_UiVersion++;
         }

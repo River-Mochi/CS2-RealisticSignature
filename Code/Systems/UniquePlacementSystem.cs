@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/UniquePlacementSystem.cs
-// One-shot Unique building placement-rule reconciliation.
+// One-shot Unique placement-rule reconciliation for all placeable Unique prefabs.
 
 namespace SignatureBuildingControl
 {
@@ -24,9 +24,12 @@ namespace SignatureBuildingControl
 
     public sealed partial class UniquePlacementSystem : GameSystemBase
     {
-        private EntityQuery m_BuildingPrefabQuery;
+        private EntityQuery m_PlaceablePrefabQuery;
 
-        // Only Unique flags actually removed by this mod.
+        // All prefabs we know are normally Unique.
+        private readonly HashSet<Entity> m_KnownUniquePrefabs = new();
+
+        // Only flags actually removed by this mod.
         private readonly HashSet<Entity> m_UniqueRemovedByUs = new();
 
         private bool m_ReconcileRequested;
@@ -37,10 +40,10 @@ namespace SignatureBuildingControl
         {
             base.OnCreate();
 
-            m_BuildingPrefabQuery = GetEntityQuery(
-                ComponentType.ReadOnly<BuildingData>(),
-                ComponentType.ReadWrite<PlaceableObjectData>(),
-                ComponentType.ReadOnly<PrefabData>());
+            // Intentionally broad, matching the game's PlaceableObjectData
+            // Unique flag rather than restricting this feature to buildings.
+            m_PlaceablePrefabQuery = GetEntityQuery(
+                ComponentType.ReadWrite<PlaceableObjectData>());
 
             Enabled = false;
         }
@@ -48,6 +51,9 @@ namespace SignatureBuildingControl
         protected override void OnGameLoaded(Context serializationContext)
         {
             base.OnGameLoaded(serializationContext);
+
+            m_KnownUniquePrefabs.Clear();
+            m_UniqueRemovedByUs.Clear();
 
             UniquePlacementState.Clear();
 
@@ -120,13 +126,15 @@ namespace SignatureBuildingControl
 
         private void ReconcileNow(bool allowMultiple, string reason)
         {
-            using NativeArray<Entity> buildingPrefabs =
-                m_BuildingPrefabQuery.ToEntityArray(Allocator.Temp);
+            UniqueModsCompatibility.LogDetectedMods();
 
-            CountUniqueBuildings(
-                buildingPrefabs,
-                out int totalUnique,
-                out int restrictedBefore);
+            using NativeArray<Entity> placeablePrefabs =
+                m_PlaceablePrefabQuery.ToEntityArray(Allocator.Temp);
+
+            RefreshKnownUniquePrefabs(placeablePrefabs);
+
+            int totalKnownUnique = m_KnownUniquePrefabs.Count;
+            int restrictedBefore = CountRestrictedUnique();
 
             int changedByUs = 0;
             int restoredByUs = 0;
@@ -134,21 +142,19 @@ namespace SignatureBuildingControl
             AnarchyMultipleUniqueState anarchyState =
                 AnarchyCompatibility.GetMultipleUniqueState();
 
-            bool unlimitedUniqueBuildingsInstalled =
-                UniqueModsCompatibility.IsInstalled();
-
             if (allowMultiple)
             {
-                for (int i = 0; i < buildingPrefabs.Length; i++)
+                foreach (Entity entity in m_KnownUniquePrefabs)
                 {
-                    Entity entity = buildingPrefabs[i];
+                    if (!EntityManager.Exists(entity) ||
+                        !EntityManager.HasComponent<PlaceableObjectData>(entity))
+                    {
+                        continue;
+                    }
 
                     PlaceableObjectData data =
                         EntityManager.GetComponentData<PlaceableObjectData>(
                             entity);
-
-                    if (!IsKnownUniqueBuilding(entity, data))
-                        continue;
 
                     if ((data.m_Flags & PlacementFlags.Unique) == 0)
                         continue;
@@ -168,24 +174,24 @@ namespace SignatureBuildingControl
                     RestoreOwnedUniqueFlags(notifyUi: true);
             }
 
-            CountUniqueBuildings(
-                buildingPrefabs,
-                out totalUnique,
-                out int restrictedAfter);
+            RefreshKnownUniquePrefabs(placeablePrefabs);
+
+            totalKnownUnique = m_KnownUniquePrefabs.Count;
+            int restrictedAfter = CountRestrictedUnique();
 
             UniquePlacementState.SetSnapshot(
-                totalUnique,
+                totalKnownUnique,
                 restrictedAfter,
                 anarchyState,
-                unlimitedUniqueBuildingsInstalled);
+                UniqueModsCompatibility.GetUiVersion());
 
             int unrestrictedBefore =
-                totalUnique - restrictedBefore;
+                totalKnownUnique - restrictedBefore;
 
             LogUtils.Info(
                 $"{Mod.ModTag} Unique placement reconcile ({reason}): " +
                 $"Mod={(allowMultiple ? "ON" : "OFF")} | " +
-                $"UniqueBuildings={totalUnique} | " +
+                $"UniquePlaceables={totalKnownUnique} | " +
                 $"RestrictedBefore={restrictedBefore} | " +
                 $"AlreadyUnrestricted={unrestrictedBefore} | " +
                 $"ChangedByMod={changedByUs} | " +
@@ -193,8 +199,48 @@ namespace SignatureBuildingControl
                 $"RestrictedAfter={restrictedAfter} | " +
                 $"OwnedByMod={m_UniqueRemovedByUs.Count} | " +
                 $"Anarchy={AnarchyCompatibility.GetLogText(anarchyState)} | " +
-                $"UnlimitedUniqueBuildings=" +
-                $"{(unlimitedUniqueBuildingsInstalled ? "installed" : "not installed")}.");
+                $"RedundantMods={UniqueModsCompatibility.StatusText}.");
+        }
+
+        private void RefreshKnownUniquePrefabs(
+            NativeArray<Entity> placeablePrefabs)
+        {
+            m_KnownUniquePrefabs.Clear();
+
+            for (int i = 0; i < placeablePrefabs.Length; i++)
+            {
+                Entity entity = placeablePrefabs[i];
+
+                if (!EntityManager.Exists(entity) ||
+                    !EntityManager.HasComponent<PlaceableObjectData>(entity))
+                {
+                    continue;
+                }
+
+                PlaceableObjectData data =
+                    EntityManager.GetComponentData<PlaceableObjectData>(
+                        entity);
+
+                bool currentlyUnique =
+                    (data.m_Flags & PlacementFlags.Unique) != 0;
+
+                bool changedByUs =
+                    m_UniqueRemovedByUs.Contains(entity);
+
+                bool signature =
+                    EntityManager.HasComponent<SignatureBuildingData>(entity);
+
+                bool genericUnique =
+                    EntityManager.HasComponent<UniqueObjectData>(entity);
+
+                if (currentlyUnique ||
+                    changedByUs ||
+                    signature ||
+                    genericUnique)
+                {
+                    m_KnownUniquePrefabs.Add(entity);
+                }
+            }
         }
 
         private int RestoreOwnedUniqueFlags(bool notifyUi)
@@ -202,9 +248,9 @@ namespace SignatureBuildingControl
             if (m_UniqueRemovedByUs.Count == 0)
                 return 0;
 
-            // This mod is always-on when installed and clears Unique itself.
-            // Do not fight it when our own toggle is switched OFF.
-            if (UniqueModsCompatibility.IsInstalled())
+            // A dedicated Unlimited/Multiple Unique mod is explicitly trying
+            // to keep these restrictions removed. Do not fight it.
+            if (UniqueModsCompatibility.HasRedundantMods)
             {
                 m_UniqueRemovedByUs.Clear();
                 return 0;
@@ -220,7 +266,6 @@ namespace SignatureBuildingControl
                 remove.Add(entity);
 
                 if (!EntityManager.Exists(entity) ||
-                    !EntityManager.HasComponent<BuildingData>(entity) ||
                     !EntityManager.HasComponent<PlaceableObjectData>(entity))
                 {
                     continue;
@@ -248,43 +293,27 @@ namespace SignatureBuildingControl
             return restored;
         }
 
-        private void CountUniqueBuildings(
-            NativeArray<Entity> buildingPrefabs,
-            out int totalUnique,
-            out int restricted)
+        private int CountRestrictedUnique()
         {
-            totalUnique = 0;
-            restricted = 0;
+            int count = 0;
 
-            for (int i = 0; i < buildingPrefabs.Length; i++)
+            foreach (Entity entity in m_KnownUniquePrefabs)
             {
-                Entity entity = buildingPrefabs[i];
+                if (!EntityManager.Exists(entity) ||
+                    !EntityManager.HasComponent<PlaceableObjectData>(entity))
+                {
+                    continue;
+                }
 
                 PlaceableObjectData data =
                     EntityManager.GetComponentData<PlaceableObjectData>(
                         entity);
 
-                if (!IsKnownUniqueBuilding(entity, data))
-                    continue;
-
-                totalUnique++;
-
                 if ((data.m_Flags & PlacementFlags.Unique) != 0)
-                    restricted++;
+                    count++;
             }
-        }
 
-        private bool IsKnownUniqueBuilding(
-            Entity entity,
-            PlaceableObjectData data)
-        {
-            if ((data.m_Flags & PlacementFlags.Unique) != 0)
-                return true;
-
-            if (EntityManager.HasComponent<SignatureBuildingData>(entity))
-                return true;
-
-            return EntityManager.HasComponent<UniqueObjectData>(entity);
+            return count;
         }
 
         private void NotifyUniqueUi(Entity prefabEntity)
