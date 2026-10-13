@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleEN.cs
-// English source of truth for Signature Building Control.
+// English source of truth.
 
 namespace SignatureBuildingControl
 {
@@ -37,24 +37,24 @@ namespace SignatureBuildingControl
                 { m_Setting.GetOptionTabLocaleID(SBCSettings.AboutTab), "About" },
 
                 // Groups
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Signature Buildings" },
+                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Unique Buildings" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Signature Status" },
+                { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Status" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.DebugGroup), "Debug / Logging" },
 
                 // Placement
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleSignatureBuildings)), "Allow multiple copies" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleSignatureBuildings)),
-                    "**ON** = place more than one copy of the same Signature building.\n" +
-                    "**OFF** = game default: one of each."
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)),
+                    "**ON** = place multiple copies of any Unique building, including Signature buildings.\n" +
+                    "**OFF** = normal one-per-city rules unless another mod allows multiple Unique buildings."
                 },
 
                 // Bonuses
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.SignatureBonuses)), "Signature Bonuses" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.SignatureBonuses)),
                     "<First copy only> = each Signature building type provides its bonus once.\n" +
-                    "<No Bonuses> = Signature city bonuses are disabled.\n" +
+                    "<No Bonuses> = Signature bonuses are disabled.\n" +
                     "<Vanilla stacked bonuses> = every copy provides its normal bonus."
                 },
 
@@ -63,29 +63,20 @@ namespace SignatureBuildingControl
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Vanilla stacked bonuses" },
 
                 // Status
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Placement rule" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Unique placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusPlacementRule)),
-                    "Shows whether another copy can currently be placed."
+                    "Shows whether Unique buildings can currently be placed more than once."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureBuildings)), "Signature buildings placed" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusSignatureBuildings)),
-                    "Signature buildings currently placed in the city."
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureSummary)), "Signature buildings" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusSignatureSummary)),
+                    "Shows total placed Signature buildings, different Signature types, and extra duplicate copies."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureTypes)), "Unique types" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusSignatureTypes)),
-                    "Different Signature building types currently placed."
-                },
-
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusActiveBonusProviders)), "Active bonus providers" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusActiveBonusProviders)),
-                    "Placed Signature buildings that currently have a city-wide bonus."
-                },
-
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)), "Duplicate bonus buildings" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)),
-                    "Extra copies of the same Signature type that also have a city-wide bonus."
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusCityWideEffects)), "City-wide effects" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusCityWideEffects)),
+                    "Counts only Signature buildings with city-wide effects.\n" +
+                    "Nearby/local effects are separate and are not included here."
                 },
 
                 // About

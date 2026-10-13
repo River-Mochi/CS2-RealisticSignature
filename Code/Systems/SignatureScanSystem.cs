@@ -154,8 +154,8 @@ namespace SignatureBuildingControl
                 $"{Mod.ModTag} Signature Status: " +
                 $"buildings={signaturePrefabs.Length}, " +
                 $"types={signatureTypes.Count}, " +
-                $"bonusProviders={bonusPrefabs.Length}, " +
-                $"duplicateBonusProviders={duplicateBonusProviders}.");
+                $"cityWideProviders={bonusPrefabs.Length}, " +
+                $"duplicateCityWideProviders={duplicateBonusProviders}.");
         }
     }
 }

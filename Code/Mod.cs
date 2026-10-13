@@ -107,7 +107,7 @@ namespace SignatureBuildingControl
                 LogUtils.Warn($"{ModTag} RegisterInOptionsUI failed; mod options may be missing.", ex);
             }
 
-            updateSystem.UpdateAt<SignaturePlacementSystem>(SystemUpdatePhase.PrefabUpdate);
+            updateSystem.UpdateAt<UniquePlacementSystem>(SystemUpdatePhase.PrefabUpdate);
             updateSystem.UpdateAt<SignatureScanSystem>(SystemUpdatePhase.PrefabUpdate);
         }
 
@@ -117,7 +117,7 @@ namespace SignatureBuildingControl
             {
                 World? world = World.DefaultGameObjectInjectionWorld;
 
-                world?.GetExistingSystemManaged<SignaturePlacementSystem>()
+                world?.GetExistingSystemManaged<UniquePlacementSystem>()
                     ?.RestoreOwnedChangesForDispose();
             }
             catch
@@ -127,7 +127,7 @@ namespace SignatureBuildingControl
             Setting?.UnregisterInOptionsUI();
             Setting = null;
 
-            SignaturePlacementState.Clear();
+            UniquePlacementState.Clear();
             SignatureScanState.Clear();
         }
     }

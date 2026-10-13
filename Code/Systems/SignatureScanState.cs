@@ -24,9 +24,20 @@ namespace SignatureBuildingControl
 
         public static int SignatureTypes { get; private set; }
 
-        public static int ActiveBonusProviders { get; private set; }
+        public static int CityWideEffectProviders { get; private set; }
 
-        public static int DuplicateBonusProviders { get; private set; }
+        public static int DuplicateCityWideProviders { get; private set; }
+
+        public static int DuplicateSignatureBuildings
+        {
+            get
+            {
+                int duplicates =
+                    SignatureBuildings - SignatureTypes;
+
+                return duplicates > 0 ? duplicates : 0;
+            }
+        }
 
         public static int GetUiVersion()
         {
@@ -43,15 +54,15 @@ namespace SignatureBuildingControl
             uint simulationFrame,
             int signatureBuildings,
             int signatureTypes,
-            int activeBonusProviders,
-            int duplicateBonusProviders)
+            int cityWideEffectProviders,
+            int duplicateCityWideProviders)
         {
             LastSnapshotSimulationFrame = simulationFrame;
 
             SignatureBuildings = signatureBuildings;
             SignatureTypes = signatureTypes;
-            ActiveBonusProviders = activeBonusProviders;
-            DuplicateBonusProviders = duplicateBonusProviders;
+            CityWideEffectProviders = cityWideEffectProviders;
+            DuplicateCityWideProviders = duplicateCityWideProviders;
 
             HasSnapshot = true;
             s_UiVersion++;
@@ -64,8 +75,8 @@ namespace SignatureBuildingControl
 
             SignatureBuildings = 0;
             SignatureTypes = 0;
-            ActiveBonusProviders = 0;
-            DuplicateBonusProviders = 0;
+            CityWideEffectProviders = 0;
+            DuplicateCityWideProviders = 0;
 
             s_UiVersion++;
         }

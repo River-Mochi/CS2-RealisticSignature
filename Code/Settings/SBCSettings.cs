@@ -7,14 +7,16 @@
 // ================= </copyright> ======================
 
 // File: Settings/SBCSettings.cs
-// Options UI and saved settings for Signature Building Control.
+// Options UI and saved settings.
 
 namespace SignatureBuildingControl
 {
     using Colossal.IO.AssetDatabase;
     using Colossal.Json;
     using CS2Shared.RiverMochi;
+    using Game;
     using Game.Modding;
+    using Game.SceneFlow;
     using Game.Settings;
     using Game.UI.Localization;
     using Game.UI.Widgets;
@@ -57,8 +59,8 @@ namespace SignatureBuildingControl
         // --------------------
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
-        [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleSignatureBuildings))]
-        public bool AllowMultipleSignatureBuildings { get; set; }
+        [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleUniqueBuildings))]
+        public bool AllowMultipleUniqueBuildings { get; set; }
 
         [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
         [SettingsUISection(ActionsTab, BonusGroup)]
@@ -69,74 +71,63 @@ namespace SignatureBuildingControl
         // --------------------
 
         [Exclude]
-        [SettingsUIValueVersion(typeof(SignaturePlacementState), nameof(SignaturePlacementState.GetUiVersion))]
+        [SettingsUIValueVersion(typeof(UniquePlacementState), nameof(UniquePlacementState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusPlacementRule
         {
             get
             {
+                if (!IsCityLoaded())
+                    return "No city loaded yet";
+
                 RefreshStatusIfNeeded();
-                return SignaturePlacementState.StatusText;
+
+                return UniquePlacementState.HasSnapshot
+                    ? UniquePlacementState.StatusText
+                    : "Loading…";
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusSignatureBuildings
+        public string StatusSignatureSummary
         {
             get
             {
+                if (!IsCityLoaded())
+                    return "Load a city first to see status";
+
                 RefreshStatusIfNeeded();
 
-                return SignatureScanState.HasSnapshot
-                    ? SignatureScanState.SignatureBuildings.ToString()
-                    : "—";
+                if (!SignatureScanState.HasSnapshot)
+                    return "Loading…";
+
+                return
+                    $"{SignatureScanState.SignatureBuildings} placed | " +
+                    $"{SignatureScanState.SignatureTypes} types | " +
+                    $"{SignatureScanState.DuplicateSignatureBuildings} duplicates";
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusSignatureTypes
+        public string StatusCityWideEffects
         {
             get
             {
+                if (!IsCityLoaded())
+                    return "—";
+
                 RefreshStatusIfNeeded();
 
-                return SignatureScanState.HasSnapshot
-                    ? SignatureScanState.SignatureTypes.ToString()
-                    : "—";
-            }
-        }
+                if (!SignatureScanState.HasSnapshot)
+                    return "Loading…";
 
-        [Exclude]
-        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusActiveBonusProviders
-        {
-            get
-            {
-                RefreshStatusIfNeeded();
-
-                return SignatureScanState.HasSnapshot
-                    ? SignatureScanState.ActiveBonusProviders.ToString()
-                    : "—";
-            }
-        }
-
-        [Exclude]
-        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusDuplicateBonusProviders
-        {
-            get
-            {
-                RefreshStatusIfNeeded();
-
-                return SignatureScanState.HasSnapshot
-                    ? SignatureScanState.DuplicateBonusProviders.ToString()
-                    : "—";
+                return
+                    $"{SignatureScanState.CityWideEffectProviders} providers | " +
+                    $"{SignatureScanState.DuplicateCityWideProviders} duplicate providers";
             }
         }
 
@@ -148,7 +139,8 @@ namespace SignatureBuildingControl
         public string ModNameDisplay => Mod.ModName;
 
         [SettingsUISection(AboutTab, AboutInfoGroup)]
-        public string ModVersionDisplay => $"{Mod.ModVersion} {Mod.BuildDisplayName}";
+        public string ModVersionDisplay =>
+            $"{Mod.ModVersion} {Mod.BuildDisplayName}";
 
         [SettingsUIButtonGroup(DebugGroup)]
         [SettingsUIButton]
@@ -164,13 +156,13 @@ namespace SignatureBuildingControl
 
         public override void SetDefaults()
         {
-            AllowMultipleSignatureBuildings = false;
+            AllowMultipleUniqueBuildings = true;
             SignatureBonuses = SignatureBonusMode.VanillaStacking;
         }
 
-        private void SetAllowMultipleSignatureBuildings(bool value)
+        private void SetAllowMultipleUniqueBuildings(bool value)
         {
-            if (AllowMultipleSignatureBuildings == value)
+            if (AllowMultipleUniqueBuildings == value)
                 return;
 
             GetPlacementSystem()?.ScheduleReconcile(
@@ -205,24 +197,27 @@ namespace SignatureBuildingControl
 
         private static void RefreshStatusIfNeeded()
         {
-            if (!SignaturePlacementState.HasSnapshot)
+            if (!IsCityLoaded())
+                return;
+
+            if (!UniquePlacementState.HasSnapshot)
             {
                 GetPlacementSystem()?.ScheduleReconcile(
-                    Mod.Setting?.AllowMultipleSignatureBuildings ?? false,
+                    Mod.Setting?.AllowMultipleUniqueBuildings ?? true,
                     "Status opened");
             }
 
             GetScanSystem()?.RefreshSnapshotIfNeeded();
         }
 
-        private static SignaturePlacementSystem? GetPlacementSystem()
+        private static UniquePlacementSystem? GetPlacementSystem()
         {
             World? world = World.DefaultGameObjectInjectionWorld;
 
             if (world == null || !world.IsCreated)
                 return null;
 
-            return world.GetOrCreateSystemManaged<SignaturePlacementSystem>();
+            return world.GetOrCreateSystemManaged<UniquePlacementSystem>();
         }
 
         private static SignatureScanSystem? GetScanSystem()
@@ -233,6 +228,14 @@ namespace SignatureBuildingControl
                 return null;
 
             return world.GetOrCreateSystemManaged<SignatureScanSystem>();
+        }
+
+        private static bool IsCityLoaded()
+        {
+            GameManager? gameManager = GameManager.instance;
+
+            return gameManager != null &&
+                   gameManager.gameMode.IsGame();
         }
     }
 }
