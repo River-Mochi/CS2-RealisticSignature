@@ -27,7 +27,15 @@ namespace SignatureBuildingControl
     {
         private const string kAnarchyModTypeName = "Anarchy.AnarchyMod";
         private const string kSettingsPropertyName = "Settings";
-        private const string kMultipleUniquePropertyName = "AllowPlacingMultipleUniqueBuildings";
+        private const string kMultipleUniquePropertyName =
+            "AllowPlacingMultipleUniqueBuildings";
+
+        private static Type? s_AnarchyModType;
+        private static PropertyInfo? s_InstanceProperty;
+        private static PropertyInfo? s_SettingsProperty;
+        private static PropertyInfo? s_MultipleUniqueProperty;
+
+        private static int s_LastAssemblyCount = -1;
 
         public static AnarchyMultipleUniqueState GetMultipleUniqueState()
         {
@@ -37,27 +45,37 @@ namespace SignatureBuildingControl
                 if (modType == null)
                     return AnarchyMultipleUniqueState.NotInstalled;
 
-                PropertyInfo? instanceProperty = modType.GetProperty(
+                s_InstanceProperty ??= modType.GetProperty(
                     "Instance",
                     BindingFlags.Public | BindingFlags.Static);
 
-                object? instance = instanceProperty?.GetValue(null);
+                object? instance = s_InstanceProperty?.GetValue(null);
                 if (instance == null)
                     return AnarchyMultipleUniqueState.Unknown;
 
-                PropertyInfo? settingsProperty = modType.GetProperty(
+                s_SettingsProperty ??= modType.GetProperty(
                     kSettingsPropertyName,
-                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    BindingFlags.Instance |
+                    BindingFlags.Public |
+                    BindingFlags.NonPublic);
 
-                object? settings = settingsProperty?.GetValue(instance);
+                object? settings = s_SettingsProperty?.GetValue(instance);
                 if (settings == null)
                     return AnarchyMultipleUniqueState.Unknown;
 
-                PropertyInfo? multipleUniqueProperty = settings.GetType().GetProperty(
-                    kMultipleUniquePropertyName,
-                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                Type settingsType = settings.GetType();
 
-                if (multipleUniqueProperty?.GetValue(settings) is not bool enabled)
+                if (s_MultipleUniqueProperty == null ||
+                    s_MultipleUniqueProperty.DeclaringType != settingsType)
+                {
+                    s_MultipleUniqueProperty = settingsType.GetProperty(
+                        kMultipleUniquePropertyName,
+                        BindingFlags.Instance |
+                        BindingFlags.Public |
+                        BindingFlags.NonPublic);
+                }
+
+                if (s_MultipleUniqueProperty?.GetValue(settings) is not bool enabled)
                     return AnarchyMultipleUniqueState.Unknown;
 
                 return enabled
@@ -74,24 +92,46 @@ namespace SignatureBuildingControl
         {
             return state switch
             {
-                AnarchyMultipleUniqueState.NotInstalled => "not installed",
-                AnarchyMultipleUniqueState.Off => "installed, Multiple Unique OFF",
-                AnarchyMultipleUniqueState.On => "installed, Multiple Unique ON",
-                _ => "installed, state unknown",
+                AnarchyMultipleUniqueState.NotInstalled =>
+                    "not installed",
+
+                AnarchyMultipleUniqueState.Off =>
+                    "installed, Multiple Unique OFF",
+
+                AnarchyMultipleUniqueState.On =>
+                    "installed, Multiple Unique ON",
+
+                _ =>
+                    "installed, state unknown",
             };
         }
 
         private static Type? FindAnarchyModType()
         {
-            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            if (s_AnarchyModType != null)
+                return s_AnarchyModType;
+
+            Assembly[] assemblies =
+                AppDomain.CurrentDomain.GetAssemblies();
+
+            // Avoid rescanning every UI refresh when nothing new has loaded.
+            if (assemblies.Length == s_LastAssemblyCount)
+                return null;
+
+            s_LastAssemblyCount = assemblies.Length;
+
+            foreach (Assembly assembly in assemblies)
             {
                 Type? type = assembly.GetType(
                     kAnarchyModTypeName,
                     throwOnError: false,
                     ignoreCase: false);
 
-                if (type != null)
-                    return type;
+                if (type == null)
+                    continue;
+
+                s_AnarchyModType = type;
+                return type;
             }
 
             return null;

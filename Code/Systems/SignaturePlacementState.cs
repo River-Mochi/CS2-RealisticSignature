@@ -33,10 +33,7 @@ namespace SignatureBuildingControl
                     Mod.Setting?.AllowMultipleSignatureBuildings ?? false;
 
                 AnarchyMultipleUniqueState anarchyState =
-                    AnarchyCompatibility.GetMultipleUniqueState();
-
-                if (anarchyState == AnarchyMultipleUniqueState.Unknown)
-                    anarchyState = s_LastAnarchyState;
+                    GetCurrentAnarchyState();
 
                 if (sbcEnabled && s_UniqueRestrictedPrefabs == 0)
                     return "Multiple allowed";
@@ -63,6 +60,16 @@ namespace SignatureBuildingControl
 
         public static int GetUiVersion()
         {
+            AnarchyMultipleUniqueState current =
+                AnarchyCompatibility.GetMultipleUniqueState();
+
+            if (current != AnarchyMultipleUniqueState.Unknown &&
+                current != s_LastAnarchyState)
+            {
+                s_LastAnarchyState = current;
+                s_UiVersion++;
+            }
+
             return s_UiVersion;
         }
 
@@ -73,7 +80,9 @@ namespace SignatureBuildingControl
         {
             s_TotalSignaturePrefabs = totalSignaturePrefabs;
             s_UniqueRestrictedPrefabs = uniqueRestrictedPrefabs;
-            s_LastAnarchyState = anarchyState;
+
+            if (anarchyState != AnarchyMultipleUniqueState.Unknown)
+                s_LastAnarchyState = anarchyState;
 
             HasSnapshot = true;
             s_UiVersion++;
@@ -85,10 +94,25 @@ namespace SignatureBuildingControl
 
             s_TotalSignaturePrefabs = 0;
             s_UniqueRestrictedPrefabs = 0;
+
             s_LastAnarchyState =
                 AnarchyMultipleUniqueState.NotInstalled;
 
             s_UiVersion++;
+        }
+
+        private static AnarchyMultipleUniqueState GetCurrentAnarchyState()
+        {
+            AnarchyMultipleUniqueState current =
+                AnarchyCompatibility.GetMultipleUniqueState();
+
+            if (current != AnarchyMultipleUniqueState.Unknown)
+            {
+                s_LastAnarchyState = current;
+                return current;
+            }
+
+            return s_LastAnarchyState;
         }
     }
 }

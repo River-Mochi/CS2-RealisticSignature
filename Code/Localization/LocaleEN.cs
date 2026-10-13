@@ -73,7 +73,7 @@ namespace SignatureBuildingControl
                     "Signature buildings currently placed in the city."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureTypes)), "Unique Signature types" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureTypes)), "Unique types" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusSignatureTypes)),
                     "Different Signature building types currently placed."
                 },
@@ -83,7 +83,7 @@ namespace SignatureBuildingControl
                     "Placed Signature buildings that currently have a city-wide bonus."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)), "Duplicate bonus providers" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)), "Duplicate bonus buildings" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)),
                     "Extra copies of the same Signature type that also have a city-wide bonus."
                 },
