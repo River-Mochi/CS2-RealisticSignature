@@ -50,7 +50,7 @@ namespace SignatureBuildingControl
                     "**OFF** = game default: one of each."
                 },
 
-                // Bonus behavior
+                // Bonuses
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.SignatureBonuses)), "Signature Bonuses" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.SignatureBonuses)),
                     "<First copy only> = each Signature building type provides its bonus once.\n" +
@@ -65,7 +65,7 @@ namespace SignatureBuildingControl
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusPlacementRule)),
-                    "Current placement rule for Signature buildings."
+                    "Shows whether another copy can currently be placed."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureBuildings)), "Signature buildings placed" },
@@ -86,12 +86,6 @@ namespace SignatureBuildingControl
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)), "Duplicate bonus providers" },
                 { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusDuplicateBonusProviders)),
                     "Extra copies of the same Signature type that also have a city-wide bonus."
-                },
-
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.ScanSignatureBonuses)), "Scan Signature Bonuses" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.ScanSignatureBonuses)),
-                    "Scans the current city once and refreshes Signature Status.\n" +
-                    "Note: city is paused while in Options, so these numbers will not change until you run the city and make changes."
                 },
 
                 // About

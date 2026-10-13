@@ -14,10 +14,52 @@ namespace SignatureBuildingControl
     internal static class SignaturePlacementState
     {
         private static int s_UiVersion;
+        private static int s_TotalSignaturePrefabs;
+        private static int s_UniqueRestrictedPrefabs;
+
+        private static AnarchyMultipleUniqueState s_LastAnarchyState =
+            AnarchyMultipleUniqueState.NotInstalled;
 
         public static bool HasSnapshot { get; private set; }
 
-        public static string StatusText { get; private set; } = "—";
+        public static string StatusText
+        {
+            get
+            {
+                if (!HasSnapshot || s_TotalSignaturePrefabs <= 0)
+                    return "—";
+
+                bool sbcEnabled =
+                    Mod.Setting?.AllowMultipleSignatureBuildings ?? false;
+
+                AnarchyMultipleUniqueState anarchyState =
+                    AnarchyCompatibility.GetMultipleUniqueState();
+
+                if (anarchyState == AnarchyMultipleUniqueState.Unknown)
+                    anarchyState = s_LastAnarchyState;
+
+                if (sbcEnabled && s_UniqueRestrictedPrefabs == 0)
+                    return "Multiple allowed";
+
+                if (!sbcEnabled &&
+                    anarchyState == AnarchyMultipleUniqueState.On)
+                {
+                    return "Multiple allowed by Anarchy";
+                }
+
+                if (s_UniqueRestrictedPrefabs == 0)
+                {
+                    return sbcEnabled
+                        ? "Multiple allowed"
+                        : "Multiple allowed by another mod";
+                }
+
+                if (s_UniqueRestrictedPrefabs == s_TotalSignaturePrefabs)
+                    return "One of each";
+
+                return "Mixed rules";
+            }
+        }
 
         public static int GetUiVersion()
         {
@@ -29,33 +71,23 @@ namespace SignatureBuildingControl
             int uniqueRestrictedPrefabs,
             AnarchyMultipleUniqueState anarchyState)
         {
+            s_TotalSignaturePrefabs = totalSignaturePrefabs;
+            s_UniqueRestrictedPrefabs = uniqueRestrictedPrefabs;
+            s_LastAnarchyState = anarchyState;
+
             HasSnapshot = true;
-
-            if (totalSignaturePrefabs <= 0)
-            {
-                StatusText = "—";
-            }
-            else if (anarchyState == AnarchyMultipleUniqueState.On ||
-                     uniqueRestrictedPrefabs == 0)
-            {
-                StatusText = "Multiple allowed";
-            }
-            else if (uniqueRestrictedPrefabs == totalSignaturePrefabs)
-            {
-                StatusText = "One of each";
-            }
-            else
-            {
-                StatusText = "Mixed rules";
-            }
-
             s_UiVersion++;
         }
 
         public static void Clear()
         {
             HasSnapshot = false;
-            StatusText = "—";
+
+            s_TotalSignaturePrefabs = 0;
+            s_UniqueRestrictedPrefabs = 0;
+            s_LastAnarchyState =
+                AnarchyMultipleUniqueState.NotInstalled;
+
             s_UiVersion++;
         }
     }

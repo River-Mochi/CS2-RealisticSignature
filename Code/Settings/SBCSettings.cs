@@ -14,9 +14,7 @@ namespace SignatureBuildingControl
     using Colossal.IO.AssetDatabase;
     using Colossal.Json;
     using CS2Shared.RiverMochi;
-    using Game;
     using Game.Modding;
-    using Game.SceneFlow;
     using Game.Settings;
     using Game.UI.Localization;
     using Game.UI.Widgets;
@@ -67,13 +65,20 @@ namespace SignatureBuildingControl
         public SignatureBonusMode SignatureBonuses { get; set; }
 
         // --------------------
-        // Signature Status
+        // Status
         // --------------------
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignaturePlacementState), nameof(SignaturePlacementState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusPlacementRule => SignaturePlacementState.StatusText;
+        public string StatusPlacementRule
+        {
+            get
+            {
+                RefreshStatusIfNeeded();
+                return SignaturePlacementState.StatusText;
+            }
+        }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
@@ -82,7 +87,7 @@ namespace SignatureBuildingControl
         {
             get
             {
-                EnsureAutomaticStatusScan();
+                RefreshStatusIfNeeded();
 
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureBuildings.ToString()
@@ -97,7 +102,7 @@ namespace SignatureBuildingControl
         {
             get
             {
-                EnsureAutomaticStatusScan();
+                RefreshStatusIfNeeded();
 
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.SignatureTypes.ToString()
@@ -112,7 +117,7 @@ namespace SignatureBuildingControl
         {
             get
             {
-                EnsureAutomaticStatusScan();
+                RefreshStatusIfNeeded();
 
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.ActiveBonusProviders.ToString()
@@ -127,29 +132,11 @@ namespace SignatureBuildingControl
         {
             get
             {
-                EnsureAutomaticStatusScan();
+                RefreshStatusIfNeeded();
 
                 return SignatureScanState.HasSnapshot
                     ? SignatureScanState.DuplicateBonusProviders.ToString()
                     : "—";
-            }
-        }
-
-        [SettingsUIButtonGroup(SignatureStatusGroup)]
-        [SettingsUIButton]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public bool ScanSignatureBonuses
-        {
-            set
-            {
-                if (!value)
-                    return;
-
-                GetPlacementSystem()?.ScheduleReconcile(
-                    AllowMultipleSignatureBuildings,
-                    "manual Status scan");
-
-                RequestStatusScan(force: true, logFailure: true);
             }
         }
 
@@ -216,6 +203,18 @@ namespace SignatureBuildingControl
             };
         }
 
+        private static void RefreshStatusIfNeeded()
+        {
+            if (!SignaturePlacementState.HasSnapshot)
+            {
+                GetPlacementSystem()?.ScheduleReconcile(
+                    Mod.Setting?.AllowMultipleSignatureBuildings ?? false,
+                    "Status opened");
+            }
+
+            GetScanSystem()?.RefreshSnapshotIfNeeded();
+        }
+
         private static SignaturePlacementSystem? GetPlacementSystem()
         {
             World? world = World.DefaultGameObjectInjectionWorld;
@@ -226,60 +225,14 @@ namespace SignatureBuildingControl
             return world.GetOrCreateSystemManaged<SignaturePlacementSystem>();
         }
 
-        private static void EnsureAutomaticStatusScan()
+        private static SignatureScanSystem? GetScanSystem()
         {
-            if (!SignaturePlacementState.HasSnapshot)
-            {
-                GetPlacementSystem()?.ScheduleReconcile(
-                    Mod.Setting?.AllowMultipleSignatureBuildings ?? false,
-                    "Status opened");
-            }
-
-            RequestStatusScan(force: false, logFailure: false);
-        }
-
-        private static void RequestStatusScan(bool force, bool logFailure)
-        {
-            GameManager? gameManager = GameManager.instance;
-
-            if (gameManager == null || !gameManager.gameMode.IsGame())
-                return;
-
             World? world = World.DefaultGameObjectInjectionWorld;
 
             if (world == null || !world.IsCreated)
-            {
-                if (logFailure)
-                {
-                    LogUtils.Warn(
-                        $"{Mod.ModTag} Signature scan requested, but no ECS World is available.");
-                }
+                return null;
 
-                return;
-            }
-
-            if (!SignatureScanState.TryRequestScan(force))
-                return;
-
-            try
-            {
-                SignatureScanSystem system =
-                    world.GetOrCreateSystemManaged<SignatureScanSystem>();
-
-                system.Enabled = true;
-            }
-            catch (System.Exception ex)
-            {
-                SignatureScanState.CancelRequest();
-
-                if (logFailure)
-                {
-                    LogUtils.Warn(
-                        $"{Mod.ModTag} Could not start Signature scan: " +
-                        $"{ex.GetType().Name}: {ex.Message}",
-                        ex);
-                }
-            }
+            return world.GetOrCreateSystemManaged<SignatureScanSystem>();
         }
     }
 }

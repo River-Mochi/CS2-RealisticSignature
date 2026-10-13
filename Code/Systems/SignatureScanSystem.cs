@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureScanSystem.cs
-// One-shot Status scan. Runs only opening the mod Options or the player manually rescans.
+// Cached Status scan refreshed automatically when Options reads it.
 
 namespace SignatureBuildingControl
 {
@@ -18,6 +18,7 @@ namespace SignatureBuildingControl
     using Game.Buildings;
     using Game.Prefabs;
     using Game.SceneFlow;
+    using Game.Simulation;
     using Unity.Collections;
     using Unity.Entities;
 
@@ -25,6 +26,8 @@ namespace SignatureBuildingControl
     {
         private EntityQuery m_SignatureQuery;
         private EntityQuery m_BonusProviderQuery;
+
+        private SimulationSystem? m_SimulationSystem;
 
         protected override void OnCreate()
         {
@@ -63,6 +66,9 @@ namespace SignatureBuildingControl
                     },
                 });
 
+            m_SimulationSystem =
+                World.GetOrCreateSystemManaged<SimulationSystem>();
+
             Enabled = false;
         }
 
@@ -73,82 +79,83 @@ namespace SignatureBuildingControl
 
         protected override void OnUpdate()
         {
-            if (!SignatureScanState.ConsumeRequest())
-            {
-                Enabled = false;
-                return;
-            }
+            Enabled = false;
+        }
 
+        public void RefreshSnapshotIfNeeded()
+        {
             GameManager? gameManager = GameManager.instance;
 
             if (gameManager == null || !gameManager.gameMode.IsGame())
             {
-                SignatureScanState.Clear();
+                if (SignatureScanState.HasSnapshot)
+                    SignatureScanState.Clear();
 
-                LogUtils.Info(
-                    $"{Mod.ModTag} Signature scan skipped: no city is loaded.");
-
-                Enabled = false;
                 return;
             }
 
+            uint simulationFrame =
+                m_SimulationSystem?.frameIndex ?? uint.MaxValue;
+
+            if (simulationFrame == uint.MaxValue)
+                return;
+
+            if (!SignatureScanState.NeedsRefresh(simulationFrame))
+                return;
+
             try
             {
-                using NativeArray<PrefabRef> signaturePrefabs =
-                    m_SignatureQuery.ToComponentDataArray<PrefabRef>(
-                        Allocator.Temp);
-
-                using NativeArray<PrefabRef> bonusPrefabs =
-                    m_BonusProviderQuery.ToComponentDataArray<PrefabRef>(
-                        Allocator.Temp);
-
-                HashSet<Entity> signatureTypes = new();
-                HashSet<Entity> bonusTypes = new();
-
-                for (int i = 0; i < signaturePrefabs.Length; i++)
-                {
-                    signatureTypes.Add(
-                        signaturePrefabs[i].m_Prefab);
-                }
-
-                for (int i = 0; i < bonusPrefabs.Length; i++)
-                {
-                    bonusTypes.Add(
-                        bonusPrefabs[i].m_Prefab);
-                }
-
-                int duplicateBonusProviders =
-                    bonusPrefabs.Length - bonusTypes.Count;
-
-                if (duplicateBonusProviders < 0)
-                {
-                    duplicateBonusProviders = 0;
-                }
-
-                SignatureScanState.SetSnapshot(
-                    signaturePrefabs.Length,
-                    signatureTypes.Count,
-                    bonusPrefabs.Length,
-                    duplicateBonusProviders);
-
-                LogUtils.Info(
-                    $"{Mod.ModTag} Signature scan: " +
-                    $"buildings={signaturePrefabs.Length}, " +
-                    $"types={signatureTypes.Count}, " +
-                    $"bonusProviders={bonusPrefabs.Length}, " +
-                    $"duplicateBonusProviders={duplicateBonusProviders}.");
+                BuildSnapshot(simulationFrame);
             }
             catch (System.Exception ex)
             {
-                SignatureScanState.Clear();
-
                 LogUtils.Warn(
-                    $"{Mod.ModTag} Signature scan failed: " +
+                    $"{Mod.ModTag} Signature Status refresh failed: " +
                     $"{ex.GetType().Name}: {ex.Message}",
                     ex);
             }
+        }
 
-            Enabled = false;
+        private void BuildSnapshot(uint simulationFrame)
+        {
+            CompleteDependency();
+
+            using NativeArray<PrefabRef> signaturePrefabs =
+                m_SignatureQuery.ToComponentDataArray<PrefabRef>(
+                    Allocator.Temp);
+
+            using NativeArray<PrefabRef> bonusPrefabs =
+                m_BonusProviderQuery.ToComponentDataArray<PrefabRef>(
+                    Allocator.Temp);
+
+            HashSet<Entity> signatureTypes = new();
+            HashSet<Entity> bonusTypes = new();
+
+            for (int i = 0; i < signaturePrefabs.Length; i++)
+                signatureTypes.Add(signaturePrefabs[i].m_Prefab);
+
+            for (int i = 0; i < bonusPrefabs.Length; i++)
+                bonusTypes.Add(bonusPrefabs[i].m_Prefab);
+
+            int duplicateBonusProviders =
+                bonusPrefabs.Length - bonusTypes.Count;
+
+            if (duplicateBonusProviders < 0)
+                duplicateBonusProviders = 0;
+
+            SignatureScanState.SetSnapshot(
+                simulationFrame,
+                signaturePrefabs.Length,
+                signatureTypes.Count,
+                bonusPrefabs.Length,
+                duplicateBonusProviders);
+
+            LogUtils.Info(
+                $"{Mod.ModTag} Signature Status: " +
+                $"buildings={signaturePrefabs.Length}, " +
+                $"types={signatureTypes.Count}, " +
+                $"bonusProviders={bonusPrefabs.Length}, " +
+                $"duplicateBonusProviders={duplicateBonusProviders}.");
         }
     }
 }

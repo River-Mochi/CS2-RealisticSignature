@@ -7,95 +7,47 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureScanState.cs
-// Runtime-only state for the one-shot Signature Status scan.
+// Cached Signature Status snapshot for the Options UI.
 
 namespace SignatureBuildingControl
 {
     internal static class SignatureScanState
     {
-        private static bool s_ScanRequested;
-        private static bool s_AutomaticScanAttempted;
         private static int s_UiVersion;
 
-        public static bool HasSnapshot
-        {
-            get;
-            private set;
-        }
+        public static bool HasSnapshot { get; private set; }
 
-        public static int SignatureBuildings
-        {
-            get;
-            private set;
-        }
+        public static uint LastSnapshotSimulationFrame { get; private set; } =
+            uint.MaxValue;
 
-        public static int SignatureTypes
-        {
-            get;
-            private set;
-        }
+        public static int SignatureBuildings { get; private set; }
 
-        public static int ActiveBonusProviders
-        {
-            get;
-            private set;
-        }
+        public static int SignatureTypes { get; private set; }
 
-        public static int DuplicateBonusProviders
-        {
-            get;
-            private set;
-        }
+        public static int ActiveBonusProviders { get; private set; }
+
+        public static int DuplicateBonusProviders { get; private set; }
 
         public static int GetUiVersion()
         {
             return s_UiVersion;
         }
 
-        public static bool TryRequestScan(bool force)
+        public static bool NeedsRefresh(uint simulationFrame)
         {
-            if (s_ScanRequested)
-            {
-                return false;
-            }
-
-            if (!force)
-            {
-                if (HasSnapshot ||
-                    s_AutomaticScanAttempted)
-                {
-                    return false;
-                }
-
-                s_AutomaticScanAttempted = true;
-            }
-
-            s_ScanRequested = true;
-            return true;
-        }
-
-        public static void CancelRequest()
-        {
-            s_ScanRequested = false;
-        }
-
-        public static bool ConsumeRequest()
-        {
-            if (!s_ScanRequested)
-            {
-                return false;
-            }
-
-            s_ScanRequested = false;
-            return true;
+            return !HasSnapshot ||
+                   LastSnapshotSimulationFrame != simulationFrame;
         }
 
         public static void SetSnapshot(
+            uint simulationFrame,
             int signatureBuildings,
             int signatureTypes,
             int activeBonusProviders,
             int duplicateBonusProviders)
         {
+            LastSnapshotSimulationFrame = simulationFrame;
+
             SignatureBuildings = signatureBuildings;
             SignatureTypes = signatureTypes;
             ActiveBonusProviders = activeBonusProviders;
@@ -107,10 +59,8 @@ namespace SignatureBuildingControl
 
         public static void Clear()
         {
-            s_ScanRequested = false;
-            s_AutomaticScanAttempted = false;
-
             HasSnapshot = false;
+            LastSnapshotSimulationFrame = uint.MaxValue;
 
             SignatureBuildings = 0;
             SignatureTypes = 0;
