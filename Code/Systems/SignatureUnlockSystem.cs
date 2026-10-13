@@ -11,7 +11,6 @@
 
 namespace SignatureBuildingControl
 {
-    using System.Collections.Generic;
     using Colossal.Serialization.Entities;
     using CS2Shared.RiverMochi;
     using Game;
@@ -23,10 +22,7 @@ namespace SignatureBuildingControl
 
     public sealed partial class SignatureUnlockSystem : GameSystemBase
     {
-        private EntityQuery m_AllSignatureQuery;
-
-        // Only Signature locks actually disabled by this mod this session.
-        private readonly HashSet<Entity> m_UnlockedByUs = new();
+        private EntityQuery m_SignatureQuery;
 
         private bool m_ReconcileRequested;
         private bool m_RequestedUnlock;
@@ -36,14 +32,12 @@ namespace SignatureBuildingControl
         {
             base.OnCreate();
 
-            EntityQueryBuilder builder = new(Allocator.Temp);
-
-            builder = builder
+            // Include Signature prefabs whether Locked is currently
+            // enabled or disabled.
+            m_SignatureQuery = SystemAPI.QueryBuilder()
                 .WithAll<SignatureBuildingData, Locked>()
-                .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState);
-
-            m_AllSignatureQuery = builder.Build(this);
-            builder.Dispose();
+                .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)
+                .Build();
 
             Enabled = false;
         }
@@ -51,8 +45,6 @@ namespace SignatureBuildingControl
         protected override void OnGameLoaded(Context serializationContext)
         {
             base.OnGameLoaded(serializationContext);
-
-            m_UnlockedByUs.Clear();
 
             ScheduleReconcile(
                 Mod.Setting?.UnlockSignatureRequirements ?? false,
@@ -63,7 +55,7 @@ namespace SignatureBuildingControl
         {
             try
             {
-                RestoreOwnedLocks();
+                RestoreVanillaLockState(logResult: false);
             }
             catch
             {
@@ -116,121 +108,147 @@ namespace SignatureBuildingControl
             Enabled = true;
         }
 
+        // Keep this method name because Mod.cs already calls it.
         public void RestoreOwnedChangesForDispose()
         {
-            RestoreOwnedLocks();
+            RestoreVanillaLockState(logResult: true);
         }
 
         private void ReconcileNow(bool unlock, string reason)
         {
+            CompleteDependency();
+
             using NativeArray<Entity> signatures =
-                m_AllSignatureQuery.ToEntityArray(Allocator.Temp);
+                m_SignatureQuery.ToEntityArray(Allocator.Temp);
 
-            int total = signatures.Length;
-            int lockedBefore = CountLocked(signatures);
+            ComponentLookup<Locked> lockedLookup =
+                SystemAPI.GetComponentLookup<Locked>(isReadOnly: false);
 
-            int unlockedByUs = 0;
-            int restoredByUs = 0;
-            int earnedWhileEnabled = 0;
+            BufferLookup<UnlockRequirement> requirementLookup =
+                SystemAPI.GetBufferLookup<UnlockRequirement>(isReadOnly: true);
 
-            if (unlock)
+            int lockedBefore =
+                CountLocked(signatures, ref lockedLookup);
+
+            int changed = 0;
+            int vanillaLocked = 0;
+            int vanillaAvailable = 0;
+
+            for (int i = 0; i < signatures.Length; i++)
             {
-                for (int i = 0; i < signatures.Length; i++)
+                Entity entity = signatures[i];
+
+                bool currentlyLocked =
+                    lockedLookup.IsComponentEnabled(entity);
+
+                bool shouldBeLocked;
+
+                if (unlock)
                 {
-                    Entity entity = signatures[i];
-
-                    if (!EntityManager.HasEnabledComponent<Locked>(entity))
-                        continue;
-
-                    EntityManager.SetComponentEnabled<Locked>(
-                        entity,
-                        false);
-
-                    m_UnlockedByUs.Add(entity);
-                    unlockedByUs++;
-
-                    NotifyToolbar(entity);
+                    shouldBeLocked = false;
                 }
-            }
-            else
-            {
-                restoredByUs =
-                    RestoreOwnedLocks(out earnedWhileEnabled);
+                else
+                {
+                    shouldBeLocked =
+                        ShouldBeLockedByVanilla(
+                            entity,
+                            ref lockedLookup,
+                            ref requirementLookup);
+
+                    if (shouldBeLocked)
+                        vanillaLocked++;
+                    else
+                        vanillaAvailable++;
+                }
+
+                if (currentlyLocked == shouldBeLocked)
+                    continue;
+
+                lockedLookup.SetComponentEnabled(
+                    entity,
+                    shouldBeLocked);
+
+                changed++;
+
+                NotifyToolbar(entity);
             }
 
-            int lockedAfter = CountLocked(signatures);
+            int lockedAfter =
+                CountLocked(signatures, ref lockedLookup);
 
             LogUtils.Info(
                 $"{Mod.ModTag} Signature unlock reconcile ({reason}): " +
                 $"Unlock={(unlock ? "ON" : "OFF")} | " +
-                $"SignaturePrefabs={total} | " +
+                $"SignaturePrefabs={signatures.Length} | " +
                 $"LockedBefore={lockedBefore} | " +
-                $"UnlockedByMod={unlockedByUs} | " +
-                $"RestoredByMod={restoredByUs} | " +
-                $"EarnedWhileEnabled={earnedWhileEnabled} | " +
-                $"LockedAfter={lockedAfter} | " +
-                $"OwnedByMod={m_UnlockedByUs.Count}.");
+                $"Changed={changed} | " +
+                $"VanillaLocked={vanillaLocked} | " +
+                $"VanillaAvailable={vanillaAvailable} | " +
+                $"LockedAfter={lockedAfter}.");
         }
 
-        private int RestoreOwnedLocks()
+        private void RestoreVanillaLockState(bool logResult)
         {
-            return RestoreOwnedLocks(out _);
-        }
+            CompleteDependency();
 
-        private int RestoreOwnedLocks(out int earnedWhileEnabled)
-        {
-            earnedWhileEnabled = 0;
+            using NativeArray<Entity> signatures =
+                m_SignatureQuery.ToEntityArray(Allocator.Temp);
 
-            if (m_UnlockedByUs.Count == 0)
-                return 0;
+            ComponentLookup<Locked> lockedLookup =
+                SystemAPI.GetComponentLookup<Locked>(isReadOnly: false);
 
-            List<Entity> remove =
-                new(m_UnlockedByUs.Count);
+            BufferLookup<UnlockRequirement> requirementLookup =
+                SystemAPI.GetBufferLookup<UnlockRequirement>(isReadOnly: true);
 
-            int restored = 0;
+            int changed = 0;
 
-            foreach (Entity entity in m_UnlockedByUs)
+            for (int i = 0; i < signatures.Length; i++)
             {
-                remove.Add(entity);
+                Entity entity = signatures[i];
 
-                if (!EntityManager.Exists(entity) ||
-                    !EntityManager.HasComponent<Locked>(entity))
-                {
+                bool shouldBeLocked =
+                    ShouldBeLockedByVanilla(
+                        entity,
+                        ref lockedLookup,
+                        ref requirementLookup);
+
+                bool currentlyLocked =
+                    lockedLookup.IsComponentEnabled(entity);
+
+                if (currentlyLocked == shouldBeLocked)
                     continue;
-                }
 
-                if (EntityManager.HasEnabledComponent<Locked>(entity))
-                    continue;
-
-                // The player may have legitimately satisfied the normal
-                // requirements while our bypass was enabled.
-                if (AreVanillaRequirementsSatisfied(entity))
-                {
-                    earnedWhileEnabled++;
-                    continue;
-                }
-
-                EntityManager.SetComponentEnabled<Locked>(
+                lockedLookup.SetComponentEnabled(
                     entity,
-                    true);
+                    shouldBeLocked);
 
-                restored++;
+                changed++;
+
                 NotifyToolbar(entity);
             }
 
-            for (int i = 0; i < remove.Count; i++)
-                m_UnlockedByUs.Remove(remove[i]);
-
-            return restored;
+            if (logResult)
+            {
+                LogUtils.Info(
+                    $"{Mod.ModTag} Restored vanilla Signature lock state: " +
+                    $"SignaturePrefabs={signatures.Length} | " +
+                    $"Changed={changed}.");
+            }
         }
 
-        private bool AreVanillaRequirementsSatisfied(Entity entity)
+        private static bool ShouldBeLockedByVanilla(
+            Entity entity,
+            ref ComponentLookup<Locked> lockedLookup,
+            ref BufferLookup<UnlockRequirement> requirementLookup)
         {
-            if (!EntityManager.HasBuffer<UnlockRequirement>(entity))
+            if (!requirementLookup.HasBuffer(entity))
                 return false;
 
             DynamicBuffer<UnlockRequirement> requirements =
-                EntityManager.GetBuffer<UnlockRequirement>(entity);
+                requirementLookup[entity];
+
+            if (requirements.Length == 0)
+                return false;
 
             bool blockedRequireAll = false;
             bool hasLockedRequireAny = false;
@@ -242,8 +260,8 @@ namespace SignatureBuildingControl
                     requirements[i];
 
                 bool requirementLocked =
-                    EntityManager.HasEnabledComponent<Locked>(
-                        requirement.m_Prefab);
+                    lockedLookup.HasComponent(requirement.m_Prefab) &&
+                    lockedLookup.IsComponentEnabled(requirement.m_Prefab);
 
                 bool requireAll =
                     (requirement.m_Flags & UnlockFlags.RequireAll) != 0;
@@ -265,23 +283,24 @@ namespace SignatureBuildingControl
             }
 
             // Mirrors vanilla UnlockSystem.CheckUnlockRequirementsJob.
-            return
+            bool requirementsSatisfied =
                 !blockedRequireAll &&
                 (hasUnlockedRequireAny ||
                  !hasLockedRequireAny);
+
+            return !requirementsSatisfied;
         }
 
-        private int CountLocked(NativeArray<Entity> signatures)
+        private static int CountLocked(
+            NativeArray<Entity> signatures,
+            ref ComponentLookup<Locked> lockedLookup)
         {
             int count = 0;
 
             for (int i = 0; i < signatures.Length; i++)
             {
-                if (EntityManager.HasEnabledComponent<Locked>(
-                    signatures[i]))
-                {
+                if (lockedLookup.IsComponentEnabled(signatures[i]))
                     count++;
-                }
             }
 
             return count;
