@@ -32,10 +32,10 @@ namespace SignatureBuildingControl
     [FileLocation("ModsSettings/SignatureBuildingControl/SignatureBuildingControl")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
-        BonusGroup, PlacementGroup, SignatureStatusGroup,
+        BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        BonusGroup, PlacementGroup, SignatureStatusGroup,
+        BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         DebugGroup)]
     public sealed class SBCSettings : ModSetting
     {
@@ -43,6 +43,7 @@ namespace SignatureBuildingControl
         public const string AboutTab = "About";
 
         public const string BonusGroup = "Bonuses";
+        public const string UnlockGroup = "Unlocks";
         public const string PlacementGroup = "Placement";
         public const string SignatureStatusGroup = "SignatureStatus";
         public const string AboutInfoGroup = "AboutInfo";
@@ -61,6 +62,14 @@ namespace SignatureBuildingControl
         [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
+
+        // --------------------
+        // Signature Unlocks
+        // --------------------
+
+        [SettingsUISection(ActionsTab, UnlockGroup)]
+        [SettingsUISetter(typeof(SBCSettings), nameof(SetUnlockSignatureRequirements))]
+        public bool UnlockSignatureRequirements { get; set; }
 
         // --------------------
         // Multiple Unique
@@ -167,14 +176,19 @@ namespace SignatureBuildingControl
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.VanillaStacking;
+            UnlockSignatureRequirements = false;
             AllowMultipleUniqueBuildings = true;
+        }
+
+        private void SetUnlockSignatureRequirements(bool value)
+        {
+            GetSignatureUnlockSystem()?.ScheduleReconcile(
+                value,
+                "Options setting changed");
         }
 
         private void SetAllowMultipleUniqueBuildings(bool value)
         {
-            if (AllowMultipleUniqueBuildings == value)
-                return;
-
             GetPlacementSystem()?.ScheduleReconcile(
                 value,
                 "Options setting changed");
@@ -218,6 +232,16 @@ namespace SignatureBuildingControl
             }
 
             GetScanSystem()?.RefreshSnapshotIfNeeded();
+        }
+
+        private static SignatureUnlockSystem? GetSignatureUnlockSystem()
+        {
+            World? world = World.DefaultGameObjectInjectionWorld;
+
+            if (world == null || !world.IsCreated)
+                return null;
+
+            return world.GetOrCreateSystemManaged<SignatureUnlockSystem>();
         }
 
         private static UniquePlacementSystem? GetPlacementSystem()

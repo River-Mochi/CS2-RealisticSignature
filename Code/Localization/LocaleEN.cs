@@ -38,6 +38,7 @@ namespace SignatureBuildingControl
 
                 // Groups
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
+                { m_Setting.GetOptionGroupLocaleID(SBCSettings.UnlockGroup), "Signature Unlocks" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Unique Buildings" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Status" },
                 { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
@@ -54,6 +55,13 @@ namespace SignatureBuildingControl
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly), "First copy only" },
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses), "No Bonuses" },
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Normal game stacked bonuses" },
+
+                // Signature Unlocks
+                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.UnlockSignatureRequirements)), "Unlock Signature requirements" },
+                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.UnlockSignatureRequirements)),
+                    "**ON** = make all Signature buildings available without meeting population, zoning, or other progression requirements.\n" +
+                    "**OFF** = normal game progression rules."
+                },
 
                 // Multiple Unique
                 { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },

@@ -55,13 +55,19 @@ namespace SignatureBuildingControl
             if (!s_BannerLogged)
             {
                 s_BannerLogged = true;
-                LogUtils.Info($"{ModName} {ModTag} v{ModVersion} [{kBuildType}] OnLoad");
+
+                LogUtils.Info(
+                    $"{ModName} {ModTag} v{ModVersion} [{kBuildType}] OnLoad");
             }
 
             GameManager? gameManager = GameManager.instance;
+
             if (gameManager == null)
             {
-                LogUtils.Warn($"{ModTag} GameManager.instance is null; {ModName} cannot initialize.");
+                LogUtils.Warn(
+                    $"{ModTag} GameManager.instance is null; " +
+                    $"{ModName} cannot initialize.");
+
                 return;
             }
 
@@ -70,32 +76,45 @@ namespace SignatureBuildingControl
 
             try
             {
-                LocalizationManager? localizationManager = gameManager.localizationManager;
+                LocalizationManager? localizationManager =
+                    gameManager.localizationManager;
 
                 if (localizationManager == null)
                 {
-                    LogUtils.Warn($"{ModTag} LocalizationManager is null; locale sources were not registered.");
+                    LogUtils.Warn(
+                        $"{ModTag} LocalizationManager is null; " +
+                        "locale sources were not registered.");
                 }
                 else
                 {
-                    localizationManager.AddSource("en-US", new LocaleEN(setting));
+                    localizationManager.AddSource(
+                        "en-US",
+                        new LocaleEN(setting));
                 }
             }
             catch (Exception ex)
             {
                 LogUtils.Warn(
-                    $"{ModTag} Localization registration failed: {ex.GetType().Name}: {ex.Message}",
+                    $"{ModTag} Localization registration failed: " +
+                    $"{ex.GetType().Name}: {ex.Message}",
                     ex);
             }
 
             try
             {
                 SBCSettings defaults = new(this);
-                AssetDatabase.global.LoadSettings(ModId, setting, defaults, userSetting: true);
+
+                AssetDatabase.global.LoadSettings(
+                    ModId,
+                    setting,
+                    defaults,
+                    userSetting: true);
             }
             catch (Exception ex)
             {
-                LogUtils.Warn($"{ModTag} LoadSettings failed; using defaults.", ex);
+                LogUtils.Warn(
+                    $"{ModTag} LoadSettings failed; using defaults.",
+                    ex);
             }
 
             try
@@ -104,18 +123,31 @@ namespace SignatureBuildingControl
             }
             catch (Exception ex)
             {
-                LogUtils.Warn($"{ModTag} RegisterInOptionsUI failed; mod options may be missing.", ex);
+                LogUtils.Warn(
+                    $"{ModTag} RegisterInOptionsUI failed; " +
+                    "mod options may be missing.",
+                    ex);
             }
 
-            updateSystem.UpdateAt<UniquePlacementSystem>(SystemUpdatePhase.PrefabUpdate);
-            updateSystem.UpdateAt<SignatureScanSystem>(SystemUpdatePhase.PrefabUpdate);
+            updateSystem.UpdateAt<SignatureUnlockSystem>(
+                SystemUpdatePhase.PrefabUpdate);
+
+            updateSystem.UpdateAt<UniquePlacementSystem>(
+                SystemUpdatePhase.PrefabUpdate);
+
+            updateSystem.UpdateAt<SignatureScanSystem>(
+                SystemUpdatePhase.PrefabUpdate);
         }
 
         public void OnDispose()
         {
             try
             {
-                World? world = World.DefaultGameObjectInjectionWorld;
+                World? world =
+                    World.DefaultGameObjectInjectionWorld;
+
+                world?.GetExistingSystemManaged<SignatureUnlockSystem>()
+                    ?.RestoreOwnedChangesForDispose();
 
                 world?.GetExistingSystemManaged<UniquePlacementSystem>()
                     ?.RestoreOwnedChangesForDispose();
