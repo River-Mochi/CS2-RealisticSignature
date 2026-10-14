@@ -4,11 +4,11 @@
 <!--Name of the mod to display to players-->
 <DisplayName Value="Unique or Signature Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Control Signature building bonuses, remove stacking bonuses, allow multiple buildings." />
+<ShortDescription Value="Control Signature buildings: instant unlock, remove stacking bonuses, allow many unique buildings." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-<!--LongDescription Value="Signature Building Control" /-->
+<!--LongDescription Value="Unique or Signature Buildings" /-->
 <LongDescription>
-## Unique + Signature Buildings
+## Unique or Signature Buildings
 
 
 

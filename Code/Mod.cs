@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Mod.cs
-// Entry point for Signature Building Control.
+// Entry point for Unique Buildings.
 
 namespace UniqueBuildings
 {
@@ -24,8 +24,8 @@ namespace UniqueBuildings
 
     public sealed class Mod : IMod
     {
-        public const string ModName = "Signature Building Control";
-        public const string ShortName = "Signature Building Control";
+        public const string ModName = "Unique or Signature Buildings";
+        public const string ShortName = "Unique Buildings";
         public const string ModId = "UniqueBuildings";
         public const string ModTag = "[UB]";
 
