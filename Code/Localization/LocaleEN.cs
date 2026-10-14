@@ -16,9 +16,9 @@ namespace UniqueBuildings
 
     public sealed class LocaleEN : IDictionarySource
     {
-        private readonly SBCSettings m_Setting;
+        private readonly UniqueBldgSettings m_Setting;
 
-        public LocaleEN(SBCSettings setting)
+        public LocaleEN(UniqueBldgSettings setting)
         {
             m_Setting = setting;
         }
@@ -33,20 +33,20 @@ namespace UniqueBuildings
                 { m_Setting.GetSettingsLocaleID(), Mod.ShortName },
 
                 // Tabs
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.ActionsTab), "Actions" },
-                { m_Setting.GetOptionTabLocaleID(SBCSettings.AboutTab), "About" },
+                { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.ActionsTab), "Actions" },
+                { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.AboutTab), "About" },
 
                 // Groups
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.BonusGroup), "Signature Bonuses" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.UnlockGroup), "Signature Unlocks" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.PlacementGroup), "Multiple Unique Buildings" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.SignatureStatusGroup), "Status" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.AboutInfoGroup), "Info" },
-                { m_Setting.GetOptionGroupLocaleID(SBCSettings.DebugGroup), "Debug / Logging" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.BonusGroup), "Signature Bonuses" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.UnlockGroup), "Signature Unlocks" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.PlacementGroup), "Multiple Unique Buildings" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.SignatureStatusGroup), "Status" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.AboutInfoGroup), "Info" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.DebugGroup), "Debug / Logging" },
 
                 // Signature Bonuses
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.SignatureBonuses)), "Signature Bonuses" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.SignatureBonuses)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)), "Signature Bonuses" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
                     "<First copy only> = each Signature building type provides its bonus once.\n" +
                     "<No Bonuses> = Signature bonuses are disabled.\n" +
                     "<Normal game stacked bonuses> = every copy provides its normal game bonus."
@@ -57,53 +57,53 @@ namespace UniqueBuildings
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Normal game stacked bonuses" },
 
                 // Signature Unlocks
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.UnlockSignatureRequirements)), "Unlock Signature requirements" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.UnlockSignatureRequirements)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)), "Unlock Signature requirements" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)),
                     "**ON** = make all Signature buildings available without meeting population, zoning, or other progression requirements.\n" +
                     "**OFF** = normal game progression rules."
                 },
 
                 // Multiple Unique
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.AllowMultipleUniqueBuildings)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AllowMultipleUniqueBuildings)),
                     "**ON** = place multiple copies of anything the game marks Unique, including Signature buildings.\n" +
                     "**OFF** = normal one-per-city rules unless another mod allows multiple Unique items."
                 },
 
                 // Status
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusPlacementRule)), "Unique placement rule" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusPlacementRule)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)),
                     "Shows whether Unique items can currently be placed more than once."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusSignatureSummary)), "Signature buildings" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusSignatureSummary)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)), "Signature buildings" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)),
                     "Shows total placed Signature buildings, different Signature types, and extra duplicate copies."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusCityWideEffects)), "City-wide bonus effects" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusCityWideEffects)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "City-wide bonus effects" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
                     "Counts Signature buildings with city-wide bonus effects.\n" +
                     "Nearby/local bonus effects are separate and are not included here."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.StatusRedundantMods)), "Redundant mods detected" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.StatusRedundantMods)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)),
                     "Anarchy is supported and is not listed here.\n" +
                     "Remove other Unlimited/Multiple Unique mods because this mod already provides that feature."
                 },
 
                 // About
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.ModNameDisplay)), "Mod" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.ModNameDisplay)), "Display name of this mod." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), "Mod" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), "Display name of this mod." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.ModVersionDisplay)), "Version" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.ModVersionDisplay)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), "Version" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)),
                     "Installed mod version and build type."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(SBCSettings.OpenLogButton)), "Open Log" },
-                { m_Setting.GetOptionDescLocaleID(nameof(SBCSettings.OpenLogButton)),
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), "Open Log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),
                     "Opens this mod's log file. If unavailable, opens the Logs folder."
                 },
             };

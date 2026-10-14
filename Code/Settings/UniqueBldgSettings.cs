@@ -1,4 +1,4 @@
-// <copyright file="SBCSettings.cs" company="River-Mochi">
+// <copyright file="UniqueBldgSettings.cs" company="River-Mochi">
 // Copyright (c) 2026 River-Mochi. All rights reserved.
 // Licensed under the GNU General Public License v3.0 or later,
 // with the Cities: Skylines II Linking Exception.
@@ -6,7 +6,7 @@
 // This notice MUST be kept with copies or substantial portions of this code.
 // ================= </copyright> ======================
 
-// File: Settings/SBCSettings.cs
+// File: Settings/UniqueBldgSettings.cs
 // Options UI and saved settings.
 
 namespace UniqueBuildings
@@ -37,7 +37,7 @@ namespace UniqueBuildings
     [SettingsUIShowGroupName(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         DebugGroup)]
-    public sealed class SBCSettings : ModSetting
+    public sealed class UniqueBldgSettings : ModSetting
     {
         public const string ActionsTab = "Actions";
         public const string AboutTab = "About";
@@ -49,7 +49,7 @@ namespace UniqueBuildings
         public const string AboutInfoGroup = "AboutInfo";
         public const string DebugGroup = "Debug";
 
-        public SBCSettings(IMod mod)
+        public UniqueBldgSettings(IMod mod)
             : base(mod)
         {
             SetDefaults();
@@ -59,7 +59,7 @@ namespace UniqueBuildings
         // Signature Bonuses
         // --------------------
 
-        [SettingsUIDropdown(typeof(SBCSettings), nameof(GetSignatureBonusDropdownItems))]
+        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetSignatureBonusDropdownItems))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
 
@@ -68,7 +68,7 @@ namespace UniqueBuildings
         // --------------------
 
         [SettingsUISection(ActionsTab, UnlockGroup)]
-        [SettingsUISetter(typeof(SBCSettings), nameof(SetUnlockSignatureRequirements))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetUnlockSignatureRequirements))]
         public bool UnlockSignatureRequirements { get; set; }
 
         // --------------------
@@ -76,7 +76,7 @@ namespace UniqueBuildings
         // --------------------
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
-        [SettingsUISetter(typeof(SBCSettings), nameof(SetAllowMultipleUniqueBuildings))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAllowMultipleUniqueBuildings))]
         public bool AllowMultipleUniqueBuildings { get; set; }
 
         // --------------------

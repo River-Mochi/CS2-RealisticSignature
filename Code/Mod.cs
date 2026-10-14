@@ -27,7 +27,7 @@ namespace UniqueBuildings
         public const string ModName = "Signature Building Control";
         public const string ShortName = "Signature Building Control";
         public const string ModId = "UniqueBuildings";
-        public const string ModTag = "[SBC]";
+        public const string ModTag = "[UB]";
 
 #if DEBUG
         private const string kBuildType = "DEBUG";
@@ -43,7 +43,7 @@ namespace UniqueBuildings
         public static readonly ILog s_Log =
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
-        public static SBCSettings? Setting { get; private set; }
+        public static UniqueBldgSettings? Setting { get; private set; }
 
         public static string BuildDisplayName =>
             kBuildType == "RELEASE" ? "Release" : "Debug";
@@ -71,7 +71,7 @@ namespace UniqueBuildings
                 return;
             }
 
-            SBCSettings setting = new(this);
+            UniqueBldgSettings setting = new(this);
             Setting = setting;
 
             try
@@ -102,7 +102,7 @@ namespace UniqueBuildings
 
             try
             {
-                SBCSettings defaults = new(this);
+                UniqueBldgSettings defaults = new(this);
 
                 AssetDatabase.global.LoadSettings(
                     ModId,
