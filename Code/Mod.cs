@@ -26,7 +26,7 @@ namespace UniqueBuildings
     {
         public const string ModName = "Better Unique Buildings";
         public const string ShortName = "Unique Buildings";
-        public const string ModId = "UniqueBuildings";
+        public const string ModId = "BetterUniqueBuildings";
         public const string ModTag = "[BUB]";
 
 #if DEBUG
