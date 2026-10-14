@@ -1,37 +1,81 @@
 <Publish>
-	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
-	<ModId Value="" />
-	<!--Name of the mod to display to players-->
-	<DisplayName Value="Signature Building Control" />
-	<!--Short description of the mod-->
-	<ShortDescription Value="Control Signature building bonuses, remove stacking bonuses, allow multiple buildings." />
-	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-	<!--LongDescription Value="Signature Building Control" /-->
-	<LongDescription>
-Signature Building Control
-	</LongDescription>
-	<!--Thumbnail-->
-	<Thumbnail Value="Properties/Thumbnail.png" />
-	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="" />
-	<!--Tag, can be set multiple times-->
-	<Tag Value="" />
-	<!--Link to the forum post where the mod can be discussed-->
-	<ForumLink Value="" />
-	<!--Version of the mod-->
-	<ModVersion Value="1.0" />
-	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.0.*" />
-	<!--Dependency for the mod, can be set multiple times-->
-	<Dependency Id="" />
-	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
-	<RequiredDLC Value="" />
-	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="" />
-	<!--<ChangeLog>
-	</ChangeLog>-->
-	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-	<ExternalLink Type="" Url="" />
-	<!--Supported values Public, Private, Unlisted-->
-	<AccessLevel Value="Public" />
+<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
+<ModId Value="" />
+<!--Name of the mod to display to players-->
+<DisplayName Value="Better Unique Buildings" />
+<!--Short description of the mod-->
+<ShortDescription Value="Control Signature buildings: instant unlock, remove stacking bonuses, allow many unique buildings." />
+<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
+<!--LongDescription Value="Better Unique Buildings" /-->
+<LongDescription>
+## Better Unique Buildings
+
+Want more freedom with the Unique buildings and to place multiple without wreaking the economy from mega stacking bonuses?
+
+**Unlock Signature buildings instantly and place multiple copies of Unique buildings.**
+
+**Control Signature bonuses** — normal stacked bonuses, first copy only, or no bonuses.
+
+### Signature bonuses
+- Normal vanilla, get all the stacking bonuses from multiple Unique buildings and the excess economy this creates.
+- Only the first building gives a bonus, other copies do not stack the same bonuses; reduces unrealistic economy.
+- Challenge mode: no bonuses at all, Unique buildings are cosmetic.
+
+### Features
+
+- ✅ **Unlock Signature buildings instantly** — skip population, zoning, and other progression requirements.
+- ✅ **Place multiple Unique buildings** — including Signature buildings.
+- ✅ Turn either feature ON or OFF anytime.
+- Existing buildings stay placed when restrictions are turned back ON.
+- Built-in Status shows totals and counts of city-wide bonus effects.
+
+### Good to Know
+
+- **Multiple Unique Buildings** is ON by default.
+- **Signature Unlocks** is OFF by default. Turning on will not flood the screen with 90 Pop-ups.
+- **Anarchy is supported** can have unlimited unique buildings toggled on in both Anarchy and this mod, it will not conflict.
+- Remove other Unlimited Unique Buildings mods — to avoid confusion in settings.
+- Safe to remove anytime. Lightweight: changes apply when needed, then goes idle.
+- Hover over any Options menu rows for quick help (see 3rd panel on the right).
+
+### Support and Feedback
+- Easiest way to support is to click the LIKE 👍 button (top right). No donations requested.
+- For Feedback use the Github or Discord links (right side of page). PRs are welcome.
+
+### Credits and Thanks
+
+#### Languages
+English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย Thai, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
+
+GPL-3.0 License, see Github.
+
+tags: unique buildings, signature buildings, multiple unique, unlimited unique, unlock signature buildings
+
+</LongDescription>
+<!--Thumbnail-->
+<Thumbnail Value="Properties/Thumbnail.png" />
+<!--Screenshot, can be set multiple times-->
+<Screenshot Value="" />
+<!--Tag, can be set multiple times-->
+<Tag Value="" />
+<!--Link to the forum post where the mod can be discussed-->
+<ForumLink Value="" />
+<!--Version of the mod-->
+<ModVersion Value="0.5.0" />
+<!--Recommended version of the base game to use the mod-->
+<GameVersion Value="1.6.*" />
+<!--Dependency for the mod, can be set multiple times-->
+<Dependency Id="" />
+<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
+<RequiredDLC Value="" />
+<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
+<ChangeLog Value="" />
+<!--<ChangeLog>
+</ChangeLog>-->
+<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
+<ExternalLink Type="" Url="" />
+<ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-UniqueBuildings" />
+<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
+<!--Supported values Public, Private, Unlisted-->
+<AccessLevel Value="Public" />
 </Publish>

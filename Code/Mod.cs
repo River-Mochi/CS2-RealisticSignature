@@ -6,66 +6,161 @@
 // This notice MUST be kept with copies or substantial portions of this code.
 // ================= </copyright> ======================
 
-namespace Code
-{
-    using Colossal.IO.AssetDatabase;
-    using Colossal.Logging;
+// File: Mod.cs
+// Entry point for Better Unique Buildings mod.
 
+namespace UniqueBuildings
+{
+    using System;
+    using System.Reflection;
+    using Colossal.IO.AssetDatabase;
+    using Colossal.Localization;
+    using Colossal.Logging;
+    using CS2Shared.RiverMochi;
     using Game;
-    using Game.Input;
     using Game.Modding;
     using Game.SceneFlow;
+    using Unity.Entities;
 
-    using UnityEngine;
-
-    public class Mod : IMod
+    public sealed class Mod : IMod
     {
-        public static ILog log = LogManager.GetLogger($"{nameof(Code)}.{nameof(Mod)}").SetShowsErrorsInUI(false);
-        private Setting m_Setting;
-        public static ProxyAction m_ButtonAction;
-        public static ProxyAction m_AxisAction;
-        public static ProxyAction m_VectorAction;
+        public const string ModName = "Better Unique Buildings";
+        public const string ShortName = "Unique Buildings";
+        public const string ModId = "BetterUniqueBuildings";
+        public const string ModTag = "[BUB]";
 
-        public const string kButtonActionName = "ButtonBinding";
-        public const string kAxisActionName = "FloatBinding";
-        public const string kVectorActionName = "Vector2Binding";
+#if DEBUG
+        private const string kBuildType = "DEBUG";
+#else
+        private const string kBuildType = "RELEASE";
+#endif
+
+        private static bool s_BannerLogged;
+
+        public static readonly string ModVersion =
+            Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.1.0";
+
+        public static readonly ILog s_Log =
+            LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
+
+        public static UniqueBldgSettings? Setting { get; private set; }
+
+        public static string BuildDisplayName =>
+            kBuildType == "RELEASE" ? "Release" : "Debug";
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            log.Info(nameof(OnLoad));
+            ShellOpen.Configure(s_Log, ModId, ModTag);
 
-            if (GameManager.instance.modManager.TryGetExecutableAsset(this, out var asset))
-                log.Info($"Current mod asset at {asset.path}");
+            if (!s_BannerLogged)
+            {
+                s_BannerLogged = true;
 
-            m_Setting = new Setting(this);
-            m_Setting.RegisterInOptionsUI();
-            GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(m_Setting));
+                LogUtils.Info(
+                    $"{ModName} {ModTag} v{ModVersion} [{kBuildType}] OnLoad");
+            }
 
-            m_Setting.RegisterKeyBindings();
+            GameManager? gameManager = GameManager.instance;
 
-            m_ButtonAction = m_Setting.GetAction(kButtonActionName);
-            m_AxisAction = m_Setting.GetAction(kAxisActionName);
-            m_VectorAction = m_Setting.GetAction(kVectorActionName);
+            if (gameManager == null)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} GameManager.instance is null; " +
+                    $"{ModName} cannot initialize.");
 
-            m_ButtonAction.shouldBeEnabled = true;
-            m_AxisAction.shouldBeEnabled = true;
-            m_VectorAction.shouldBeEnabled = true;
+                return;
+            }
 
-            m_ButtonAction.onInteraction += (_, phase) => log.Info($"[{m_ButtonAction.name}] On{phase} {m_ButtonAction.ReadValue<float>()}");
-            m_AxisAction.onInteraction += (_, phase) => log.Info($"[{m_AxisAction.name}] On{phase} {m_AxisAction.ReadValue<float>()}");
-            m_VectorAction.onInteraction += (_, phase) => log.Info($"[{m_VectorAction.name}] On{phase} {m_VectorAction.ReadValue<Vector2>()}");
+            UniqueBldgSettings setting = new(this);
+            Setting = setting;
 
-            AssetDatabase.global.LoadSettings(nameof(Code), m_Setting, new Setting(this));
+            try
+            {
+                LocalizationManager? localizationManager =
+                    gameManager.localizationManager;
+
+                if (localizationManager == null)
+                {
+                    LogUtils.Warn(
+                        $"{ModTag} LocalizationManager is null; " +
+                        "locale sources were not registered.");
+                }
+                else
+                {
+                    localizationManager.AddSource(
+                        "en-US",
+                        new LocaleEN(setting));
+                }
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} Localization registration failed: " +
+                    $"{ex.GetType().Name}: {ex.Message}",
+                    ex);
+            }
+
+            try
+            {
+                UniqueBldgSettings defaults = new(this);
+
+                AssetDatabase.global.LoadSettings(
+                    ModId,
+                    setting,
+                    defaults,
+                    userSetting: true);
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} LoadSettings failed; using defaults.",
+                    ex);
+            }
+
+            try
+            {
+                setting.RegisterInOptionsUI();
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} RegisterInOptionsUI failed; " +
+                    "mod options may be missing.",
+                    ex);
+            }
+
+            updateSystem.UpdateAt<SignatureUnlockSystem>(
+                SystemUpdatePhase.PrefabUpdate);
+
+            updateSystem.UpdateAt<UniquePlacementSystem>(
+                SystemUpdatePhase.PrefabUpdate);
+
+            updateSystem.UpdateAt<SignatureScanSystem>(
+                SystemUpdatePhase.PrefabUpdate);
         }
 
-        public void OnDispose( )
+        public void OnDispose()
         {
-            log.Info(nameof(OnDispose));
-            if (m_Setting != null)
+            try
             {
-                m_Setting.UnregisterInOptionsUI();
-                m_Setting = null;
+                World? world =
+                    World.DefaultGameObjectInjectionWorld;
+
+                world?.GetExistingSystemManaged<SignatureUnlockSystem>()
+                    ?.RestoreOwnedChangesForDispose();
+
+                world?.GetExistingSystemManaged<UniquePlacementSystem>()
+                    ?.RestoreOwnedChangesForDispose();
             }
+            catch
+            {
+            }
+
+            Setting?.UnregisterInOptionsUI();
+            Setting = null;
+
+            UniquePlacementState.Clear();
+            SignatureScanState.Clear();
         }
     }
 }
