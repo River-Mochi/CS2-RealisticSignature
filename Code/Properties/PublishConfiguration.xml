@@ -2,13 +2,13 @@
 <!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
 <ModId Value="" />
 <!--Name of the mod to display to players-->
-<DisplayName Value="Unique or Signature Buildings" />
+<DisplayName Value="Better Unique Buildings" />
 <!--Short description of the mod-->
 <ShortDescription Value="Control Signature buildings: instant unlock, remove stacking bonuses, allow many unique buildings." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-<!--LongDescription Value="Unique or Signature Buildings" /-->
+<!--LongDescription Value="Better Unique Buildings" /-->
 <LongDescription>
-## Unique or Signature Buildings
+## Better Unique Buildings
 
 Want more freedom with the Unique buildings and to place multiple without wreaking the economy from mega stacking bonuses?
 

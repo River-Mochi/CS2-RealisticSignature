@@ -24,10 +24,10 @@ namespace UniqueBuildings
 
     public sealed class Mod : IMod
     {
-        public const string ModName = "Unique or Signature Buildings";
+        public const string ModName = "Better Unique Buildings";
         public const string ShortName = "Unique Buildings";
         public const string ModId = "UniqueBuildings";
-        public const string ModTag = "[UB]";
+        public const string ModTag = "[BUB]";
 
 #if DEBUG
         private const string kBuildType = "DEBUG";
