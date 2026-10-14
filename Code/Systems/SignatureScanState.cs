@@ -9,7 +9,7 @@
 // File: Systems/SignatureScanState.cs
 // Cached Signature Status snapshot for the Options UI.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     internal static class SignatureScanState
     {

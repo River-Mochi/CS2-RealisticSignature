@@ -9,7 +9,7 @@
 // File: Mod.cs
 // Entry point for Signature Building Control.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System;
     using System.Reflection;
@@ -26,7 +26,7 @@ namespace SignatureBuildingControl
     {
         public const string ModName = "Signature Building Control";
         public const string ShortName = "Signature Building Control";
-        public const string ModId = "SignatureBuildingControl";
+        public const string ModId = "UniqueBuildings";
         public const string ModTag = "[SBC]";
 
 #if DEBUG

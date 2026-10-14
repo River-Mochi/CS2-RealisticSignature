@@ -9,7 +9,7 @@
 // File: Systems/SignatureScanSystem.cs
 // Cached Status scan refreshed automatically when Options reads it.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System.Collections.Generic;
     using Colossal.Serialization.Entities;

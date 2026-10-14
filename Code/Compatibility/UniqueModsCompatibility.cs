@@ -9,7 +9,7 @@
 // File: Compatibility/UniqueModsCompatibility.cs
 // Detects redundant mods whose main purpose overlaps our Multiple Unique feature.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System;
     using System.Collections.Generic;

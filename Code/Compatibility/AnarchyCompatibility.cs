@@ -10,7 +10,7 @@
 // Optional runtime check for Anarchy's actual Multiple Unique Buildings setting.
 // No hard dependency on Anarchy.dll.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System;
     using System.Reflection;

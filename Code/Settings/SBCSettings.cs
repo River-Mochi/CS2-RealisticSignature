@@ -9,7 +9,7 @@
 // File: Settings/SBCSettings.cs
 // Options UI and saved settings.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using Colossal.IO.AssetDatabase;
     using Colossal.Json;
@@ -29,7 +29,7 @@ namespace SignatureBuildingControl
         NoBonuses = 2,
     }
 
-    [FileLocation("ModsSettings/SignatureBuildingControl/SignatureBuildingControl")]
+    [FileLocation("ModsSettings/UniqueBuildings/UniqueBuildings")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,

@@ -9,7 +9,7 @@
 // File: Systems/SignatureUnlockSystem.cs
 // One-shot bypass of Signature building progression requirements.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using Colossal.Serialization.Entities;
     using CS2Shared.RiverMochi;

@@ -16,8 +16,8 @@
         <FileVersion>$(Version).0</FileVersion>
 
         <!-- Project filename can stay SBC.csproj while the assembly uses the full identity -->
-        <AssemblyName>SignatureBuildingControl</AssemblyName>
-        <RootNamespace>SignatureBuildingControl</RootNamespace>
+        <AssemblyName>UniqueBuildings</AssemblyName>
+        <RootNamespace>UniqueBuildings</RootNamespace>
 
         <GameVersion>1.6.*</GameVersion>
     </PropertyGroup>

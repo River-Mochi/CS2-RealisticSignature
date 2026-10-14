@@ -9,7 +9,7 @@
 // File: Systems/UniquePlacementState.cs
 // Cached player-facing Unique placement status.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     internal static class UniquePlacementState
     {

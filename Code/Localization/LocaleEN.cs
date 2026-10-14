@@ -9,7 +9,7 @@
 // File: Localization/LocaleEN.cs
 // English source of truth.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System.Collections.Generic;
     using Colossal;

@@ -9,7 +9,7 @@
 // File: Systems/UniquePlacementSystem.cs
 // One-shot Unique placement-rule reconciliation for all placeable Unique prefabs.
 
-namespace SignatureBuildingControl
+namespace UniqueBuildings
 {
     using System.Collections.Generic;
     using Colossal.Serialization.Entities;
