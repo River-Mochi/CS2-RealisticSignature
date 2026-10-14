@@ -29,7 +29,7 @@ namespace UniqueBuildings
         NoBonuses = 2,
     }
 
-    [FileLocation("ModsSettings/UniqueBuildings/UniqueBuildings")]
+    [FileLocation("ModsSettings/BetterUniqueBuildings/BetterUniqueBuildings")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
