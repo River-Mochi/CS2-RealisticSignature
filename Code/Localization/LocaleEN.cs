@@ -30,7 +30,7 @@ namespace UniqueBuildings
             return new Dictionary<string, string>
             {
                 // Mod title
-                { m_Setting.GetSettingsLocaleID(), Mod.ShortName },
+                { m_Setting.GetSettingsLocaleID(), Mod.ModName },
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.ActionsTab), "Actions" },
