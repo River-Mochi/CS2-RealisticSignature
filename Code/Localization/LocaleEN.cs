@@ -45,16 +45,25 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.DebugGroup), "Debug / Logging" },
 
                 // Signature Bonuses
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)), "Signature Bonuses" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
+                    "City-wide Signature bonuses"
+                },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "<First copy only> = each Signature building type provides its bonus once.\n" +
-                    "<No Bonuses> = Signature bonuses are disabled.\n" +
-                    "<Normal game stacked bonuses> = every copy provides its normal game bonus."
+                    "<First copy only> = each Signature building type gives its city-wide bonus once.\n" +
+                    "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
+                    "<Normal game stacking> = every copy gives its city-wide bonus.\n" +
+                    "Nearby effects and attractiveness stay normal."
                 },
 
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly), "First copy only" },
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses), "No Bonuses" },
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Normal game stacked bonuses" },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly),
+                    "First copy only"
+                },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses),
+                    "No city-wide bonuses"
+                },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking),
+                    "Normal game stacking"
+                },
 
                 // Signature Unlocks
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)), "Unlock Signature requirements" },

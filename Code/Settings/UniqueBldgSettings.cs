@@ -60,6 +60,7 @@ namespace UniqueBuildings
         // --------------------
 
         [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetSignatureBonusDropdownItems))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetSignatureBonuses))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
 
@@ -175,9 +176,17 @@ namespace UniqueBuildings
 
         public override void SetDefaults()
         {
-            SignatureBonuses = SignatureBonusMode.VanillaStacking;
+            SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
             UnlockSignatureRequirements = false;
             AllowMultipleUniqueBuildings = true;
+        }
+
+        private void SetSignatureBonuses(
+            SignatureBonusMode value)
+        {
+            GetSignatureBonusSystem()?.ScheduleReconcile(
+                value,
+                "Options setting changed");
         }
 
         private void SetUnlockSignatureRequirements(bool value)
@@ -193,6 +202,9 @@ namespace UniqueBuildings
                 value,
                 "Options setting changed");
         }
+
+
+
 
         private DropdownItem<int>[] GetSignatureBonusDropdownItems()
         {
@@ -232,6 +244,19 @@ namespace UniqueBuildings
             }
 
             GetScanSystem()?.RefreshSnapshotIfNeeded();
+        }
+
+        private static SignatureBonusSystem?
+            GetSignatureBonusSystem()
+        {
+            World? world =
+                World.DefaultGameObjectInjectionWorld;
+
+            if (world == null || !world.IsCreated)
+                return null;
+
+            return world.GetOrCreateSystemManaged<
+                SignatureBonusSystem>();
         }
 
         private static SignatureUnlockSystem? GetSignatureUnlockSystem()
