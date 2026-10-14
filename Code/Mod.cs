@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Mod.cs
-// Entry point for Unique Buildings.
+// Entry point for Better Unique Buildings mod.
 
 namespace UniqueBuildings
 {
