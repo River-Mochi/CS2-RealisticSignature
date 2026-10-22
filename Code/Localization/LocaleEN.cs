@@ -51,7 +51,7 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
                     "<First copy only> = each Signature building type gives its city-wide bonus once.\n" +
                     "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
-                    "<Normal game stacking> = every copy gives its city-wide bonus.\n" +
+                    "<Vanilla Stacked Bonuses> = every copy gives its city-wide bonus.\n" +
                     "Nearby effects and attractiveness stay normal."
                 },
 
@@ -62,7 +62,7 @@ namespace UniqueBuildings
                     "No city-wide bonuses"
                 },
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking),
-                    "Normal game stacking"
+                    "Vanilla Stacked Bonuses"
                 },
 
                 // Signature Unlocks
@@ -94,6 +94,12 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
                     "Counts Signature buildings with city-wide bonus effects.\n" +
                     "Nearby/local bonus effects are separate and are not included here."
+                },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), "Generate Bonus Report" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)),
+                    "Tests all three city-wide bonus modes, writes actual city values to the log, " +
+                    "and restores your selected mode. No manual comparison needed."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },

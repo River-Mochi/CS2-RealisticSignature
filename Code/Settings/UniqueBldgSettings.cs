@@ -145,6 +145,18 @@ namespace UniqueBuildings
             }
         }
 
+        [SettingsUIButtonGroup(SignatureStatusGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public bool RunBonusReportButton
+        {
+            set
+            {
+                if (value)
+                    GetSignatureBonusSystem()?.RunBonusReport();
+            }
+        }
+
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
@@ -184,9 +196,7 @@ namespace UniqueBuildings
         private void SetSignatureBonuses(
             SignatureBonusMode value)
         {
-            GetSignatureBonusSystem()?.ScheduleReconcile(
-                value,
-                "Options setting changed");
+            GetSignatureBonusSystem()?.ApplyFromOptions(value);
         }
 
         private void SetUnlockSignatureRequirements(bool value)
