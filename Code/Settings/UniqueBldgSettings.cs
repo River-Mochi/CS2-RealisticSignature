@@ -193,10 +193,10 @@ namespace UniqueBuildings
             AllowMultipleUniqueBuildings = true;
         }
 
-        private void SetSignatureBonuses(
-            SignatureBonusMode value)
+        private void SetSignatureBonuses(int value)
         {
-            GetSignatureBonusSystem()?.ApplyFromOptions(value);
+            GetSignatureBonusSystem()?.ApplyFromOptions(
+                (SignatureBonusMode)value);
         }
 
         private void SetUnlockSignatureRequirements(bool value)
