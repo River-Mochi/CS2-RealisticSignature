@@ -1,3 +1,4 @@
+
 // <copyright file="LocaleEN.cs" company="River-Mochi">
 // Copyright (c) 2026 River-Mochi. All rights reserved.
 // Licensed under the GNU General Public License v3.0 or later,
@@ -96,7 +97,7 @@ namespace UniqueBuildings
                     "Nearby/local bonus effects are separate and are not included here."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), "Generate Bonus Report" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), "Bonus Report to log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)),
                     "Tests all three city-wide bonus modes, writes actual city values to the log, " +
                     "and restores your selected mode. No manual comparison needed."
