@@ -13,6 +13,7 @@ namespace UniqueBuildings
 {
     using System;
     using CS2Shared.RiverMochi;
+    using Game;
     using Game.Buildings;
     using Game.Prefabs;
     using Game.SceneFlow;
