@@ -29,6 +29,13 @@ namespace UniqueBuildings
         NoBonuses = 2,
     }
 
+    public enum NearbySignatureMode
+    {
+        Vanilla = 0,
+        FirstCopyOnly = 1,
+        NoEffects = 2,
+    }
+
     [FileLocation("ModsSettings/BetterUniqueBuildings/BetterUniqueBuildings")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
@@ -63,6 +70,11 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetSignatureBonuses))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
+
+        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetNearbyEffectDropdownItems))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetNearbySignatureEffects))]
+        [SettingsUISection(ActionsTab, BonusGroup)]
+        public NearbySignatureMode NearbySignatureEffects { get; set; }
 
         // --------------------
         // Signature Unlocks
@@ -157,6 +169,18 @@ namespace UniqueBuildings
             }
         }
 
+        [SettingsUIButtonGroup(SignatureStatusGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public bool RunNearbyReportButton
+        {
+            set
+            {
+                if (value)
+                    GetNearbySystem()?.RunNearbyReport();
+            }
+        }
+
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
@@ -189,6 +213,7 @@ namespace UniqueBuildings
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
+            NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
             AllowMultipleUniqueBuildings = true;
         }
@@ -197,6 +222,11 @@ namespace UniqueBuildings
         {
             GetSignatureBonusSystem()?.ApplyFromOptions(
                 (SignatureBonusMode)value);
+        }
+
+        private void SetNearbySignatureEffects(int value)
+        {
+            GetNearbySystem()?.ApplyFromOptions((NearbySignatureMode)value);
         }
 
         private void SetUnlockSignatureRequirements(bool value)
@@ -239,6 +269,36 @@ namespace UniqueBuildings
                         GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking)),
                 },
             };
+        }
+
+        private DropdownItem<int>[] GetNearbyEffectDropdownItems()
+        {
+            return new DropdownItem<int>[]
+            {
+                new()
+                {
+                    value = (int)NearbySignatureMode.Vanilla,
+                    displayName = LocalizedString.Id(GetEnumValueLocaleID(NearbySignatureMode.Vanilla)),
+                },
+                new()
+                {
+                    value = (int)NearbySignatureMode.FirstCopyOnly,
+                    displayName = LocalizedString.Id(GetEnumValueLocaleID(NearbySignatureMode.FirstCopyOnly)),
+                },
+                new()
+                {
+                    value = (int)NearbySignatureMode.NoEffects,
+                    displayName = LocalizedString.Id(GetEnumValueLocaleID(NearbySignatureMode.NoEffects)),
+                },
+            };
+        }
+
+        private static SignatureNearbyEffectSystem? GetNearbySystem()
+        {
+            World? world = World.DefaultGameObjectInjectionWorld;
+            return world == null || !world.IsCreated
+                ? null
+                : world.GetOrCreateSystemManaged<SignatureNearbyEffectSystem>();
         }
 
         private static void RefreshStatusIfNeeded()

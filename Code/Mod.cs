@@ -18,6 +18,7 @@ namespace UniqueBuildings
     using Colossal.Logging;
     using CS2Shared.RiverMochi;
     using Game;
+    using Game.Buildings;
     using Game.Common;
     using Game.Modding;
     using Game.SceneFlow;
@@ -158,6 +159,11 @@ namespace UniqueBuildings
                         CityModifierUpdateSystem>(
                             SystemUpdatePhase.GameSimulation);
 
+                    updateSystem.UpdateAfter<
+                        SignatureNearbyEffectSystem,
+                        LocalEffectSystem>(
+                            SystemUpdatePhase.Modification5);
+
                     updateSystem.UpdateAt<SignatureScanSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
@@ -178,6 +184,9 @@ namespace UniqueBuildings
 
                 world?.GetExistingSystemManaged<SignatureBonusSystem>()
                     ?.RestoreOwnedChangesForDispose();
+
+                world?.GetExistingSystemManaged<SignatureNearbyEffectSystem>()
+                    ?.RestoreForDispose();
             }
             catch
             {
