@@ -107,7 +107,7 @@ namespace UniqueBuildings
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "City-wide bonus effects" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
-                    "Counts Signature buildings with city-wide bonus effects.\\n" +
+                    "Counts Signature buildings with city-wide bonus effects.\n" +
                     "Nearby/local bonus effects are separate and are not included here."
                 },
 

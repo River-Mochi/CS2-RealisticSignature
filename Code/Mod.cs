@@ -93,6 +93,20 @@ namespace UniqueBuildings
                     localizationManager.AddSource(
                         "en-US",
                         new LocaleEN(setting));
+                    localizationManager.AddSource("fr-FR", new LocaleFR(setting));
+                    localizationManager.AddSource("es-ES", new LocaleES(setting));
+                    localizationManager.AddSource("de-DE", new LocaleDE(setting));
+                    localizationManager.AddSource("it-IT", new LocaleIT(setting));
+                    localizationManager.AddSource("ja-JP", new LocaleJA(setting));
+                    localizationManager.AddSource("ko-KR", new LocaleKO(setting));
+                    localizationManager.AddSource("pl-PL", new LocalePL(setting));
+                    localizationManager.AddSource("pt-BR", new LocalePT_BR(setting));
+                    localizationManager.AddSource("pt-PT", new LocalePT_PT(setting));
+                    localizationManager.AddSource("zh-HANS", new LocaleZH_HANS(setting));
+                    localizationManager.AddSource("zh-HANT", new LocaleZH_HANT(setting));
+                    localizationManager.AddSource("th-TH", new LocaleTH(setting));
+                    localizationManager.AddSource("vi-VN", new LocaleVI(setting));
+                    localizationManager.AddSource("tr-TR", new LocaleTR(setting));
                 }
             }
             catch (Exception ex)

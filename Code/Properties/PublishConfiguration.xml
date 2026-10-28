@@ -4,54 +4,49 @@
 <!--Name of the mod to display to players-->
 <DisplayName Value="Better Unique Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Control Signature buildings: instant unlock, remove stacking bonuses, allow many unique buildings." />
+<ShortDescription Value="Unlock Signature buildings, place multiple Unique buildings, and customize city-wide and nearby effects." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-<!--LongDescription Value="Better Unique Buildings" /-->
-<LongDescription>
+<!--LongDescription Value="Better Unique Buildings"<LongDescription>
 ## Better Unique Buildings
 
-Want more freedom with the Unique buildings and to place multiple without wreaking the economy from mega stacking bonuses?
+Place the Unique buildings you want without stacking their bonuses over and over. Unlock Signature buildings, build extra copies, and choose exactly which effects they provide.
 
-**Unlock Signature buildings instantly and place multiple copies of Unique buildings.**
+### Signature bonuses: two independent controls
 
-**Control Signature bonuses** — normal stacked bonuses, first copy only, or no bonuses.
+**City-wide Signature bonuses** (default: First copy only)
+- **First copy only** — each Signature building type provides its city-wide bonus once, even if you build more copies.
+- **No city-wide bonuses** — disables Signature city-wide bonuses.
+- **Vanilla Stacked Bonuses** — every placed copy provides its normal city-wide bonus.
 
-### Signature bonuses
-- Normal vanilla, get all the stacking bonuses from multiple Unique buildings and the excess economy this creates.
-- Only the first building gives a bonus, other copies do not stack the same bonuses; reduces unrealistic economy.
-- Challenge mode: no bonuses at all, Unique buildings are cosmetic.
+**Nearby Signature effects** (default: Vanilla nearby effects)
+- **Vanilla nearby effects** — every copy provides its normal local effects.
+- **First copy only** — one copy of each Signature building type provides local effects.
+- **No nearby effects** — disables normal local effects from Signature buildings.
 
-### Features
+These controls work independently. Building attractiveness and abandoned-building effects are not removed.
 
-- ✅ **Unlock Signature buildings instantly** — skip population, zoning, and other progression requirements.
-- ✅ **Place multiple Unique buildings** — including Signature buildings.
-- ✅ Turn either feature ON or OFF anytime.
-- Existing buildings stay placed when restrictions are turned back ON.
-- Built-in Status shows totals and counts of city-wide bonus effects.
+### More features
+- **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
+- **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
+- **Live Options** — bonus modes change without restarting the city.
+- **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers. Use **Bonus Report to log** and **Nearby Report to log** to test modes and restore your chosen settings.
+- Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
 
-### Good to Know
+### Notes
+- No Harmony patching.
+- Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
+- To read diagnostic results: Options > About > Debug / Logging > Open Log.
+- Hover over Options rows for explanations.
+- Custom assets may have different bonus types or none at all.
 
-- **Multiple Unique Buildings** is ON by default.
-- **Signature Unlocks** is OFF by default. Turning on will not flood the screen with 90 Pop-ups.
-- **Anarchy is supported** can have unlimited unique buildings toggled on in both Anarchy and this mod, it will not conflict.
-- Remove other Unlimited Unique Buildings mods — to avoid confusion in settings.
-- Safe to remove anytime. Lightweight: changes apply when needed, then goes idle.
-- Hover over any Options menu rows for quick help (see 3rd panel on the right).
+### Languages
+English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
 
-### Support and Feedback
-- Easiest way to support is to click the LIKE 👍 button (top right). No donations requested.
-- For Feedback use the Github or Discord links (right side of page). PRs are welcome.
+### Credits and feedback
+Created by RiverMochi. GPL-3.0-or-later with the Cities: Skylines II linking exception.
 
-### Credits and Thanks
-
-#### Languages
-English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย Thai, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
-
-GPL-3.0 License, see Github.
-
-tags: unique buildings, signature buildings, multiple unique, unlimited unique, unlock signature buildings
-
-</LongDescription>
+For feedback or issues, use the GitHub or Discord links on this page. PRs are welcome. A LIKE is appreciated; no donations requested.
+</LongDescription>ption>
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail.png" />
 <!--Screenshot, can be set multiple times-->
@@ -73,8 +68,7 @@ tags: unique buildings, signature buildings, multiple unique, unlimited unique, 
 <!--<ChangeLog>
 </ChangeLog>-->
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-<ExternalLink Type="" Url="" />
-<ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-UniqueBuildings" />
+<ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-BetterUniqueBuildings" />
 <ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
 <!--Supported values Public, Private, Unlisted-->
 <AccessLevel Value="Public" />

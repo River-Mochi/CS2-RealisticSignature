@@ -1,0 +1,68 @@
+// <copyright file="LocaleJA.cs" company="River-Mochi">
+// Copyright (c) 2026 River-Mochi. All rights reserved.
+// Licensed under the GNU General Public License v3.0 or later,
+// with the Cities: Skylines II Linking Exception.
+// See LICENSE and LICENSE-EXCEPTION in the project root.
+// This notice MUST be kept with copies or substantial portions of this code.
+// ================= </copyright> ======================
+
+// File: Localization/LocaleJA.cs
+// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+
+namespace UniqueBuildings
+{
+    public sealed class LocaleJA : LocaleTranslatedSource
+    {
+        private static readonly string[] s_Text =
+        {
+            "Better Unique Buildings（ユニーク建造物の改善）", // 0
+            "操作", // 1
+            "詳細", // 2
+            "シグネチャー建築物のボーナス", // 3
+            "シグネチャー建築物の解放", // 4
+            "ユニーク建造物の複数配置", // 5
+            "状態", // 6
+            "情報", // 7
+            "デバッグ / ログ", // 8
+            "シグネチャー建築物の都市全体ボーナス", // 9
+            "<最初の1棟のみ> = 同じ種類のシグネチャー建築物の都市全体ボーナスは1回だけ適用します。\n<都市全体ボーナスなし> = 都市全体へのボーナスを無効にします。\n<標準の重複適用> = すべての建築物のボーナスを適用します。\n周辺効果は別に設定できます。建築物の魅力度は変わりません。", // 10
+            "最初の1棟のみ", // 11
+            "都市全体ボーナスなし", // 12
+            "標準の重複適用", // 13
+            "シグネチャー建築物の周辺効果", // 14
+            "<標準の周辺効果> = すべての建築物が通常の周辺効果を発揮します。\n<最初の1棟のみ> = 種類ごとに1棟だけが周辺効果を発揮します。\n<周辺効果なし> = シグネチャー建築物の通常の周辺効果を無効にします。\n廃墟の効果と建築物の魅力度は維持されます。", // 15
+            "標準の周辺効果", // 16
+            "最初の1棟のみ", // 17
+            "周辺効果なし", // 18
+            "シグネチャー建築物の解放条件を解除", // 19
+            "**オン** = 人口、区画、進行条件を満たさなくても、すべてのシグネチャー建築物を利用できます。\n**オフ** = 通常のゲーム進行に従います。", // 20
+            "複数の配置を許可", // 21
+            "**オン** = シグネチャー建築物を含むユニーク指定の対象を複数配置できます。\n**オフ** = 他のMODが許可しない限り、都市ごとに1つだけです。", // 22
+            "ユニーク建造物の配置ルール", // 23
+            "ユニーク指定の対象を複数配置できるかどうかを表示します。", // 24
+            "シグネチャー建築物", // 25
+            "配置済みの総数、種類数、追加の複製数を表示します。", // 26
+            "都市全体のボーナス効果", // 27
+            "都市全体のボーナスを持つシグネチャー建築物を数えます。\n周辺・局所効果は含みません。", // 28
+            "ボーナス報告をログに記録", // 29
+            "都市全体ボーナスの3モードを試し、実際の都市の値をログに記録してから選択状態に戻します。手動比較は不要です。", // 30
+            "周辺効果の報告をログに記録", // 31
+            "周辺効果の3モードをログで確認し、選択状態に戻します。", // 32
+            "重複するMODを検出", // 33
+            "Anarchyには対応しているため、ここには表示しません。\nユニーク建造物を無制限にする他のMODは、機能が重複するため削除してください。", // 34
+            "MOD", // 35
+            "このMODの表示名です。", // 36
+            "バージョン", // 37
+            "インストール済みのMODバージョンとビルドの種類です。", // 38
+            "ログを開く", // 39
+            "MODのログファイルを開きます。ない場合はログフォルダーを開きます。", // 40
+        };
+
+        public LocaleJA(UniqueBldgSettings setting)
+            : base(setting)
+        {
+        }
+
+        protected override string[] Text => s_Text;
+    }
+}
