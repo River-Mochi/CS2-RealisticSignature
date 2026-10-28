@@ -18,8 +18,11 @@ namespace UniqueBuildings
     using Colossal.Logging;
     using CS2Shared.RiverMochi;
     using Game;
+    using Game.Buildings;
+    using Game.Common;
     using Game.Modding;
     using Game.SceneFlow;
+    using Game.Simulation;
     using Unity.Entities;
 
     public sealed class Mod : IMod
@@ -129,14 +132,41 @@ namespace UniqueBuildings
                     ex);
             }
 
-            updateSystem.UpdateAt<SignatureUnlockSystem>(
-                SystemUpdatePhase.PrefabUpdate);
+                    updateSystem.UpdateAt<SignatureUnlockSystem>(
+                        SystemUpdatePhase.PrefabUpdate);
 
-            updateSystem.UpdateAt<UniquePlacementSystem>(
-                SystemUpdatePhase.PrefabUpdate);
+                    updateSystem.UpdateAt<UniquePlacementSystem>(
+                        SystemUpdatePhase.PrefabUpdate);
 
-            updateSystem.UpdateAt<SignatureScanSystem>(
-                SystemUpdatePhase.PrefabUpdate);
+                    updateSystem.UpdateAt<SignatureBonusSystem>(
+                        SystemUpdatePhase.PrefabUpdate);
+
+                    updateSystem.UpdateAt<SignatureBonusWatchSystem>(
+                        SystemUpdatePhase.ModificationEnd);
+
+                    updateSystem.UpdateAfter<
+                        SignatureBonusSystem,
+                        SignatureBonusWatchSystem>(
+                            SystemUpdatePhase.ModificationEnd);
+
+                    updateSystem.UpdateAfter<
+                        SignatureCityModifierFilterSystem,
+                        ModificationBarrier4>(
+                            SystemUpdatePhase.Modification4);
+
+                    updateSystem.UpdateAfter<
+                        SignatureCityModifierFilterSystem,
+                        CityModifierUpdateSystem>(
+                            SystemUpdatePhase.GameSimulation);
+
+                    updateSystem.UpdateAfter<
+                        SignatureNearbyEffectSystem,
+                        LocalEffectSystem>(
+                            SystemUpdatePhase.Modification5);
+
+                    updateSystem.UpdateAt<SignatureScanSystem>(
+                        SystemUpdatePhase.PrefabUpdate);
+
         }
 
         public void OnDispose()
@@ -151,6 +181,12 @@ namespace UniqueBuildings
 
                 world?.GetExistingSystemManaged<UniquePlacementSystem>()
                     ?.RestoreOwnedChangesForDispose();
+
+                world?.GetExistingSystemManaged<SignatureBonusSystem>()
+                    ?.RestoreOwnedChangesForDispose();
+
+                world?.GetExistingSystemManaged<SignatureNearbyEffectSystem>()
+                    ?.RestoreForDispose();
             }
             catch
             {

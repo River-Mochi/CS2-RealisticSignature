@@ -1,3 +1,4 @@
+
 // <copyright file="LocaleEN.cs" company="River-Mochi">
 // Copyright (c) 2026 River-Mochi. All rights reserved.
 // Licensed under the GNU General Public License v3.0 or later,
@@ -45,16 +46,39 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.DebugGroup), "Debug / Logging" },
 
                 // Signature Bonuses
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)), "Signature Bonuses" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
+                    "City-wide Signature bonuses"
+                },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "<First copy only> = each Signature building type provides its bonus once.\n" +
-                    "<No Bonuses> = Signature bonuses are disabled.\n" +
-                    "<Normal game stacked bonuses> = every copy provides its normal game bonus."
+                    "<First copy only> = each Signature building type gives its city-wide bonus once.\n" +
+                    "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
+                    "<Vanilla Stacked Bonuses> = every copy gives its city-wide bonus.\n" +
+                    "Nearby effects have their own setting. Building attractiveness stays normal."
                 },
 
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly), "First copy only" },
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses), "No Bonuses" },
-                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking), "Normal game stacked bonuses" },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly),
+                    "First copy only"
+                },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.NoBonuses),
+                    "No city-wide bonuses"
+                },
+                { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking),
+                    "Vanilla Stacked Bonuses"
+                },
+
+                // Nearby Signature effects
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
+                    "Nearby Signature effects"
+                },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
+                    "<Vanilla nearby effects> = every Signature copy provides nearby effects.\n" +
+                    "<First copy only> = one copy of each Signature type provides nearby effects.\n" +
+                    "<No nearby effects> = disables normal Signature nearby effects.\n" +
+                    "Abandoned-building effects and building attractiveness are preserved."
+                },
+                { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.Vanilla), "Vanilla nearby effects" },
+                { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.FirstCopyOnly), "First copy only" },
+                { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.NoEffects), "No nearby effects" },
 
                 // Signature Unlocks
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)), "Unlock Signature requirements" },
@@ -83,8 +107,19 @@ namespace UniqueBuildings
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "City-wide bonus effects" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
-                    "Counts Signature buildings with city-wide bonus effects.\n" +
+                    "Counts Signature buildings with city-wide bonus effects.\\n" +
                     "Nearby/local bonus effects are separate and are not included here."
+                },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), "Bonus Report to log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)),
+                    "Tests all three city-wide bonus modes, writes actual city values to the log, " +
+                    "and restores your selected mode. No manual comparison needed."
+                },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)), "Nearby Report to log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)),
+                    "Checks all three Nearby Signature modes in the log, then restores your selected mode."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },

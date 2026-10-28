@@ -16,9 +16,11 @@ namespace UniqueBuildings
     using CS2Shared.RiverMochi;
     using Game;
     using Game.Buildings;
+    using Game.Common;
     using Game.Prefabs;
     using Game.SceneFlow;
     using Game.Simulation;
+    using Game.Tools;
     using Unity.Collections;
     using Unity.Entities;
 
@@ -58,12 +60,15 @@ namespace UniqueBuildings
                         ComponentType.ReadOnly<CityEffectProvider>(),
                         ComponentType.ReadOnly<PrefabRef>(),
                     },
-                    None = new ComponentType[]
-                    {
-                        ComponentType.ReadOnly<Game.Common.Deleted>(),
-                        ComponentType.ReadOnly<Game.Common.Destroyed>(),
-                        ComponentType.ReadOnly<Game.Tools.Temp>(),
-                    },
+                None = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Deleted>(),
+                    ComponentType.ReadOnly<Destroyed>(),
+                    ComponentType.ReadOnly<Temp>(),
+                    ComponentType.ReadOnly<
+                        SignatureBonusSuppressed>(),
+                },
+
                 });
 
             m_SimulationSystem =
