@@ -8,8 +8,15 @@
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <!--LongDescription Value="Better Unique Buildings"<LongDescription>
 ## Realistic Signature Buildings
+Build the city you want, without making the economy unrealistically easy.
+Place multiple Unique and Signature buildings for their appearance, while controlling how their bonuses stack. Or keep the original vanilla effects—it's your choice.
 
-Place the Unique buildings you want without stacking their bonuses over and over. Unlock Signature buildings, build extra copies, and choose exactly which effects they provide.
+
+### All Optional:
+- Place as many Unique buildings as you want without stacking their bonuses.
+- Unlock all Signature buildings, build extra copies, and choose exactly which effects they provide.
+- City wide effects and local effects can be control separately.
+Example, if you don't want double stacked 10% + 10% bonus to all city becausee you placed two of the same building, but you still want the small area effect for happiness near the buildings, you can do that.
 
 ### Signature bonuses: two independent controls
 
