@@ -2,12 +2,12 @@
 <!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
 <ModId Value="" />
 <!--Name of the mod to display to players-->
-<DisplayName Value="Better Unique Buildings" />
+<DisplayName Value="Realistic Signature Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Unlock Signature buildings, place multiple Unique buildings, and customize city-wide and nearby effects." />
+<ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <!--LongDescription Value="Better Unique Buildings"<LongDescription>
-## Better Unique Buildings
+## Realistic Signature Buildings
 
 Place the Unique buildings you want without stacking their bonuses over and over. Unlock Signature buildings, build extra copies, and choose exactly which effects they provide.
 
@@ -68,8 +68,8 @@ For feedback or issues, use the GitHub or Discord links on this page. PRs are we
 <!--<ChangeLog>
 </ChangeLog>-->
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-<ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-BetterUniqueBuildings" />
 <ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
+<ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-RealisticSignature" />
 <!--Supported values Public, Private, Unlisted-->
 <AccessLevel Value="Public" />
 </Publish>
