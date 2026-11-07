@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (개선된 고유 건물)", // 0
+            "Realistic Signature Buildings (현실적인 시그니처 건물)", // 0
             "작업", // 1
             "정보", // 2
             "시그니처 건물 보너스", // 3

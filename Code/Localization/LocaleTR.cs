@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Geliştirilmiş Benzersiz Binalar)", // 0
+            "Realistic Signature Buildings (Gerçekçi İmza Binaları)", // 0
             "İşlemler", // 1
             "Hakkında", // 2
             "İmza bina bonusları", // 3

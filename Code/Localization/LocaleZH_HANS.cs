@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings（更好的独特建筑）", // 0
+            "Realistic Signature Buildings（更真实的标志性建筑）", // 0
             "操作", // 1
             "关于", // 2
             "标志性建筑加成", // 3

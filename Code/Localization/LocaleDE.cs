@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Verbesserte einzigartige Gebäude)", // 0
+            "Realistic Signature Buildings (Realistische Signaturgebäude)", // 0
             "Aktionen", // 1
             "Über", // 2
             "Signaturgebäude-Boni", // 3
