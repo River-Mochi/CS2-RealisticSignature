@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Mod.cs
-// Entry point for Better Unique Buildings mod.
+// Entry point for Realistic Signature Buildings mod.
 
 namespace UniqueBuildings
 {
@@ -27,10 +27,10 @@ namespace UniqueBuildings
 
     public sealed class Mod : IMod
     {
-        public const string ModName = "Better Unique Buildings";
-        public const string ShortName = "Unique Buildings";
+        public const string ModName = "Realistic Signature Buildings";
+        public const string ShortName = "Realistic Signature";
         public const string ModId = "BetterUniqueBuildings";
-        public const string ModTag = "[BUB]";
+        public const string ModTag = "[RSB]";
 
 #if DEBUG
         private const string kBuildType = "DEBUG";

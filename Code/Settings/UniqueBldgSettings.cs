@@ -84,6 +84,15 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetUnlockSignatureRequirements))]
         public bool UnlockSignatureRequirements { get; set; }
 
+        // Shown only when Signature requirement bypass is enabled.
+        // Enabled by default to avoid nuisance popup floods.
+        [SettingsUISection(ActionsTab, UnlockGroup)]
+        [SettingsUIHideByCondition(
+            typeof(UniqueBldgSettings),
+            nameof(UnlockSignatureRequirements),
+            true)]
+        public bool HideBulkUnlockNotifications { get; set; }
+
         // --------------------
         // Multiple Unique
         // --------------------
@@ -215,6 +224,7 @@ namespace UniqueBuildings
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
+            HideBulkUnlockNotifications = true;
             AllowMultipleUniqueBuildings = true;
         }
 

@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTR.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Geliştirilmiş Benzersiz Binalar)", // 0
+            "Realistic Signature Buildings (Gerçekçi İmza Binaları)", // 0
             "İşlemler", // 1
             "Hakkında", // 2
             "İmza bina bonusları", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Yüklü mod sürümü ve derleme türü.", // 38
             "Günlüğü aç", // 39
             "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 40
+            "Toplu İmza bina açma bildirimlerini gizle", // 41
+            "**AÇIK** (önerilen, varsayılan) = tüm İmza binaların kilidini açarken rahatsız edici bildirimleri gizler.\n**KAPALI** = yeni açılan her bina için bildirim gösterir. Şehir yüklenirken onlarca veya yüzlerce bildirim çıkabilir.\nOyunun normal kilit açma bildirimleri değişmez.", // 42
         };
 
         public LocaleTR(UniqueBldgSettings setting)

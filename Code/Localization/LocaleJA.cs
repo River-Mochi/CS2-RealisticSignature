@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleJA.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings（ユニーク建造物の改善）", // 0
+            "Realistic Signature Buildings（リアルなシグネチャー建築物）", // 0
             "操作", // 1
             "詳細", // 2
             "シグネチャー建築物のボーナス", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "インストール済みのMODバージョンとビルドの種類です。", // 38
             "ログを開く", // 39
             "MODのログファイルを開きます。ない場合はログフォルダーを開きます。", // 40
+            "シグネチャー建築物の一括解放通知を非表示", // 41
+            "**オン**（推奨・初期設定）= すべてのシグネチャー建築物を解放する際、大量の通知を非表示にします。\n**オフ** = 新たに解放した建築物ごとに通知します。都市を読み込むと数十～数百件の通知が出る場合があります。\n通常のゲーム内解放通知には影響しません。", // 42
         };
 
         public LocaleJA(UniqueBldgSettings setting)

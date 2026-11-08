@@ -6,17 +6,18 @@
 <!--Short description of the mod-->
 <ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-<!--LongDescription Value="Better Unique Buildings"<LongDescription>
+<LongDescription>
 ## Realistic Signature Buildings
 Build the city you want, without making the economy unrealistically easy.
 Place multiple Unique and Signature buildings for their appearance, while controlling how their bonuses stack. Or keep the original vanilla effects—it's your choice.
 
 
-### All Optional:
-- Place as many Unique buildings as you want without stacking their bonuses.
-- Unlock all Signature buildings, build extra copies, and choose exactly which effects they provide.
-- City wide effects and local effects can be control separately.
-Example, if you don't want double stacked 10% + 10% bonus to all city becausee you placed two of the same building, but you still want the small area effect for happiness near the buildings, you can do that.
+### All optional: choose how you want to play
+- Place multiple Unique buildings for their appearance without multiplying the same Signature bonuses.
+- Optionally unlock all Signature buildings without waiting for progression.
+- Control city-wide and nearby/local Signature effects **separately**.
+
+For example, if two copies would each add the same city-wide bonus, you can stop that bonus from stacking while keeping both buildings' normal nearby happiness effects.
 
 ### Signature bonuses: two independent controls
 
@@ -34,6 +35,7 @@ These controls work independently. Building attractiveness and abandoned-buildin
 
 ### More features
 - **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
+- **Hide bulk Signature unlock pop-ups** — shown only when Signature unlocking is enabled. ON by default (recommended) to prevent dozens or hundreds of nuisance pop-ups when loading a city. Turn it OFF to see notices for newly unlocked Signature buildings; regular vanilla notifications are unchanged.
 - **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
 - **Live Options** — bonus modes change without restarting the city.
 - **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers. Use **Bonus Report to log** and **Nearby Report to log** to test modes and restore your chosen settings.
@@ -53,7 +55,7 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 Created by RiverMochi. GPL-3.0-or-later with the Cities: Skylines II linking exception.
 
 For feedback or issues, use the GitHub or Discord links on this page. PRs are welcome. A LIKE is appreciated; no donations requested.
-</LongDescription>ption>
+</LongDescription>
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail.png" />
 <!--Screenshot, can be set multiple times-->

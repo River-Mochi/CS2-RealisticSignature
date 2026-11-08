@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePL.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Lepsze unikatowe budynki)", // 0
+            "Realistic Signature Buildings (Realistyczne budynki charakterystyczne)", // 0
             "Działania", // 1
             "O modzie", // 2
             "Premie budynków charakterystycznych", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Zainstalowana wersja moda i typ kompilacji.", // 38
             "Otwórz dziennik", // 39
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 40
+            "Ukryj powiadomienia o zbiorczym odblokowaniu", // 41
+            "**WŁ.** (zalecane, domyślnie) = ukrywa uciążliwe powiadomienia podczas odblokowywania wszystkich budynków charakterystycznych.\n**WYŁ.** = pokazuje powiadomienie o każdym nowo odblokowanym budynku. Podczas wczytywania miasta może pojawić się ich kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry pozostają bez zmian.", // 42
         };
 
         public LocalePL(UniqueBldgSettings setting)

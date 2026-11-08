@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleKO.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (개선된 고유 건물)", // 0
+            "Realistic Signature Buildings (현실적인 시그니처 건물)", // 0
             "작업", // 1
             "정보", // 2
             "시그니처 건물 보너스", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "설치된 모드 버전과 빌드 종류입니다.", // 38
             "로그 열기", // 39
             "이 모드의 로그 파일을 엽니다. 없으면 로그 폴더를 엽니다.", // 40
+            "시그니처 건물 일괄 잠금 해제 알림 숨기기", // 41
+            "**켜짐** (권장, 기본값) = 시그니처 건물을 모두 해제할 때 번거로운 팝업을 숨깁니다.\n**꺼짐** = 새로 잠금 해제된 건물마다 알림을 표시합니다. 도시를 불러올 때 수십~수백 개의 팝업이 나타날 수 있습니다.\n게임의 일반 잠금 해제 알림은 변경되지 않습니다.", // 42
         };
 
         public LocaleKO(UniqueBldgSettings setting)

@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTH.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (อาคารเอกลักษณ์ที่ดีกว่า)", // 0
+            "Realistic Signature Buildings (อาคารเอกลักษณ์สมจริง)", // 0
             "การทำงาน", // 1
             "เกี่ยวกับ", // 2
             "โบนัสอาคารเอกลักษณ์", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "เวอร์ชันม็อดที่ติดตั้งและชนิดของบิลด์", // 38
             "เปิดบันทึก", // 39
             "เปิดไฟล์บันทึกของม็อด หรือเปิดโฟลเดอร์บันทึกหากไม่มีไฟล์", // 40
+            "ซ่อนป๊อปอัปเมื่อปลดล็อกอาคารเอกลักษณ์ทั้งหมด", // 41
+            "**เปิด** (แนะนำและเป็นค่าเริ่มต้น) = ซ่อนป๊อปอัปที่รบกวนเมื่อปลดล็อกอาคารเอกลักษณ์ทั้งหมด\n**ปิด** = แสดงป๊อปอัปสำหรับอาคารแต่ละหลังที่เพิ่งปลดล็อก อาจมีหลายสิบหรือหลายร้อยรายการขณะโหลดเมือง\nไม่กระทบการแจ้งเตือนการปลดล็อกปกติของเกม", // 42
         };
 
         public LocaleTH(UniqueBldgSettings setting)

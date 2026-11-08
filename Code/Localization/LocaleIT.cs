@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Edifici unici migliorati)", // 0
+            "Realistic Signature Buildings (Edifici distintivi realistici)", // 0
             "Azioni", // 1
             "Informazioni", // 2
             "Bonus degli edifici distintivi", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Versione installata e tipo di compilazione.", // 38
             "Apri registro", // 39
             "Apre il file di registro del mod oppure la cartella dei registri.", // 40
+            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 41
+            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche fastidiose quando sblocchi tutti gli edifici distintivi.\n**DISATTIVO** = mostra una notifica per ogni nuovo edificio sbloccato. Caricando una città possono comparirne decine o centinaia.\nNon influisce sulle normali notifiche del gioco.", // 42
         };
 
         public LocaleIT(UniqueBldgSettings setting)

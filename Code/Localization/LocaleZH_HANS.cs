@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANS.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings（更好的独特建筑）", // 0
+            "Realistic Signature Buildings（更真实的标志性建筑）", // 0
             "操作", // 1
             "关于", // 2
             "标志性建筑加成", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "已安装的模组版本和构建类型。", // 38
             "打开日志", // 39
             "打开模组日志文件；若不存在，则打开日志文件夹。", // 40
+            "隐藏批量解锁标志性建筑的弹窗", // 41
+            "**开启**（推荐、默认）= 解锁全部标志性建筑时隐藏烦人的弹窗。\n**关闭** = 每解锁一栋新建筑就显示弹窗。载入城市时可能出现数十甚至数百条通知。\n不影响游戏正常的解锁通知。", // 42
         };
 
         public LocaleZH_HANS(UniqueBldgSettings setting)

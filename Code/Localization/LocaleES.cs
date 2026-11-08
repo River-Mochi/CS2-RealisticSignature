@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleES.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings (Edificios únicos mejorados)", // 0
+            "Realistic Signature Buildings (Edificios emblemáticos realistas)", // 0
             "Acciones", // 1
             "Acerca de", // 2
             "Bonificaciones de edificios emblemáticos", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Versión instalada del mod y tipo de compilación.", // 38
             "Abrir registro", // 39
             "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 40
+            "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 41
+            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos molestos al desbloquear todos los edificios emblemáticos.\n**DESACTIVADO** = muestra un aviso por cada edificio recién desbloqueado. Al cargar una ciudad pueden aparecer decenas o cientos.\nNo afecta a los avisos normales del juego.", // 42
         };
 
         public LocaleES(UniqueBldgSettings setting)

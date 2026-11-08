@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANT.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Better Unique Buildings（更好的獨特建築）", // 0
+            "Realistic Signature Buildings（更真實的地標建築）", // 0
             "操作", // 1
             "關於", // 2
             "地標建築加成", // 3
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "已安裝的模組版本和建置類型。", // 38
             "開啟紀錄", // 39
             "開啟模組紀錄檔案；若沒有檔案，則開啟紀錄資料夾。", // 40
+            "隱藏大量解鎖地標建築時的通知", // 41
+            "**開啟**（建議、預設）= 解鎖全部地標建築時隱藏惱人的彈出通知。\n**關閉** = 每解鎖一棟新建築就顯示通知。載入城市時可能出現數十甚至數百則通知。\n不影響遊戲正常的解鎖通知。", // 42
         };
 
         public LocaleZH_HANT(UniqueBldgSettings setting)
