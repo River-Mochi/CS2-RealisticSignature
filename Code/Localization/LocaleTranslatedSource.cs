@@ -77,8 +77,8 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), t[38] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[39] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[40] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)), t[41] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)), t[42] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[41] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[42] },
             };
         }
 

@@ -56,8 +56,8 @@ namespace UniqueBuildings
             "Installierte Modversion und Build-Typ.", // 38
             "Protokoll öffnen", // 39
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 40
-            "Benachrichtigungen beim Massenfreischalten anzeigen", // 41
-            "**AUS** (Standard) = Signaturgebäude ohne viele Pop-ups freischalten.\n**EIN** = für jedes neu freigeschaltete Signaturgebäude ein Pop-up anzeigen.\nFrühere Freischaltungen werden nicht erneut angezeigt. Normale Spielmeldungen bleiben unverändert.", // 42
+            "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 41
+            "**EIN** (empfohlen, Standard) = störende Pop-ups beim Freischalten aller Signaturgebäude ausblenden.\n**AUS** = für jedes neu freigeschaltete Signaturgebäude ein Pop-up anzeigen. Beim Laden einer Stadt können Dutzende oder Hunderte erscheinen.\nNormale Freischaltmeldungen des Spiels bleiben unverändert.", // 42
         };
 
         public LocaleDE(UniqueBldgSettings setting)

@@ -56,8 +56,8 @@ namespace UniqueBuildings
             "Zainstalowana wersja moda i typ kompilacji.", // 38
             "Otwórz dziennik", // 39
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 40
-            "Pokazuj powiadomienia o zbiorczym odblokowaniu", // 41
-            "**WYŁ.** (domyślnie) = odblokowuje budynki charakterystyczne bez wielu powiadomień.\n**WŁ.** = pokazuje powiadomienie o każdym nowo odblokowanym budynku.\nNie powtarza wcześniejszych odblokowań ani nie wpływa na normalne powiadomienia gry.", // 42
+            "Ukryj powiadomienia o zbiorczym odblokowaniu", // 41
+            "**WŁ.** (zalecane, domyślnie) = ukrywa uciążliwe powiadomienia podczas odblokowywania wszystkich budynków charakterystycznych.\n**WYŁ.** = pokazuje powiadomienie o każdym nowo odblokowanym budynku. Podczas wczytywania miasta może pojawić się ich kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry pozostają bez zmian.", // 42
         };
 
         public LocalePL(UniqueBldgSettings setting)

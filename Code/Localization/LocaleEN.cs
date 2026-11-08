@@ -141,13 +141,14 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),
                     "Opens this mod's log file. If unavailable, opens the Logs folder."
                 },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)),
-                    "Show bulk unlock notifications"
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
+                    "Hide bulk Signature unlock pop-ups"
                 },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)),
-                    "**OFF** (default) = unlock Signatures quietly, without dozens of popups.\n" +
-                    "**ON** = show a popup for each newly unlocked Signature building when the bulk unlock runs.\n" +
-                    "Does not replay previous unlocks or affect normal game unlock notifications."
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
+                    "**ON** (recommended, default) = hide nuisance pop-ups when unlocking all Signature buildings.\n" +
+                    "**OFF** = show a pop-up for every newly unlocked Signature building. " +
+                    "This can cause dozens or hundreds of pop-ups when loading a city.\n" +
+                    "Only affects this mod's bulk unlock; normal game unlock notifications stay unchanged."
                 },
 
 

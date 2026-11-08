@@ -134,9 +134,10 @@ namespace UniqueBuildings
             int vanillaLocked = 0;
             int vanillaAvailable = 0;
 
-            // Opt-in only: normal unlocking and vanilla events are untouched.
+            // Default: hide this mod's mass-unlock popups.
+            // Vanilla progression notifications are never changed.
             bool showBulk = unlock &&
-                (Mod.Setting?.ShowBulkUnlockNotifications ?? false);
+                !(Mod.Setting?.HideBulkUnlockNotifications ?? true);
             SignatureBuildingUISystem? signatureUi = showBulk
                 ? World.GetExistingSystemManaged<SignatureBuildingUISystem>()
                 : null;
