@@ -1,68 +1,83 @@
 <Publish>
-<!-- Initial publication: leave ModId blank until Paradox assigns an ID. -->
+<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
 <ModId Value="" />
-<!-- Player-facing name and short description -->
+<!--Name of the mod to display to players-->
 <DisplayName Value="Realistic Signature Buildings" />
-<ShortDescription Value="Build multiple Unique buildings without excessive Signature bonuses. Keep your economy balanced, or use vanilla effects." />
+<!--Short description of the mod-->
+<ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
+<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
 ## Realistic Signature Buildings
+Build the city you want, without making the economy unrealistically easy.
+Place multiple Unique and Signature buildings for their appearance, while controlling how their bonuses stack. Or keep the original vanilla effects—it's your choice.
 
-**Build the city you want, without making its economy unrealistically easy.**
 
-Want to place several copies of a beautiful Unique or Signature building? In the vanilla game, extra Signature buildings with city-wide bonuses can stack those bonuses, giving your city more advantages than you intended.
+### All optional: choose how you want to play
+- Place multiple Unique buildings for their appearance without multiplying the same Signature bonuses.
+- Optionally unlock all Signature buildings without waiting for progression.
+- Control city-wide and nearby/local Signature effects **separately**.
 
-**Realistic Signature Buildings lets you build freely while keeping bonuses under control.** Use each bonus once per building type, turn bonuses off, or keep the original stacked effects. You decide how realistic or flexible your city should be.
+For example, if two copies would each add the same city-wide bonus, you can stop that bonus from stacking while keeping both buildings' normal nearby happiness effects.
 
-### City-wide Signature bonuses
-**Default: First copy only**
-- **First copy only:** Each Signature building type gives its city-wide bonus just once. Duplicate copies can still be built for their appearance without multiplying that bonus.
-- **No city-wide bonuses:** Disable Signature buildings' city-wide bonuses.
-- **Vanilla Stacked Bonuses:** Keep the original game behavior. Every eligible copy contributes its city-wide bonus.
+### Signature bonuses: two independent controls
 
-### Nearby Signature effects
-**Default: Vanilla nearby effects**
-- **Vanilla nearby effects:** Keep normal local effects from every copy.
-- **First copy only:** Only one copy of each Signature type provides nearby effects.
-- **No nearby effects:** Remove normal local effects from Signature buildings.
+**City-wide Signature bonuses** (default: First copy only)
+- **First copy only** — each Signature building type provides its city-wide bonus once, even if you build more copies.
+- **No city-wide bonuses** — disables Signature city-wide bonuses.
+- **Vanilla Stacked Bonuses** — every placed copy provides its normal city-wide bonus.
 
-Both controls work independently. Building attractiveness and abandoned-building penalties are preserved.
+**Nearby Signature effects** (default: Vanilla nearby effects)
+- **Vanilla nearby effects** — every copy provides its normal local effects.
+- **First copy only** — one copy of each Signature building type provides local effects.
+- **No nearby effects** — disables normal local effects from Signature buildings.
 
-### More freedom, without the unintended bonus stacking
-- **Allow multiple copies of Unique buildings**, including Signature buildings. Default: ON.
-- **Unlock Signature requirements:** Make Signature buildings available without meeting population, zoning, building-count, or other progression requirements. Default: OFF.
-- Bulk Signature unlocking does not trigger a flood of new-building popups.
-- Existing buildings stay placed if you restore one-per-city placement rules.
-- Change bonus modes in Options without restarting your city.
-- View Signature building totals, duplicate counts, and active city-wide bonus providers in Status.
-- Use **Bonus Report to log** and **Nearby Report to log** for diagnostics that restore your selected modes.
+These controls work independently. Building attractiveness and abandoned-building effects are not removed.
 
-### Compatibility and notes
-- Compatible with Anarchy's Multiple Unique setting. Other mods that allow unlimited Unique buildings are redundant.
-- No Harmony patches or required third-party mod dependencies.
-- Works with existing cities. Back up your save before changing your mod setup.
-- Some Signature buildings have only nearby effects, only city-wide effects, or neither. Controls affect only the effects each building actually provides.
-- Hover over Options settings for details. Use Options > About > Debug / Logging > Open Log to see reports.
+### More features
+- **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
+- **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
+- **Live Options** — bonus modes change without restarting the city.
+- **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers. Use **Bonus Report to log** and **Nearby Report to log** to test modes and restore your chosen settings.
+- Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
+
+### Notes
+- No Harmony patching.
+- Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
+- To read diagnostic results: Options > About > Debug / Logging > Open Log.
+- Hover over Options rows for explanations.
+- Custom assets may have different bonus types or none at all.
 
 ### Languages
 English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
 
 ### Credits and feedback
-Created by RiverMochi. Licensed under GPL-3.0-or-later with the Cities: Skylines II linking exception.
+Created by RiverMochi. GPL-3.0-or-later with the Cities: Skylines II linking exception.
 
-For feedback, suggestions, or bug reports, use the GitHub or Discord links. PRs are welcome. A LIKE is appreciated; no donations requested.
+For feedback or issues, use the GitHub or Discord links on this page. PRs are welcome. A LIKE is appreciated; no donations requested.
 </LongDescription>
-<!-- Thumbnail -->
+<!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail.png" />
-<!-- Screenshots to be supplied before publishing. -->
+<!--Screenshot, can be set multiple times-->
 <Screenshot Value="" />
+<!--Tag, can be set multiple times-->
 <Tag Value="" />
+<!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
+<!--Version of the mod-->
 <ModVersion Value="0.5.0" />
+<!--Recommended version of the base game to use the mod-->
 <GameVersion Value="1.6.*" />
+<!--Dependency for the mod, can be set multiple times-->
 <Dependency Id="" />
+<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 <RequiredDLC Value="" />
+<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 <ChangeLog Value="" />
+<!--<ChangeLog>
+</ChangeLog>-->
+<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
+<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
 <ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-RealisticSignature" />
-<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
+<!--Supported values Public, Private, Unlisted-->
 <AccessLevel Value="Public" />
 </Publish>
