@@ -35,6 +35,7 @@ These controls work independently. Building attractiveness and abandoned-buildin
 
 ### More features
 - **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
+- **Show bulk unlock notifications** — OFF by default to avoid flooding your screen. Turn ON before bulk unlocking if you want each new Signature popup. This does not replay previous unlocks.
 - **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
 - **Live Options** — bonus modes change without restarting the city.
 - **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers. Use **Bonus Report to log** and **Nearby Report to log** to test modes and restore your chosen settings.

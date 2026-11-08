@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleFR.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Version installée et type de compilation.", // 38
             "Ouvrir le journal", // 39
             "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 40
+            "Afficher les notifications de déblocage groupé", // 41
+            "**DÉSACTIVÉ** (défaut) = débloque les bâtiments emblématiques sans avalanche de fenêtres.\n**ACTIVÉ** = affiche une notification pour chaque bâtiment emblématique nouvellement débloqué.\nNe répète pas les anciens déblocages et ne modifie pas les notifications normales du jeu.", // 42
         };
 
         public LocaleFR(UniqueBldgSettings setting)

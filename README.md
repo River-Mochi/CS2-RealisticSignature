@@ -13,6 +13,7 @@ Place multiple Unique and Signature buildings for their appearance, without nece
 | **Nearby Signature effects** | **Vanilla nearby effects** | Keep each copy's normal local effects; this is independent of the city-wide setting. |
 | **Unlock Signature requirements** | **OFF** | Optionally unlock condition-gated Signature buildings without progression requirements. |
 | **Allow multiple copies** | **ON** | Place extra copies of objects marked Unique, including Signature buildings. |
+| **Show bulk unlock notifications** | **OFF** | Optionally show popups when BUB bulk-unlocks Signature buildings. |
 
 ### City-wide Signature bonuses
 
@@ -31,7 +32,7 @@ Place multiple Unique and Signature buildings for their appearance, without nece
 ### Signature unlocking and unique placement
 
 - Enable **Unlock Signature requirements** to make eligible Signature prefabs available without meeting population, zoning, building-count, or other progression requirements. It works on existing cities.
-- The bulk unlock bypasses the usual unlock-event flood, so it does **not** create dozens of “New Signature Building” popups. When the setting is OFF, the base game's progression remains in effect.
+- **Show bulk unlock notifications** is OFF by default, so unlocking all Signatures does not flood the screen with popups. Turn it ON before enabling **Unlock Signature requirements** to see a popup for each newly unlocked Signature. It does not replay past unlocks, and normal vanilla progression notifications are unaffected.
 - **Allow multiple copies** lets you place additional Unique buildings. Disabling it later does **not** bulldoze copies already built.
 - Custom Signature assets that use the game's `SignatureBuildingData` component are included when the city loads; their actual available effects depend on the asset.
 

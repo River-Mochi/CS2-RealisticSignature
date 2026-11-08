@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleKO.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "설치된 모드 버전과 빌드 종류입니다.", // 38
             "로그 열기", // 39
             "이 모드의 로그 파일을 엽니다. 없으면 로그 폴더를 엽니다.", // 40
+            "일괄 잠금 해제 알림 표시", // 41
+            "**꺼짐** (기본값) = 수많은 알림 없이 시그니처 건물을 잠금 해제합니다.\n**켜짐** = 일괄 해제 시 새롭게 잠금 해제된 건물마다 알림을 표시합니다.\n지난 해제 알림을 다시 표시하지 않으며 일반 게임 알림에는 영향을 주지 않습니다.", // 42
         };
 
         public LocaleKO(UniqueBldgSettings setting)

@@ -84,6 +84,10 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetUnlockSignatureRequirements))]
         public bool UnlockSignatureRequirements { get; set; }
 
+        // OFF by default to avoid flooding the screen with unlock popups.
+        [SettingsUISection(ActionsTab, UnlockGroup)]
+        public bool ShowBulkUnlockNotifications { get; set; }
+
         // --------------------
         // Multiple Unique
         // --------------------
@@ -215,6 +219,7 @@ namespace UniqueBuildings
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
+            ShowBulkUnlockNotifications = false;
             AllowMultipleUniqueBuildings = true;
         }
 

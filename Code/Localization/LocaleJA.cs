@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleJA.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "インストール済みのMODバージョンとビルドの種類です。", // 38
             "ログを開く", // 39
             "MODのログファイルを開きます。ない場合はログフォルダーを開きます。", // 40
+            "一括解放時の通知を表示", // 41
+            "**オフ**（初期設定）= シグネチャー建築物を大量の通知なしで解放します。\n**オン** = 一括解放で新たに解放した建築物ごとに通知を表示します。\n過去の解放通知は再表示しません。通常のゲーム通知にも影響しません。", // 42
         };
 
         public LocaleJA(UniqueBldgSettings setting)

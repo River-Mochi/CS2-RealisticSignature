@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANS.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "已安装的模组版本和构建类型。", // 38
             "打开日志", // 39
             "打开模组日志文件；若不存在，则打开日志文件夹。", // 40
+            "显示批量解锁通知", // 41
+            "**关闭**（默认）= 批量解锁标志性建筑时不显示大量弹窗。\n**开启** = 每解锁一栋新的标志性建筑，就显示一条通知。\n不会重放过去的解锁通知，也不会影响游戏正常解锁时的通知。", // 42
         };
 
         public LocaleZH_HANS(UniqueBldgSettings setting)

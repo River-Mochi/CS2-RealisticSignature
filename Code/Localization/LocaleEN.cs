@@ -141,6 +141,16 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),
                     "Opens this mod's log file. If unavailable, opens the Logs folder."
                 },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)),
+                    "Show bulk unlock notifications"
+                },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ShowBulkUnlockNotifications)),
+                    "**OFF** (default) = unlock Signatures quietly, without dozens of popups.\n" +
+                    "**ON** = show a popup for each newly unlocked Signature building when the bulk unlock runs.\n" +
+                    "Does not replay previous unlocks or affect normal game unlock notifications."
+                },
+
+
             };
         }
 

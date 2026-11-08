@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleVI.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Phiên bản mod đã cài và loại bản dựng.", // 38
             "Mở nhật ký", // 39
             "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 40
+            "Hiện thông báo khi mở khóa hàng loạt", // 41
+            "**TẮT** (mặc định) = mở khóa công trình đặc trưng mà không hiện quá nhiều thông báo.\n**BẬT** = hiện thông báo cho mỗi công trình vừa được mở khóa hàng loạt.\nKhông phát lại thông báo cũ và không ảnh hưởng thông báo mở khóa thông thường.", // 42
         };
 
         public LocaleVI(UniqueBldgSettings setting)

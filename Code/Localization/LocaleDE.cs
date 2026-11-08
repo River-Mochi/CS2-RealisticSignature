@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Installierte Modversion und Build-Typ.", // 38
             "Protokoll öffnen", // 39
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 40
+            "Benachrichtigungen beim Massenfreischalten anzeigen", // 41
+            "**AUS** (Standard) = Signaturgebäude ohne viele Pop-ups freischalten.\n**EIN** = für jedes neu freigeschaltete Signaturgebäude ein Pop-up anzeigen.\nFrühere Freischaltungen werden nicht erneut angezeigt. Normale Spielmeldungen bleiben unverändert.", // 42
         };
 
         public LocaleDE(UniqueBldgSettings setting)

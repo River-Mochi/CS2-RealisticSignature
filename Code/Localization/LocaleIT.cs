@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Versione installata e tipo di compilazione.", // 38
             "Apri registro", // 39
             "Apre il file di registro del mod oppure la cartella dei registri.", // 40
+            "Mostra notifiche di sblocco in massa", // 41
+            "**DISATTIVO** (predefinito) = sblocca gli edifici distintivi senza molte notifiche.\n**ATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato.\nNon ripete gli sblocchi precedenti e non modifica le notifiche normali del gioco.", // 42
         };
 
         public LocaleIT(UniqueBldgSettings setting)

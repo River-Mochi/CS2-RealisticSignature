@@ -134,6 +134,14 @@ namespace UniqueBuildings
             int vanillaLocked = 0;
             int vanillaAvailable = 0;
 
+            // Opt-in only: normal unlocking and vanilla events are untouched.
+            bool showBulk = unlock &&
+                (Mod.Setting?.ShowBulkUnlockNotifications ?? false);
+            SignatureBuildingUISystem? signatureUi = showBulk
+                ? World.GetExistingSystemManaged<SignatureBuildingUISystem>()
+                : null;
+            int popupsQueued = 0;
+
             for (int i = 0; i < signatures.Length; i++)
             {
                 Entity entity = signatures[i];
@@ -171,6 +179,13 @@ namespace UniqueBuildings
                 changed++;
 
                 NotifyToolbar(entity);
+
+                if (showBulk && signatureUi != null &&
+                    EntityManager.HasComponent<UIObjectData>(entity))
+                {
+                    signatureUi.AddUnlockedSignature(entity);
+                    popupsQueued++;
+                }
             }
 
             int lockedAfter =
@@ -184,7 +199,8 @@ namespace UniqueBuildings
                 $"Changed={changed} | " +
                 $"VanillaLocked={vanillaLocked} | " +
                 $"VanillaAvailable={vanillaAvailable} | " +
-                $"LockedAfter={lockedAfter}.");
+                $"LockedAfter={lockedAfter} | " +
+                $"BulkPopupsQueued={popupsQueued}.");
         }
 
         private void RestoreVanillaLockState(bool logResult)

@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTH.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "เวอร์ชันม็อดที่ติดตั้งและชนิดของบิลด์", // 38
             "เปิดบันทึก", // 39
             "เปิดไฟล์บันทึกของม็อด หรือเปิดโฟลเดอร์บันทึกหากไม่มีไฟล์", // 40
+            "แสดงการแจ้งเตือนการปลดล็อกจำนวนมาก", // 41
+            "**ปิด** (ค่าเริ่มต้น) = ปลดล็อกอาคารเอกลักษณ์โดยไม่มีการแจ้งเตือนจำนวนมาก\n**เปิด** = แสดงการแจ้งเตือนสำหรับอาคารเอกลักษณ์แต่ละหลังที่เพิ่งปลดล็อก\nไม่แสดงการปลดล็อกเดิมซ้ำ และไม่กระทบการแจ้งเตือนปกติของเกม", // 42
         };
 
         public LocaleTH(UniqueBldgSettings setting)

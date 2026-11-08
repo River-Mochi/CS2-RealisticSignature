@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePT_PT.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "Versão instalada e tipo de compilação.", // 38
             "Abrir registo", // 39
             "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 40
+            "Mostrar avisos do desbloqueio em massa", // 41
+            "**DESLIGADO** (predefinição) = desbloqueia edifícios emblemáticos sem muitas notificações.\n**LIGADO** = mostra um aviso por cada edifício emblemático acabado de desbloquear.\nNão repete desbloqueios anteriores nem altera os avisos normais do jogo.", // 42
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)

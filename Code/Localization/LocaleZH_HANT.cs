@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANT.cs
-// All 41 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -56,6 +56,8 @@ namespace UniqueBuildings
             "已安裝的模組版本和建置類型。", // 38
             "開啟紀錄", // 39
             "開啟模組紀錄檔案；若沒有檔案，則開啟紀錄資料夾。", // 40
+            "顯示大量解鎖通知", // 41
+            "**關閉**（預設）= 批量解鎖地標建築時不顯示大量彈出通知。\n**開啟** = 每解鎖一棟新的地標建築，就顯示一則通知。\n不會重播先前的解鎖通知，也不會影響遊戲正常解鎖時的通知。", // 42
         };
 
         public LocaleZH_HANT(UniqueBldgSettings setting)
