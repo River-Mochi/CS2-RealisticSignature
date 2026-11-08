@@ -2,7 +2,8 @@
 
 **Build the city you want, without making its economy unrealistically easy.**
 
-A [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines-ii/about) code mod by RiverMochi. Place multiple Unique and Signature buildings for their appearance, without necessarily multiplying the same bonuses. Choose a more balanced simulation **or** keep the game's original stacked effects.
+A [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines-ii/about) code mod by RiverMochi.
+Place multiple Unique and Signature buildings for their appearance, without necessarily multiplying the same bonuses. Choose a more balanced simulation **or** keep the game's original stacked effects.
 
 ## Features and defaults
 
@@ -19,7 +20,7 @@ A [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines
 - **No city-wide bonuses**: disable those city-wide Signature bonuses.
 - **Vanilla Stacked Bonuses**: let every eligible Signature copy contribute its city-wide bonus, just as in the base game.
 
-### Nearby Signature effects
+### Nearby Local effects
 
 - **Vanilla nearby effects** (default): normal local effects from every eligible copy.
 - **First copy only**: one copy of each Signature type provides nearby effects.
@@ -48,22 +49,15 @@ The Options page shows Signature building counts, different types, duplicate cop
 
 ## Localization
 
-Options labels and tooltips are available in English, French, German, Spanish, Italian, Polish, Brazilian and European Portuguese, Turkish, Thai, Vietnamese, Japanese, Korean, Simplified Chinese, and Traditional Chinese. Some live Status text is still displayed in English.
+English, French, German, Spanish, Italian, Polish, Brazilian and European Portuguese, Turkish, Thai, Vietnamese, Japanese, Korean, Simplified Chinese, and Traditional Chinese. Some live Status text is still displayed in English.
 
-English source of truth: [`Code/Localization/LocaleEN.cs`](Code/Localization/LocaleEN.cs). Contributions to improve translations are welcome.
+Contributions to improve translations are welcome.
 
 ## Feedback and development
 
-Report bugs and suggestions through [GitHub Issues](https://github.com/River-Mochi/CS2-RealisticSignature/issues), or join the [Discord](https://discord.gg/gwXgvtyhjc). Include the game version, mod version, exact settings, and relevant log excerpts.
+Report bugs and suggestions through [GitHub Issues](https://github.com/River-Mochi/CS2-RealisticSignature/issues), or join the [Discord](https://discord.gg/gwXgvtyhjc). Include the mod version, exact settings, mod log file and Player.log.
 
-To build from source on the configured Cities: Skylines II modding environment:
-
-```bash
-dotnet build Code/UniqueBuildings.csproj -c Release
-```
 
 ## Credits and license
 
 Created by **RiverMochi**. Licensed under GPL-3.0-or-later with the Cities: Skylines II Linking Exception; see [GPL-LICENSE](GPL-LICENSE) and [LICENSE-EXCEPTION](LICENSE-EXCEPTION).
-
-**Paradox Mods release:** v0.5.0 (first public release planned).
