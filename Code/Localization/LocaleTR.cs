@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Günlüğü aç", // 39
             "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 40
             "Toplu İmza bina açma bildirimlerini gizle", // 41
-            "**AÇIK** (önerilen, varsayılan) = tüm İmza binaların kilidini açarken rahatsız edici bildirimleri gizler.\n**KAPALI** = yeni açılan her bina için bildirim gösterir. Şehir yüklenirken onlarca veya yüzlerce bildirim çıkabilir.\nOyunun normal kilit açma bildirimleri değişmez.", // 42
+            "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 42
         };
 
         public LocaleTR(UniqueBldgSettings setting)

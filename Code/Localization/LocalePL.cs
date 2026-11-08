@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Otwórz dziennik", // 39
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 40
             "Ukryj powiadomienia o zbiorczym odblokowaniu", // 41
-            "**WŁ.** (zalecane, domyślnie) = ukrywa uciążliwe powiadomienia podczas odblokowywania wszystkich budynków charakterystycznych.\n**WYŁ.** = pokazuje powiadomienie o każdym nowo odblokowanym budynku. Podczas wczytywania miasta może pojawić się ich kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry pozostają bez zmian.", // 42
+            "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 42
         };
 
         public LocalePL(UniqueBldgSettings setting)

@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Mở nhật ký", // 39
             "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 40
             "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 41
-            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo phiền phức khi mở khóa tất cả công trình đặc trưng.\n**TẮT** = hiện thông báo cho mỗi công trình vừa mở khóa. Có thể xuất hiện hàng chục hoặc hàng trăm thông báo khi tải thành phố.\nKhông ảnh hưởng đến thông báo mở khóa thông thường của trò chơi.", // 42
+            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 42
         };
 
         public LocaleVI(UniqueBldgSettings setting)

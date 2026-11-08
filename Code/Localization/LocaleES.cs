@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Abrir registro", // 39
             "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 40
             "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 41
-            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos molestos al desbloquear todos los edificios emblemáticos.\n**DESACTIVADO** = muestra un aviso por cada edificio recién desbloqueado. Al cargar una ciudad pueden aparecer decenas o cientos.\nNo afecta a los avisos normales del juego.", // 42
+            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 42
         };
 
         public LocaleES(UniqueBldgSettings setting)

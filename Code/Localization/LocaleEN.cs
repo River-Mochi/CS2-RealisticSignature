@@ -145,10 +145,11 @@ namespace UniqueBuildings
                     "Hide bulk Signature unlock pop-ups"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
-                    "**ON** (recommended, default) = hide nuisance pop-ups when unlocking all Signature buildings.\n" +
-                    "**OFF** = show a pop-up for every newly unlocked Signature building. " +
-                    "This can cause dozens or hundreds of pop-ups when loading a city.\n" +
-                    "Only affects this mod's bulk unlock; normal game unlock notifications stay unchanged."
+                    "**ON** (recommended, default) = hide the flood of pop-ups from this mod's bulk Signature unlock.\n" +
+                    "**OFF** = show a pop-up for each Signature newly unlocked by this mod. " +
+                    "Dozens or hundreds may appear.\n" +
+                    "Normal game unlock notifications still appear, including buildings added by " +
+                    "game updates, DLC, region packs, or regular city progression."
                 },
 
 

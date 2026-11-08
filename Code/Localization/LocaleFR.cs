@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Ouvrir le journal", // 39
             "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 40
             "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 41
-            "**ACTIVÉ** (recommandé, par défaut) = masque les fenêtres gênantes lors du déblocage de tous les bâtiments emblématiques.\n**DÉSACTIVÉ** = affiche une notification pour chaque bâtiment nouvellement débloqué. Des dizaines, voire des centaines, peuvent apparaître au chargement d'une ville.\nLes notifications normales du jeu restent inchangées.", // 42
+            "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 42
         };
 
         public LocaleFR(UniqueBldgSettings setting)

@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Protokoll öffnen", // 39
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 40
             "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 41
-            "**EIN** (empfohlen, Standard) = störende Pop-ups beim Freischalten aller Signaturgebäude ausblenden.\n**AUS** = für jedes neu freigeschaltete Signaturgebäude ein Pop-up anzeigen. Beim Laden einer Stadt können Dutzende oder Hunderte erscheinen.\nNormale Freischaltmeldungen des Spiels bleiben unverändert.", // 42
+            "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 42
         };
 
         public LocaleDE(UniqueBldgSettings setting)

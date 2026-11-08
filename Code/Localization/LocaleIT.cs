@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Apri registro", // 39
             "Apre il file di registro del mod oppure la cartella dei registri.", // 40
             "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 41
-            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche fastidiose quando sblocchi tutti gli edifici distintivi.\n**DISATTIVO** = mostra una notifica per ogni nuovo edificio sbloccato. Caricando una città possono comparirne decine o centinaia.\nNon influisce sulle normali notifiche del gioco.", // 42
+            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 42
         };
 
         public LocaleIT(UniqueBldgSettings setting)

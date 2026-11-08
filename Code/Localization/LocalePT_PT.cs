@@ -57,7 +57,7 @@ namespace UniqueBuildings
             "Abrir registo", // 39
             "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 40
             "Ocultar avisos de desbloqueio em massa", // 41
-            "**LIGADO** (recomendado, predefinição) = oculta avisos incómodos ao desbloquear todos os edifícios emblemáticos.\n**DESLIGADO** = mostra um aviso por edifício recém-desbloqueado. Podem aparecer dezenas ou centenas ao carregar uma cidade.\nNão altera os avisos normais do jogo.", // 42
+            "**LIGADO** (recomendado, predefinição) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso por cada edifício emblemático desbloqueado pelo mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam a aparecer, incluindo edifícios novos de atualizações, DLC, pacotes regionais e progresso da cidade.", // 42
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)

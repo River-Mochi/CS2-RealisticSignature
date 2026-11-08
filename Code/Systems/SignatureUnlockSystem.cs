@@ -138,9 +138,6 @@ namespace UniqueBuildings
             // Vanilla progression notifications are never changed.
             bool showBulk = unlock &&
                 !(Mod.Setting?.HideBulkUnlockNotifications ?? true);
-            SignatureBuildingUISystem signatureUi = showBulk
-                ? World.GetExistingSystemManaged<SignatureBuildingUISystem>()
-                : null;
             int popupsQueued = 0;
 
             for (int i = 0; i < signatures.Length; i++)
@@ -181,8 +178,10 @@ namespace UniqueBuildings
 
                 NotifyToolbar(entity);
 
-                if (showBulk && signatureUi != null &&
-                    EntityManager.HasComponent<UIObjectData>(entity))
+                if (showBulk &&
+                    EntityManager.HasComponent<UIObjectData>(entity) &&
+                    World.GetExistingSystemManaged<SignatureBuildingUISystem>()
+                        is SignatureBuildingUISystem signatureUi)
                 {
                     signatureUi.AddUnlockedSignature(entity);
                     popupsQueued++;
