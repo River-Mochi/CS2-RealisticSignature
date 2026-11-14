@@ -152,6 +152,9 @@ namespace UniqueBuildings
                     updateSystem.UpdateAt<UniquePlacementSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
+                    updateSystem.UpdateAt<SignatureInfoviewSystem>(
+                        SystemUpdatePhase.PostTool);
+
                     updateSystem.UpdateAt<SignatureBonusSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
@@ -195,6 +198,9 @@ namespace UniqueBuildings
 
                 world?.GetExistingSystemManaged<UniquePlacementSystem>()
                     ?.RestoreOwnedChangesForDispose();
+
+                world?.GetExistingSystemManaged<SignatureInfoviewSystem>()
+                    ?.ReleaseForDispose();
 
                 world?.GetExistingSystemManaged<SignatureBonusSystem>()
                     ?.RestoreOwnedChangesForDispose();

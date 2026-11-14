@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANS.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "关于", // 2
             "标志性建筑加成", // 3
             "解锁标志性建筑", // 4
-            "放置多个独特建筑", // 5
+            "放置", // 5
             "状态", // 6
             "信息", // 7
             "调试 / 日志", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "打开模组日志文件；若不存在，则打开日志文件夹。", // 40
             "隐藏批量解锁标志性建筑的弹窗", // 41
             "**开启**（推荐、默认）= 隐藏本模组批量解锁标志性建筑所产生的弹窗。\n**关闭** = 本模组每解锁一栋新建筑就显示弹窗，可能出现数十甚至数百条。\n游戏的正常解锁通知仍会显示，包括游戏更新、DLC、地区建筑包新增的建筑及城市发展进度带来的通知。", // 42
+            "放置标志性建筑时不自动打开信息视图", // 43
+            "选择标志性建筑进行放置时，不自动打开信息视图面板和彩色地图叠加层。仍可手动打开信息视图。其他建筑工具不受影响。若 Toggleable Overlays 已启用，则由该模组优先控制。默认：关闭。", // 44
         };
 
         public LocaleZH_HANS(UniqueBldgSettings setting)

@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePT_BR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Sobre", // 2
             "Bônus de edifícios emblemáticos", // 3
             "Desbloqueio de edifícios emblemáticos", // 4
-            "Vários edifícios únicos", // 5
+            "Posicionamento", // 5
             "Status", // 6
             "Informações", // 7
             "Depuração / Registro", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Abre o registro do mod ou, se não estiver disponível, a pasta de registros.", // 40
             "Ocultar avisos de desbloqueio em massa", // 41
             "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 42
+            "Não abrir automaticamente as vistas de informação ao posicionar edifícios emblemáticos", // 43
+            "Impede que o painel de informações e a sobreposição colorida do mapa sejam abertos automaticamente ao selecionar um edifício emblemático para posicionar. As vistas de informação ainda podem ser abertas manualmente. As outras ferramentas não são afetadas. Toggleable Overlays tem prioridade quando ativo. Padrão: DESLIGADO.", // 44
         };
 
         public LocalePT_BR(UniqueBldgSettings setting)

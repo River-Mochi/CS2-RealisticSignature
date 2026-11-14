@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Hakkında", // 2
             "İmza bina bonusları", // 3
             "İmza binaların kilidini aç", // 4
-            "Birden fazla benzersiz bina", // 5
+            "Yerleştirme", // 5
             "Durum", // 6
             "Bilgi", // 7
             "Hata ayıklama / Günlük", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 40
             "Toplu İmza bina açma bildirimlerini gizle", // 41
             "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 42
+            "İmza binalar yerleştirilirken bilgi görünümünü otomatik açma", // 43
+            "Yerleştirmek için İmza bina seçildiğinde bilgi panelinin ve renkli harita katmanının otomatik açılmasını önler. Bilgi görünümleri elle açılabilir. Diğer inşa araçları etkilenmez. Toggleable Overlays etkinse öncelik ondadır. Varsayılan: KAPALI.", // 44
         };
 
         public LocaleTR(UniqueBldgSettings setting)

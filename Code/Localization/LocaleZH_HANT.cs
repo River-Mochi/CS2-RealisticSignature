@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANT.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "關於", // 2
             "地標建築加成", // 3
             "解鎖地標建築", // 4
-            "放置多個獨特建築", // 5
+            "放置", // 5
             "狀態", // 6
             "資訊", // 7
             "偵錯 / 紀錄", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "開啟模組紀錄檔案；若沒有檔案，則開啟紀錄資料夾。", // 40
             "隱藏大量解鎖地標建築時的通知", // 41
             "**開啟**（建議、預設）= 隱藏本模組批量解鎖地標建築所產生的通知。\n**關閉** = 本模組每解鎖一棟新建築就顯示通知，可能出現數十甚至數百則。\n遊戲的正常解鎖通知仍會顯示，包括遊戲更新、DLC、地區建築包新增的建築及城市發展進度帶來的通知。", // 42
+            "放置地標建築時不自動開啟資訊檢視", // 43
+            "選擇地標建築進行放置時，不自動開啟資訊檢視面板和彩色地圖圖層。仍可手動開啟資訊檢視。其他建築工具不受影響。若 Toggleable Overlays 已啟用，則由該模組優先控制。預設：關閉。", // 44
         };
 
         public LocaleZH_HANT(UniqueBldgSettings setting)

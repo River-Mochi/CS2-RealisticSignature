@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleVI.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Giới thiệu", // 2
             "Thưởng từ công trình đặc trưng", // 3
             "Mở khóa công trình đặc trưng", // 4
-            "Nhiều công trình độc đáo", // 5
+            "Đặt công trình", // 5
             "Trạng thái", // 6
             "Thông tin", // 7
             "Gỡ lỗi / Nhật ký", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 40
             "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 41
             "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 42
+            "Không tự động mở chế độ xem thông tin khi đặt công trình đặc trưng", // 43
+            "Khi chọn công trình đặc trưng để đặt, bảng thông tin và lớp màu trên bản đồ sẽ không tự động mở. Bạn vẫn có thể mở chế độ xem thông tin theo cách thủ công. Các công cụ xây dựng khác không bị ảnh hưởng. Nếu Toggleable Overlays đang hoạt động, mod đó được ưu tiên. Mặc định: TẮT.", // 44
         };
 
         public LocaleVI(UniqueBldgSettings setting)

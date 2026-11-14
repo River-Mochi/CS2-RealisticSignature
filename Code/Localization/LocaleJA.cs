@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleJA.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "詳細", // 2
             "シグネチャー建築物のボーナス", // 3
             "シグネチャー建築物の解放", // 4
-            "ユニーク建造物の複数配置", // 5
+            "配置", // 5
             "状態", // 6
             "情報", // 7
             "デバッグ / ログ", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "MODのログファイルを開きます。ない場合はログフォルダーを開きます。", // 40
             "シグネチャー建築物の一括解放通知を非表示", // 41
             "**オン**（推奨・初期設定）= このMODによるシグネチャー建築物の一括解放通知を非表示にします。\n**オフ** = このMODが新たに解放した建築物ごとに通知します。数十～数百件表示される場合があります。\nゲームの通常の解放通知は表示されます。アップデート、DLC、地域パックで追加された建築物や都市の進行による通知は対象外です。", // 42
+            "シグネチャー建築物の配置時に情報ビューを自動で開かない", // 43
+            "シグネチャー建築物を配置用に選択しても、情報ビューパネルと色付きマップ表示を自動で開きません。情報ビューは手動で開けます。他の建築ツールには影響しません。Toggleable Overlays が有効な場合はそちらを優先します。初期設定：オフ。", // 44
         };
 
         public LocaleJA(UniqueBldgSettings setting)

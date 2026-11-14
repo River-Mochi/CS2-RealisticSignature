@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePL.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "O modzie", // 2
             "Premie budynków charakterystycznych", // 3
             "Odblokowywanie budynków charakterystycznych", // 4
-            "Wiele unikatowych budynków", // 5
+            "Umieszczanie", // 5
             "Stan", // 6
             "Informacje", // 7
             "Debugowanie / Dziennik", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 40
             "Ukryj powiadomienia o zbiorczym odblokowaniu", // 41
             "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 42
+            "Nie otwieraj automatycznie widoków informacji podczas stawiania budynków charakterystycznych", // 43
+            "Po wybraniu budynku charakterystycznego do postawienia panel informacji i kolorowa nakładka mapy nie otworzą się automatycznie. Widoki informacji nadal można otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WYŁ.", // 44
         };
 
         public LocalePL(UniqueBldgSettings setting)

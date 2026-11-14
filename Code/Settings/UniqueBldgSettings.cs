@@ -101,6 +101,10 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAllowMultipleUniqueBuildings))]
         public bool AllowMultipleUniqueBuildings { get; set; }
 
+        [SettingsUISection(ActionsTab, PlacementGroup)]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
+        public bool PreventAutomaticSignatureInfoviews { get; set; }
+
         // --------------------
         // Status
         // --------------------
@@ -226,6 +230,7 @@ namespace UniqueBuildings
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
             AllowMultipleUniqueBuildings = true;
+            PreventAutomaticSignatureInfoviews = false;
         }
 
         private void SetSignatureBonuses(int value)
@@ -251,6 +256,11 @@ namespace UniqueBuildings
             GetPlacementSystem()?.ScheduleReconcile(
                 value,
                 "Options setting changed");
+        }
+
+        private void SetPreventAutomaticSignatureInfoviews(bool value)
+        {
+            GetSignatureInfoviewSystem()?.OnSettingChanged(value);
         }
 
 
@@ -357,6 +367,14 @@ namespace UniqueBuildings
                 return null;
 
             return world.GetOrCreateSystemManaged<UniquePlacementSystem>();
+        }
+
+        private static SignatureInfoviewSystem? GetSignatureInfoviewSystem()
+        {
+            World? world = World.DefaultGameObjectInjectionWorld;
+            return world == null || !world.IsCreated
+                ? null
+                : world.GetExistingSystemManaged<SignatureInfoviewSystem>();
         }
 
         private static SignatureScanSystem? GetScanSystem()

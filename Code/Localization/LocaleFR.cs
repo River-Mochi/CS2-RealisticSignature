@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleFR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "À propos", // 2
             "Bonus des bâtiments emblématiques", // 3
             "Déblocage des bâtiments emblématiques", // 4
-            "Plusieurs bâtiments uniques", // 5
+            "Placement", // 5
             "Statut", // 6
             "Infos", // 7
             "Débogage / Journal", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 40
             "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 41
             "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 42
+            "Ne pas ouvrir automatiquement les infovues lors du placement des bâtiments emblématiques", // 43
+            "Empêche l'ouverture automatique du panneau d'infovue et de la carte colorée lors de la sélection d'un bâtiment emblématique à placer. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : DÉSACTIVÉ.", // 44
         };
 
         public LocaleFR(UniqueBldgSettings setting)

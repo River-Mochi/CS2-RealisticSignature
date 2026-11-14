@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleKO.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "정보", // 2
             "시그니처 건물 보너스", // 3
             "시그니처 건물 잠금 해제", // 4
-            "고유 건물 중복 배치", // 5
+            "배치", // 5
             "상태", // 6
             "안내", // 7
             "디버그 / 로그", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "이 모드의 로그 파일을 엽니다. 없으면 로그 폴더를 엽니다.", // 40
             "시그니처 건물 일괄 잠금 해제 알림 숨기기", // 41
             "**켜짐** (권장, 기본값) = 이 모드의 시그니처 건물 일괄 해제 팝업을 숨깁니다.\n**꺼짐** = 이 모드가 새로 잠금 해제한 건물마다 팝업을 표시합니다. 수십~수백 개가 나타날 수 있습니다.\n게임의 일반 알림은 계속 표시됩니다. 업데이트, DLC, 지역 팩으로 추가된 건물과 도시 진행에 따른 알림은 숨기지 않습니다.", // 42
+            "시그니처 건물 배치 시 정보 보기를 자동으로 열지 않기", // 43
+            "시그니처 건물을 배치하려고 선택할 때 정보 보기 패널과 색상 지도 오버레이가 자동으로 열리지 않게 합니다. 정보 보기는 수동으로 열 수 있습니다. 다른 건설 도구에는 영향을 주지 않습니다. Toggleable Overlays가 활성화되어 있으면 해당 모드가 우선합니다. 기본값: 꺼짐.", // 44
         };
 
         public LocaleKO(UniqueBldgSettings setting)

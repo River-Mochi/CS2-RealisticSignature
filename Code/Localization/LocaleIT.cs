@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Informazioni", // 2
             "Bonus degli edifici distintivi", // 3
             "Sblocco degli edifici distintivi", // 4
-            "Più edifici unici", // 5
+            "Posizionamento", // 5
             "Stato", // 6
             "Info", // 7
             "Debug / Registro", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Apre il file di registro del mod oppure la cartella dei registri.", // 40
             "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 41
             "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 42
+            "Non aprire automaticamente le viste informative quando si posizionano edifici distintivi", // 43
+            "Impedisce l'apertura automatica del pannello informativo e della mappa colorata quando si seleziona un edificio distintivo da posizionare. Le viste informative possono ancora essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 44
         };
 
         public LocaleIT(UniqueBldgSettings setting)

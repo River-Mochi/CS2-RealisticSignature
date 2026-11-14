@@ -40,7 +40,7 @@ namespace UniqueBuildings
                 // Groups
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.BonusGroup), "Signature Bonuses" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.UnlockGroup), "Signature Unlocks" },
-                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.PlacementGroup), "Multiple Unique Buildings" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.PlacementGroup), "Placement" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.SignatureStatusGroup), "Status" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.AboutInfoGroup), "Info" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.DebugGroup), "Debug / Logging" },
@@ -93,6 +93,13 @@ namespace UniqueBuildings
                     "**ON** = place multiple copies of anything the game marks Unique, including Signature buildings.\n" +
                     "**OFF** = normal one-per-city rules unless another mod allows multiple Unique items."
                 },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
+                    "Don't automatically open infoviews when placing Signature buildings" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
+                    "Stops Signature buildings from automatically opening the infoview panel and colored map overlay when selected for placement. " +
+                    "You can still open infoviews manually. Other building tools are unaffected. " +
+                    "Toggleable Overlays takes priority when active. Default: OFF." },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },

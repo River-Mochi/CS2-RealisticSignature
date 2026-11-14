@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Über", // 2
             "Signaturgebäude-Boni", // 3
             "Signaturgebäude freischalten", // 4
-            "Mehrere einzigartige Gebäude", // 5
+            "Platzierung", // 5
             "Status", // 6
             "Info", // 7
             "Debug / Protokoll", // 8
@@ -58,6 +58,8 @@ namespace UniqueBuildings
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 40
             "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 41
             "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 42
+            "Infoviews beim Platzieren von Signaturgebäuden nicht automatisch öffnen", // 43
+            "Verhindert, dass beim Auswählen eines Signaturgebäudes zur Platzierung das Infoview-Fenster und die farbige Kartenansicht automatisch geöffnet werden. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: AUS.", // 44
         };
 
         public LocaleDE(UniqueBldgSettings setting)
