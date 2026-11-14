@@ -102,7 +102,7 @@ namespace UniqueBuildings
         public bool AllowMultipleUniqueBuildings { get; set; }
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
-        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
+        // Keep the saved key so existing users retain their enabled setting.
         public bool PreventAutomaticSignatureInfoviews { get; set; }
 
         // --------------------
@@ -170,30 +170,6 @@ namespace UniqueBuildings
             }
         }
 
-        [SettingsUIButtonGroup(SignatureStatusGroup)]
-        [SettingsUIButton]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public bool RunBonusReportButton
-        {
-            set
-            {
-                if (value)
-                    GetSignatureBonusSystem()?.RunBonusReport();
-            }
-        }
-
-        [SettingsUIButtonGroup(SignatureStatusGroup)]
-        [SettingsUIButton]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public bool RunNearbyReportButton
-        {
-            set
-            {
-                if (value)
-                    GetNearbySystem()?.RunNearbyReport();
-            }
-        }
-
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
@@ -210,6 +186,27 @@ namespace UniqueBuildings
         [SettingsUISection(AboutTab, AboutInfoGroup)]
         public string ModVersionDisplay =>
             $"{Mod.ModVersion} {Mod.BuildDisplayName}";
+
+        [SettingsUIButtonGroup(DebugGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(AboutTab, DebugGroup)]
+        public bool RunStatusReportButton
+        {
+            set
+            {
+                if (!value)
+                    return;
+
+                if (!IsCityLoaded())
+                {
+                    LogUtils.Warn($"{Mod.ModTag} Load a city before running the status report.");
+                    return;
+                }
+
+                GetSignatureBonusSystem()?.RunBonusReport();
+                GetNearbySystem()?.RunNearbyReport();
+            }
+        }
 
         [SettingsUIButtonGroup(DebugGroup)]
         [SettingsUIButton]
@@ -256,11 +253,6 @@ namespace UniqueBuildings
             GetPlacementSystem()?.ScheduleReconcile(
                 value,
                 "Options setting changed");
-        }
-
-        private void SetPreventAutomaticSignatureInfoviews(bool value)
-        {
-            GetSignatureInfoviewSystem()?.OnSettingChanged(value);
         }
 
 
@@ -367,14 +359,6 @@ namespace UniqueBuildings
                 return null;
 
             return world.GetOrCreateSystemManaged<UniquePlacementSystem>();
-        }
-
-        private static SignatureInfoviewSystem? GetSignatureInfoviewSystem()
-        {
-            World? world = World.DefaultGameObjectInjectionWorld;
-            return world == null || !world.IsCreated
-                ? null
-                : world.GetExistingSystemManaged<SignatureInfoviewSystem>();
         }
 
         private static SignatureScanSystem? GetScanSystem()

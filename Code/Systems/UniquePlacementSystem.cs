@@ -124,6 +124,26 @@ namespace UniqueBuildings
             RestoreOwnedUniqueFlags(notifyUi: true);
         }
 
+        public bool IsKnownUniqueBuilding(Entity prefab)
+        {
+            if (!EntityManager.Exists(prefab) ||
+                !EntityManager.HasComponent<BuildingData>(prefab) ||
+                !EntityManager.HasComponent<PlaceableObjectData>(prefab))
+            {
+                return false;
+            }
+
+            if (m_KnownUniquePrefabs.Contains(prefab) ||
+                m_UniqueRemovedByUs.Contains(prefab))
+            {
+                return true;
+            }
+
+            PlaceableObjectData data =
+                EntityManager.GetComponentData<PlaceableObjectData>(prefab);
+            return IsUniquePrefab(prefab, data);
+        }
+
         private void ReconcileNow(bool allowMultiple, string reason)
         {
             UniqueModsCompatibility.LogDetectedMods();
@@ -221,26 +241,19 @@ namespace UniqueBuildings
                     EntityManager.GetComponentData<PlaceableObjectData>(
                         entity);
 
-                bool currentlyUnique =
-                    (data.m_Flags & PlacementFlags.Unique) != 0;
-
-                bool changedByUs =
-                    m_UniqueRemovedByUs.Contains(entity);
-
-                bool signature =
-                    EntityManager.HasComponent<SignatureBuildingData>(entity);
-
-                bool genericUnique =
-                    EntityManager.HasComponent<UniqueObjectData>(entity);
-
-                if (currentlyUnique ||
-                    changedByUs ||
-                    signature ||
-                    genericUnique)
+                if (IsUniquePrefab(entity, data))
                 {
                     m_KnownUniquePrefabs.Add(entity);
                 }
             }
+        }
+
+        private bool IsUniquePrefab(Entity entity, PlaceableObjectData data)
+        {
+            return (data.m_Flags & PlacementFlags.Unique) != 0 ||
+                   m_UniqueRemovedByUs.Contains(entity) ||
+                   EntityManager.HasComponent<SignatureBuildingData>(entity) ||
+                   EntityManager.HasComponent<UniqueObjectData>(entity);
         }
 
         private int RestoreOwnedUniqueFlags(bool notifyUi)

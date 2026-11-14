@@ -23,6 +23,7 @@ namespace UniqueBuildings
     using Game.Modding;
     using Game.SceneFlow;
     using Game.Simulation;
+    using HarmonyLib;
     using Unity.Entities;
 
     public sealed class Mod : IMod
@@ -47,6 +48,9 @@ namespace UniqueBuildings
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
         public static UniqueBldgSettings? Setting { get; private set; }
+        private Harmony? m_Harmony;
+
+        private const string InfoviewPatchId = "RiverMochi.RealisticSignature.Infoview";
 
         public static string BuildDisplayName =>
             kBuildType == "RELEASE" ? "Release" : "Debug";
@@ -152,9 +156,6 @@ namespace UniqueBuildings
                     updateSystem.UpdateAt<UniquePlacementSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
-                    updateSystem.UpdateAt<SignatureInfoviewSystem>(
-                        SystemUpdatePhase.PostTool);
-
                     updateSystem.UpdateAt<SignatureBonusSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
@@ -184,6 +185,31 @@ namespace UniqueBuildings
                     updateSystem.UpdateAt<SignatureScanSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
+                    try
+                    {
+                        m_Harmony = new Harmony(InfoviewPatchId);
+                        m_Harmony.PatchAll(typeof(Mod).Assembly);
+                        LogUtils.Info($"{ModTag} Unique infoview patch installed.");
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            m_Harmony?.UnpatchAll(InfoviewPatchId);
+                        }
+                        catch (Exception cleanupEx)
+                        {
+                            LogUtils.Warn(
+                                $"{ModTag} Could not clean up a partial infoview patch.",
+                                cleanupEx);
+                        }
+
+                        m_Harmony = null;
+                        LogUtils.Warn(
+                            $"{ModTag} Unique infoview patch failed; " +
+                            "other mod features remain available.", ex);
+                    }
+
         }
 
         public void OnDispose()
@@ -199,9 +225,6 @@ namespace UniqueBuildings
                 world?.GetExistingSystemManaged<UniquePlacementSystem>()
                     ?.RestoreOwnedChangesForDispose();
 
-                world?.GetExistingSystemManaged<SignatureInfoviewSystem>()
-                    ?.ReleaseForDispose();
-
                 world?.GetExistingSystemManaged<SignatureBonusSystem>()
                     ?.RestoreOwnedChangesForDispose();
 
@@ -212,6 +235,14 @@ namespace UniqueBuildings
             {
             }
 
+            try
+            {
+                m_Harmony?.UnpatchAll(InfoviewPatchId);
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn($"{ModTag} Could not remove infoview patch.", ex);
+            }
             Setting?.UnregisterInOptionsUI();
             Setting = null;
 

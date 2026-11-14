@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePT_PT.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Mostra os edifícios emblemáticos construídos, os tipos diferentes e as cópias adicionais.", // 26
             "Efeitos dos bónus globais", // 27
             "Conta edifícios emblemáticos com bónus em toda a cidade.\nOs efeitos locais ou próximos não estão incluídos.", // 28
-            "Relatório de bónus para o registo", // 29
-            "Testa os três modos de bónus globais, escreve os valores reais no registo e repõe o modo escolhido. Sem comparações manuais.", // 30
-            "Relatório de efeitos próximos para o registo", // 31
-            "Verifica os três modos de efeitos próximos no registo e repõe o modo escolhido.", // 32
-            "Mods redundantes detetados", // 33
-            "Anarchy é compatível e não aparece aqui.\nRemove outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 34
-            "Mod", // 35
-            "Nome apresentado deste mod.", // 36
-            "Versão", // 37
-            "Versão instalada e tipo de compilação.", // 38
-            "Abrir registo", // 39
-            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 40
-            "Ocultar avisos de desbloqueio em massa", // 41
-            "**LIGADO** (recomendado, predefinição) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso por cada edifício emblemático desbloqueado pelo mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam a aparecer, incluindo edifícios novos de atualizações, DLC, pacotes regionais e progresso da cidade.", // 42
-            "Não abrir automaticamente as vistas de informação ao colocar edifícios emblemáticos", // 43
-            "Impede que o painel de informação e a sobreposição colorida do mapa sejam abertos automaticamente ao selecionar um edifício emblemático para colocação. As vistas de informação continuam a poder ser abertas manualmente. As outras ferramentas não são afetadas. Toggleable Overlays tem prioridade quando ativo. Predefinição: DESLIGADO.", // 44
+            "Mods redundantes detetados", // 29
+            "Anarchy é compatível e não aparece aqui.\nRemove outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 30
+            "Mod", // 31
+            "Nome apresentado deste mod.", // 32
+            "Versão", // 33
+            "Versão instalada e tipo de compilação.", // 34
+            "Abrir registo", // 35
+            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 36
+            "Ocultar avisos de desbloqueio em massa", // 37
+            "**LIGADO** (recomendado, predefinição) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso por cada edifício emblemático desbloqueado pelo mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam a aparecer, incluindo edifícios novos de atualizações, DLC, pacotes regionais e progresso da cidade.", // 38
+            "Impedir vistas de informação automáticas para edifícios únicos", // 39
+            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informação e o mapa colorido durante a colocação. As vistas podem continuar a ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Predefinição: DESLIGADO.", // 40
+            "Relatório de estado no registo", // 41
+            "Executa os relatórios de bónus da cidade e efeitos de proximidade e depois restaura os modos escolhidos. Os resultados são escritos no registo do mod. Carregue primeiro uma cidade.", // 42
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)

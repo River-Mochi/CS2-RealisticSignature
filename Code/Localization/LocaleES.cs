@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleES.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Muestra los edificios emblemáticos colocados, los tipos distintos y las copias adicionales.", // 26
             "Bonificaciones globales", // 27
             "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.", // 28
-            "Informe de bonificaciones al registro", // 29
-            "Prueba los tres modos de bonificaciones globales, escribe los valores reales de la ciudad en el registro y restaura el modo elegido. No necesitas comparar manualmente.", // 30
-            "Informe de efectos cercanos al registro", // 31
-            "Comprueba los tres modos de efectos cercanos en el registro y restaura el modo elegido.", // 32
-            "Mods redundantes detectados", // 33
-            "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 34
-            "Mod", // 35
-            "Nombre que se muestra para este mod.", // 36
-            "Versión", // 37
-            "Versión instalada del mod y tipo de compilación.", // 38
-            "Abrir registro", // 39
-            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 40
-            "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 41
-            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 42
-            "No abrir automáticamente vistas de información al colocar edificios emblemáticos", // 43
-            "Evita que al seleccionar un edificio emblemático para colocarlo se abran automáticamente el panel de información y la superposición de colores del mapa. Puedes abrir las vistas de información manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: DESACTIVADO.", // 44
+            "Mods redundantes detectados", // 29
+            "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 30
+            "Mod", // 31
+            "Nombre que se muestra para este mod.", // 32
+            "Versión", // 33
+            "Versión instalada del mod y tipo de compilación.", // 34
+            "Abrir registro", // 35
+            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 36
+            "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 37
+            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 38
+            "Evitar vistas de información automáticas para edificios únicos", // 39
+            "Evita que los edificios únicos, incluidos los emblemáticos, abran automáticamente el panel de información y la superposición de colores al colocarlos. Las vistas pueden abrirse manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: DESACTIVADO.", // 40
+            "Informe de estado al registro", // 41
+            "Genera los informes de bonificaciones globales y efectos cercanos y luego restaura los modos elegidos. Los resultados se escriben en el registro del mod. Primero carga una ciudad.", // 42
         };
 
         public LocaleES(UniqueBldgSettings setting)

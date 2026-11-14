@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleVI.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Hiển thị tổng công trình đặc trưng, số loại khác nhau và số bản sao thêm.", // 26
             "Hiệu ứng thưởng toàn thành phố", // 27
             "Đếm công trình đặc trưng có thưởng toàn thành phố.\nKhông tính hiệu ứng cục bộ hoặc lân cận.", // 28
-            "Ghi báo cáo thưởng vào nhật ký", // 29
-            "Thử cả ba chế độ thưởng toàn thành phố, ghi giá trị thực vào nhật ký rồi khôi phục lựa chọn. Không cần so sánh thủ công.", // 30
-            "Ghi báo cáo xung quanh vào nhật ký", // 31
-            "Kiểm tra cả ba chế độ hiệu ứng xung quanh và khôi phục chế độ đã chọn.", // 32
-            "Phát hiện mod trùng chức năng", // 33
-            "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 34
-            "Mod", // 35
-            "Tên hiển thị của mod này.", // 36
-            "Phiên bản", // 37
-            "Phiên bản mod đã cài và loại bản dựng.", // 38
-            "Mở nhật ký", // 39
-            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 40
-            "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 41
-            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 42
-            "Không tự động mở chế độ xem thông tin khi đặt công trình đặc trưng", // 43
-            "Khi chọn công trình đặc trưng để đặt, bảng thông tin và lớp màu trên bản đồ sẽ không tự động mở. Bạn vẫn có thể mở chế độ xem thông tin theo cách thủ công. Các công cụ xây dựng khác không bị ảnh hưởng. Nếu Toggleable Overlays đang hoạt động, mod đó được ưu tiên. Mặc định: TẮT.", // 44
+            "Phát hiện mod trùng chức năng", // 29
+            "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 30
+            "Mod", // 31
+            "Tên hiển thị của mod này.", // 32
+            "Phiên bản", // 33
+            "Phiên bản mod đã cài và loại bản dựng.", // 34
+            "Mở nhật ký", // 35
+            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 36
+            "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 37
+            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 38
+            "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 39
+            "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: TẮT.", // 40
+            "Ghi báo cáo trạng thái vào nhật ký", // 41
+            "Chạy báo cáo phần thưởng toàn thành phố và hiệu ứng lân cận, rồi khôi phục các chế độ đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 42
         };
 
         public LocaleVI(UniqueBldgSettings setting)

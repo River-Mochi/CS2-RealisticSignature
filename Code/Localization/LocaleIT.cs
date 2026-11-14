@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 26
             "Effetti bonus per tutta la città", // 27
             "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 28
-            "Rapporto bonus nel registro", // 29
-            "Prova i tre modi dei bonus cittadini, scrive i valori effettivi nel registro e ripristina il modo scelto. Non serve confrontare manualmente.", // 30
-            "Rapporto effetti vicini nel registro", // 31
-            "Controlla i tre modi degli effetti locali nel registro e ripristina il modo scelto.", // 32
-            "Mod ridondanti rilevati", // 33
-            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 34
-            "Mod", // 35
-            "Nome visualizzato del mod.", // 36
-            "Versione", // 37
-            "Versione installata e tipo di compilazione.", // 38
-            "Apri registro", // 39
-            "Apre il file di registro del mod oppure la cartella dei registri.", // 40
-            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 41
-            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 42
-            "Non aprire automaticamente le viste informative quando si posizionano edifici distintivi", // 43
-            "Impedisce l'apertura automatica del pannello informativo e della mappa colorata quando si seleziona un edificio distintivo da posizionare. Le viste informative possono ancora essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 44
+            "Mod ridondanti rilevati", // 29
+            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 30
+            "Mod", // 31
+            "Nome visualizzato del mod.", // 32
+            "Versione", // 33
+            "Versione installata e tipo di compilazione.", // 34
+            "Apri registro", // 35
+            "Apre il file di registro del mod oppure la cartella dei registri.", // 36
+            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 37
+            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 38
+            "Impedisci le viste informative automatiche per gli edifici unici", // 39
+            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 40
+            "Rapporto di stato nel registro", // 41
+            "Esegue i rapporti sui bonus cittadini e sugli effetti vicini, poi ripristina le modalità selezionate. I risultati vengono scritti nel registro del mod. Carica prima una città.", // 42
         };
 
         public LocaleIT(UniqueBldgSettings setting)

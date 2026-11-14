@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePL.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Pokazuje liczbę postawionych budynków charakterystycznych, różnych typów i dodatkowych kopii.", // 26
             "Ogólnomiejskie efekty premii", // 27
             "Zlicza budynki charakterystyczne z premiami ogólnomiejskimi.\nEfekty lokalne i w pobliżu nie są tutaj uwzględnione.", // 28
-            "Raport premii do dziennika", // 29
-            "Sprawdza trzy tryby premii ogólnomiejskich, zapisuje rzeczywiste wartości miasta w dzienniku i przywraca wybrany tryb. Bez ręcznego porównywania.", // 30
-            "Raport efektów lokalnych do dziennika", // 31
-            "Sprawdza w dzienniku trzy tryby efektów w pobliżu i przywraca wybrany tryb.", // 32
-            "Wykryte zbędne mody", // 33
-            "Anarchy jest obsługiwany i nie pojawia się tutaj.\nUsuń inne mody zezwalające na nieograniczone budynki unikatowe — ta funkcja jest już dostępna.", // 34
-            "Mod", // 35
-            "Wyświetlana nazwa moda.", // 36
-            "Wersja", // 37
-            "Zainstalowana wersja moda i typ kompilacji.", // 38
-            "Otwórz dziennik", // 39
-            "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 40
-            "Ukryj powiadomienia o zbiorczym odblokowaniu", // 41
-            "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 42
-            "Nie otwieraj automatycznie widoków informacji podczas stawiania budynków charakterystycznych", // 43
-            "Po wybraniu budynku charakterystycznego do postawienia panel informacji i kolorowa nakładka mapy nie otworzą się automatycznie. Widoki informacji nadal można otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WYŁ.", // 44
+            "Wykryte zbędne mody", // 29
+            "Anarchy jest obsługiwany i nie pojawia się tutaj.\nUsuń inne mody zezwalające na nieograniczone budynki unikatowe — ta funkcja jest już dostępna.", // 30
+            "Mod", // 31
+            "Wyświetlana nazwa moda.", // 32
+            "Wersja", // 33
+            "Zainstalowana wersja moda i typ kompilacji.", // 34
+            "Otwórz dziennik", // 35
+            "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 36
+            "Ukryj powiadomienia o zbiorczym odblokowaniu", // 37
+            "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 38
+            "Zablokuj automatyczne widoki informacji dla budynków unikatowych", // 39
+            "Podczas stawiania budynków unikatowych, w tym charakterystycznych, panel informacji i kolorowa mapa nie otworzą się automatycznie. Widoki można nadal otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WYŁ.", // 40
+            "Raport stanu do dziennika", // 41
+            "Uruchamia raporty bonusów miejskich i efektów pobliskich, po czym przywraca wybrane tryby. Wyniki trafiają do dziennika moda. Najpierw wczytaj miasto.", // 42
         };
 
         public LocalePL(UniqueBldgSettings setting)

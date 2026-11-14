@@ -31,8 +31,8 @@ namespace UniqueBuildings
             Dictionary<string, int> indexCounts)
         {
             string[] t = Text;
-            if (t.Length != 45)
-                throw new InvalidOperationException("Signature locale must have all 45 entries.");
+            if (t.Length != 43)
+                throw new InvalidOperationException("Signature locale must have all 43 entries.");
 
             return new Dictionary<string, string>
             {
@@ -65,22 +65,20 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)), t[26] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[27] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[28] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), t[29] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), t[30] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)), t[31] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)), t[32] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[33] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[34] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), t[35] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), t[36] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), t[37] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), t[38] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[39] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[40] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[41] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[42] },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)), t[43] },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)), t[44] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[29] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[30] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), t[31] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), t[32] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), t[33] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)), t[34] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[35] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), t[36] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[37] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), t[38] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)), t[39] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)), t[40] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), t[41] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), t[42] },
             };
         }
 

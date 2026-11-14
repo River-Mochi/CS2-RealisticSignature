@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -44,22 +44,20 @@ namespace UniqueBuildings
             "Zeigt platzierte Signaturgebäude, verschiedene Typen und zusätzliche Kopien.", // 26
             "Stadtweite Bonuseffekte", // 27
             "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.", // 28
-            "Bonusbericht ins Protokoll", // 29
-            "Testet alle drei stadtweiten Bonusmodi, schreibt tatsächliche Stadtwerte ins Protokoll und stellt die Auswahl wieder her. Kein manueller Vergleich nötig.", // 30
-            "Nahbereichsbericht ins Protokoll", // 31
-            "Prüft alle drei Nahbereichsmodi im Protokoll und stellt die Auswahl wieder her.", // 32
-            "Überflüssige Mods erkannt", // 33
-            "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 34
-            "Mod", // 35
-            "Anzeigename dieses Mods.", // 36
-            "Version", // 37
-            "Installierte Modversion und Build-Typ.", // 38
-            "Protokoll öffnen", // 39
-            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 40
-            "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 41
-            "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 42
-            "Infoviews beim Platzieren von Signaturgebäuden nicht automatisch öffnen", // 43
-            "Verhindert, dass beim Auswählen eines Signaturgebäudes zur Platzierung das Infoview-Fenster und die farbige Kartenansicht automatisch geöffnet werden. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: AUS.", // 44
+            "Überflüssige Mods erkannt", // 29
+            "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 30
+            "Mod", // 31
+            "Anzeigename dieses Mods.", // 32
+            "Version", // 33
+            "Installierte Modversion und Build-Typ.", // 34
+            "Protokoll öffnen", // 35
+            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 36
+            "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 37
+            "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 38
+            "Automatische Infoviews für einzigartige Gebäude verhindern", // 39
+            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: AUS.", // 40
+            "Statusbericht ins Log", // 41
+            "Erstellt Berichte zu stadtweiten Boni und lokalen Effekten und stellt danach die gewählten Modi wieder her. Die Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 42
         };
 
         public LocaleDE(UniqueBldgSettings setting)
