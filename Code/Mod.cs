@@ -78,6 +78,16 @@ namespace UniqueBuildings
                 return;
             }
 
+            try
+            {
+                ToggleableOverlaysCompatibility.Initialize();
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} Could not watch mod-set changes.", ex);
+            }
+
             UniqueBldgSettings setting = new(this);
             Setting = setting;
 
@@ -214,6 +224,15 @@ namespace UniqueBuildings
 
         public void OnDispose()
         {
+            try
+            {
+                ToggleableOverlaysCompatibility.Dispose();
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn($"{ModTag} Could not stop watching mod-set changes.", ex);
+            }
+
             try
             {
                 World? world =

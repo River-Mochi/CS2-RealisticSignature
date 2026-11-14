@@ -32,6 +32,10 @@ namespace UniqueBuildings
         // Only flags actually removed by this mod.
         private readonly HashSet<Entity> m_UniqueRemovedByUs = new();
 
+        private Entity m_LastCheckedBuildingPrefab;
+        private bool m_HasLastCheckedBuildingPrefab;
+        private bool m_LastCheckedBuildingIsUnique;
+
         private bool m_ReconcileRequested;
         private bool m_RequestedAllowMultiple;
         private string m_RequestReason = string.Empty;
@@ -54,12 +58,25 @@ namespace UniqueBuildings
 
             m_KnownUniquePrefabs.Clear();
             m_UniqueRemovedByUs.Clear();
+            m_HasLastCheckedBuildingPrefab = false;
+
+            ToggleableOverlaysCompatibility.Invalidate();
 
             UniquePlacementState.Clear();
 
             ScheduleReconcile(
                 Mod.Setting?.AllowMultipleUniqueBuildings ?? true,
                 "city load");
+
+            try
+            {
+                ToggleableOverlaysCompatibility.Initialize();
+            }
+            catch (System.Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{Mod.ModTag} Could not watch mod-set changes.", ex);
+            }
         }
 
         protected override void OnDestroy()
@@ -125,6 +142,21 @@ namespace UniqueBuildings
         }
 
         public bool IsKnownUniqueBuilding(Entity prefab)
+        {
+            if (m_HasLastCheckedBuildingPrefab &&
+                prefab == m_LastCheckedBuildingPrefab)
+            {
+                return m_LastCheckedBuildingIsUnique;
+            }
+
+            bool isUnique = ClassifyUniqueBuilding(prefab);
+            m_LastCheckedBuildingPrefab = prefab;
+            m_LastCheckedBuildingIsUnique = isUnique;
+            m_HasLastCheckedBuildingPrefab = true;
+            return isUnique;
+        }
+
+        private bool ClassifyUniqueBuilding(Entity prefab)
         {
             if (!EntityManager.Exists(prefab) ||
                 !EntityManager.HasComponent<BuildingData>(prefab) ||
@@ -225,6 +257,7 @@ namespace UniqueBuildings
         private void RefreshKnownUniquePrefabs(
             NativeArray<Entity> placeablePrefabs)
         {
+            m_HasLastCheckedBuildingPrefab = false;
             m_KnownUniquePrefabs.Clear();
 
             for (int i = 0; i < placeablePrefabs.Length; i++)
