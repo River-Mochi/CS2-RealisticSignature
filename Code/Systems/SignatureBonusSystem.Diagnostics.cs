@@ -59,10 +59,11 @@ namespace UniqueBuildings
 
             SignatureBonusMode selected = NormalizeMode(
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
-            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS STATUS START =====");
-            LogUtils.Info($"{Mod.ModTag} Current selected mode: {selected}.");
-            LogSnapshot(selected, "STATUS");
-            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS STATUS END =====");
+            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE STATUS (READ ONLY) =====");
+            LogUtils.Info($"{Mod.ModTag} Selected mode: {ModeLabel(selected)}.");
+            LogSnapshot(selected, "CURRENT");
+            LogUtils.Info($"{Mod.ModTag} Report did not change any settings or bonuses.");
+            LogUtils.Info($"{Mod.ModTag} ===== END CITY-WIDE STATUS =====");
         }
 
         public void RunBonusReport()
@@ -75,17 +76,15 @@ namespace UniqueBuildings
 
             SignatureBonusMode selected = NormalizeMode(
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
-            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS REPORT START =====");
-            LogUtils.Info($"{Mod.ModTag} Selected setting: {selected}. Testing three modes, then restoring it.");
+            LogUtils.Info($"{Mod.ModTag} ===== COMPARE CITY-WIDE BONUS MODES =====");
+            LogUtils.Info($"{Mod.ModTag} Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
             try
             {
                 float2[] vanilla = TestMode(SignatureBonusMode.VanillaStacking);
                 float2[] first = TestMode(SignatureBonusMode.FirstCopyOnly);
                 float2[] none = TestMode(SignatureBonusMode.NoBonuses);
-                LogUtils.Info($"{Mod.ModTag} Actual city modifier comparison: " +
-                    $"Vanilla vs First={(Different(vanilla, first) ? "DIFFERENT" : "SAME")}, " +
-                    $"First vs None={(Different(first, none) ? "DIFFERENT" : "SAME")}, " +
-                    $"Vanilla vs None={(Different(vanilla, none) ? "DIFFERENT" : "SAME")}.");
+                LogDifference("Vanilla vs First copy", vanilla, first);
+                LogDifference("First copy vs No bonuses", first, none);
             }
             catch (Exception ex)
             {
@@ -95,7 +94,7 @@ namespace UniqueBuildings
             {
                 try
                 {
-                    ReconcileNow(selected, "bonus report: restore selected mode");
+                    ReconcileNow(selected, "bonus report: restore selected mode", logResult: false);
                     LogSnapshot(selected, "RESTORED");
                     m_RequestedMode = selected;
                     m_ReconcileRequested = false;
@@ -106,13 +105,13 @@ namespace UniqueBuildings
                     LogUtils.Warn($"{Mod.ModTag} Bonus report restore failed: {ex.Message}", ex);
                     ScheduleReconcile(selected, "Restore after report failure");
                 }
-                LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS REPORT END =====");
+                LogUtils.Info($"{Mod.ModTag} ===== END CITY-WIDE COMPARISON =====");
             }
         }
 
         private float2[] TestMode(SignatureBonusMode mode)
         {
-            ReconcileNow(mode, "bonus report test");
+            ReconcileNow(mode, "bonus report test", logResult: false);
             return LogSnapshot(mode, "TEST");
         }
 
@@ -143,23 +142,56 @@ namespace UniqueBuildings
                 if (!suppressed) { active++; counts[2]++; }
             }
 
-            LogUtils.Info($"{Mod.ModTag} [{phase} {mode}] " +
-                $"Signatures={signatures.Length}, Types={byPrefab.Count}, " +
-                $"ExtraCopies={signatures.Length - byPrefab.Count}, TaggedCopies={tagged}, " +
-                $"CityProviders={providers}, ActiveCityProviders={active}, " +
-                $"NearbyProviders={local}, AttractivenessProviders={attractiveness}.");
-
-            PrefabSystem? prefabs = World.GetExistingSystemManaged<PrefabSystem>();
-            foreach (KeyValuePair<Entity, int[]> pair in byPrefab)
+            int extraCopies = signatures.Length - byPrefab.Count;
+            bool oneCityProviderPerType = true;
+            foreach (int[] counts in byPrefab.Values)
             {
-                int[] counts = pair.Value;
-                if (counts[0] < 2) continue;
-                string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
-                if (prefabs != null && prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
-                    name = prefab.name;
-                LogUtils.Info($"{Mod.ModTag} [{phase} {mode}] DUPLICATE {name}: " +
-                    $"Placed={counts[0]}, CityProviders={counts[1]}, " +
-                    $"ActiveCityProviders={counts[2]}.");
+                if (counts[2] > 1)
+                    oneCityProviderPerType = false;
+            }
+
+            bool correct = mode switch
+            {
+                SignatureBonusMode.VanillaStacking =>
+                    tagged == 0 && active == providers,
+                SignatureBonusMode.FirstCopyOnly =>
+                    tagged == extraCopies && oneCityProviderPerType,
+                SignatureBonusMode.NoBonuses =>
+                    tagged == signatures.Length && active == 0,
+                _ => false,
+            };
+
+            LogUtils.Info($"{Mod.ModTag}   {phase}: {ModeLabel(mode)}");
+            LogUtils.Info($"{Mod.ModTag}     Buildings: {signatures.Length} placed | " +
+                $"{byPrefab.Count} types | {extraCopies} extra copies");
+            LogUtils.Info($"{Mod.ModTag}     City-wide providers: {active} active / {providers} total | " +
+                $"{providers - active} blocked");
+            LogUtils.Info($"{Mod.ModTag}     Rule check: {(correct ? "PASS" : "CHECK")} " +
+                $"({tagged} buildings tagged for bonus suppression)");
+            if (phase == "CURRENT")
+                LogUtils.Info($"{Mod.ModTag}     Nearby providers: {local} | " +
+                    $"Attractiveness providers (untouched): {attractiveness}");
+
+            // Show the duplicate list once, not again for every test mode.
+            if (phase == "CURRENT")
+            {
+                PrefabSystem? prefabs = World.GetExistingSystemManaged<PrefabSystem>();
+                foreach (KeyValuePair<Entity, int[]> pair in byPrefab)
+                {
+                    int[] counts = pair.Value;
+                    if (counts[0] < 2)
+                        continue;
+
+                    string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
+                    if (prefabs != null &&
+                        prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                    {
+                        name = prefab.name;
+                    }
+
+                    LogUtils.Info($"{Mod.ModTag}     Duplicate {name}: " +
+                        $"{counts[0]} placed | {counts[2]}/{counts[1]} city-wide providers active");
+                }
             }
 
             EntityQuery cityQuery = GetEntityQuery(ComponentType.ReadOnly<City>());
@@ -173,19 +205,49 @@ namespace UniqueBuildings
             DynamicBuffer<CityModifier> buffer =
                 EntityManager.GetBuffer<CityModifier>(cities[0], isReadOnly: true);
             float2[] result = new float2[buffer.Length];
-            StringBuilder values = new();
             for (int i = 0; i < buffer.Length; i++)
-            {
                 result[i] = buffer[i].m_Delta;
-                float2 delta = result[i];
-                if (Math.Abs(delta.x) < 0.0000001f && Math.Abs(delta.y) < 0.0000001f)
-                    continue;
-                if (values.Length > 0) values.Append("; ");
-                values.Append($"{(CityModifierType)i}=({delta.x:0.######},{delta.y:0.######})");
-            }
-            LogUtils.Info($"{Mod.ModTag} [{phase} {mode}] ACTUAL CITY MODIFIERS: " +
-                (values.Length == 0 ? "none" : values.ToString()));
+
             return result;
+        }
+
+        private static string ModeLabel(SignatureBonusMode mode)
+        {
+            return mode switch
+            {
+                SignatureBonusMode.VanillaStacking => "Vanilla stacking",
+                SignatureBonusMode.FirstCopyOnly => "First copy only",
+                SignatureBonusMode.NoBonuses => "No city-wide bonuses",
+                _ => mode.ToString(),
+            };
+        }
+
+        private static void LogDifference(string label, float2[] before, float2[] after)
+        {
+            int changed = 0;
+            StringBuilder names = new();
+            int size = Math.Max(before.Length, after.Length);
+            for (int i = 0; i < size; i++)
+            {
+                float2 a = i < before.Length ? before[i] : default;
+                float2 b = i < after.Length ? after[i] : default;
+                if (Math.Abs(a.x - b.x) <= 0.0000001f &&
+                    Math.Abs(a.y - b.y) <= 0.0000001f)
+                    continue;
+
+                if (changed < 8)
+                {
+                    if (names.Length > 0)
+                        names.Append(", ");
+                    names.Append((CityModifierType)i);
+                }
+
+                changed++;
+            }
+
+            string suffix = changed > 8 ? ", ..." : string.Empty;
+            LogUtils.Info($"{Mod.ModTag}   {label}: {changed} changed city modifier types" +
+                (names.Length == 0 ? "." : $" ({names}{suffix})."));
         }
 
         private static bool Different(float2[] a, float2[] b)
