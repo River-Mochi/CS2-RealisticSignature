@@ -31,7 +31,7 @@ Duplicate Signature buildings stack strong city-wide bonuses, making CS2's econo
 :white_check_mark: See Clearly: hide auto infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings!
 You can still open infoviews manually as needed or disable this toggle [x] in Options menu (was a player request).
 
-### Compatibile
+### Compatibility
 - Compatible with **Anarchy**, including its multiple unique setting.
 - Safe to remove: existing building copies stay, normal vanilla rules return. No Harmony patching, all vanilla.
 - Avoid conflicts. See Options status, mod detects if you have duplicate mod installed.
@@ -57,8 +57,8 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail-8house.jpg" />
 <!--Screenshot, can be set multiple times-->
-<Screenshot Value="Properties/image10-Options.jpg" />
-<Screenshot Value="Properties/image20-TaxiJam.jpg" />
+<Screenshot Value="Properties/10-image-Options.jpg" />
+<Screenshot Value="Properties/20-image-Status.jpg" />
 
 <!--Tag, can be set multiple times-->
 <Tag Value="" />
