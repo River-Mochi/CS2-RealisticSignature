@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Cho phép nhiều bản sao", // 23
             "**BẬT** = đặt nhiều bản sao của các đối tượng độc đáo, kể cả công trình đặc trưng.\n**TẮT** = mỗi loại một bản trong thành phố, trừ khi mod khác cho phép.", // 24
             "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 25
-            "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: TẮT.", // 26
+            "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: BẬT.", // 26
             "Quy tắc đặt đối tượng độc đáo", // 27
             "Cho biết hiện có được đặt nhiều bản sao của đối tượng độc đáo hay không.", // 28
             "Công trình đặc trưng", // 29

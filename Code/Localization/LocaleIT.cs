@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Consenti più copie", // 23
             "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 24
             "Impedisci le viste informative automatiche per gli edifici unici", // 25
-            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 26
+            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: ATTIVO.", // 26
             "Regole per gli edifici unici", // 27
             "Mostra se gli oggetti unici possono essere collocati più volte.", // 28
             "Edifici distintivi", // 29

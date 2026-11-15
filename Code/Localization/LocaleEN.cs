@@ -121,7 +121,7 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
                     "Stops Unique and Signature buildings from automatically opening the infoview panel and colored map overlay during placement. " +
                     "You can still open infoviews manually. Other building tools are unaffected. " +
-                    "Toggleable Overlays takes priority when active. Default: OFF." },
+                    "Toggleable Overlays takes priority when active. Default: ON." },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },

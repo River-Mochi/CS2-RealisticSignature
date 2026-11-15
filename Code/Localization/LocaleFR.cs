@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Autoriser plusieurs copies", // 23
             "**ACTIVÉ** = permet de placer plusieurs exemplaires des éléments uniques, y compris les bâtiments emblématiques.\n**DÉSACTIVÉ** = règle normale d'un exemplaire par ville, sauf si un autre mod l'autorise.", // 24
             "Empêcher l'ouverture automatique des infovues pour les bâtiments uniques", // 25
-            "Empêche les bâtiments uniques, y compris les bâtiments emblématiques, d'ouvrir automatiquement l'infovue et la carte colorée lors du placement. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : DÉSACTIVÉ.", // 26
+            "Empêche les bâtiments uniques, y compris les bâtiments emblématiques, d'ouvrir automatiquement l'infovue et la carte colorée lors du placement. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : ACTIVÉ.", // 26
             "Règle de placement des éléments uniques", // 27
             "Indique si les éléments uniques peuvent actuellement être placés plusieurs fois.", // 28
             "Bâtiments emblématiques", // 29

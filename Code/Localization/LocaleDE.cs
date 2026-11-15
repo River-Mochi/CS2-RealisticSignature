@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Mehrere Exemplare erlauben", // 23
             "**EIN** = mehrere Exemplare aller als einzigartig markierten Objekte platzieren, einschließlich Signaturgebäuden.\n**AUS** = normalerweise nur ein Exemplar pro Stadt, sofern kein anderer Mod mehrere erlaubt.", // 24
             "Automatische Infoviews für einzigartige Gebäude verhindern", // 25
-            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: AUS.", // 26
+            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: EIN.", // 26
             "Platzierungsregel für einzigartige Objekte", // 27
             "Zeigt an, ob einzigartige Objekte derzeit mehrfach platziert werden dürfen.", // 28
             "Signaturgebäude", // 29

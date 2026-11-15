@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Permitir várias cópias", // 23
             "**LIGADO** = permite construir várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = apenas uma cópia por cidade, exceto se outro mod permitir mais.", // 24
             "Impedir vistas de informação automáticas para edifícios únicos", // 25
-            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: DESLIGADO.", // 26
+            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: LIGADO.", // 26
             "Regra de construção de objetos únicos", // 27
             "Mostra se é possível construir várias cópias de objetos únicos.", // 28
             "Edifícios emblemáticos", // 29

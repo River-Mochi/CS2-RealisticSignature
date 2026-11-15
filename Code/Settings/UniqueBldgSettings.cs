@@ -124,7 +124,7 @@ namespace UniqueBuildings
 
                 return UniquePlacementState.HasSnapshot
                     ? UniquePlacementState.StatusText
-                    : "Loading…";
+                    : LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
             }
         }
 
@@ -255,7 +255,7 @@ namespace UniqueBuildings
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
             AllowMultipleUniqueBuildings = true;
-            PreventAutomaticSignatureInfoviews = false;
+            PreventAutomaticSignatureInfoviews = true;
         }
 
         private void SetSignatureBonuses(int value)

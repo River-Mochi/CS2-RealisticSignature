@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Zezwalaj na wiele egzemplarzy", // 23
             "**WŁ.** = pozwala stawiać wiele egzemplarzy obiektów unikatowych, w tym budynków charakterystycznych.\n**WYŁ.** = jeden egzemplarz na miasto, chyba że inny mod pozwala na więcej.", // 24
             "Zablokuj automatyczne widoki informacji dla budynków unikatowych", // 25
-            "Podczas stawiania budynków unikatowych, w tym charakterystycznych, panel informacji i kolorowa mapa nie otworzą się automatycznie. Widoki można nadal otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WYŁ.", // 26
+            "Podczas stawiania budynków unikatowych, w tym charakterystycznych, panel informacji i kolorowa mapa nie otworzą się automatycznie. Widoki można nadal otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WŁ.", // 26
             "Zasady stawiania obiektów unikatowych", // 27
             "Pokazuje, czy można obecnie stawiać wiele egzemplarzy obiektów unikatowych.", // 28
             "Budynki charakterystyczne", // 29
