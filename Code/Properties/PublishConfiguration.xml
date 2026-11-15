@@ -4,7 +4,7 @@
 <!--Name of the mod to display to players-->
 <DisplayName Value="Realistic Signature + Unique Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
+<ShortDescription Value="Unlock Signature buildings, place multiple Unique buildings, and control city-wide and nearby bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
 # 🏙️
@@ -27,13 +27,13 @@ Duplicate Signature buildings stack strong city-wide bonuses, making CS2's econo
 ### 3. More Options - You choose!
 :white_check_mark: Allow unlimited unique buildings. no need for 3 mods just to deal with signature/unique buildings economy + placement rules.
 :white_check_mark: QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
-:white_check_mark: Unlock all buildings without meeting requirements: population, zoning, or progression. I want it NOW!
+:white_check_mark: Unlock Signature buildings without meeting their population, zoning, or other progression requirements. I want it NOW!
 :white_check_mark: See Clearly: hide auto infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings!
 You can still open infoviews manually as needed or disable this toggle [x] in Options menu (was a player request).
 
 ### Compatibility
 - Compatible with **Anarchy**, including its multiple unique setting.
-- Safe to remove: existing building copies stay, normal vanilla rules return. No Harmony patching, all vanilla.
+- Designed for safe removal: placed copies stay; vanilla bonuses and placement rules return after reload. No Harmony patches.
 - Avoid conflicts. See Options status, mod detects if you have duplicate mod installed.
 
 ### Notes
