@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Gerçekçi İmza Binaları)", // 0
+            "Realistic Signature Buildings (Simgeler)", // 0
             "İşlemler", // 1
             "Hakkında", // 2
             "İmza bina bonusları", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Şehir geneli bonusları yok", // 12
             "Vanilla birikimi", // 13
             "Şehir geneli çekicilik", // 14
-            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.", // 15
+            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: vanilla birikimi.", // 15
             "Şehir geneli ayarını izle", // 16
             "Yalnızca ilk kopya", // 17
             "Vanilla birikimi", // 18

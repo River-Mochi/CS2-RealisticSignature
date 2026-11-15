@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Realistyczne budynki charakterystyczne)", // 0
+            "Realistic Signature Buildings (Ikony)", // 0
             "Działania", // 1
             "O modzie", // 2
             "Premie budynków charakterystycznych", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Bez premii ogólnomiejskich", // 12
             "Zwykłe sumowanie", // 13
             "Atrakcyjność całego miasta", // 14
-            "<Zgodnie z ustawieniem miasta> = używa powyższej zasady.\n<Tylko pierwszy egzemplarz> = jeden budynek danego typu daje premię.\n<Normalne sumowanie> = każdy egzemplarz daje premię.\n<Bez premii atrakcyjności> = brak premii globalnej od budynków charakterystycznych.\nAtrakcyjność budynku i opis pozostają bez zmian.", // 15
+            "<Zgodnie z ustawieniem miasta> = używa powyższej zasady.\n<Tylko pierwszy egzemplarz> = jeden budynek danego typu daje premię.\n<Normalne sumowanie> = każdy egzemplarz daje premię.\n<Bez premii atrakcyjności> = brak premii globalnej od budynków charakterystycznych.\nAtrakcyjność budynku i opis pozostają bez zmian.\nAtrakcyjność miasta pomaga przyciągać turystów. Domyślnie: normalne sumowanie.", // 15
             "Zgodnie z ustawieniem miasta", // 16
             "Tylko pierwszy egzemplarz", // 17
             "Normalne sumowanie", // 18

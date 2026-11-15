@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Bâtiments emblématiques réalistes)", // 0
+            "Realistic Signature Buildings (Emblèmes)", // 0
             "Actions", // 1
             "À propos", // 2
             "Bonus des bâtiments emblématiques", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Aucun bonus global", // 12
             "Cumul normal du jeu", // 13
             "Attrait dans toute la ville", // 14
-            "<Suivre le réglage global> = applique la règle ci-dessus.\n<Première copie uniquement> = une seule copie par type apporte de l'attrait global.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = aucun bonus global des bâtiments emblématiques.\nL'attrait propre et le descriptif restent inchangés.", // 15
+            "<Suivre le réglage global> = applique la règle ci-dessus.\n<Première copie uniquement> = une seule copie par type apporte de l'attrait global.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = aucun bonus global des bâtiments emblématiques.\nL'attrait propre et le descriptif restent inchangés.\nL'attrait de la ville aide à attirer des touristes. Par défaut : cumul normal du jeu.", // 15
             "Suivre le réglage global", // 16
             "Première copie uniquement", // 17
             "Cumul normal du jeu", // 18

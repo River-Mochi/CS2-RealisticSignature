@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Công trình đặc trưng chân thực)", // 0
+            "Realistic Signature Buildings (Biểu tượng)", // 0
             "Thao tác", // 1
             "Giới thiệu", // 2
             "Thưởng từ công trình đặc trưng", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Không có thưởng toàn thành phố", // 12
             "Cộng dồn mặc định", // 13
             "Sức hút toàn thành phố", // 14
-            "<Theo cài đặt toàn thành phố> = dùng quy tắc trên.\n<Chỉ bản đầu tiên> = một bản mỗi loại được tính.\n<Cộng dồn mặc định> = mọi bản đều được tính.\n<Không có thưởng sức hút> = tắt thưởng toàn thành phố của công trình đặc trưng.\nSức hút riêng và mô tả công trình không đổi.", // 15
+            "<Theo cài đặt toàn thành phố> = dùng quy tắc trên.\n<Chỉ bản đầu tiên> = một bản mỗi loại được tính.\n<Cộng dồn mặc định> = mọi bản đều được tính.\n<Không có thưởng sức hút> = tắt thưởng toàn thành phố của công trình đặc trưng.\nSức hút riêng và mô tả công trình không đổi.\nSức hút của thành phố giúp thu hút khách du lịch. Mặc định: cộng dồn mặc định.", // 15
             "Theo cài đặt toàn thành phố", // 16
             "Chỉ bản đầu tiên", // 17
             "Cộng dồn mặc định", // 18

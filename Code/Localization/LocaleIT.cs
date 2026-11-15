@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Edifici distintivi realistici)", // 0
+            "Realistic Signature Buildings (Icone)", // 0
             "Azioni", // 1
             "Informazioni", // 2
             "Bonus degli edifici distintivi", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Nessun bonus cittadino", // 12
             "Accumulo normale", // 13
             "Attrattiva cittadina", // 14
-            "<Segui impostazione cittadina> = usa la regola sopra.\n<Solo prima copia> = una copia per tipo contribuisce.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = nessun bonus cittadino dagli edifici distintivi.\nAttrattiva del singolo edificio e descrizione invariate.", // 15
+            "<Segui impostazione cittadina> = usa la regola sopra.\n<Solo prima copia> = una copia per tipo contribuisce.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = nessun bonus cittadino dagli edifici distintivi.\nAttrattiva del singolo edificio e descrizione invariate.\nL'attrattiva della città aiuta ad attirare turisti. Predefinito: accumulo standard.", // 15
             "Segui impostazione cittadina", // 16
             "Solo prima copia", // 17
             "Accumulo standard", // 18

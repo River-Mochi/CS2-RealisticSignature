@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Realistische Signaturgebäude)", // 0
+            "Realistic Signature Buildings (Signatur)", // 0
             "Aktionen", // 1
             "Über", // 2
             "Signaturgebäude-Boni", // 3
@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.", // 15
+            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Vanilla-Stapelung.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18
