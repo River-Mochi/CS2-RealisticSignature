@@ -47,13 +47,13 @@ namespace UniqueBuildings
 
                 // Signature Bonuses
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "City-wide Signature bonuses"
+                    "City-wide bonuses"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "<First copy only> = each Signature building type gives its city-wide bonus once.\n" +
+                    "<First copy only> = each Signature building type gives its city-wide bonus once even if many copies are built.\n" +
                     "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
                     "<Vanilla Stacked Bonuses> = every copy gives its city-wide bonus.\n" +
-                    "Nearby effects have their own setting. Building attractiveness stays normal."
+                    "Nearby local effects have their own dropdown setting. Building attractiveness stays normal."
                 },
 
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly),
@@ -68,13 +68,13 @@ namespace UniqueBuildings
 
                 // Nearby Signature effects
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
-                    "Nearby Signature effects"
+                    "Nearby neighborhood effects"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
-                    "<Vanilla nearby effects> = every Signature copy provides nearby effects.\n" +
-                    "<First copy only> = one copy of each Signature type provides nearby effects.\n" +
-                    "<No nearby effects> = disables normal Signature nearby effects.\n" +
-                    "Abandoned-building effects and building attractiveness are preserved."
+                    "<■ Vanilla nearby effects> = every Signature copy provides nearby effects.\n" +
+                    "<■ First copy only> = one copy of each Signature type provides nearby effects.\n" +
+                    "<■ No nearby effects> = disables normal Signature nearby effects.\n" +
+                    "Building attractiveness and other features are not touched."
                 },
                 { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.Vanilla), "Vanilla nearby effects" },
                 { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.FirstCopyOnly), "First copy only" },
@@ -85,6 +85,16 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)),
                     "**ON** = make all Signature buildings available without meeting population, zoning, or other progression requirements.\n" +
                     "**OFF** = normal game progression rules."
+                },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
+                    "Hide bulk unlock pop-ups"
+                },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
+                    "**ON** (recommended, default) = hide the flood of pop-ups from this mod's bulk Signature unlock.\n" +
+                    "**OFF** = show a pop-up for each Signature newly unlocked by this mod. " +
+                    "If you turn this off, many pop-up spams may appear on opening a city.\n" +
+                    "Normal game unlock notifications still appear, including buildings added by " +
+                    "game updates, DLC, region packs, or regular city progression. This only prevents the spam when unlocking all Unique buildings at one time with this mod."
                 },
 
                 // Multiple Unique
@@ -135,27 +145,21 @@ namespace UniqueBuildings
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), "Status report to log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)),
-                    "Writes current Signature building counts, city-wide bonuses, and nearby effects to the log. " +
-                    "Does not change any settings or effects. Load a city first." },
+                    "Writes current Signature building counts, city-wide bonuses, and nearby effects to the log.\n" +
+                    "Does not change any settings or effects.\n" +
+                    "Load a city first." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)), "Compare bonus modes to log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)),
-                    "Temporarily applies all city-wide bonus and nearby effect modes while the game is paused in Options. " +
-                    "Reapplies your selected modes when finished. Writes results to the mod log. Load a city first." },
+                    "For Debugging:\n" +
+                    "Temporarily applies all city-wide bonus and nearby effect modes while the game is paused in Options.\n" +
+                    "Reapplies your selected modes when finished.\n" +
+                    "Writes results to the mod log.\n" +
+                    "Load a city first." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), "Open Log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),
                     "Opens this mod's log file. If unavailable, opens the Logs folder."
-                },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
-                    "Hide bulk Signature unlock pop-ups"
-                },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
-                    "**ON** (recommended, default) = hide the flood of pop-ups from this mod's bulk Signature unlock.\n" +
-                    "**OFF** = show a pop-up for each Signature newly unlocked by this mod. " +
-                    "Dozens or hundreds may appear.\n" +
-                    "Normal game unlock notifications still appear, including buildings added by " +
-                    "game updates, DLC, region packs, or regular city progression."
                 },
 
 

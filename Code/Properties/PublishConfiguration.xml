@@ -8,55 +8,39 @@
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
 ## Realistic Signature Buildings
+## :cityscape:  Realistic Signature Buildings — Testers Wanted!
 
-Build as many Signature buildings as you like without stacking their city-wide bonuses. Choose realistic limits or keep vanilla behavior.
-Buildings can provide global city bonuses that stack. Bonus stacking from unique/signature buildings, monuments, and policies often breaks economic realism by making companies overly profitable and eliminating natural supply-and-demand challenges.
+**Unlimited buildings without making the economy unrealistic and broken!**
 
-### Realistic Signature Buildings lets you enjoy the buildings without runaway bonuses.
+Duplicate Signature buildings stack powerful city-wide bonuses, making CS2's economy too easy.
+**Now YOU control the bonuses!**
 
-- Build multiple Unique and Signature buildings without stacking the same city-wide benefits.
-- Control city-wide bonuses and nearby local effects independently.
-- Choose more realistic limits, disable certain bonuses, or keep vanilla behavior for local area effects, while limiting city0wide bonuses to First instance of the building.
+### 1. City-wide bonuses — 3 choices
 
-### More building freedom. Less bonus inflation. Your choice.
+- **Vanilla Stacking:** every copy contributes normal bonuses. Want super-easy mode? Keep stacking!
+- **First Copy Only (mod default):** only one copy of each building contributes city-wide bonuses. More Realistic, 5 building copies no longer has 5x stacked bonuses!
+- **No City Bonuses:** disable Signature city-wide bonuses for a bigger challenge.
 
+### 2. Nearby Local Effects — Separate controls!
+- Keep neighborhood "aoe" benefits w/out stacking city-wide broken bonuses!
+- Choose **Vanilla, First-Copy Only, or Off** independent of your city-wide bonus setting.
 
-### All optional: choose how you want to play
-- Place multiple Unique buildings for their appearance without multiplying the same Signature bonuses.
-- Optionally unlock all Signature buildings without waiting for progression.
-- Control city-wide and nearby/local Signature effects **separately**.
+### 3. More Options - You choose!
+:white_check_mark: Allow unlimited unique buildings. no need for 3 separate mods just to deal with buildings.
+:white_check_mark: QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
+:white_check_mark: Unlock all buildings without meeting normal population, zoning, or progression requirements. I want it NOW!
+:white_check_mark: See buildings CLEARLY: hide auto Infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings! You can still open infoviews manually if you miss it or disable this toggle [x]  (was a player request).
 
-For example, if two copies would each add the same city-wide bonus, you can stop that bonus from stacking while keeping both buildings' normal nearby happiness effects.
+### Compatibility
+- Compatible with **Anarchy**, including its multiple unique setting.
+- Avoid installing other mods that have the same unique-placement features, no need for 3-4 mods just for Signature. See Options Status, mod detects if you have duplicate mod installed.
+- Safe to remove: existing building copies stay, normal vanilla rules return. No Harmony patching, all vanilla.
 
-### Signature bonuses: two independent controls
-
-**City-wide Signature bonuses** (default: First copy only)
-- **First copy only** — each Signature building type provides its city-wide bonus once, even if you build more copies.
-- **No city-wide bonuses** — disables Signature city-wide bonuses.
-- **Vanilla Stacked Bonuses** — every placed copy provides its normal city-wide bonus.
-
-**Nearby Signature effects** (default: Vanilla nearby effects)
-- **Vanilla nearby effects** — every copy provides its normal local effects.
-- **First copy only** — one copy of each Signature building type provides local effects.
-- **No nearby effects** — disables normal local effects from Signature buildings.
-
-These controls work independently. Building attractiveness and abandoned-building effects are not removed.
-
-### More features
-- **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
-- **Hide bulk Signature unlock pop-ups** — shown only when Signature unlocking is enabled. ON by default (recommended) to prevent dozens or hundreds of nuisance pop-ups when loading a city. Turn it OFF to see notices for newly unlocked Signature buildings; regular vanilla notifications are unchanged.
-- **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
-- **Live Options** — bonus modes change without restarting the city.
-- **Status and diagnostics** — view Signature building counts, duplicates, and active city-wide bonus providers. **Status report to log** records current city-wide bonuses and nearby effects without changing them.
-- **Compare bonus modes to log** — temporarily tests all city-wide and nearby modes while the game is paused in Options, then reapplies your selected modes.
-- Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
 
 ### Notes
-- Optional automatic infoview suppression for Unique and Signature placement (default: OFF). No Harmony patching.
-- Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
+
 - To read diagnostic results: Options > About > Debug / Logging > Open Log.
 - Hover over Options rows for explanations.
-- Custom assets may have different bonus types or none at all.
 
 ## Support and Feedback
 - Support by clicking Like (top right), no donations requested, just a like for many days of work.
@@ -72,15 +56,17 @@ Thumbnail image of the 8House in Copenhagen designed by Bjarke Ingels
 
 </LongDescription>
 <!--Thumbnail-->
-<Thumbnail Value="Properties/Thumbnail.png" />
+<Thumbnail Value="Properties/Thumbnail-8house.jpg" />
 <!--Screenshot, can be set multiple times-->
-<Screenshot Value="" />
+<Screenshot Value="Properties/image10-Options.jpg" />
+<Screenshot Value="Properties/image20-TaxiJam.jpg" />
+
 <!--Tag, can be set multiple times-->
 <Tag Value="" />
 <!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
 <!--Version of the mod-->
-<ModVersion Value="0.5.0" />
+<ModVersion Value="0.7.0" />
 <!--Recommended version of the base game to use the mod-->
 <GameVersion Value="1.6.*" />
 <!--Dependency for the mod, can be set multiple times-->

@@ -55,7 +55,7 @@ namespace UniqueBuildings
                 if (s_RestrictedUnique == 0)
                 {
                     return ourSetting
-                        ? "Multiple allowed"
+                        ? "Multiple copies allowed"
                         : "Multiple unique enabled by another mod";
                 }
 
