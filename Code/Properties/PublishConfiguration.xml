@@ -58,8 +58,8 @@ Thumbnail image of the 8House in Copenhagen designed by Bjarke Ingels
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail-8house.jpg" />
 <!--Screenshot, can be set multiple times-->
-<Screenshot Value="Properties/image10-Options.jpg" />
-<Screenshot Value="Properties/image20-TaxiJam.jpg" />
+<Screenshot Value="Properties/10-image-Options.jpg" />
+<Screenshot Value="Properties/20-image-Status.jpg" />
 
 <!--Tag, can be set multiple times-->
 <Tag Value="" />
