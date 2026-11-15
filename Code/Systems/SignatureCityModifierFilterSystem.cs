@@ -7,8 +7,8 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureCityModifierFilterSystem.cs
-// Rebuilds derived city modifiers while excluding BUB-suppressed
-// Signature providers.
+// Rebuilds derived city modifiers while excluding suppressed Signature
+// providers, with optional independent city-wide Attractiveness filtering.
 
 namespace UniqueBuildings
 {
@@ -138,10 +138,6 @@ namespace UniqueBuildings
 
         protected override void OnUpdate()
         {
-            SignatureBonusMode mode =
-                Mod.Setting?.SignatureBonuses ??
-                SignatureBonusMode.FirstCopyOnly;
-
             if (m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter &&
                 m_AttractivenessSuppressedProviderQuery.IsEmptyIgnoreFilter)
                 return;
@@ -225,7 +221,7 @@ namespace UniqueBuildings
                         new(10, Allocator.Temp);
 
                 // Use the game's own modifier aggregation math.
-                // BUB only changes which providers are included.
+                // This mod only changes which providers are included.
                 m_RefreshData.RefreshCityModifiers(
                     modifiers,
                     policies,

@@ -200,8 +200,11 @@ namespace UniqueBuildings
                         copiesByPrefab);
             }
 
-            int attractivenessChanged =
-                ApplyAttractivenessSuppressionMode(attractivenessMode, copiesByPrefab);
+            // When both rules match, reuse the existing SignatureBonusSuppressed
+            // tags. Independent tags are only needed for different rules.
+            int attractivenessChanged = attractivenessMode == mode
+                ? RemoveAllAttractivenessTags()
+                : ApplyAttractivenessSuppressionMode(attractivenessMode, copiesByPrefab);
 
             int suppressed = CountSuppressed(signatures);
             int attractivenessSuppressed = CountAttractivenessSuppressed(signatures);

@@ -209,13 +209,16 @@ namespace UniqueBuildings
             };
 
             SignatureBonusMode attractivenessMode = GetEffectiveAttractivenessMode(mode);
-            bool attractivenessCorrect = attractivenessMode switch
-            {
-                SignatureBonusMode.VanillaStacking => attractivenessTagged == 0,
-                SignatureBonusMode.FirstCopyOnly => attractivenessTagged == extraCopies,
-                SignatureBonusMode.NoBonuses => attractivenessTagged == signatures.Length,
-                _ => false,
-            };
+            bool sameAttractivenessRule = attractivenessMode == mode;
+            bool attractivenessCorrect = sameAttractivenessRule
+                ? attractivenessTagged == 0
+                : attractivenessMode switch
+                {
+                    SignatureBonusMode.VanillaStacking => attractivenessTagged == 0,
+                    SignatureBonusMode.FirstCopyOnly => attractivenessTagged == extraCopies,
+                    SignatureBonusMode.NoBonuses => attractivenessTagged == signatures.Length,
+                    _ => false,
+                };
             report.AppendLine($"  {phase}: {ModeLabel(mode)}");
             report.AppendLine($"    Buildings: {signatures.Length} placed | " +
                 $"{byPrefab.Count} types | {extraCopies} extra copies");
@@ -225,7 +228,9 @@ namespace UniqueBuildings
                 $"({tagged} buildings tagged for bonus suppression)");
             report.AppendLine($"    City-wide Attractiveness: {ModeLabel(attractivenessMode)} | " +
                 $"Rule check: {(attractivenessCorrect ? "PASS" : "CHECK")} " +
-                $"({attractivenessTagged} tagged)");
+                (sameAttractivenessRule
+                    ? " (uses city-wide suppression tags)"
+                    : $" ({attractivenessTagged} tagged)"));
             if (phase == "CURRENT")
                 report.AppendLine($"    Nearby providers: {local} | " +
                     $"Building attractiveness providers (untouched): {attractiveness}");
