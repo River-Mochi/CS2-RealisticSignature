@@ -240,45 +240,57 @@ namespace UniqueBuildings
             DynamicBuffer<CityModifier> modifiers,
             DynamicBuffer<Policy> policies)
         {
-            using NativeArray<CityModifier> original =
+            // NativeArray's indexer mutates the struct, so this must not be
+            // a readonly "using" local (CS1654). Dispose in finally instead.
+            NativeArray<CityModifier> original =
                 new(modifiers.Length, Allocator.Temp);
-            for (int i = 0; i < original.Length; i++)
-                original[i] = modifiers[i];
-
-            NativeList<ArchetypeChunk> chunks =
-                m_AttractivenessProviderQuery.ToArchetypeChunkListAsync(
-                    Allocator.TempJob, out JobHandle job);
-            job.Complete();
-
-            CityModifier attractiveness = default;
-            int index = (int)CityModifierType.Attractiveness;
-            bool found = false;
             try
             {
-                using NativeList<CityModifierData> temp = new(10, Allocator.Temp);
-                m_RefreshData.RefreshCityModifiers(modifiers, policies, chunks, temp);
-                found = index < modifiers.Length;
-                if (found)
-                    attractiveness = modifiers[index];
+                for (int i = 0; i < original.Length; i++)
+                    original[i] = modifiers[i];
+
+                NativeList<ArchetypeChunk> chunks =
+                    m_AttractivenessProviderQuery.ToArchetypeChunkListAsync(
+                        Allocator.TempJob, out JobHandle job);
+
+                CityModifier attractiveness = default;
+                int index = (int)CityModifierType.Attractiveness;
+                bool found = false;
+                try
+                {
+                    job.Complete();
+                    using NativeList<CityModifierData> temp =
+                        new(10, Allocator.Temp);
+                    m_RefreshData.RefreshCityModifiers(
+                        modifiers, policies, chunks, temp);
+                    found = index < modifiers.Length;
+                    if (found)
+                        attractiveness = modifiers[index];
+                }
+                finally
+                {
+                    // Keep other city modifiers even if the second pass fails.
+                    modifiers.ResizeUninitialized(original.Length);
+                    for (int i = 0; i < original.Length; i++)
+                        modifiers[i] = original[i];
+                    chunks.Dispose();
+                }
+
+                if (found && index >= modifiers.Length)
+                {
+                    int oldLength = modifiers.Length;
+                    modifiers.ResizeUninitialized(index + 1);
+                    for (int i = oldLength; i < modifiers.Length; i++)
+                        modifiers[i] = default;
+                }
+
+                if (index < modifiers.Length)
+                    modifiers[index] = attractiveness;
             }
             finally
             {
-                // Restore every unrelated city modifier, including after an exception.
-                modifiers.ResizeUninitialized(original.Length);
-                for (int i = 0; i < original.Length; i++)
-                    modifiers[i] = original[i];
-                chunks.Dispose();
+                original.Dispose();
             }
-
-            if (found && index >= modifiers.Length)
-            {
-                int oldLength = modifiers.Length;
-                modifiers.ResizeUninitialized(index + 1);
-                for (int i = oldLength; i < modifiers.Length; i++)
-                    modifiers[i] = default;
-            }
-            if (index < modifiers.Length)
-                modifiers[index] = attractiveness;
         }
     }
 }
