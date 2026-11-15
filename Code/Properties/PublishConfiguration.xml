@@ -38,7 +38,8 @@ These controls work independently. Building attractiveness and abandoned-buildin
 - **Hide bulk Signature unlock pop-ups** — shown only when Signature unlocking is enabled. ON by default (recommended) to prevent dozens or hundreds of nuisance pop-ups when loading a city. Turn it OFF to see notices for newly unlocked Signature buildings; regular vanilla notifications are unchanged.
 - **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
 - **Live Options** — bonus modes change without restarting the city.
-- **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers. Use **Bonus Report to log** and **Nearby Report to log** to test modes and restore your chosen settings.
+- **Status and diagnostics** — view the number of Signature buildings, duplicates, and active city-wide bonus providers.
+Use **Status Report to log** to test modes and restore your chosen settings.
 - Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
 
 ### Notes
