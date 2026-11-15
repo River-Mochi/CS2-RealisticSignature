@@ -23,6 +23,7 @@ namespace UniqueBuildings
     using Game.Modding;
     using Game.SceneFlow;
     using Game.Simulation;
+    using Game.Tools;
     using Unity.Entities;
 
     public sealed class Mod : IMod
@@ -47,7 +48,6 @@ namespace UniqueBuildings
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
         public static UniqueBldgSettings? Setting { get; private set; }
-
         public static string BuildDisplayName =>
             kBuildType == "RELEASE" ? "Release" : "Debug";
 
@@ -72,6 +72,16 @@ namespace UniqueBuildings
                     $"{ModName} cannot initialize.");
 
                 return;
+            }
+
+            try
+            {
+                ToggleableOverlaysCompatibility.Initialize();
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{ModTag} Could not watch mod-set changes.", ex);
             }
 
             UniqueBldgSettings setting = new(this);
@@ -181,10 +191,25 @@ namespace UniqueBuildings
                     updateSystem.UpdateAt<SignatureScanSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
+                    // Experimental non-Harmony alternative; ToolSystem reads
+                    // its selected tool's infoview after this phase completes.
+                    updateSystem.UpdateAfter<
+                        UniqueInfoviewSuppressionSystem,
+                        ObjectToolSystem>(SystemUpdatePhase.ToolUpdate);
+
         }
 
         public void OnDispose()
         {
+            try
+            {
+                ToggleableOverlaysCompatibility.Dispose();
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn($"{ModTag} Could not stop watching mod-set changes.", ex);
+            }
+
             try
             {
                 World? world =

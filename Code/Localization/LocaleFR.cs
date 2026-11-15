@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleFR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "À propos", // 2
             "Bonus des bâtiments emblématiques", // 3
             "Déblocage des bâtiments emblématiques", // 4
-            "Plusieurs bâtiments uniques", // 5
+            "Placement", // 5
             "Statut", // 6
             "Infos", // 7
             "Débogage / Journal", // 8
@@ -44,20 +44,22 @@ namespace UniqueBuildings
             "Affiche le nombre de bâtiments emblématiques placés, de types différents et de copies supplémentaires.", // 26
             "Effets des bonus globaux", // 27
             "Compte les bâtiments emblématiques fournissant un bonus global.\nLes bonus locaux et de proximité ne sont pas inclus.", // 28
-            "Rapport des bonus dans le journal", // 29
-            "Teste les trois modes de bonus globaux, inscrit les valeurs réelles de la ville dans le journal, puis restaure le mode choisi. Aucune comparaison manuelle nécessaire.", // 30
-            "Rapport de proximité dans le journal", // 31
-            "Vérifie les trois modes d'effets de proximité dans le journal, puis restaure le mode choisi.", // 32
-            "Mods redondants détectés", // 33
-            "Anarchy est compatible et n'apparaît pas ici.\nRetirez les autres mods de bâtiments uniques illimités : cette fonction est déjà incluse.", // 34
-            "Mod", // 35
-            "Nom affiché de ce mod.", // 36
-            "Version", // 37
-            "Version installée et type de compilation.", // 38
-            "Ouvrir le journal", // 39
-            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 40
-            "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 41
-            "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 42
+            "Mods redondants détectés", // 29
+            "Anarchy est compatible et n'apparaît pas ici.\nRetirez les autres mods de bâtiments uniques illimités : cette fonction est déjà incluse.", // 30
+            "Mod", // 31
+            "Nom affiché de ce mod.", // 32
+            "Version", // 33
+            "Version installée et type de compilation.", // 34
+            "Ouvrir le journal", // 35
+            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 36
+            "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 37
+            "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 38
+            "Empêcher l'ouverture automatique des infovues pour les bâtiments uniques", // 39
+            "Empêche les bâtiments uniques, y compris les bâtiments emblématiques, d'ouvrir automatiquement l'infovue et la carte colorée lors du placement. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : DÉSACTIVÉ.", // 40
+            "Rapport d'état dans le journal", // 41
+            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 42
+            "Comparer les modes de bonus dans le journal", // 43
+            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 44
         };
 
         public LocaleFR(UniqueBldgSettings setting)

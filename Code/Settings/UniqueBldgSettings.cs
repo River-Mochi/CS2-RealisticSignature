@@ -101,6 +101,11 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAllowMultipleUniqueBuildings))]
         public bool AllowMultipleUniqueBuildings { get; set; }
 
+        [SettingsUISection(ActionsTab, PlacementGroup)]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
+        // Keep the saved key so existing users retain their enabled setting.
+        public bool PreventAutomaticSignatureInfoviews { get; set; }
+
         // --------------------
         // Status
         // --------------------
@@ -166,30 +171,6 @@ namespace UniqueBuildings
             }
         }
 
-        [SettingsUIButtonGroup(SignatureStatusGroup)]
-        [SettingsUIButton]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public bool RunBonusReportButton
-        {
-            set
-            {
-                if (value)
-                    GetSignatureBonusSystem()?.RunBonusReport();
-            }
-        }
-
-        [SettingsUIButtonGroup(SignatureStatusGroup)]
-        [SettingsUIButton]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public bool RunNearbyReportButton
-        {
-            set
-            {
-                if (value)
-                    GetNearbySystem()?.RunNearbyReport();
-            }
-        }
-
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
@@ -210,6 +191,48 @@ namespace UniqueBuildings
         [SettingsUIButtonGroup(DebugGroup)]
         [SettingsUIButton]
         [SettingsUISection(AboutTab, DebugGroup)]
+        public bool RunStatusReportButton
+        {
+            set
+            {
+                if (!value)
+                    return;
+
+                if (!IsCityLoaded())
+                {
+                    LogUtils.Warn($"{Mod.ModTag} Load a city before running the status report.");
+                    return;
+                }
+
+                GetSignatureBonusSystem()?.RunStatusReport();
+                GetNearbySystem()?.RunStatusReport();
+            }
+        }
+
+        [SettingsUIButtonGroup(DebugGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(AboutTab, DebugGroup)]
+        public bool RunCompareBonusModesButton
+        {
+            set
+            {
+                if (!value)
+                    return;
+
+                if (!IsCityLoaded())
+                {
+                    LogUtils.Warn($"{Mod.ModTag} Load a city before comparing bonus modes.");
+                    return;
+                }
+
+                GetSignatureBonusSystem()?.RunBonusReport();
+                GetNearbySystem()?.RunNearbyReport();
+            }
+        }
+
+        [SettingsUIButtonGroup(DebugGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(AboutTab, DebugGroup)]
         public bool OpenLogButton
         {
             set
@@ -226,6 +249,7 @@ namespace UniqueBuildings
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
             AllowMultipleUniqueBuildings = true;
+            PreventAutomaticSignatureInfoviews = false;
         }
 
         private void SetSignatureBonuses(int value)
@@ -255,6 +279,15 @@ namespace UniqueBuildings
 
 
 
+
+        private void SetPreventAutomaticSignatureInfoviews(bool value)
+        {
+            World? world = World.DefaultGameObjectInjectionWorld;
+            UniqueInfoviewSuppressionSystem? system =
+                world?.GetExistingSystemManaged<UniqueInfoviewSuppressionSystem>();
+            if (system != null)
+                system.Enabled = value;
+        }
 
         private DropdownItem<int>[] GetSignatureBonusDropdownItems()
         {

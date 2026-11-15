@@ -40,7 +40,7 @@ namespace UniqueBuildings
                 // Groups
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.BonusGroup), "Signature Bonuses" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.UnlockGroup), "Signature Unlocks" },
-                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.PlacementGroup), "Multiple Unique Buildings" },
+                { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.PlacementGroup), "Placement" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.SignatureStatusGroup), "Status" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.AboutInfoGroup), "Info" },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.DebugGroup), "Debug / Logging" },
@@ -94,6 +94,13 @@ namespace UniqueBuildings
                     "**OFF** = normal one-per-city rules unless another mod allows multiple Unique items."
                 },
 
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
+                    "Prevent automatic infoviews for Unique buildings" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
+                    "Stops Unique and Signature buildings from automatically opening the infoview panel and colored map overlay during placement. " +
+                    "You can still open infoviews manually. Other building tools are unaffected. " +
+                    "Toggleable Overlays takes priority when active. Default: OFF." },
+
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)),
@@ -111,17 +118,6 @@ namespace UniqueBuildings
                     "Nearby/local bonus effects are separate and are not included here."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)), "Bonus Report to log" },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunBonusReportButton)),
-                    "Tests all three city-wide bonus modes, writes actual city values to the log, " +
-                    "and restores your selected mode. No manual comparison needed."
-                },
-
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)), "Nearby Report to log" },
-                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunNearbyReportButton)),
-                    "Checks all three Nearby Signature modes in the log, then restores your selected mode."
-                },
-
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)),
                     "Anarchy is supported and is not listed here.\n" +
@@ -136,6 +132,16 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.ModVersionDisplay)),
                     "Installed mod version and build type."
                 },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), "Status report to log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)),
+                    "Writes current Signature building counts, city-wide bonuses, and nearby effects to the log. " +
+                    "Does not change any settings or effects. Load a city first." },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)), "Compare bonus modes to log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)),
+                    "Temporarily applies all city-wide bonus and nearby effect modes while the game is paused in Options. " +
+                    "Reapplies your selected modes when finished. Writes results to the mod log. Load a city first." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), "Open Log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),

@@ -29,6 +29,7 @@ namespace UniqueBuildings
         GameSystemBase
     {
         private EntityQuery m_EffectProviderQuery;
+        private EntityQuery m_SuppressedCityProviderQuery;
         private EntityQuery m_CityQuery;
         private EntityQuery m_UpdatedCityQuery;
 
@@ -59,6 +60,24 @@ namespace UniqueBuildings
                         ComponentType.ReadOnly<Temp>(),
                         ComponentType.ReadOnly<
                             SignatureBonusSuppressed>(),
+                    },
+                });
+
+            // No suppressed city provider means the vanilla modifier result
+            // is already correct. Skip a redundant city-wide rebuild.
+            m_SuppressedCityProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<SignatureBonusSuppressed>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
                     },
                 });
 
@@ -93,8 +112,8 @@ namespace UniqueBuildings
                 Mod.Setting?.SignatureBonuses ??
                 SignatureBonusMode.FirstCopyOnly;
 
-            if (mode ==
-                SignatureBonusMode.VanillaStacking)
+            if (mode == SignatureBonusMode.VanillaStacking ||
+                m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter)
             {
                 return;
             }

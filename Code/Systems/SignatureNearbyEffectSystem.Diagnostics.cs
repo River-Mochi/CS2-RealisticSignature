@@ -23,6 +23,22 @@ namespace UniqueBuildings
 
     public sealed partial class SignatureNearbyEffectSystem
     {
+        public void RunStatusReport()
+        {
+            if (GameManager.instance?.gameMode.IsGame() != true)
+            {
+                LogUtils.Warn($"{Mod.ModTag} Load a city before running the nearby status report.");
+                return;
+            }
+
+            NearbySignatureMode selected = Normalize(
+                Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
+            LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT STATUS START =====");
+            LogUtils.Info($"{Mod.ModTag} Current selected mode: {selected}.");
+            LogEffectCounts(selected, "STATUS");
+            LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT STATUS END =====");
+        }
+
         public void RunNearbyReport()
         {
             if (GameManager.instance?.gameMode.IsGame() != true)

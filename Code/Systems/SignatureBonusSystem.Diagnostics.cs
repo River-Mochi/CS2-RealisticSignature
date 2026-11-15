@@ -49,6 +49,22 @@ namespace UniqueBuildings
             }
         }
 
+        public void RunStatusReport()
+        {
+            if (GameManager.instance?.gameMode.IsGame() != true)
+            {
+                LogUtils.Warn($"{Mod.ModTag} Load a city before running the status report.");
+                return;
+            }
+
+            SignatureBonusMode selected = NormalizeMode(
+                Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
+            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS STATUS START =====");
+            LogUtils.Info($"{Mod.ModTag} Current selected mode: {selected}.");
+            LogSnapshot(selected, "STATUS");
+            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE BONUS STATUS END =====");
+        }
+
         public void RunBonusReport()
         {
             if (GameManager.instance?.gameMode.IsGame() != true)

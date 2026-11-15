@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -20,7 +20,7 @@ namespace UniqueBuildings
             "Hakkında", // 2
             "İmza bina bonusları", // 3
             "İmza binaların kilidini aç", // 4
-            "Birden fazla benzersiz bina", // 5
+            "Yerleştirme", // 5
             "Durum", // 6
             "Bilgi", // 7
             "Hata ayıklama / Günlük", // 8
@@ -44,20 +44,22 @@ namespace UniqueBuildings
             "Yerleştirilen imza bina sayısını, farklı türleri ve ek kopyaları gösterir.", // 26
             "Şehir geneli bonus etkileri", // 27
             "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.", // 28
-            "Bonus raporunu günlüğe yaz", // 29
-            "Üç şehir geneli bonus modunu dener, gerçek şehir değerlerini günlüğe yazar ve seçilen modu geri yükler. Elle karşılaştırma gerekmez.", // 30
-            "Yakın çevre raporunu günlüğe yaz", // 31
-            "Üç yakın çevre modunu günlükte kontrol eder ve seçilen modu geri yükler.", // 32
-            "Gereksiz modlar algılandı", // 33
-            "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 34
-            "Mod", // 35
-            "Bu modun görünen adı.", // 36
-            "Sürüm", // 37
-            "Yüklü mod sürümü ve derleme türü.", // 38
-            "Günlüğü aç", // 39
-            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 40
-            "Toplu İmza bina açma bildirimlerini gizle", // 41
-            "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 42
+            "Gereksiz modlar algılandı", // 29
+            "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 30
+            "Mod", // 31
+            "Bu modun görünen adı.", // 32
+            "Sürüm", // 33
+            "Yüklü mod sürümü ve derleme türü.", // 34
+            "Günlüğü aç", // 35
+            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 36
+            "Toplu İmza bina açma bildirimlerini gizle", // 37
+            "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 38
+            "Benzersiz binalar için otomatik bilgi görünümlerini engelle", // 39
+            "İmza binalar dâhil benzersiz binalar yerleştirilirken bilgi panelinin ve renkli haritanın otomatik açılmasını önler. Bilgi görünümleri elle açılabilir. Diğer inşa araçları değişmez. Toggleable Overlays etkinse öncelik ondadır. Varsayılan: KAPALI.", // 40
+            "Durum raporunu günlüğe yaz", // 41
+            "Mevcut İmza bina sayılarını, şehir genelindeki bonusları ve yakın çevre etkilerini günlüğe yazar. Ayarları veya etkileri değiştirmez. Önce bir şehir yükleyin.", // 42
+            "Bonus modlarını günlüğe karşılaştır", // 43
+            "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 44
         };
 
         public LocaleTR(UniqueBldgSettings setting)
