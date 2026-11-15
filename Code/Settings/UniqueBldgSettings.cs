@@ -102,6 +102,7 @@ namespace UniqueBuildings
         public bool AllowMultipleUniqueBuildings { get; set; }
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
         // Keep the saved key so existing users retain their enabled setting.
         public bool PreventAutomaticSignatureInfoviews { get; set; }
 
@@ -278,6 +279,15 @@ namespace UniqueBuildings
 
 
 
+
+        private void SetPreventAutomaticSignatureInfoviews(bool value)
+        {
+            World? world = World.DefaultGameObjectInjectionWorld;
+            UniqueInfoviewSuppressionSystem? system =
+                world?.GetExistingSystemManaged<UniqueInfoviewSuppressionSystem>();
+            if (system != null)
+                system.Enabled = value;
+        }
 
         private DropdownItem<int>[] GetSignatureBonusDropdownItems()
         {
