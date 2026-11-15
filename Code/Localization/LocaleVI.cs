@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Đếm công trình đặc trưng có thưởng toàn thành phố.\nKhông tính hiệu ứng cục bộ hoặc lân cận.", // 32
             "Phát hiện mod trùng chức năng", // 33
             "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 34
-            "Mod", // 35
-            "Tên hiển thị của mod này.", // 36
-            "Phiên bản", // 37
-            "Phiên bản mod đã cài và loại bản dựng.", // 38
-            "Ghi báo cáo trạng thái vào nhật ký", // 39
-            "Ghi số lượng công trình đặc trưng hiện tại, phần thưởng toàn thành phố và hiệu ứng lân cận vào nhật ký. Không thay đổi cài đặt hoặc hiệu ứng. Hãy tải thành phố trước.", // 40
-            "So sánh các chế độ phần thưởng vào nhật ký", // 41
-            "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 42
-            "Mở nhật ký", // 43
-            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 44
-            "Chưa tải thành phố", // 45
-            "Đang tải…", // 46
-            "Hãy tải thành phố để xem trạng thái", // 47
-            "Cho phép nhiều bản sao", // 48
-            "Anarchy cho phép nhiều bản sao", // 49
-            "Mod khác cho phép xây nhiều công trình độc nhất", // 50
-            "Mỗi loại một công trình", // 51
-            "Quy tắc kết hợp", // 52
-            "Đã xây {0} | {1} loại | {2} bản sao thêm", // 53
-            "{0} nguồn thưởng đang hoạt động | {1} nguồn thưởng trùng", // 54
-            "Không có", // 55
+            "Chưa tải thành phố", // 35
+            "Đang tải…", // 36
+            "Hãy tải thành phố để xem trạng thái", // 37
+            "Cho phép nhiều bản sao", // 38
+            "Anarchy cho phép nhiều bản sao", // 39
+            "Mod khác cho phép xây nhiều công trình độc nhất", // 40
+            "Mỗi loại một công trình", // 41
+            "Quy tắc kết hợp", // 42
+            "Đã xây {0} | {1} loại | {2} bản sao thêm", // 43
+            "{0} nguồn thưởng đang hoạt động | {1} nguồn thưởng trùng", // 44
+            "Không có", // 45
+            "Mod", // 46
+            "Tên hiển thị của mod này.", // 47
+            "Phiên bản", // 48
+            "Phiên bản mod đã cài và loại bản dựng.", // 49
+            "Ghi báo cáo trạng thái vào nhật ký", // 50
+            "Ghi số lượng công trình đặc trưng hiện tại, phần thưởng toàn thành phố và hiệu ứng lân cận vào nhật ký. Không thay đổi cài đặt hoặc hiệu ứng. Hãy tải thành phố trước.", // 51
+            "So sánh các chế độ phần thưởng vào nhật ký", // 52
+            "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 53
+            "Mở nhật ký", // 54
+            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 55
         };
 
         public LocaleVI(UniqueBldgSettings setting)

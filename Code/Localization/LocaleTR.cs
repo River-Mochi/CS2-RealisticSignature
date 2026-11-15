@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.", // 32
             "Gereksiz modlar algılandı", // 33
             "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 34
-            "Mod", // 35
-            "Bu modun görünen adı.", // 36
-            "Sürüm", // 37
-            "Yüklü mod sürümü ve derleme türü.", // 38
-            "Durum raporunu günlüğe yaz", // 39
-            "Mevcut İmza bina sayılarını, şehir genelindeki bonusları ve yakın çevre etkilerini günlüğe yazar. Ayarları veya etkileri değiştirmez. Önce bir şehir yükleyin.", // 40
-            "Bonus modlarını günlüğe karşılaştır", // 41
-            "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 42
-            "Günlüğü aç", // 43
-            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 44
-            "Şehir yüklenmedi", // 45
-            "Yükleniyor…", // 46
-            "Durumu görmek için önce bir şehir yükleyin", // 47
-            "Birden fazla kopyaya izin veriliyor", // 48
-            "Anarchy birden fazla kopyaya izin veriyor", // 49
-            "Başka bir mod birden fazla benzersiz binaya izin veriyor", // 50
-            "Her türden bir tane", // 51
-            "Karma kurallar", // 52
-            "{0} yerleştirildi | {1} tür | {2} ek kopya", // 53
-            "{0} etkin bonus kaynağı | {1} yinelenen kaynak", // 54
-            "Yok", // 55
+            "Şehir yüklenmedi", // 35
+            "Yükleniyor…", // 36
+            "Durumu görmek için önce bir şehir yükleyin", // 37
+            "Birden fazla kopyaya izin veriliyor", // 38
+            "Anarchy birden fazla kopyaya izin veriyor", // 39
+            "Başka bir mod birden fazla benzersiz binaya izin veriyor", // 40
+            "Her türden bir tane", // 41
+            "Karma kurallar", // 42
+            "{0} yerleştirildi | {1} tür | {2} ek kopya", // 43
+            "{0} etkin bonus kaynağı | {1} yinelenen kaynak", // 44
+            "Yok", // 45
+            "Mod", // 46
+            "Bu modun görünen adı.", // 47
+            "Sürüm", // 48
+            "Yüklü mod sürümü ve derleme türü.", // 49
+            "Durum raporunu günlüğe yaz", // 50
+            "Mevcut İmza bina sayılarını, şehir genelindeki bonusları ve yakın çevre etkilerini günlüğe yazar. Ayarları veya etkileri değiştirmez. Önce bir şehir yükleyin.", // 51
+            "Bonus modlarını günlüğe karşılaştır", // 52
+            "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 53
+            "Günlüğü aç", // 54
+            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 55
         };
 
         public LocaleTR(UniqueBldgSettings setting)

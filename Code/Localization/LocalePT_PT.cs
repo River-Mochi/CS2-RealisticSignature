@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Conta edifícios emblemáticos com bónus em toda a cidade.\nOs efeitos locais ou próximos não estão incluídos.", // 32
             "Mods redundantes detetados", // 33
             "Anarchy é compatível e não aparece aqui.\nRemove outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 34
-            "Mod", // 35
-            "Nome apresentado deste mod.", // 36
-            "Versão", // 37
-            "Versão instalada e tipo de compilação.", // 38
-            "Relatório de estado no registo", // 39
-            "Regista no log a quantidade atual de edifícios emblemáticos, os bónus da cidade e os efeitos próximos. Não altera definições nem efeitos. Carrega primeiro uma cidade.", // 40
-            "Comparar modos de bónus no log", // 41
-            "Testa temporariamente todos os modos de bónus da cidade e efeitos próximos enquanto o jogo está em pausa nas Opções. Depois volta a aplicar os modos escolhidos. Os resultados ficam no log do mod. Carrega primeiro uma cidade.", // 42
-            "Abrir registo", // 43
-            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 44
-            "Nenhuma cidade carregada", // 45
-            "A carregar…", // 46
-            "Carrega uma cidade para veres o estado", // 47
-            "Várias cópias permitidas", // 48
-            "Anarchy permite várias cópias", // 49
-            "Outro mod permite vários edifícios únicos", // 50
-            "Um de cada tipo", // 51
-            "Regras mistas", // 52
-            "{0} construídos | {1} tipos | {2} cópias extra", // 53
-            "{0} fornecedores ativos | {1} fornecedores duplicados", // 54
-            "Nenhum", // 55
+            "Nenhuma cidade carregada", // 35
+            "A carregar…", // 36
+            "Carrega uma cidade para veres o estado", // 37
+            "Várias cópias permitidas", // 38
+            "Anarchy permite várias cópias", // 39
+            "Outro mod permite vários edifícios únicos", // 40
+            "Um de cada tipo", // 41
+            "Regras mistas", // 42
+            "{0} construídos | {1} tipos | {2} cópias extra", // 43
+            "{0} fornecedores ativos | {1} fornecedores duplicados", // 44
+            "Nenhum", // 45
+            "Mod", // 46
+            "Nome apresentado deste mod.", // 47
+            "Versão", // 48
+            "Versão instalada e tipo de compilação.", // 49
+            "Relatório de estado no registo", // 50
+            "Regista no log a quantidade atual de edifícios emblemáticos, os bónus da cidade e os efeitos próximos. Não altera definições nem efeitos. Carrega primeiro uma cidade.", // 51
+            "Comparar modos de bónus no log", // 52
+            "Testa temporariamente todos os modos de bónus da cidade e efeitos próximos enquanto o jogo está em pausa nas Opções. Depois volta a aplicar os modos escolhidos. Os resultados ficam no log do mod. Carrega primeiro uma cidade.", // 53
+            "Abrir registo", // 54
+            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 55
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)
