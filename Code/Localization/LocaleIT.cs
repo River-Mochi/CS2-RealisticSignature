@@ -36,30 +36,41 @@ namespace UniqueBuildings
             "Nessun effetto vicino", // 18
             "Sblocca i requisiti degli edifici distintivi", // 19
             "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.", // 20
-            "Consenti più copie", // 21
-            "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 22
-            "Regole per gli edifici unici", // 23
-            "Mostra se gli oggetti unici possono essere collocati più volte.", // 24
-            "Edifici distintivi", // 25
-            "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 26
-            "Effetti bonus per tutta la città", // 27
-            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 28
-            "Mod ridondanti rilevati", // 29
-            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 30
-            "Mod", // 31
-            "Nome visualizzato del mod.", // 32
-            "Versione", // 33
-            "Versione installata e tipo di compilazione.", // 34
-            "Apri registro", // 35
-            "Apre il file di registro del mod oppure la cartella dei registri.", // 36
-            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 37
-            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 38
-            "Impedisci le viste informative automatiche per gli edifici unici", // 39
-            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 40
-            "Rapporto di stato nel registro", // 41
-            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 42
-            "Confronta le modalità bonus nel registro", // 43
-            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 44
+            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 21
+            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 22
+            "Consenti più copie", // 23
+            "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 24
+            "Impedisci le viste informative automatiche per gli edifici unici", // 25
+            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 26
+            "Regole per gli edifici unici", // 27
+            "Mostra se gli oggetti unici possono essere collocati più volte.", // 28
+            "Edifici distintivi", // 29
+            "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 30
+            "Effetti bonus per tutta la città", // 31
+            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 32
+            "Mod ridondanti rilevati", // 33
+            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 34
+            "Mod", // 35
+            "Nome visualizzato del mod.", // 36
+            "Versione", // 37
+            "Versione installata e tipo di compilazione.", // 38
+            "Rapporto di stato nel registro", // 39
+            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 40
+            "Confronta le modalità bonus nel registro", // 41
+            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 42
+            "Apri registro", // 43
+            "Apre il file di registro del mod oppure la cartella dei registri.", // 44
+            "Nessuna città caricata", // 45
+            "Caricamento…", // 46
+            "Carica una città per vedere lo stato", // 47
+            "Copie multiple consentite", // 48
+            "Copie multiple consentite da Anarchy", // 49
+            "Un altro mod consente più edifici unici", // 50
+            "Uno per tipo", // 51
+            "Regole miste", // 52
+            "{0} posizionati | {1} tipi | {2} copie extra", // 53
+            "{0} fornitori attivi | {1} fornitori duplicati", // 54
+            "Nessuno", // 55
         };
 
         public LocaleIT(UniqueBldgSettings setting)

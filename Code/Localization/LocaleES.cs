@@ -36,30 +36,41 @@ namespace UniqueBuildings
             "Sin efectos cercanos", // 18
             "Desbloquear requisitos de edificios emblemáticos", // 19
             "**ACTIVADO** = todos los edificios emblemáticos disponibles sin cumplir requisitos de población, zonificación o progreso.\n**DESACTIVADO** = progresión normal del juego.", // 20
-            "Permitir varias copias", // 21
-            "**ACTIVADO** = permite colocar varias copias de cualquier objeto marcado como único, incluidos los edificios emblemáticos.\n**DESACTIVADO** = una copia por ciudad, salvo que otro mod permita más.", // 22
-            "Regla de colocación de objetos únicos", // 23
-            "Indica si actualmente se pueden colocar varias copias de objetos únicos.", // 24
-            "Edificios emblemáticos", // 25
-            "Muestra los edificios emblemáticos colocados, los tipos distintos y las copias adicionales.", // 26
-            "Bonificaciones globales", // 27
-            "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.", // 28
-            "Mods redundantes detectados", // 29
-            "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 30
-            "Mod", // 31
-            "Nombre que se muestra para este mod.", // 32
-            "Versión", // 33
-            "Versión instalada del mod y tipo de compilación.", // 34
-            "Abrir registro", // 35
-            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 36
-            "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 37
-            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 38
-            "Evitar vistas de información automáticas para edificios únicos", // 39
-            "Evita que los edificios únicos, incluidos los emblemáticos, abran automáticamente el panel de información y la superposición de colores al colocarlos. Las vistas pueden abrirse manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: DESACTIVADO.", // 40
-            "Informe de estado al registro", // 41
-            "Escribe en el registro los recuentos actuales de edificios emblemáticos, las bonificaciones globales y los efectos cercanos. No cambia ajustes ni efectos. Primero carga una ciudad.", // 42
-            "Comparar modos de bonificación en el registro", // 43
-            "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 44
+            "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 21
+            "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 22
+            "Permitir varias copias", // 23
+            "**ACTIVADO** = permite colocar varias copias de cualquier objeto marcado como único, incluidos los edificios emblemáticos.\n**DESACTIVADO** = una copia por ciudad, salvo que otro mod permita más.", // 24
+            "Evitar vistas de información automáticas para edificios únicos", // 25
+            "Evita que los edificios únicos, incluidos los emblemáticos, abran automáticamente el panel de información y la superposición de colores al colocarlos. Las vistas pueden abrirse manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: DESACTIVADO.", // 26
+            "Regla de colocación de objetos únicos", // 27
+            "Indica si actualmente se pueden colocar varias copias de objetos únicos.", // 28
+            "Edificios emblemáticos", // 29
+            "Muestra los edificios emblemáticos colocados, los tipos distintos y las copias adicionales.", // 30
+            "Bonificaciones globales", // 31
+            "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.", // 32
+            "Mods redundantes detectados", // 33
+            "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 34
+            "Mod", // 35
+            "Nombre que se muestra para este mod.", // 36
+            "Versión", // 37
+            "Versión instalada del mod y tipo de compilación.", // 38
+            "Informe de estado al registro", // 39
+            "Escribe en el registro los recuentos actuales de edificios emblemáticos, las bonificaciones globales y los efectos cercanos. No cambia ajustes ni efectos. Primero carga una ciudad.", // 40
+            "Comparar modos de bonificación en el registro", // 41
+            "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 42
+            "Abrir registro", // 43
+            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 44
+            "No hay ninguna ciudad cargada", // 45
+            "Cargando…", // 46
+            "Carga una ciudad para ver el estado", // 47
+            "Se permiten varias copias", // 48
+            "Anarchy permite varias copias", // 49
+            "Otro mod permite varios edificios únicos", // 50
+            "Uno de cada tipo", // 51
+            "Reglas mixtas", // 52
+            "{0} colocados | {1} tipos | {2} copias extra", // 53
+            "{0} proveedores activos | {1} proveedores duplicados", // 54
+            "Ninguno", // 55
         };
 
         public LocaleES(UniqueBldgSettings setting)
