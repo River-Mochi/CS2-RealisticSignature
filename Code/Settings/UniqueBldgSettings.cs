@@ -118,7 +118,7 @@ namespace UniqueBuildings
             get
             {
                 if (!IsCityLoaded())
-                    return "No city loaded yet";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusNoCity, "No city loaded yet");
 
                 RefreshStatusIfNeeded();
 
@@ -136,17 +136,19 @@ namespace UniqueBuildings
             get
             {
                 if (!IsCityLoaded())
-                    return "Load a city first to see status";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoadCity, "Load a city first to see status");
 
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return "Loading…";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
 
-                return
-                    $"{SignatureScanState.SignatureBuildings} placed | " +
-                    $"{SignatureScanState.SignatureTypes} types | " +
-                    $"{SignatureScanState.DuplicateSignatureBuildings} duplicates";
+                return LocaleUtils.SafeFormat(
+                    LocaleEN.KeyStatusSignatureSummaryLine,
+                    "{0} placed | {1} types | {2} extra copies",
+                    SignatureScanState.SignatureBuildings,
+                    SignatureScanState.SignatureTypes,
+                    SignatureScanState.DuplicateSignatureBuildings);
             }
         }
 
@@ -163,11 +165,13 @@ namespace UniqueBuildings
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return "Loading…";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
 
-                return
-                    $"{SignatureScanState.CityWideEffectProviders} providers | " +
-                    $"{SignatureScanState.DuplicateCityWideProviders} duplicate providers";
+                return LocaleUtils.SafeFormat(
+                    LocaleEN.KeyStatusCityProvidersLine,
+                    "{0} active providers | {1} duplicate providers",
+                    SignatureScanState.CityWideEffectProviders,
+                    SignatureScanState.DuplicateCityWideProviders);
             }
         }
 
@@ -175,7 +179,9 @@ namespace UniqueBuildings
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public string StatusRedundantMods =>
-            UniqueModsCompatibility.StatusText;
+            UniqueModsCompatibility.HasRedundantMods
+                ? UniqueModsCompatibility.StatusText
+                : LocaleUtils.Localize(LocaleEN.KeyStatusNone, "None");
 
         // --------------------
         // About

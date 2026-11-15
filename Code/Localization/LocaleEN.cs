@@ -17,6 +17,18 @@ namespace UniqueBuildings
 
     public sealed class LocaleEN : IDictionarySource
     {
+        public const string KeyStatusNoCity = "RealisticSignature.Status.NoCity";
+        public const string KeyStatusLoading = "RealisticSignature.Status.Loading";
+        public const string KeyStatusLoadCity = "RealisticSignature.Status.LoadCity";
+        public const string KeyStatusMultipleAllowed = "RealisticSignature.Status.MultipleAllowed";
+        public const string KeyStatusAllowedByAnarchy = "RealisticSignature.Status.ByAnarchy";
+        public const string KeyStatusAllowedByAnotherMod = "RealisticSignature.Status.ByAnotherMod";
+        public const string KeyStatusOneOfEach = "RealisticSignature.Status.OneOfEach";
+        public const string KeyStatusMixedRules = "RealisticSignature.Status.MixedRules";
+        public const string KeyStatusSignatureSummaryLine = "RealisticSignature.Status.SignatureSummary";
+        public const string KeyStatusCityProvidersLine = "RealisticSignature.Status.CityProviders";
+        public const string KeyStatusNone = "RealisticSignature.Status.None";
+
         private readonly UniqueBldgSettings m_Setting;
 
         public LocaleEN(UniqueBldgSettings setting)
@@ -133,6 +145,19 @@ namespace UniqueBuildings
                     "Anarchy is supported and is not listed here.\n" +
                     "Remove other Unlimited/Multiple Unique mods because this mod already provides that feature."
                 },
+
+                // Localized Status values (not translated in log reports)
+                { KeyStatusNoCity, "No city loaded yet" },
+                { KeyStatusLoading, "Loading…" },
+                { KeyStatusLoadCity, "Load a city first to see status" },
+                { KeyStatusMultipleAllowed, "Multiple copies allowed" },
+                { KeyStatusAllowedByAnarchy, "Multiple allowed by Anarchy" },
+                { KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod" },
+                { KeyStatusOneOfEach, "One of each" },
+                { KeyStatusMixedRules, "Mixed rules" },
+                { KeyStatusSignatureSummaryLine, "{0} placed | {1} types | {2} extra copies" },
+                { KeyStatusCityProvidersLine, "{0} active providers | {1} duplicate providers" },
+                { KeyStatusNone, "None" },
 
                 // About
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.ModNameDisplay)), "Mod" },
