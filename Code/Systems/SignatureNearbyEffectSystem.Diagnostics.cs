@@ -13,6 +13,7 @@ namespace UniqueBuildings
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using CS2Shared.RiverMochi;
     using Game;
     using Game.Buildings;
@@ -35,12 +36,14 @@ namespace UniqueBuildings
 
             NearbySignatureMode selected = Normalize(
                 Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
-            LogUtils.Info($"{Mod.ModTag} ===== NEARBY STATUS (READ ONLY) =====");
-            LogUtils.Info($"{Mod.ModTag} Selected: {ModeLabel(selected)}.");
-            LogEffectCounts(selected, "CURRENT");
-            LogUtils.Info($"{Mod.ModTag} Abandoned-building effects are unchanged.");
-            LogUtils.Info($"{Mod.ModTag} Report did not change any settings or effects.");
-            LogUtils.Info($"{Mod.ModTag} ===== END NEARBY STATUS =====");
+            StringBuilder report = new();
+            report.AppendLine("===== NEARBY STATUS (READ ONLY) =====");
+            report.AppendLine($"Selected: {ModeLabel(selected)}.");
+            LogEffectCounts(selected, "CURRENT", report);
+            report.AppendLine($"Abandoned-building effects are unchanged.");
+            report.AppendLine($"Report did not change any settings or effects.");
+            report.AppendLine("===== END NEARBY STATUS =====");
+            LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
         }
 
         public void RunNearbyReport()
@@ -53,13 +56,14 @@ namespace UniqueBuildings
 
             NearbySignatureMode selected = Normalize(
                 Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
-            LogUtils.Info($"{Mod.ModTag} ===== COMPARE NEARBY EFFECT MODES =====");
-            LogUtils.Info($"{Mod.ModTag} Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
+            StringBuilder report = new();
+            report.AppendLine("===== COMPARE NEARBY EFFECT MODES =====");
+            report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
             try
             {
-                TestMode(NearbySignatureMode.Vanilla);
-                TestMode(NearbySignatureMode.FirstCopyOnly);
-                TestMode(NearbySignatureMode.NoEffects);
+                TestMode(NearbySignatureMode.Vanilla, report);
+                TestMode(NearbySignatureMode.FirstCopyOnly, report);
+                TestMode(NearbySignatureMode.NoEffects, report);
             }
             catch (Exception ex)
             {
@@ -69,26 +73,29 @@ namespace UniqueBuildings
             {
                 try
                 {
+                    report.AppendLine();
                     ReconcileNow(selected, "nearby report: restore selected mode", logResult: false);
-                    LogEffectCounts(selected, "RESTORED");
-                    LogUtils.Info($"{Mod.ModTag} Selected nearby mode restored.");
+                    LogEffectCounts(selected, "RESTORED", report);
+                    report.AppendLine($"Selected nearby mode restored.");
                 }
                 catch (Exception ex)
                 {
                     m_NeedsReconcile = true;
                     LogUtils.Warn($"{Mod.ModTag} Nearby restore failed: {ex.Message}", ex);
                 }
-                LogUtils.Info($"{Mod.ModTag} ===== END NEARBY COMPARISON =====");
+                report.AppendLine("===== END NEARBY COMPARISON =====");
+                LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
             }
         }
 
-        private void TestMode(NearbySignatureMode mode)
+        private void TestMode(NearbySignatureMode mode, StringBuilder report)
         {
+            report.AppendLine();
             ReconcileNow(mode, "nearby report test", logResult: false);
-            LogEffectCounts(mode, "TEST");
+            LogEffectCounts(mode, "TEST", report);
         }
 
-        private void LogEffectCounts(NearbySignatureMode mode, string phase)
+        private void LogEffectCounts(NearbySignatureMode mode, string phase, StringBuilder report)
         {
             using NativeArray<Entity> buildings =
                 m_EligibleQuery.ToEntityArray(Allocator.Temp);
@@ -152,12 +159,12 @@ namespace UniqueBuildings
                 }
             }
 
-            LogUtils.Info($"{Mod.ModTag}   {phase}: {ModeLabel(mode)}");
-            LogUtils.Info($"{Mod.ModTag}     Signature buildings: {buildings.Length} | " +
+            report.AppendLine($"  {phase}: {ModeLabel(mode)}");
+            report.AppendLine($"    Signature buildings: {buildings.Length} | " +
                 $"Types: {firstByPrefab.Count}");
-            LogUtils.Info($"{Mod.ModTag}     Nearby effects: {active}/{available} active | " +
+            report.AppendLine($"    Nearby effects: {active}/{available} active | " +
                 $"{available - active} disabled");
-            LogUtils.Info($"{Mod.ModTag}     Rule check: " +
+            report.AppendLine($"    Rule check: " +
                 (active == expected ? "PASS" : $"CHECK - expected {expected} active"));
         }
 
