@@ -157,7 +157,8 @@ namespace UniqueBuildings
 
         private void ReconcileNow(
             SignatureBonusMode mode,
-            string reason)
+            string reason,
+            bool logResult = true)
         {
             CompleteDependency();
 
@@ -195,15 +196,18 @@ namespace UniqueBuildings
 
             SignatureScanState.Clear();
 
-            LogUtils.Info(
-                $"{Mod.ModTag} City-wide Signature bonus reconcile " +
-                $"({reason}): " +
-                $"Mode={mode} | " +
-                $"Signatures={signatures.Length} | " +
-                $"Types={copiesByPrefab.Count} | " +
-                $"Suppressed={suppressed} | " +
-                $"Changed={changed}.");
-        }
+            if (logResult)
+            {
+                LogUtils.Info(
+                    $"{Mod.ModTag} City-wide Signature bonus reconcile " +
+                    $"({reason}): " +
+                    $"Mode={mode} | " +
+                    $"Signatures={signatures.Length} | " +
+                    $"Types={copiesByPrefab.Count} | " +
+                    $"Suppressed={suppressed} | " +
+                    $"Changed={changed}.");
+    
+            }        }
 
         private Dictionary<Entity, List<Entity>>
             BuildCopiesByPrefab(
