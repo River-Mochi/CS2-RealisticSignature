@@ -61,7 +61,6 @@ namespace UniqueBuildings
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
             StringBuilder report = new();
             report.AppendLine("===== CITY-WIDE STATUS (READ ONLY) =====");
-            report.AppendLine($"Selected mode: {ModeLabel(selected)}.");
             LogSnapshot(selected, "CURRENT", report);
             report.AppendLine($"Report did not change any settings or bonuses.");
             report.AppendLine("===== END CITY-WIDE STATUS =====");

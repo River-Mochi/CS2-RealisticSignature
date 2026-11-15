@@ -38,7 +38,6 @@ namespace UniqueBuildings
                 Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
             StringBuilder report = new();
             report.AppendLine("===== NEARBY STATUS (READ ONLY) =====");
-            report.AppendLine($"Selected: {ModeLabel(selected)}.");
             LogEffectCounts(selected, "CURRENT", report);
             report.AppendLine($"Abandoned-building effects are unchanged.");
             report.AppendLine($"Report did not change any settings or effects.");
