@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.", // 32
             "Mods redundantes detectados", // 33
             "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 34
-            "Mod", // 35
-            "Nombre que se muestra para este mod.", // 36
-            "Versión", // 37
-            "Versión instalada del mod y tipo de compilación.", // 38
-            "Informe de estado al registro", // 39
-            "Escribe en el registro los recuentos actuales de edificios emblemáticos, las bonificaciones globales y los efectos cercanos. No cambia ajustes ni efectos. Primero carga una ciudad.", // 40
-            "Comparar modos de bonificación en el registro", // 41
-            "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 42
-            "Abrir registro", // 43
-            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 44
-            "No hay ninguna ciudad cargada", // 45
-            "Cargando…", // 46
-            "Carga una ciudad para ver el estado", // 47
-            "Se permiten varias copias", // 48
-            "Anarchy permite varias copias", // 49
-            "Otro mod permite varios edificios únicos", // 50
-            "Uno de cada tipo", // 51
-            "Reglas mixtas", // 52
-            "{0} colocados | {1} tipos | {2} copias extra", // 53
-            "{0} proveedores activos | {1} proveedores duplicados", // 54
-            "Ninguno", // 55
+            "No hay ninguna ciudad cargada", // 35
+            "Cargando…", // 36
+            "Carga una ciudad para ver el estado", // 37
+            "Se permiten varias copias", // 38
+            "Anarchy permite varias copias", // 39
+            "Otro mod permite varios edificios únicos", // 40
+            "Uno de cada tipo", // 41
+            "Reglas mixtas", // 42
+            "{0} colocados | {1} tipos | {2} copias extra", // 43
+            "{0} proveedores activos | {1} proveedores duplicados", // 44
+            "Ninguno", // 45
+            "Mod", // 46
+            "Nombre que se muestra para este mod.", // 47
+            "Versión", // 48
+            "Versión instalada del mod y tipo de compilación.", // 49
+            "Informe de estado al registro", // 50
+            "Escribe en el registro los recuentos actuales de edificios emblemáticos, las bonificaciones globales y los efectos cercanos. No cambia ajustes ni efectos. Primero carga una ciudad.", // 51
+            "Comparar modos de bonificación en el registro", // 52
+            "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 53
+            "Abrir registro", // 54
+            "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 55
         };
 
         public LocaleES(UniqueBldgSettings setting)

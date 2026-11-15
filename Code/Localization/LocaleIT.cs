@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 32
             "Mod ridondanti rilevati", // 33
             "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 34
-            "Mod", // 35
-            "Nome visualizzato del mod.", // 36
-            "Versione", // 37
-            "Versione installata e tipo di compilazione.", // 38
-            "Rapporto di stato nel registro", // 39
-            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 40
-            "Confronta le modalità bonus nel registro", // 41
-            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 42
-            "Apri registro", // 43
-            "Apre il file di registro del mod oppure la cartella dei registri.", // 44
-            "Nessuna città caricata", // 45
-            "Caricamento…", // 46
-            "Carica una città per vedere lo stato", // 47
-            "Copie multiple consentite", // 48
-            "Copie multiple consentite da Anarchy", // 49
-            "Un altro mod consente più edifici unici", // 50
-            "Uno per tipo", // 51
-            "Regole miste", // 52
-            "{0} posizionati | {1} tipi | {2} copie extra", // 53
-            "{0} fornitori attivi | {1} fornitori duplicati", // 54
-            "Nessuno", // 55
+            "Nessuna città caricata", // 35
+            "Caricamento…", // 36
+            "Carica una città per vedere lo stato", // 37
+            "Copie multiple consentite", // 38
+            "Copie multiple consentite da Anarchy", // 39
+            "Un altro mod consente più edifici unici", // 40
+            "Uno per tipo", // 41
+            "Regole miste", // 42
+            "{0} posizionati | {1} tipi | {2} copie extra", // 43
+            "{0} fornitori attivi | {1} fornitori duplicati", // 44
+            "Nessuno", // 45
+            "Mod", // 46
+            "Nome visualizzato del mod.", // 47
+            "Versione", // 48
+            "Versione installata e tipo di compilazione.", // 49
+            "Rapporto di stato nel registro", // 50
+            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 51
+            "Confronta le modalità bonus nel registro", // 52
+            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 53
+            "Apri registro", // 54
+            "Apre il file di registro del mod oppure la cartella dei registri.", // 55
         };
 
         public LocaleIT(UniqueBldgSettings setting)

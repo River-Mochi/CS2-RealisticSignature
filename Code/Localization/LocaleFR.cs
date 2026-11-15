@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Compte les bâtiments emblématiques fournissant un bonus global.\nLes bonus locaux et de proximité ne sont pas inclus.", // 32
             "Mods redondants détectés", // 33
             "Anarchy est compatible et n'apparaît pas ici.\nRetirez les autres mods de bâtiments uniques illimités : cette fonction est déjà incluse.", // 34
-            "Mod", // 35
-            "Nom affiché de ce mod.", // 36
-            "Version", // 37
-            "Version installée et type de compilation.", // 38
-            "Rapport d'état dans le journal", // 39
-            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 40
-            "Comparer les modes de bonus dans le journal", // 41
-            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 42
-            "Ouvrir le journal", // 43
-            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 44
-            "Aucune ville chargée", // 45
-            "Chargement…", // 46
-            "Chargez d'abord une ville pour voir l'état", // 47
-            "Copies multiples autorisées", // 48
-            "Copies multiples autorisées par Anarchy", // 49
-            "Un autre mod autorise plusieurs bâtiments uniques", // 50
-            "Un seul de chaque", // 51
-            "Règles mixtes", // 52
-            "{0} placés | {1} types | {2} copies supplémentaires", // 53
-            "{0} fournisseurs actifs | {1} fournisseurs en double", // 54
-            "Aucun", // 55
+            "Aucune ville chargée", // 35
+            "Chargement…", // 36
+            "Chargez d'abord une ville pour voir l'état", // 37
+            "Copies multiples autorisées", // 38
+            "Copies multiples autorisées par Anarchy", // 39
+            "Un autre mod autorise plusieurs bâtiments uniques", // 40
+            "Un seul de chaque", // 41
+            "Règles mixtes", // 42
+            "{0} placés | {1} types | {2} copies supplémentaires", // 43
+            "{0} fournisseurs actifs | {1} fournisseurs en double", // 44
+            "Aucun", // 45
+            "Mod", // 46
+            "Nom affiché de ce mod.", // 47
+            "Version", // 48
+            "Version installée et type de compilation.", // 49
+            "Rapport d'état dans le journal", // 50
+            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 51
+            "Comparer les modes de bonus dans le journal", // 52
+            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 53
+            "Ouvrir le journal", // 54
+            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 55
         };
 
         public LocaleFR(UniqueBldgSettings setting)

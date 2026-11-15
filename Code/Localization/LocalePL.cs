@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Zlicza budynki charakterystyczne z premiami ogólnomiejskimi.\nEfekty lokalne i w pobliżu nie są tutaj uwzględnione.", // 32
             "Wykryte zbędne mody", // 33
             "Anarchy jest obsługiwany i nie pojawia się tutaj.\nUsuń inne mody zezwalające na nieograniczone budynki unikatowe — ta funkcja jest już dostępna.", // 34
-            "Mod", // 35
-            "Wyświetlana nazwa moda.", // 36
-            "Wersja", // 37
-            "Zainstalowana wersja moda i typ kompilacji.", // 38
-            "Raport stanu do dziennika", // 39
-            "Zapisuje w dzienniku aktualną liczbę budynków charakterystycznych, premie ogólnomiejskie i efekty pobliskie. Nie zmienia ustawień ani efektów. Najpierw wczytaj miasto.", // 40
-            "Porównaj tryby premii w dzienniku", // 41
-            "Tymczasowo testuje wszystkie tryby premii ogólnomiejskich i efektów pobliskich, gdy gra jest wstrzymana w Opcjach. Następnie ponownie stosuje wybrane tryby. Wyniki trafiają do dziennika moda. Najpierw wczytaj miasto.", // 42
-            "Otwórz dziennik", // 43
-            "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 44
-            "Nie wczytano miasta", // 45
-            "Wczytywanie…", // 46
-            "Najpierw wczytaj miasto, aby zobaczyć stan", // 47
-            "Można stawiać wiele kopii", // 48
-            "Anarchy pozwala na wiele kopii", // 49
-            "Inny mod pozwala na wiele unikalnych budynków", // 50
-            "Po jednym z każdego typu", // 51
-            "Mieszane zasady", // 52
-            "Postawiono {0} | typy: {1} | dodatkowe kopie: {2}", // 53
-            "Aktywne źródła premii: {0} | powielone: {1}", // 54
-            "Brak", // 55
+            "Nie wczytano miasta", // 35
+            "Wczytywanie…", // 36
+            "Najpierw wczytaj miasto, aby zobaczyć stan", // 37
+            "Można stawiać wiele kopii", // 38
+            "Anarchy pozwala na wiele kopii", // 39
+            "Inny mod pozwala na wiele unikalnych budynków", // 40
+            "Po jednym z każdego typu", // 41
+            "Mieszane zasady", // 42
+            "Postawiono {0} | typy: {1} | dodatkowe kopie: {2}", // 43
+            "Aktywne źródła premii: {0} | powielone: {1}", // 44
+            "Brak", // 45
+            "Mod", // 46
+            "Wyświetlana nazwa moda.", // 47
+            "Wersja", // 48
+            "Zainstalowana wersja moda i typ kompilacji.", // 49
+            "Raport stanu do dziennika", // 50
+            "Zapisuje w dzienniku aktualną liczbę budynków charakterystycznych, premie ogólnomiejskie i efekty pobliskie. Nie zmienia ustawień ani efektów. Najpierw wczytaj miasto.", // 51
+            "Porównaj tryby premii w dzienniku", // 52
+            "Tymczasowo testuje wszystkie tryby premii ogólnomiejskich i efektów pobliskich, gdy gra jest wstrzymana w Opcjach. Następnie ponownie stosuje wybrane tryby. Wyniki trafiają do dziennika moda. Najpierw wczytaj miasto.", // 53
+            "Otwórz dziennik", // 54
+            "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 55
         };
 
         public LocalePL(UniqueBldgSettings setting)

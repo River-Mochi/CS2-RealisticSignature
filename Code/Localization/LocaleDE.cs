@@ -50,27 +50,27 @@ namespace UniqueBuildings
             "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.", // 32
             "Überflüssige Mods erkannt", // 33
             "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 34
-            "Mod", // 35
-            "Anzeigename dieses Mods.", // 36
-            "Version", // 37
-            "Installierte Modversion und Build-Typ.", // 38
-            "Statusbericht ins Log", // 39
-            "Schreibt den aktuellen Stand der Signaturgebäude, stadtweiten Boni und Nahbereichseffekte ins Log. Ändert keine Einstellungen oder Effekte. Zuerst eine Stadt laden.", // 40
-            "Bonusmodi im Log vergleichen", // 41
-            "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 42
-            "Protokoll öffnen", // 43
-            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 44
-            "Noch keine Stadt geladen", // 45
-            "Wird geladen…", // 46
-            "Lade zuerst eine Stadt, um den Status zu sehen", // 47
-            "Mehrere Exemplare erlaubt", // 48
-            "Mehrere Exemplare durch Anarchy erlaubt", // 49
-            "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 50
-            "Nur eines pro Typ", // 51
-            "Gemischte Regeln", // 52
-            "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 53
-            "{0} aktive Bonusgeber | {1} doppelte Bonusgeber", // 54
-            "Keine", // 55
+            "Noch keine Stadt geladen", // 35
+            "Wird geladen…", // 36
+            "Lade zuerst eine Stadt, um den Status zu sehen", // 37
+            "Mehrere Exemplare erlaubt", // 38
+            "Mehrere Exemplare durch Anarchy erlaubt", // 39
+            "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 40
+            "Nur eines pro Typ", // 41
+            "Gemischte Regeln", // 42
+            "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 43
+            "{0} aktive Bonusgeber | {1} doppelte Bonusgeber", // 44
+            "Keine", // 45
+            "Mod", // 46
+            "Anzeigename dieses Mods.", // 47
+            "Version", // 48
+            "Installierte Modversion und Build-Typ.", // 49
+            "Statusbericht ins Log", // 50
+            "Schreibt den aktuellen Stand der Signaturgebäude, stadtweiten Boni und Nahbereichseffekte ins Log. Ändert keine Einstellungen oder Effekte. Zuerst eine Stadt laden.", // 51
+            "Bonusmodi im Log vergleichen", // 52
+            "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 53
+            "Protokoll öffnen", // 54
+            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 55
         };
 
         public LocaleDE(UniqueBldgSettings setting)
