@@ -38,6 +38,7 @@ namespace UniqueBuildings
             return new Dictionary<string, string>
                 { { m_Setting.GetSettingsLocaleID(), t[0] },
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.ActionsTab), t[1] },
+                { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.StatusTab), t[6] },
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.AboutTab), t[2] },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.BonusGroup), t[3] },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.UnlockGroup), t[4] },

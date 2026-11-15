@@ -66,7 +66,7 @@ namespace UniqueBuildings
         public static int GetUiVersion()
         {
             ScanIfNeeded();
-            return s_UiVersion;
+            return unchecked((s_UiVersion * 397) + LocaleUtils.GetLocaleVersion());
         }
 
         public static void LogDetectedMods()

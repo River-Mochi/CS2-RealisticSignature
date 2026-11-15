@@ -93,7 +93,7 @@ namespace UniqueBuildings
             if (changed)
                 s_UiVersion++;
 
-            return s_UiVersion;
+            return unchecked((s_UiVersion * 397) + LocaleUtils.GetLocaleVersion());
         }
 
         public static void SetSnapshot(

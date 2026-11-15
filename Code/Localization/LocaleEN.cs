@@ -47,6 +47,7 @@ namespace UniqueBuildings
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.ActionsTab), "Actions" },
+                { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.StatusTab), "Status" },
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.AboutTab), "About" },
 
                 // Groups

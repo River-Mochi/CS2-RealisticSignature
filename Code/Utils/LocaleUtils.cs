@@ -18,6 +18,34 @@ namespace CS2Shared.RiverMochi
 
     public static class LocaleUtils
     {
+        private static string s_LastLocaleId = string.Empty;
+        private static int s_LocaleVersion;
+
+        // Cached Options Status strings must refresh when the player changes language.
+        public static int GetLocaleVersion()
+        {
+            string localeId = string.Empty;
+
+            try
+            {
+                localeId = GameManager.instance?.localizationManager?.activeLocaleId ?? string.Empty;
+            }
+            catch
+            {
+            }
+
+            if (!string.Equals(s_LastLocaleId, localeId, StringComparison.Ordinal))
+            {
+                s_LastLocaleId = localeId;
+                unchecked
+                {
+                    s_LocaleVersion++;
+                }
+            }
+
+            return s_LocaleVersion;
+        }
+
         public static string Localize(string entryId, string fallback)
         {
             if (string.IsNullOrEmpty(entryId))

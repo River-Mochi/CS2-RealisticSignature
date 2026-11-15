@@ -11,6 +11,8 @@
 
 namespace UniqueBuildings
 {
+    using CS2Shared.RiverMochi;
+
     internal static class SignatureScanState
     {
         private static int s_UiVersion;
@@ -41,7 +43,7 @@ namespace UniqueBuildings
 
         public static int GetUiVersion()
         {
-            return s_UiVersion;
+            return unchecked((s_UiVersion * 397) + LocaleUtils.GetLocaleVersion());
         }
 
         public static bool NeedsRefresh(uint simulationFrame)

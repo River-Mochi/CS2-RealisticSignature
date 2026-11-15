@@ -37,16 +37,17 @@ namespace UniqueBuildings
     }
 
     [FileLocation("ModsSettings/BetterUniqueBuildings/BetterUniqueBuildings")]
-    [SettingsUITabOrder(ActionsTab, AboutTab)]
+    [SettingsUITabOrder(ActionsTab, StatusTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
+        BonusGroup, UnlockGroup, PlacementGroup,
         DebugGroup)]
     public sealed class UniqueBldgSettings : ModSetting
     {
         public const string ActionsTab = "Actions";
+        public const string StatusTab = "Status";
         public const string AboutTab = "About";
 
         public const string BonusGroup = "Bonuses";
@@ -112,76 +113,76 @@ namespace UniqueBuildings
 
         [Exclude]
         [SettingsUIValueVersion(typeof(UniquePlacementState), nameof(UniquePlacementState.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusPlacementRule
+        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        public LocalizedString StatusPlacementRule
         {
             get
             {
                 if (!IsCityLoaded())
-                    return LocaleUtils.Localize(LocaleEN.KeyStatusNoCity, "No city loaded yet");
+                    return LocalizedString.Id(LocaleEN.KeyStatusNoCity);
 
                 RefreshStatusIfNeeded();
 
                 return UniquePlacementState.HasSnapshot
-                    ? UniquePlacementState.StatusText
-                    : LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
+                    ? LocalizedString.Value(UniquePlacementState.StatusText)
+                    : LocalizedString.Id(LocaleEN.KeyStatusLoading);
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusSignatureSummary
+        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        public LocalizedString StatusSignatureSummary
         {
             get
             {
                 if (!IsCityLoaded())
-                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoadCity, "Load a city first to see status");
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoadCity);
 
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
 
-                return LocaleUtils.SafeFormat(
+                return LocalizedString.Value(LocaleUtils.SafeFormat(
                     LocaleEN.KeyStatusSignatureSummaryLine,
                     "{0} placed | {1} types | {2} extra copies",
                     SignatureScanState.SignatureBuildings,
                     SignatureScanState.SignatureTypes,
-                    SignatureScanState.DuplicateSignatureBuildings);
+                    SignatureScanState.DuplicateSignatureBuildings));
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusCityWideEffects
+        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        public LocalizedString StatusCityWideEffects
         {
             get
             {
                 if (!IsCityLoaded())
-                    return "—";
+                    return LocalizedString.Value("—");
 
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return LocaleUtils.Localize(LocaleEN.KeyStatusLoading, "Loading…");
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
 
-                return LocaleUtils.SafeFormat(
+                return LocalizedString.Value(LocaleUtils.SafeFormat(
                     LocaleEN.KeyStatusCityProvidersLine,
                     "{0} active providers | {1} duplicate providers",
                     SignatureScanState.CityWideEffectProviders,
-                    SignatureScanState.DuplicateCityWideProviders);
+                    SignatureScanState.DuplicateCityWideProviders));
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
-        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusRedundantMods =>
+        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        public LocalizedString StatusRedundantMods =>
             UniqueModsCompatibility.HasRedundantMods
-                ? UniqueModsCompatibility.StatusText
-                : LocaleUtils.Localize(LocaleEN.KeyStatusNone, "None");
+                ? LocalizedString.Value(UniqueModsCompatibility.StatusText)
+                : LocalizedString.Id(LocaleEN.KeyStatusNone);
 
         // --------------------
         // About
