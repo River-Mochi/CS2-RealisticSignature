@@ -36,30 +36,41 @@ namespace UniqueBuildings
             "Không có hiệu ứng xung quanh", // 18
             "Bỏ yêu cầu mở khóa công trình đặc trưng", // 19
             "**BẬT** = mở tất cả công trình đặc trưng mà không cần đáp ứng dân số, phân vùng hay tiến trình.\n**TẮT** = mở khóa theo quy tắc gốc.", // 20
-            "Cho phép nhiều bản sao", // 21
-            "**BẬT** = đặt nhiều bản sao của các đối tượng độc đáo, kể cả công trình đặc trưng.\n**TẮT** = mỗi loại một bản trong thành phố, trừ khi mod khác cho phép.", // 22
-            "Quy tắc đặt đối tượng độc đáo", // 23
-            "Cho biết hiện có được đặt nhiều bản sao của đối tượng độc đáo hay không.", // 24
-            "Công trình đặc trưng", // 25
-            "Hiển thị tổng công trình đặc trưng, số loại khác nhau và số bản sao thêm.", // 26
-            "Hiệu ứng thưởng toàn thành phố", // 27
-            "Đếm công trình đặc trưng có thưởng toàn thành phố.\nKhông tính hiệu ứng cục bộ hoặc lân cận.", // 28
-            "Phát hiện mod trùng chức năng", // 29
-            "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 30
-            "Mod", // 31
-            "Tên hiển thị của mod này.", // 32
-            "Phiên bản", // 33
-            "Phiên bản mod đã cài và loại bản dựng.", // 34
-            "Mở nhật ký", // 35
-            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 36
-            "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 37
-            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 38
-            "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 39
-            "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: TẮT.", // 40
-            "Ghi báo cáo trạng thái vào nhật ký", // 41
-            "Ghi số lượng công trình đặc trưng hiện tại, phần thưởng toàn thành phố và hiệu ứng lân cận vào nhật ký. Không thay đổi cài đặt hoặc hiệu ứng. Hãy tải thành phố trước.", // 42
-            "So sánh các chế độ phần thưởng vào nhật ký", // 43
-            "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 44
+            "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 21
+            "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 22
+            "Cho phép nhiều bản sao", // 23
+            "**BẬT** = đặt nhiều bản sao của các đối tượng độc đáo, kể cả công trình đặc trưng.\n**TẮT** = mỗi loại một bản trong thành phố, trừ khi mod khác cho phép.", // 24
+            "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 25
+            "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: TẮT.", // 26
+            "Quy tắc đặt đối tượng độc đáo", // 27
+            "Cho biết hiện có được đặt nhiều bản sao của đối tượng độc đáo hay không.", // 28
+            "Công trình đặc trưng", // 29
+            "Hiển thị tổng công trình đặc trưng, số loại khác nhau và số bản sao thêm.", // 30
+            "Hiệu ứng thưởng toàn thành phố", // 31
+            "Đếm công trình đặc trưng có thưởng toàn thành phố.\nKhông tính hiệu ứng cục bộ hoặc lân cận.", // 32
+            "Phát hiện mod trùng chức năng", // 33
+            "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 34
+            "Mod", // 35
+            "Tên hiển thị của mod này.", // 36
+            "Phiên bản", // 37
+            "Phiên bản mod đã cài và loại bản dựng.", // 38
+            "Ghi báo cáo trạng thái vào nhật ký", // 39
+            "Ghi số lượng công trình đặc trưng hiện tại, phần thưởng toàn thành phố và hiệu ứng lân cận vào nhật ký. Không thay đổi cài đặt hoặc hiệu ứng. Hãy tải thành phố trước.", // 40
+            "So sánh các chế độ phần thưởng vào nhật ký", // 41
+            "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 42
+            "Mở nhật ký", // 43
+            "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 44
+            "Chưa tải thành phố", // 45
+            "Đang tải…", // 46
+            "Hãy tải thành phố để xem trạng thái", // 47
+            "Cho phép nhiều bản sao", // 48
+            "Anarchy cho phép nhiều bản sao", // 49
+            "Mod khác cho phép xây nhiều công trình độc nhất", // 50
+            "Mỗi loại một công trình", // 51
+            "Quy tắc kết hợp", // 52
+            "Đã xây {0} | {1} loại | {2} bản sao thêm", // 53
+            "{0} nguồn thưởng đang hoạt động | {1} nguồn thưởng trùng", // 54
+            "Không có", // 55
         };
 
         public LocaleVI(UniqueBldgSettings setting)

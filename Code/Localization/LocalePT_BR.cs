@@ -36,30 +36,41 @@ namespace UniqueBuildings
             "Sem efeitos próximos", // 18
             "Desbloquear requisitos de edifícios emblemáticos", // 19
             "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zoneamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.", // 20
-            "Permitir várias cópias", // 21
-            "**LIGADO** = permite construir várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = apenas uma cópia por cidade, exceto se outro mod permitir mais.", // 22
-            "Regra de construção de objetos únicos", // 23
-            "Mostra se é possível construir várias cópias de objetos únicos.", // 24
-            "Edifícios emblemáticos", // 25
-            "Mostra quantos edifícios emblemáticos foram construídos, tipos diferentes e cópias extras.", // 26
-            "Efeitos dos bônus da cidade", // 27
-            "Conta edifícios emblemáticos com bônus para toda a cidade.\nEfeitos locais e próximos não estão incluídos.", // 28
-            "Mods redundantes detectados", // 29
-            "Anarchy é compatível e não aparece aqui.\nRemova outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 30
-            "Mod", // 31
-            "Nome exibido deste mod.", // 32
-            "Versão", // 33
-            "Versão instalada e tipo de compilação.", // 34
-            "Abrir registro", // 35
-            "Abre o registro do mod ou, se não estiver disponível, a pasta de registros.", // 36
-            "Ocultar avisos de desbloqueio em massa", // 37
-            "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 38
-            "Impedir vistas de informação automáticas para edifícios únicos", // 39
-            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: DESLIGADO.", // 40
-            "Relatório de status no log", // 41
-            "Registra no log a quantidade atual de edifícios emblemáticos, os bônus da cidade e os efeitos próximos. Não altera configurações nem efeitos. Carregue uma cidade primeiro.", // 42
-            "Comparar modos de bônus no log", // 43
-            "Testa temporariamente todos os modos de bônus da cidade e efeitos próximos enquanto o jogo está pausado nas Opções. Depois reaplica os modos escolhidos. Os resultados ficam no log do mod. Carregue uma cidade primeiro.", // 44
+            "Ocultar avisos de desbloqueio em massa", // 21
+            "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 22
+            "Permitir várias cópias", // 23
+            "**LIGADO** = permite construir várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = apenas uma cópia por cidade, exceto se outro mod permitir mais.", // 24
+            "Impedir vistas de informação automáticas para edifícios únicos", // 25
+            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: DESLIGADO.", // 26
+            "Regra de construção de objetos únicos", // 27
+            "Mostra se é possível construir várias cópias de objetos únicos.", // 28
+            "Edifícios emblemáticos", // 29
+            "Mostra quantos edifícios emblemáticos foram construídos, tipos diferentes e cópias extras.", // 30
+            "Efeitos dos bônus da cidade", // 31
+            "Conta edifícios emblemáticos com bônus para toda a cidade.\nEfeitos locais e próximos não estão incluídos.", // 32
+            "Mods redundantes detectados", // 33
+            "Anarchy é compatível e não aparece aqui.\nRemova outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 34
+            "Mod", // 35
+            "Nome exibido deste mod.", // 36
+            "Versão", // 37
+            "Versão instalada e tipo de compilação.", // 38
+            "Relatório de status no log", // 39
+            "Registra no log a quantidade atual de edifícios emblemáticos, os bônus da cidade e os efeitos próximos. Não altera configurações nem efeitos. Carregue uma cidade primeiro.", // 40
+            "Comparar modos de bônus no log", // 41
+            "Testa temporariamente todos os modos de bônus da cidade e efeitos próximos enquanto o jogo está pausado nas Opções. Depois reaplica os modos escolhidos. Os resultados ficam no log do mod. Carregue uma cidade primeiro.", // 42
+            "Abrir registro", // 43
+            "Abre o registro do mod ou, se não estiver disponível, a pasta de registros.", // 44
+            "Nenhuma cidade carregada", // 45
+            "Carregando…", // 46
+            "Carregue uma cidade para ver o status", // 47
+            "Várias cópias permitidas", // 48
+            "Anarchy permite várias cópias", // 49
+            "Outro mod permite vários edifícios únicos", // 50
+            "Um de cada tipo", // 51
+            "Regras mistas", // 52
+            "{0} construídos | {1} tipos | {2} cópias extras", // 53
+            "{0} provedores ativos | {1} provedores duplicados", // 54
+            "Nenhum", // 55
         };
 
         public LocalePT_BR(UniqueBldgSettings setting)

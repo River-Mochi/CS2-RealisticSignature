@@ -36,30 +36,41 @@ namespace UniqueBuildings
             "Yakın çevre etkileri yok", // 18
             "İmza bina açma koşullarını kaldır", // 19
             "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.", // 20
-            "Birden fazla kopyaya izin ver", // 21
-            "**AÇIK** = imza binalar dâhil benzersiz olarak işaretlenen nesnelerin birden fazla kopyasını yerleştirir.\n**KAPALI** = başka bir mod izin vermedikçe şehirde her nesneden bir tane.", // 22
-            "Benzersiz nesne yerleştirme kuralı", // 23
-            "Benzersiz nesnelerden birden fazla yerleştirilip yerleştirilemeyeceğini gösterir.", // 24
-            "İmza binalar", // 25
-            "Yerleştirilen imza bina sayısını, farklı türleri ve ek kopyaları gösterir.", // 26
-            "Şehir geneli bonus etkileri", // 27
-            "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.", // 28
-            "Gereksiz modlar algılandı", // 29
-            "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 30
-            "Mod", // 31
-            "Bu modun görünen adı.", // 32
-            "Sürüm", // 33
-            "Yüklü mod sürümü ve derleme türü.", // 34
-            "Günlüğü aç", // 35
-            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 36
-            "Toplu İmza bina açma bildirimlerini gizle", // 37
-            "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 38
-            "Benzersiz binalar için otomatik bilgi görünümlerini engelle", // 39
-            "İmza binalar dâhil benzersiz binalar yerleştirilirken bilgi panelinin ve renkli haritanın otomatik açılmasını önler. Bilgi görünümleri elle açılabilir. Diğer inşa araçları değişmez. Toggleable Overlays etkinse öncelik ondadır. Varsayılan: KAPALI.", // 40
-            "Durum raporunu günlüğe yaz", // 41
-            "Mevcut İmza bina sayılarını, şehir genelindeki bonusları ve yakın çevre etkilerini günlüğe yazar. Ayarları veya etkileri değiştirmez. Önce bir şehir yükleyin.", // 42
-            "Bonus modlarını günlüğe karşılaştır", // 43
-            "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 44
+            "Toplu İmza bina açma bildirimlerini gizle", // 21
+            "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 22
+            "Birden fazla kopyaya izin ver", // 23
+            "**AÇIK** = imza binalar dâhil benzersiz olarak işaretlenen nesnelerin birden fazla kopyasını yerleştirir.\n**KAPALI** = başka bir mod izin vermedikçe şehirde her nesneden bir tane.", // 24
+            "Benzersiz binalar için otomatik bilgi görünümlerini engelle", // 25
+            "İmza binalar dâhil benzersiz binalar yerleştirilirken bilgi panelinin ve renkli haritanın otomatik açılmasını önler. Bilgi görünümleri elle açılabilir. Diğer inşa araçları değişmez. Toggleable Overlays etkinse öncelik ondadır. Varsayılan: KAPALI.", // 26
+            "Benzersiz nesne yerleştirme kuralı", // 27
+            "Benzersiz nesnelerden birden fazla yerleştirilip yerleştirilemeyeceğini gösterir.", // 28
+            "İmza binalar", // 29
+            "Yerleştirilen imza bina sayısını, farklı türleri ve ek kopyaları gösterir.", // 30
+            "Şehir geneli bonus etkileri", // 31
+            "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.", // 32
+            "Gereksiz modlar algılandı", // 33
+            "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 34
+            "Mod", // 35
+            "Bu modun görünen adı.", // 36
+            "Sürüm", // 37
+            "Yüklü mod sürümü ve derleme türü.", // 38
+            "Durum raporunu günlüğe yaz", // 39
+            "Mevcut İmza bina sayılarını, şehir genelindeki bonusları ve yakın çevre etkilerini günlüğe yazar. Ayarları veya etkileri değiştirmez. Önce bir şehir yükleyin.", // 40
+            "Bonus modlarını günlüğe karşılaştır", // 41
+            "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 42
+            "Günlüğü aç", // 43
+            "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 44
+            "Şehir yüklenmedi", // 45
+            "Yükleniyor…", // 46
+            "Durumu görmek için önce bir şehir yükleyin", // 47
+            "Birden fazla kopyaya izin veriliyor", // 48
+            "Anarchy birden fazla kopyaya izin veriyor", // 49
+            "Başka bir mod birden fazla benzersiz binaya izin veriyor", // 50
+            "Her türden bir tane", // 51
+            "Karma kurallar", // 52
+            "{0} yerleştirildi | {1} tür | {2} ek kopya", // 53
+            "{0} etkin bonus kaynağı | {1} yinelenen kaynak", // 54
+            "Yok", // 55
         };
 
         public LocaleTR(UniqueBldgSettings setting)
