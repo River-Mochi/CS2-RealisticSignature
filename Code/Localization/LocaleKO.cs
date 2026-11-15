@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleKO.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "고유 건물의 정보 보기 자동 열기 방지", // 39
             "시그니처 건물을 포함한 고유 건물을 배치할 때 정보 보기 패널과 색상 지도가 자동으로 열리지 않게 합니다. 정보 보기는 수동으로 열 수 있습니다. 다른 건설 도구에는 영향을 주지 않습니다. Toggleable Overlays가 활성화되어 있으면 해당 모드가 우선합니다. 기본값: 꺼짐.", // 40
             "상태 보고서를 로그에 기록", // 41
-            "도시 전체 보너스와 주변 효과 보고서를 실행한 뒤 선택한 모드로 복원합니다. 결과는 모드 로그에 기록됩니다. 먼저 도시를 불러오세요.", // 42
+            "현재 시그니처 건물 수, 도시 전체 보너스, 주변 효과를 로그에 기록합니다. 설정이나 효과는 변경하지 않습니다. 먼저 도시를 불러오세요.", // 42
+            "보너스 모드 비교 결과를 로그에 기록", // 43
+            "옵션 화면에서 게임이 일시 정지된 동안 도시 전체 보너스와 주변 효과의 모든 모드를 임시로 적용해 비교합니다. 이후 선택한 모드를 다시 적용합니다. 결과는 모드 로그에 기록됩니다. 먼저 도시를 불러오세요.", // 44
         };
 
         public LocaleKO(UniqueBldgSettings setting)

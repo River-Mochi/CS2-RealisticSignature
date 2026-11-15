@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleFR.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "Empêcher l'ouverture automatique des infovues pour les bâtiments uniques", // 39
             "Empêche les bâtiments uniques, y compris les bâtiments emblématiques, d'ouvrir automatiquement l'infovue et la carte colorée lors du placement. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : DÉSACTIVÉ.", // 40
             "Rapport d'état dans le journal", // 41
-            "Produit les rapports des bonus globaux et des effets de proximité, puis restaure les modes choisis. Les résultats sont inscrits dans le journal du mod. Chargez d'abord une ville.", // 42
+            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 42
+            "Comparer les modes de bonus dans le journal", // 43
+            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 44
         };
 
         public LocaleFR(UniqueBldgSettings setting)

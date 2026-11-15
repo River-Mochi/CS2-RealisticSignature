@@ -135,8 +135,13 @@ namespace UniqueBuildings
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), "Status report to log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)),
-                    "Runs the city-wide bonus and nearby effect reports, then restores your selected modes. " +
-                    "Results are written to this mod's log. Load a city first." },
+                    "Writes current Signature building counts, city-wide bonuses, and nearby effects to the log. " +
+                    "Does not change any settings or effects. Load a city first." },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)), "Compare bonus modes to log" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)),
+                    "Temporarily applies all city-wide bonus and nearby effect modes while the game is paused in Options. " +
+                    "Reapplies your selected modes when finished. Writes results to the mod log. Load a city first." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.OpenLogButton)), "Open Log" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.OpenLogButton)),

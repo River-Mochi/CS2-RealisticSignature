@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleZH_HANS.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "阻止独特建筑自动打开信息视图", // 39
             "放置独特建筑（包括标志性建筑）时，不自动打开信息视图面板和彩色地图。仍可手动打开信息视图。其他建筑工具不受影响。若 Toggleable Overlays 已启用，则由该模组优先控制。默认：关闭。", // 40
             "将状态报告写入日志", // 41
-            "运行全城加成和周边效果报告，然后恢复所选模式。结果写入本模组日志。请先加载城市。", // 42
+            "将当前标志性建筑数量、全城加成和附近效果写入日志。不更改任何设置或效果。请先加载城市。", // 42
+            "将加成模式对比写入日志", // 43
+            "游戏在选项菜单中暂停时，临时测试全部全城加成和附近效果模式，然后重新应用你选定的模式。结果写入模组日志。请先加载城市。", // 44
         };
 
         public LocaleZH_HANS(UniqueBldgSettings setting)

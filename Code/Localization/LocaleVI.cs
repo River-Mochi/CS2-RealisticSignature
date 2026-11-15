@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleVI.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 39
             "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: TẮT.", // 40
             "Ghi báo cáo trạng thái vào nhật ký", // 41
-            "Chạy báo cáo phần thưởng toàn thành phố và hiệu ứng lân cận, rồi khôi phục các chế độ đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 42
+            "Ghi số lượng công trình đặc trưng hiện tại, phần thưởng toàn thành phố và hiệu ứng lân cận vào nhật ký. Không thay đổi cài đặt hoặc hiệu ứng. Hãy tải thành phố trước.", // 42
+            "So sánh các chế độ phần thưởng vào nhật ký", // 43
+            "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 44
         };
 
         public LocaleVI(UniqueBldgSettings setting)

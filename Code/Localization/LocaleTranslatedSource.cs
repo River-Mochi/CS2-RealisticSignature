@@ -31,8 +31,8 @@ namespace UniqueBuildings
             Dictionary<string, int> indexCounts)
         {
             string[] t = Text;
-            if (t.Length != 43)
-                throw new InvalidOperationException("Signature locale must have all 43 entries.");
+            if (t.Length != 45)
+                throw new InvalidOperationException("Signature locale must have all 45 entries.");
 
             return new Dictionary<string, string>
             {
@@ -79,6 +79,8 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)), t[40] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), t[41] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunStatusReportButton)), t[42] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)), t[43] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.RunCompareBonusModesButton)), t[44] },
             };
         }
 

@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleES.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "Evitar vistas de información automáticas para edificios únicos", // 39
             "Evita que los edificios únicos, incluidos los emblemáticos, abran automáticamente el panel de información y la superposición de colores al colocarlos. Las vistas pueden abrirse manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: DESACTIVADO.", // 40
             "Informe de estado al registro", // 41
-            "Genera los informes de bonificaciones globales y efectos cercanos y luego restaura los modos elegidos. Los resultados se escriben en el registro del mod. Primero carga una ciudad.", // 42
+            "Escribe en el registro los recuentos actuales de edificios emblemáticos, las bonificaciones globales y los efectos cercanos. No cambia ajustes ni efectos. Primero carga una ciudad.", // 42
+            "Comparar modos de bonificación en el registro", // 43
+            "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 44
         };
 
         public LocaleES(UniqueBldgSettings setting)

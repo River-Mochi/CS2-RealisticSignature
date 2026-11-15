@@ -203,6 +203,27 @@ namespace UniqueBuildings
                     return;
                 }
 
+                GetSignatureBonusSystem()?.RunStatusReport();
+                GetNearbySystem()?.RunStatusReport();
+            }
+        }
+
+        [SettingsUIButtonGroup(DebugGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(AboutTab, DebugGroup)]
+        public bool RunCompareBonusModesButton
+        {
+            set
+            {
+                if (!value)
+                    return;
+
+                if (!IsCityLoaded())
+                {
+                    LogUtils.Warn($"{Mod.ModTag} Load a city before comparing bonus modes.");
+                    return;
+                }
+
                 GetSignatureBonusSystem()?.RunBonusReport();
                 GetNearbySystem()?.RunNearbyReport();
             }

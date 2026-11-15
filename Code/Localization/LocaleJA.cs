@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleJA.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "ユニーク建築物の情報ビューを自動で開かない", // 39
             "シグネチャー建築物を含むユニーク建築物の配置時に、情報ビューパネルと色付きマップを自動で開きません。手動で情報ビューを開くことはできます。他の建築ツールには影響しません。Toggleable Overlays が有効ならそちらを優先します。初期設定：オフ。", // 40
             "状態レポートをログに出力", // 41
-            "都市全体のボーナスと周辺効果のレポートを実行し、選択したモードを復元します。結果はMODのログに記録されます。先に都市を読み込んでください。", // 42
+            "現在のシグネチャー建物数、都市全体のボーナス、周辺効果をログに記録します。設定や効果は変更しません。先に都市を読み込んでください。", // 42
+            "ボーナスモードを比較してログに記録", // 43
+            "オプション画面でゲームが一時停止している間、都市全体のボーナスと周辺効果の各モードを一時的に適用して比較します。その後、選択中のモードを再適用します。結果はMODログに記録します。先に都市を読み込んでください。", // 44
         };
 
         public LocaleJA(UniqueBldgSettings setting)

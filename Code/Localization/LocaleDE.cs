@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 43 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -57,7 +57,9 @@ namespace UniqueBuildings
             "Automatische Infoviews für einzigartige Gebäude verhindern", // 39
             "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: AUS.", // 40
             "Statusbericht ins Log", // 41
-            "Erstellt Berichte zu stadtweiten Boni und lokalen Effekten und stellt danach die gewählten Modi wieder her. Die Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 42
+            "Schreibt den aktuellen Stand der Signaturgebäude, stadtweiten Boni und Nahbereichseffekte ins Log. Ändert keine Einstellungen oder Effekte. Zuerst eine Stadt laden.", // 42
+            "Bonusmodi im Log vergleichen", // 43
+            "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 44
         };
 
         public LocaleDE(UniqueBldgSettings setting)
