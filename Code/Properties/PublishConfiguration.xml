@@ -43,7 +43,7 @@ These controls work independently. Building attractiveness and abandoned-buildin
 - Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
 
 ### Notes
-- Optional automatic infoview suppression for Unique and Signature placement uses a narrowly scoped Harmony patch (default: OFF).
+- Optional automatic infoview suppression for Unique and Signature placement (default: OFF). No Harmony patching.
 - Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
 - To read diagnostic results: Options > About > Debug / Logging > Open Log.
 - Hover over Options rows for explanations.
