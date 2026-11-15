@@ -44,7 +44,7 @@ namespace UniqueBuildings
         {
             base.OnCreate();
 
-            // Intentionally broad, matching the game's PlaceableObjectData
+            // Intentionally broad, matching game's PlaceableObjectData
             // Unique flag rather than restricting this feature to buildings.
             m_PlaceablePrefabQuery = GetEntityQuery(
                 ComponentType.ReadWrite<PlaceableObjectData>());
