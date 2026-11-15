@@ -64,7 +64,7 @@ namespace UniqueBuildings
                 });
 
             // No suppressed city provider means the vanilla modifier result
-            // is already correct. Skip a redundant city-wide rebuild.
+            // is already correct. Skip redundant city-wide rebuild.
             m_SuppressedCityProviderQuery = GetEntityQuery(
                 new EntityQueryDesc
                 {
@@ -84,9 +84,8 @@ namespace UniqueBuildings
             m_CityQuery = GetEntityQuery(
                 ComponentType.ReadOnly<Game.City.City>());
 
-            // Used only after ModificationBarrier4 so city policy
-            // changes are handled immediately without watching our
-            // own CityModifier writes.
+            // Used only after ModificationBarrier4 so city policy changes are handled immediately
+            // w/out watching our own CityModifier writes.
             m_UpdatedCityQuery = GetEntityQuery(
                 ComponentType.ReadOnly<Game.City.City>(),
                 ComponentType.ReadOnly<Updated>());
