@@ -7,55 +7,59 @@
 <ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
-## Realistic Signature Buildings
-Build the city you want, without making the economy unrealistically easy.
-Place multiple Unique and Signature buildings for their appearance, while controlling how their bonuses stack. Or keep the original vanilla effects—it's your choice.
+    ## Realistic Signature Buildings
+    Build the city you want, without making the economy unrealistically easy.
+    Place multiple Unique and Signature buildings for their appearance, while controlling how their bonuses stack. Or keep the original vanilla effects—it's your choice.
+
+    'In CS2, signature buildings apply global efficiency and attractiveness modifiers that stack multiplicatively. If you use mods like Anarchy or Find It to place duplicate signature buildings for aesthetic variety, those city-wide buffs multiply exponentially.
+    multiplicative bonus stacking from unique/signature buildings, monuments, and policies often breaks economic realism by making companies overly profitable and eliminating natural supply-and-demand challenges.
+    To create a realistic building economy and prevent runaway bonus stacking
 
 
-### All optional: choose how you want to play
-- Place multiple Unique buildings for their appearance without multiplying the same Signature bonuses.
-- Optionally unlock all Signature buildings without waiting for progression.
-- Control city-wide and nearby/local Signature effects **separately**.
+    ### All optional: choose how you want to play
+    - Place multiple Unique buildings for their appearance without multiplying the same Signature bonuses.
+    - Optionally unlock all Signature buildings without waiting for progression.
+    - Control city-wide and nearby/local Signature effects **separately**.
 
-For example, if two copies would each add the same city-wide bonus, you can stop that bonus from stacking while keeping both buildings' normal nearby happiness effects.
+    For example, if two copies would each add the same city-wide bonus, you can stop that bonus from stacking while keeping both buildings' normal nearby happiness effects.
 
-### Signature bonuses: two independent controls
+    ### Signature bonuses: two independent controls
 
-**City-wide Signature bonuses** (default: First copy only)
-- **First copy only** — each Signature building type provides its city-wide bonus once, even if you build more copies.
-- **No city-wide bonuses** — disables Signature city-wide bonuses.
-- **Vanilla Stacked Bonuses** — every placed copy provides its normal city-wide bonus.
+    **City-wide Signature bonuses** (default: First copy only)
+    - **First copy only** — each Signature building type provides its city-wide bonus once, even if you build more copies.
+    - **No city-wide bonuses** — disables Signature city-wide bonuses.
+    - **Vanilla Stacked Bonuses** — every placed copy provides its normal city-wide bonus.
 
-**Nearby Signature effects** (default: Vanilla nearby effects)
-- **Vanilla nearby effects** — every copy provides its normal local effects.
-- **First copy only** — one copy of each Signature building type provides local effects.
-- **No nearby effects** — disables normal local effects from Signature buildings.
+    **Nearby Signature effects** (default: Vanilla nearby effects)
+    - **Vanilla nearby effects** — every copy provides its normal local effects.
+    - **First copy only** — one copy of each Signature building type provides local effects.
+    - **No nearby effects** — disables normal local effects from Signature buildings.
 
-These controls work independently. Building attractiveness and abandoned-building effects are not removed.
+    These controls work independently. Building attractiveness and abandoned-building effects are not removed.
 
-### More features
-- **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
-- **Hide bulk Signature unlock pop-ups** — shown only when Signature unlocking is enabled. ON by default (recommended) to prevent dozens or hundreds of nuisance pop-ups when loading a city. Turn it OFF to see notices for newly unlocked Signature buildings; regular vanilla notifications are unchanged.
-- **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
-- **Live Options** — bonus modes change without restarting the city.
-- **Status and diagnostics** — view Signature building counts, duplicates, and active city-wide bonus providers. **Status report to log** records current city-wide bonuses and nearby effects without changing them.
-- **Compare bonus modes to log** — temporarily tests all city-wide and nearby modes while the game is paused in Options, then reapplies your selected modes.
-- Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
+    ### More features
+    - **Unlock Signature requirements** — make Signature buildings available without population, zoning, or other progression requirements (default: OFF).
+    - **Hide bulk Signature unlock pop-ups** — shown only when Signature unlocking is enabled. ON by default (recommended) to prevent dozens or hundreds of nuisance pop-ups when loading a city. Turn it OFF to see notices for newly unlocked Signature buildings; regular vanilla notifications are unchanged.
+    - **Allow multiple copies of Unique buildings**, including Signatures (default: ON). Switching this OFF does not bulldoze copies already placed.
+    - **Live Options** — bonus modes change without restarting the city.
+    - **Status and diagnostics** — view Signature building counts, duplicates, and active city-wide bonus providers. **Status report to log** records current city-wide bonuses and nearby effects without changing them.
+    - **Compare bonus modes to log** — temporarily tests all city-wide and nearby modes while the game is paused in Options, then reapplies your selected modes.
+    - Works alongside **Anarchy**. Other mods with the same Multiple Unique feature are redundant.
 
-### Notes
-- Optional automatic infoview suppression for Unique and Signature placement (default: OFF). No Harmony patching.
-- Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
-- To read diagnostic results: Options > About > Debug / Logging > Open Log.
-- Hover over Options rows for explanations.
-- Custom assets may have different bonus types or none at all.
+    ### Notes
+    - Optional automatic infoview suppression for Unique and Signature placement (default: OFF). No Harmony patching.
+    - Most changes happen when needed; no ongoing city-wide scanning for the bonus dropdowns.
+    - To read diagnostic results: Options > About > Debug / Logging > Open Log.
+    - Hover over Options rows for explanations.
+    - Custom assets may have different bonus types or none at all.
 
-### Languages
-English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
+    ### Languages
+    English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
 
-### Credits and feedback
-Created by RiverMochi. GPL-3.0-or-later with the Cities: Skylines II linking exception.
+    ### Credits and feedback
+    Created by RiverMochi. GPL-3.0-or-later with the Cities: Skylines II linking exception.
 
-For feedback or issues, use the GitHub or Discord links on this page. PRs are welcome. A LIKE is appreciated; no donations requested.
+    For feedback or issues, use the GitHub or Discord links on this page. PRs are welcome. A LIKE is appreciated; no donations requested.
 </LongDescription>
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail.png" />
