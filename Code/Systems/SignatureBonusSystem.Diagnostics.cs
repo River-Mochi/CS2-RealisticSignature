@@ -106,6 +106,7 @@ namespace UniqueBuildings
             StringBuilder report = new();
             report.AppendLine("===== COMPARE CITY-WIDE BONUS MODES =====");
             report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
+            report.AppendLine("The attractiveness comparison below holds the other city-wide bonuses unchanged.");
             try
             {
                 float2[] vanilla = TestMode(SignatureBonusMode.VanillaStacking, report);
@@ -119,6 +120,23 @@ namespace UniqueBuildings
                 };
                 LogDifference("Vanilla vs First copy", vanilla, first, report);
                 LogDifference("First copy vs No bonuses", first, none, report);
+
+                // Compare the independent rule with the city's other bonuses
+                // fixed at the selected mode. Saved Options are not changed.
+                report.AppendLine();
+                report.AppendLine("===== CITY-WIDE ATTRACTIVENESS MODES =====");
+                report.AppendLine($"Other city-wide bonuses held at: {ModeLabel(selected)}");
+                float2[] attrVanilla = TestAttractivenessMode(
+                    selected, SignatureAttractivenessMode.VanillaStacking, report);
+                float2[] attrFirst = TestAttractivenessMode(
+                    selected, SignatureAttractivenessMode.FirstCopyOnly, report);
+                float2[] attrNone = TestAttractivenessMode(
+                    selected, SignatureAttractivenessMode.NoBonuses, report);
+                LogDifference("Attractiveness Vanilla vs First copy",
+                    attrVanilla, attrFirst, report);
+                LogDifference("Attractiveness First copy vs No bonus",
+                    attrFirst, attrNone, report);
+                report.AppendLine("===== END ATTRACTIVENESS COMPARISON =====");
             }
             catch (Exception ex)
             {
@@ -159,7 +177,22 @@ namespace UniqueBuildings
             return LogSnapshot(mode, "TEST", report);
         }
 
-        private float2[] LogSnapshot(SignatureBonusMode mode, string phase, StringBuilder report)
+        private float2[] TestAttractivenessMode(
+            SignatureBonusMode cityMode,
+            SignatureAttractivenessMode attractivenessMode,
+            StringBuilder report)
+        {
+            report.AppendLine();
+            ReconcileNow(cityMode, "attractiveness report test",
+                logResult: false, attractivenessOverride: attractivenessMode);
+            return LogSnapshot(cityMode, "TEST ATTR", report, attractivenessMode);
+        }
+
+        private float2[] LogSnapshot(
+            SignatureBonusMode mode,
+            string phase,
+            StringBuilder report,
+            SignatureAttractivenessMode? attractivenessOverride = null)
         {
             using NativeArray<Entity> signatures =
                 m_SignatureQuery.ToEntityArray(Allocator.Temp);
@@ -208,7 +241,8 @@ namespace UniqueBuildings
                 _ => false,
             };
 
-            SignatureBonusMode attractivenessMode = GetEffectiveAttractivenessMode(mode);
+            SignatureBonusMode attractivenessMode =
+                GetEffectiveAttractivenessMode(mode, attractivenessOverride);
             bool sameAttractivenessRule = attractivenessMode == mode;
             bool attractivenessCorrect = sameAttractivenessRule
                 ? attractivenessTagged == 0
@@ -270,6 +304,20 @@ namespace UniqueBuildings
             float2[] result = new float2[buffer.Length];
             for (int i = 0; i < buffer.Length; i++)
                 result[i] = buffer[i].m_Delta;
+
+            int attractivenessIndex = (int)CityModifierType.Attractiveness;
+            float2 cityAttractiveness =
+                attractivenessIndex < result.Length
+                    ? result[attractivenessIndex]
+                    : default;
+
+            // Real CityModifier values: absolute (x) and relative (y).
+            // Other buildings and city policies may also contribute here.
+            report.AppendLine(
+                $"    ACTUAL city Attractiveness modifier: " +
+                $"absolute={cityAttractiveness.x:0.####} | " +
+                $"relative={cityAttractiveness.y * 100f:0.####}% " +
+                "(whole city, including other sources)");
 
             return result;
         }
