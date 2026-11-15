@@ -49,6 +49,31 @@ namespace UniqueBuildings
             }
         }
 
+        public void ApplyAttractivenessFromOptions(SignatureAttractivenessMode value)
+        {
+            SignatureBonusMode selected =
+                Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly;
+            if (GameManager.instance?.gameMode.IsGame() != true)
+            {
+                ScheduleReconcile(selected, "Attractiveness setting changed");
+                return;
+            }
+
+            try
+            {
+                ReconcileNow(selected, "Attractiveness setting changed",
+                    attractivenessOverride: value);
+                m_RequestedMode = selected;
+                m_ReconcileRequested = false;
+                Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Warn($"{Mod.ModTag} Live attractiveness update failed: {ex.Message}", ex);
+                ScheduleReconcile(selected, "Retry Attractiveness setting change");
+            }
+        }
+
         public void RunStatusReport()
         {
             if (GameManager.instance?.gameMode.IsGame() != true)
@@ -144,6 +169,7 @@ namespace UniqueBuildings
             int local = 0;
             int attractiveness = 0;
             int tagged = 0;
+            int attractivenessTagged = 0;
 
             foreach (Entity entity in signatures)
             {
@@ -153,6 +179,8 @@ namespace UniqueBuildings
                 counts[0]++;
                 bool suppressed = EntityManager.HasComponent<SignatureBonusSuppressed>(entity);
                 if (suppressed) tagged++;
+                if (EntityManager.HasComponent<SignatureAttractivenessSuppressed>(entity))
+                    attractivenessTagged++;
                 if (EntityManager.HasComponent<LocalEffectProvider>(entity)) local++;
                 if (EntityManager.HasComponent<AttractivenessProvider>(entity)) attractiveness++;
                 if (!EntityManager.HasComponent<CityEffectProvider>(entity)) continue;
@@ -180,6 +208,14 @@ namespace UniqueBuildings
                 _ => false,
             };
 
+            SignatureBonusMode attractivenessMode = GetEffectiveAttractivenessMode(mode);
+            bool attractivenessCorrect = attractivenessMode switch
+            {
+                SignatureBonusMode.VanillaStacking => attractivenessTagged == 0,
+                SignatureBonusMode.FirstCopyOnly => attractivenessTagged == extraCopies,
+                SignatureBonusMode.NoBonuses => attractivenessTagged == signatures.Length,
+                _ => false,
+            };
             report.AppendLine($"  {phase}: {ModeLabel(mode)}");
             report.AppendLine($"    Buildings: {signatures.Length} placed | " +
                 $"{byPrefab.Count} types | {extraCopies} extra copies");
@@ -187,9 +223,12 @@ namespace UniqueBuildings
                 $"{providers - active} blocked");
             report.AppendLine($"    Rule check: {(correct ? "PASS" : "CHECK")} " +
                 $"({tagged} buildings tagged for bonus suppression)");
+            report.AppendLine($"    City-wide Attractiveness: {ModeLabel(attractivenessMode)} | " +
+                $"Rule check: {(attractivenessCorrect ? "PASS" : "CHECK")} " +
+                $"({attractivenessTagged} tagged)");
             if (phase == "CURRENT")
                 report.AppendLine($"    Nearby providers: {local} | " +
-                    $"Attractiveness providers (untouched): {attractiveness}");
+                    $"Building attractiveness providers (untouched): {attractiveness}");
 
             // Show the duplicate list once, not again for every test mode.
             if (phase == "CURRENT")

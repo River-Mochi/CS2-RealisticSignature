@@ -30,7 +30,7 @@ namespace UniqueBuildings
     {
         public const string ModName = "Realistic Signature Buildings";
         public const string ShortName = "Realistic Signature";
-        public const string ModId = "BetterUniqueBuildings";
+        public const string ModId = "RealisticSignatureBuildings";
         public const string LogName = "RealisticSignatureBuildings";
         public const string ModTag = "[RSB]";
 

@@ -36,7 +36,15 @@ namespace UniqueBuildings
         NoEffects = 2,
     }
 
-    [FileLocation("ModsSettings/BetterUniqueBuildings/BetterUniqueBuildings")]
+    public enum SignatureAttractivenessMode
+    {
+        FollowCityWide = 0,
+        FirstCopyOnly = 1,
+        VanillaStacking = 2,
+        NoBonuses = 3,
+    }
+
+    [FileLocation("ModsSettings/RealisticSignatureBuildings/RealisticSignatureBuildings")]
     [SettingsUITabOrder(ActionsTab, StatusTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
@@ -76,6 +84,11 @@ namespace UniqueBuildings
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetNearbySignatureEffects))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public NearbySignatureMode NearbySignatureEffects { get; set; }
+
+        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetAttractivenessDropdownItems))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAttractivenessBonuses))]
+        [SettingsUISection(ActionsTab, BonusGroup)]
+        public SignatureAttractivenessMode AttractivenessBonuses { get; set; }
 
         // --------------------
         // Signature Unlocks
@@ -252,6 +265,7 @@ namespace UniqueBuildings
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
+            AttractivenessBonuses = SignatureAttractivenessMode.FollowCityWide;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
@@ -263,6 +277,12 @@ namespace UniqueBuildings
         {
             GetSignatureBonusSystem()?.ApplyFromOptions(
                 (SignatureBonusMode)value);
+        }
+
+        private void SetAttractivenessBonuses(int value)
+        {
+            GetSignatureBonusSystem()?.ApplyAttractivenessFromOptions(
+                (SignatureAttractivenessMode)value);
         }
 
         private void SetNearbySignatureEffects(int value)
@@ -317,6 +337,37 @@ namespace UniqueBuildings
                     value = (int)SignatureBonusMode.VanillaStacking,
                     displayName = LocalizedString.Id(
                         GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking)),
+                },
+            };
+        }
+
+        private DropdownItem<int>[] GetAttractivenessDropdownItems()
+        {
+            return new DropdownItem<int>[]
+            {
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.FollowCityWide,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.FirstCopyOnly,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.VanillaStacking,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.NoBonuses,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.NoBonuses)),
                 },
             };
         }

@@ -79,6 +79,24 @@ namespace UniqueBuildings
                     "Vanilla Stacked Bonuses"
                 },
 
+                // Independent city-wide Attractiveness
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
+                    "City-wide Attractiveness" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
+                    "<Follow city-wide setting> = use the city-wide bonus rule above.\n" +
+                    "<First copy only> = one copy of each Signature type adds city-wide Attractiveness.\n" +
+                    "<Vanilla stacking> = every copy adds city-wide Attractiveness.\n" +
+                    "<No attractiveness bonus> = Signature buildings add no city-wide Attractiveness.\n" +
+                    "Building attractiveness and info-panel descriptions remain unchanged." },
+                { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide),
+                    "Follow city-wide setting" },
+                { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly),
+                    "First copy only" },
+                { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking),
+                    "Vanilla stacking" },
+                { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.NoBonuses),
+                    "No attractiveness bonus" },
+
                 // Nearby Signature effects
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
                     "Nearby neighborhood effects"

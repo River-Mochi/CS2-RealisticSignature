@@ -17,6 +17,7 @@ namespace UniqueBuildings
     using Game.Buildings;
     using Game.City;
     using Game.Common;
+    using Game.City;
     using Game.Policies;
     using Game.Prefabs;
     using Game.Simulation;
@@ -30,6 +31,8 @@ namespace UniqueBuildings
     {
         private EntityQuery m_EffectProviderQuery;
         private EntityQuery m_SuppressedCityProviderQuery;
+        private EntityQuery m_AttractivenessProviderQuery;
+        private EntityQuery m_AttractivenessSuppressedProviderQuery;
         private EntityQuery m_CityQuery;
         private EntityQuery m_UpdatedCityQuery;
 
@@ -81,6 +84,34 @@ namespace UniqueBuildings
                     },
                 });
 
+            m_AttractivenessProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[] { ComponentType.ReadOnly<CityEffectProvider>() },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                        ComponentType.ReadOnly<SignatureAttractivenessSuppressed>(),
+                    },
+                });
+            m_AttractivenessSuppressedProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<SignatureAttractivenessSuppressed>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
             m_CityQuery = GetEntityQuery(
                 ComponentType.ReadOnly<Game.City.City>());
 
@@ -111,11 +142,9 @@ namespace UniqueBuildings
                 Mod.Setting?.SignatureBonuses ??
                 SignatureBonusMode.FirstCopyOnly;
 
-            if (mode == SignatureBonusMode.VanillaStacking ||
-                m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter)
-            {
+            if (m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter &&
+                m_AttractivenessSuppressedProviderQuery.IsEmptyIgnoreFilter)
                 return;
-            }
 
             // In Modification4 we only need to correct a city-wide
             // modifier rebuild when the city was actually updated.
@@ -144,7 +173,9 @@ namespace UniqueBuildings
             }
         }
 
-        public void RefreshNow()
+        public void RefreshNow(
+            SignatureBonusMode? cityModeOverride = null,
+            SignatureBonusMode? attractivenessModeOverride = null)
         {
             if (m_CityQuery.CalculateEntityCount() != 1)
                 return;
@@ -161,6 +192,11 @@ namespace UniqueBuildings
             {
                 return;
             }
+
+            SignatureBonusMode cityMode = cityModeOverride ??
+                Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly;
+            SignatureBonusMode attractivenessMode = attractivenessModeOverride ??
+                SignatureBonusSystem.GetEffectiveAttractivenessMode(cityMode);
 
             m_RefreshData.Update(this);
 
@@ -195,11 +231,59 @@ namespace UniqueBuildings
                     policies,
                     effectProviderChunks,
                     tempModifierList);
+
+                if (attractivenessMode != cityMode)
+                    ReplaceAttractivenessModifier(modifiers, policies);
             }
             finally
             {
                 effectProviderChunks.Dispose();
             }
+        }
+
+        private void ReplaceAttractivenessModifier(
+            DynamicBuffer<CityModifier> modifiers,
+            DynamicBuffer<Policy> policies)
+        {
+            using NativeArray<CityModifier> original =
+                new(modifiers.Length, Allocator.Temp);
+            for (int i = 0; i < original.Length; i++)
+                original[i] = modifiers[i];
+
+            NativeList<ArchetypeChunk> chunks =
+                m_AttractivenessProviderQuery.ToArchetypeChunkListAsync(
+                    Allocator.TempJob, out JobHandle job);
+            job.Complete();
+
+            CityModifier attractiveness = default;
+            int index = (int)CityModifierType.Attractiveness;
+            bool found = false;
+            try
+            {
+                using NativeList<CityModifierData> temp = new(10, Allocator.Temp);
+                m_RefreshData.RefreshCityModifiers(modifiers, policies, chunks, temp);
+                found = index < modifiers.Length;
+                if (found)
+                    attractiveness = modifiers[index];
+            }
+            finally
+            {
+                // Restore every unrelated city modifier, including after an exception.
+                modifiers.ResizeUninitialized(original.Length);
+                for (int i = 0; i < original.Length; i++)
+                    modifiers[i] = original[i];
+                chunks.Dispose();
+            }
+
+            if (found && index >= modifiers.Length)
+            {
+                int oldLength = modifiers.Length;
+                modifiers.ResizeUninitialized(index + 1);
+                for (int i = oldLength; i < modifiers.Length; i++)
+                    modifiers[i] = default;
+            }
+            if (index < modifiers.Length)
+                modifiers[index] = attractiveness;
         }
     }
 }
