@@ -59,11 +59,13 @@ namespace UniqueBuildings
 
             SignatureBonusMode selected = NormalizeMode(
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
-            LogUtils.Info($"{Mod.ModTag} ===== CITY-WIDE STATUS (READ ONLY) =====");
-            LogUtils.Info($"{Mod.ModTag} Selected mode: {ModeLabel(selected)}.");
-            LogSnapshot(selected, "CURRENT");
-            LogUtils.Info($"{Mod.ModTag} Report did not change any settings or bonuses.");
-            LogUtils.Info($"{Mod.ModTag} ===== END CITY-WIDE STATUS =====");
+            StringBuilder report = new();
+            report.AppendLine("===== CITY-WIDE STATUS (READ ONLY) =====");
+            report.AppendLine($"Selected mode: {ModeLabel(selected)}.");
+            LogSnapshot(selected, "CURRENT", report);
+            report.AppendLine($"Report did not change any settings or bonuses.");
+            report.AppendLine("===== END CITY-WIDE STATUS =====");
+            LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
         }
 
         public void RunBonusReport()
@@ -77,21 +79,22 @@ namespace UniqueBuildings
             SignatureBonusMode selected = NormalizeMode(
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
             float2[]? selectedModifiers = null;
-            LogUtils.Info($"{Mod.ModTag} ===== COMPARE CITY-WIDE BONUS MODES =====");
-            LogUtils.Info($"{Mod.ModTag} Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
+            StringBuilder report = new();
+            report.AppendLine("===== COMPARE CITY-WIDE BONUS MODES =====");
+            report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
             try
             {
-                float2[] vanilla = TestMode(SignatureBonusMode.VanillaStacking);
-                float2[] first = TestMode(SignatureBonusMode.FirstCopyOnly);
-                float2[] none = TestMode(SignatureBonusMode.NoBonuses);
+                float2[] vanilla = TestMode(SignatureBonusMode.VanillaStacking, report);
+                float2[] first = TestMode(SignatureBonusMode.FirstCopyOnly, report);
+                float2[] none = TestMode(SignatureBonusMode.NoBonuses, report);
                 selectedModifiers = selected switch
                 {
                     SignatureBonusMode.VanillaStacking => vanilla,
                     SignatureBonusMode.NoBonuses => none,
                     _ => first,
                 };
-                LogDifference("Vanilla vs First copy", vanilla, first);
-                LogDifference("First copy vs No bonuses", first, none);
+                LogDifference("Vanilla vs First copy", vanilla, first, report);
+                LogDifference("First copy vs No bonuses", first, none, report);
             }
             catch (Exception ex)
             {
@@ -101,11 +104,12 @@ namespace UniqueBuildings
             {
                 try
                 {
+                    report.AppendLine();
                     ReconcileNow(selected, "bonus report: restore selected mode", logResult: false);
-                    float2[] restoredModifiers = LogSnapshot(selected, "RESTORED");
+                    float2[] restoredModifiers = LogSnapshot(selected, "RESTORED", report);
                     if (selectedModifiers != null)
                     {
-                        LogUtils.Info($"{Mod.ModTag}   Restoration check: " +
+                        report.AppendLine($"  Restoration check: " +
                             (Different(selectedModifiers, restoredModifiers)
                                 ? "CHECK - city modifiers differ from selected mode."
                                 : "PASS - selected mode and city modifiers restored."));
@@ -119,17 +123,19 @@ namespace UniqueBuildings
                     LogUtils.Warn($"{Mod.ModTag} Bonus report restore failed: {ex.Message}", ex);
                     ScheduleReconcile(selected, "Restore after report failure");
                 }
-                LogUtils.Info($"{Mod.ModTag} ===== END CITY-WIDE COMPARISON =====");
+                report.AppendLine("===== END CITY-WIDE COMPARISON =====");
+                LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
             }
         }
 
-        private float2[] TestMode(SignatureBonusMode mode)
+        private float2[] TestMode(SignatureBonusMode mode, StringBuilder report)
         {
+            report.AppendLine();
             ReconcileNow(mode, "bonus report test", logResult: false);
-            return LogSnapshot(mode, "TEST");
+            return LogSnapshot(mode, "TEST", report);
         }
 
-        private float2[] LogSnapshot(SignatureBonusMode mode, string phase)
+        private float2[] LogSnapshot(SignatureBonusMode mode, string phase, StringBuilder report)
         {
             using NativeArray<Entity> signatures =
                 m_SignatureQuery.ToEntityArray(Allocator.Temp);
@@ -175,15 +181,15 @@ namespace UniqueBuildings
                 _ => false,
             };
 
-            LogUtils.Info($"{Mod.ModTag}   {phase}: {ModeLabel(mode)}");
-            LogUtils.Info($"{Mod.ModTag}     Buildings: {signatures.Length} placed | " +
+            report.AppendLine($"  {phase}: {ModeLabel(mode)}");
+            report.AppendLine($"    Buildings: {signatures.Length} placed | " +
                 $"{byPrefab.Count} types | {extraCopies} extra copies");
-            LogUtils.Info($"{Mod.ModTag}     City-wide providers: {active} active / {providers} total | " +
+            report.AppendLine($"    City-wide providers: {active} active / {providers} total | " +
                 $"{providers - active} blocked");
-            LogUtils.Info($"{Mod.ModTag}     Rule check: {(correct ? "PASS" : "CHECK")} " +
+            report.AppendLine($"    Rule check: {(correct ? "PASS" : "CHECK")} " +
                 $"({tagged} buildings tagged for bonus suppression)");
             if (phase == "CURRENT")
-                LogUtils.Info($"{Mod.ModTag}     Nearby providers: {local} | " +
+                report.AppendLine($"    Nearby providers: {local} | " +
                     $"Attractiveness providers (untouched): {attractiveness}");
 
             // Show the duplicate list once, not again for every test mode.
@@ -203,7 +209,7 @@ namespace UniqueBuildings
                         name = prefab.name;
                     }
 
-                    LogUtils.Info($"{Mod.ModTag}     Duplicate {name}: " +
+                    report.AppendLine($"    Duplicate {name}: " +
                         $"{counts[0]} placed | {counts[2]}/{counts[1]} city-wide providers active");
                 }
             }
@@ -236,7 +242,7 @@ namespace UniqueBuildings
             };
         }
 
-        private static void LogDifference(string label, float2[] before, float2[] after)
+        private static void LogDifference(string label, float2[] before, float2[] after, StringBuilder report)
         {
             int changed = 0;
             StringBuilder names = new();
@@ -260,7 +266,7 @@ namespace UniqueBuildings
             }
 
             string suffix = changed > 8 ? ", ..." : string.Empty;
-            LogUtils.Info($"{Mod.ModTag}   {label}: {changed} changed city modifier types" +
+            report.AppendLine($"  {label}: {changed} changed city modifier types" +
                 (names.Length == 0 ? "." : $" ({names}{suffix})."));
         }
 
