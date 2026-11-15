@@ -76,6 +76,7 @@ namespace UniqueBuildings
 
             SignatureBonusMode selected = NormalizeMode(
                 Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly);
+            float2[]? selectedModifiers = null;
             LogUtils.Info($"{Mod.ModTag} ===== COMPARE CITY-WIDE BONUS MODES =====");
             LogUtils.Info($"{Mod.ModTag} Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
             try
@@ -83,6 +84,12 @@ namespace UniqueBuildings
                 float2[] vanilla = TestMode(SignatureBonusMode.VanillaStacking);
                 float2[] first = TestMode(SignatureBonusMode.FirstCopyOnly);
                 float2[] none = TestMode(SignatureBonusMode.NoBonuses);
+                selectedModifiers = selected switch
+                {
+                    SignatureBonusMode.VanillaStacking => vanilla,
+                    SignatureBonusMode.NoBonuses => none,
+                    _ => first,
+                };
                 LogDifference("Vanilla vs First copy", vanilla, first);
                 LogDifference("First copy vs No bonuses", first, none);
             }
@@ -95,7 +102,14 @@ namespace UniqueBuildings
                 try
                 {
                     ReconcileNow(selected, "bonus report: restore selected mode", logResult: false);
-                    LogSnapshot(selected, "RESTORED");
+                    float2[] restoredModifiers = LogSnapshot(selected, "RESTORED");
+                    if (selectedModifiers != null)
+                    {
+                        LogUtils.Info($"{Mod.ModTag}   Restoration check: " +
+                            (Different(selectedModifiers, restoredModifiers)
+                                ? "CHECK - city modifiers differ from selected mode."
+                                : "PASS - selected mode and city modifiers restored."));
+                    }
                     m_RequestedMode = selected;
                     m_ReconcileRequested = false;
                     Enabled = false;
