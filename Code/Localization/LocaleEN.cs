@@ -106,7 +106,7 @@ namespace UniqueBuildings
                     "**OFF** = show a pop-up for each Signature newly unlocked by this mod. " +
                     "If you turn this off, many pop-ups may appear on opening a city.\n" +
                     "Normal game unlock notifications still appear, including buildings added by " +
-                    "game updates, DLC, region packs, or regular city progression. This only prevents the spam when unlocking all Unique buildings at one time with this mod."
+                    "game updates, DLC, region packs, or regular city progression. This option only hides pop-ups from this mod\'s mass Signature unlock."
                 },
 
                 // Multiple Unique
