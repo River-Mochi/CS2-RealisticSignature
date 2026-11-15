@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -29,48 +29,54 @@ namespace UniqueBuildings
             "Nur erstes Exemplar", // 11
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
-            "Nahbereichseffekte von Signaturgebäuden", // 14
-            "<Vanilla-Nahbereichseffekte> = jedes Exemplar erzeugt seine normalen Effekte in der Umgebung.\n<Nur erstes Exemplar> = nur ein Exemplar je Gebäudetyp erzeugt Nahbereichseffekte.\n<Keine Nahbereichseffekte> = deaktiviert die normalen Nahbereichseffekte von Signaturgebäuden.\nEffekte verlassener Gebäude und die Gebäudeattraktivität bleiben erhalten.", // 15
-            "Vanilla-Nahbereichseffekte", // 16
-            "Nur erstes Exemplar", // 17
-            "Keine Nahbereichseffekte", // 18
-            "Freischaltbedingungen für Signaturgebäude aufheben", // 19
-            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.", // 20
-            "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 21
-            "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 22
-            "Mehrere Exemplare erlauben", // 23
-            "**EIN** = mehrere Exemplare aller als einzigartig markierten Objekte platzieren, einschließlich Signaturgebäuden.\n**AUS** = normalerweise nur ein Exemplar pro Stadt, sofern kein anderer Mod mehrere erlaubt.", // 24
-            "Automatische Infoviews für einzigartige Gebäude verhindern", // 25
-            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: EIN.", // 26
-            "Platzierungsregel für einzigartige Objekte", // 27
-            "Zeigt an, ob einzigartige Objekte derzeit mehrfach platziert werden dürfen.", // 28
-            "Signaturgebäude", // 29
-            "Zeigt platzierte Signaturgebäude, verschiedene Typen und zusätzliche Kopien.", // 30
-            "Stadtweite Bonuseffekte", // 31
-            "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.", // 32
-            "Überflüssige Mods erkannt", // 33
-            "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 34
-            "Noch keine Stadt geladen", // 35
-            "Wird geladen…", // 36
-            "Lade zuerst eine Stadt, um den Status zu sehen", // 37
-            "Mehrere Exemplare erlaubt", // 38
-            "Mehrere Exemplare durch Anarchy erlaubt", // 39
-            "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 40
-            "Nur eines pro Typ", // 41
-            "Gemischte Regeln", // 42
-            "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 43
-            "{0} aktive Bonusgeber | {1} doppelte Bonusgeber", // 44
-            "Keine", // 45
-            "Mod", // 46
-            "Anzeigename dieses Mods.", // 47
-            "Version", // 48
-            "Installierte Modversion und Build-Typ.", // 49
-            "Statusbericht ins Log", // 50
-            "Schreibt den aktuellen Stand der Signaturgebäude, stadtweiten Boni und Nahbereichseffekte ins Log. Ändert keine Einstellungen oder Effekte. Zuerst eine Stadt laden.", // 51
-            "Bonusmodi im Log vergleichen", // 52
-            "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 53
-            "Protokoll öffnen", // 54
-            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 55
+            "Stadtweite Attraktivität", // 14
+            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.", // 15
+            "Stadtweite Einstellung übernehmen", // 16
+            "Nur erste Kopie", // 17
+            "Vanilla-Stapelung", // 18
+            "Kein Attraktivitätsbonus", // 19
+            "Nahbereichseffekte von Signaturgebäuden", // 20
+            "<Vanilla-Nahbereichseffekte> = jedes Exemplar erzeugt seine normalen Effekte in der Umgebung.\n<Nur erstes Exemplar> = nur ein Exemplar je Gebäudetyp erzeugt Nahbereichseffekte.\n<Keine Nahbereichseffekte> = deaktiviert die normalen Nahbereichseffekte von Signaturgebäuden.\nEffekte verlassener Gebäude und die Gebäudeattraktivität bleiben erhalten.", // 21
+            "Vanilla-Nahbereichseffekte", // 22
+            "Nur erstes Exemplar", // 23
+            "Keine Nahbereichseffekte", // 24
+            "Freischaltbedingungen für Signaturgebäude aufheben", // 25
+            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.", // 26
+            "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 27
+            "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 28
+            "Mehrere Exemplare erlauben", // 29
+            "**EIN** = mehrere Exemplare aller als einzigartig markierten Objekte platzieren, einschließlich Signaturgebäuden.\n**AUS** = normalerweise nur ein Exemplar pro Stadt, sofern kein anderer Mod mehrere erlaubt.", // 30
+            "Automatische Infoviews für einzigartige Gebäude verhindern", // 31
+            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: EIN.", // 32
+            "Platzierungsregel für einzigartige Objekte", // 33
+            "Zeigt an, ob einzigartige Objekte derzeit mehrfach platziert werden dürfen.", // 34
+            "Signaturgebäude", // 35
+            "Zeigt platzierte Signaturgebäude, verschiedene Typen und zusätzliche Kopien.", // 36
+            "Stadtweite Bonuseffekte", // 37
+            "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.", // 38
+            "Überflüssige Mods erkannt", // 39
+            "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 40
+            "Noch keine Stadt geladen", // 41
+            "Wird geladen…", // 42
+            "Lade zuerst eine Stadt, um den Status zu sehen", // 43
+            "Mehrere Exemplare erlaubt", // 44
+            "Mehrere Exemplare durch Anarchy erlaubt", // 45
+            "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 46
+            "Nur eines pro Typ", // 47
+            "Gemischte Regeln", // 48
+            "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 49
+            "{0} aktive Bonusgeber | {1} doppelte Bonusgeber", // 50
+            "Keine", // 51
+            "Mod", // 52
+            "Anzeigename dieses Mods.", // 53
+            "Version", // 54
+            "Installierte Modversion und Build-Typ.", // 55
+            "Statusbericht ins Log", // 56
+            "Schreibt den aktuellen Stand der Signaturgebäude, stadtweiten Boni und Nahbereichseffekte ins Log. Ändert keine Einstellungen oder Effekte. Zuerst eine Stadt laden.", // 57
+            "Bonusmodi im Log vergleichen", // 58
+            "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 59
+            "Protokoll öffnen", // 60
+            "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 61
         };
 
         public LocaleDE(UniqueBldgSettings setting)
