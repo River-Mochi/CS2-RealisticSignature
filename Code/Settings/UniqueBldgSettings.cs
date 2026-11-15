@@ -80,15 +80,15 @@ namespace UniqueBuildings
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
 
-        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetNearbyEffectDropdownItems))]
-        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetNearbySignatureEffects))]
-        [SettingsUISection(ActionsTab, BonusGroup)]
-        public NearbySignatureMode NearbySignatureEffects { get; set; }
-
         [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetAttractivenessDropdownItems))]
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAttractivenessBonuses))]
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureAttractivenessMode AttractivenessBonuses { get; set; }
+
+        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetNearbyEffectDropdownItems))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetNearbySignatureEffects))]
+        [SettingsUISection(ActionsTab, BonusGroup)]
+        public NearbySignatureMode NearbySignatureEffects { get; set; }
 
         // --------------------
         // Signature Unlocks
@@ -265,7 +265,7 @@ namespace UniqueBuildings
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
-            AttractivenessBonuses = SignatureAttractivenessMode.FollowCityWide;
+            AttractivenessBonuses = SignatureAttractivenessMode.VanillaStacking;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
@@ -347,9 +347,9 @@ namespace UniqueBuildings
             {
                 new()
                 {
-                    value = (int)SignatureAttractivenessMode.FollowCityWide,
+                    value = (int)SignatureAttractivenessMode.VanillaStacking,
                     displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide)),
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
                 },
                 new()
                 {
@@ -359,15 +359,15 @@ namespace UniqueBuildings
                 },
                 new()
                 {
-                    value = (int)SignatureAttractivenessMode.VanillaStacking,
-                    displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
-                },
-                new()
-                {
                     value = (int)SignatureAttractivenessMode.NoBonuses,
                     displayName = LocalizedString.Id(
                         GetEnumValueLocaleID(SignatureAttractivenessMode.NoBonuses)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.FollowCityWide,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide)),
                 },
             };
         }

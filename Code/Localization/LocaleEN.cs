@@ -66,7 +66,7 @@ namespace UniqueBuildings
                     "<First copy only> = each Signature building type gives its city-wide bonus once even if many copies are built.\n" +
                     "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
                     "<Vanilla Stacked Bonuses> = every copy gives its city-wide bonus.\n" +
-                    "Nearby local effects have their own dropdown setting. Building attractiveness stays normal."
+                    "Nearby effects and city-wide Attractiveness have separate dropdowns. A building\'s own attractiveness stays normal."
                 },
 
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly),
@@ -83,11 +83,11 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
                     "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
-                    "<Follow city-wide setting> = use the city-wide bonus rule above.\n" +
-                    "<First copy only> = one copy of each Signature type adds city-wide Attractiveness.\n" +
-                    "<Vanilla stacking> = every copy adds city-wide Attractiveness.\n" +
-                    "<No attractiveness bonus> = Signature buildings add no city-wide Attractiveness.\n" +
-                    "Building attractiveness and info-panel descriptions remain unchanged." },
+                    "<Vanilla stacking> (default) = every copy adds its city-wide Attractiveness bonus.\n" +
+                    "<First copy only> = one copy of each Signature type adds that bonus.\n" +
+                    "<No attractiveness bonus> = Signature buildings add no city-wide Attractiveness bonus.\n" +
+                    "<Follow city-wide setting> = use the bonus rule above.\n" +
+                    "City attractiveness helps attract tourists. Each building's own attractiveness and its info-panel description stay unchanged." },
                 { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide),
                     "Follow city-wide setting" },
                 { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly),

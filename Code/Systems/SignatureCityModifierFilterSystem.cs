@@ -17,7 +17,6 @@ namespace UniqueBuildings
     using Game.Buildings;
     using Game.City;
     using Game.Common;
-    using Game.City;
     using Game.Policies;
     using Game.Prefabs;
     using Game.Simulation;
