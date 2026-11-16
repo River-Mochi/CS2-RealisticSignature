@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Autres bonus globaux", // 37
             "**Actifs / Total** = fournisseurs comptés par la règle générale / tous ceux présents.\n<Bloqués> = exclus par cette règle, pas toutes les copies supplémentaires.\n**L'attrait est indépendant :** un fournisseur bloqué peut encore apporter de l'attrait.\nLes effets de proximité sont séparés.", // 38
             "Mods redondants détectés", // 39
-            "<Première copie uniquement> = un bonus d'attrait par type.\n<Cumul normal du jeu> = toutes les copies.\n<Aucun bonus> = bonus global désactivé.\n<Suivre le réglage global> = règle générale.\n**Affiche la règle choisie, pas un total chiffré.** D'autres sources influencent l'attrait.\nTexte vert inchangé. Valeurs : **À propos > Rapport dans le journal**.", // 40
+            "<Première copie uniquement> = un bonus d'attrait par type.\n<Cumul normal du jeu> = toutes les copies.\n<Aucun bonus> = bonus global désactivé.\n<Suivre le réglage global> = règle générale.\n**Affiche la règle choisie, pas le montant du bonus.**\nValeurs réelles : **À propos > Rapport dans le journal**. Le texte vert reste inchangé.", // 40
             "Aucune ville chargée", // 41
             "Chargement…", // 42
             "Chargez d'abord une ville pour voir l'état", // 43

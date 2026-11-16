@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Allgemeine stadtweite Boni", // 37
             "**Aktiv / Gesamt** = Stadtbonus-Quellen gemäß allgemeiner Regel / alle vorhandenen.\n<Blockiert> = durch diese Regel ausgeschlossen, nicht alle Extra-Gebäude.\n**Attraktivität ist unabhängig:** blockierte Quellen können trotzdem Attraktivität geben.\nNahbereich und Gebäudewert sind getrennt.", // 38
             "Überflüssige Mods erkannt", // 39
-            "**Erste Kopie** = ein Attraktivitätsbonus je Typ.\n<Vanilla-Stapelung> = alle Kopien.\n<Kein Bonus> = Signatur-Stadtbonus aus.\n<Einstellung übernehmen> = allgemeine Regel.\n**Dies zeigt die gewählte Regel, keinen Gesamtwert.** Andere Gebäude wirken mit.\nGrüner Infotext bleibt. Echte Werte: **Über > Statusbericht ins Protokoll**.", // 40
+            "**Erste Kopie** = ein Attraktivitätsbonus je Typ.\n<Vanilla-Stapelung> = alle Kopien.\n<Kein Bonus> = Signatur-Stadtbonus aus.\n<Einstellung übernehmen> = allgemeine Regel.\n**Zeigt die gewählte Regel, keinen Bonuswert.**\nTatsächliche Stadtwerte: **Über > Statusbericht ins Protokoll**. Grüner Infotext bleibt.", // 40
             "Noch keine Stadt geladen", // 41
             "Wird geladen…", // 42
             "Lade zuerst eine Stadt, um den Status zu sehen", // 43

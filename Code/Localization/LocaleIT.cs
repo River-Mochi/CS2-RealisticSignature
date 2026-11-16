@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Altri bonus cittadini", // 37
             "**Attivi / Totale** = fornitori ammessi dalla regola generale / tutti quelli presenti.\n<Bloccati> = esclusi da quella regola, non tutte le copie extra.\n**Attrattiva indipendente:** i fornitori bloccati possono comunque dare attrattiva.\nEffetti locali separati.", // 38
             "Mod ridondanti rilevati", // 39
-            "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola selezionata, non un totale.** Anche altre fonti contribuiscono.\nTesto verde invariato. Vedi **Informazioni > Rapporto nel registro**.", // 40
+            "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola scelta, non il valore del bonus.**\nValori reali: **Informazioni > Rapporto nel registro**. Il testo verde resta invariato.", // 40
             "Nessuna città caricata", // 41
             "Caricamento…", // 42
             "Carica una città per vedere lo stato", // 43

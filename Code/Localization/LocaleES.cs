@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Bonos generales de la ciudad", // 37
             "**Activos / Total** = proveedores incluidos por la regla global / todos los encontrados.\n<Bloqueados> = excluidos por esa regla, no el total de edificios extra.\n**El atractivo es independiente:** un proveedor bloqueado aún puede aportar atractivo.\nLos efectos cercanos son aparte.", // 38
             "Mods redundantes detectados", // 39
-            "<Solo primera copia> = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias.\n<Sin bonus> = desactivado.\n<Seguir ajuste global> = usar la regla general.\n**Muestra la regla elegida, no un total numérico.** Otras fuentes también aportan atractivo.\nEl texto verde permanece. Valores: **Acerca de > Informe al registro**.", // 40
+            "<Solo primera copia> = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias.\n<Sin bonus> = desactivado.\n<Seguir ajuste global> = usar la regla general.\n**Muestra la regla elegida, no el valor del bono.**\nValores reales: **Acerca de > Informe al registro**. El texto verde permanece.", // 40
             "No hay ninguna ciudad cargada", // 41
             "Cargando…", // 42
             "Carga una ciudad para ver el estado", // 43

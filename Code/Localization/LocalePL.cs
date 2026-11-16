@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Ogólne premie miejskie", // 37
             "**Aktywne / Wszystkie** = dostawcy premii według zasady ogólnej / wszyscy w mieście.\n<Zablokowane> = wykluczeni przez tę zasadę, nie wszystkie dodatkowe kopie.\n**Atrakcyjność osobno:** zablokowany dostawca może nadal ją zwiększać.\nEfekty lokalne są osobne.", // 38
             "Wykryte zbędne mody", // 39
-            "<Tylko pierwszy egzemplarz> = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii> = wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**To wybrana zasada, nie wynik liczbowy.** Inne budynki też zwiększają atrakcyjność.\nZielony tekst pozostaje. Wyniki: **Informacje > Raport w dzienniku**.", // 40
+            "<Tylko pierwszy egzemplarz> = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii> = wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**Pokazuje wybraną zasadę, a nie wartość premii.**\nRzeczywiste wartości: **Informacje > Raport w dzienniku**. Zielony tekst pozostaje.", // 40
             "Nie wczytano miasta", // 41
             "Wczytywanie…", // 42
             "Najpierw wczytaj miasto, aby zobaczyć stan", // 43
