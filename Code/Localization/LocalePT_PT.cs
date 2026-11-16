@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Informações", // 7
             "Depuração / Registo", // 8
             "Bónus dos edifícios emblemáticos em toda a cidade", // 9
-            "<Só a primeira cópia> = cada tipo de edifício emblemático concede o seu bónus à cidade apenas uma vez.\n<Sem bónus globais> = desativa esses bónus.\n<Acumulação normal> = cada cópia concede o seu bónus.\nOs efeitos nas proximidades têm uma definição própria. A atratividade dos edifícios mantém-se.\nAs linhas verdes de bónus permanecem visíveis mesmo que o efeito seja limitado ou desligado. Consulte Ações > Estado ou o relatório do registo.", // 10
+            "<Só a primeira cópia> **(predefinição)** = um bónus por tipo.\n<Sem bónus globais> = desliga os bónus gerais; atratividade tem regra própria.\n<Acumulação normal> = todas as cópias contam.\n**O texto verde** permanece mesmo que o bónus esteja bloqueado.\nVer **Ações > Estado** ou **Sobre > Relatório no registo**.", // 10
             "Só a primeira cópia", // 11
             "Sem bónus globais", // 12
             "Acumulação normal", // 13
             "Atratividade da cidade", // 14
-            "<Seguir definição geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acumulação normal> = todas as cópias contribuem.\n<Sem bónus de atratividade> = nenhum bónus global dos edifícios emblemáticos.\nA atratividade própria e a descrição mantêm-se.\nA atratividade da cidade ajuda a atrair turistas. Predefinição: só a primeira cópia.\nAs linhas verdes de bónus permanecem visíveis mesmo que o efeito seja limitado ou desligado. Consulte Ações > Estado ou o relatório do registo.", // 15
+            "<Só a primeira cópia> **(predefinição)** = um bónus de atratividade por tipo.\n<Acumulação normal> = todas as cópias.\n<Sem bónus de atratividade> = bónus global desligado.\n<Seguir definição geral> = regra geral.\n**A atratividade ajuda a atrair turistas.** O valor próprio do edifício mantém-se.\n**O texto verde** não muda.", // 15
             "Seguir definição geral", // 16
             "Só a primeira cópia", // 17
             "Acumulação normal", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Impedir vistas de informação automáticas para edifícios únicos", // 31
             "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informação e o mapa colorido durante a colocação. As vistas podem continuar a ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Predefinição: LIGADO.", // 32
             "Regra de colocação de objetos únicos", // 33
-            "Indica se é possível colocar várias cópias de objetos únicos.", // 34
+            "**Várias cópias permitidas** = limite de uma por cidade desligado.\n**Uma de cada tipo** = limite normal.\n<Anarchy> também pode permitir cópias.\nNão indica a acumulação de bónus.", // 34
             "Edifícios emblemáticos", // 35
-            "Mostra os edifícios emblemáticos construídos, os tipos diferentes e as cópias adicionais.", // 36
+            "**Colocados** = todos os edifícios emblemáticos.\n**Tipos** = modelos diferentes.\n<Cópias extra> = além do primeiro de cada tipo.\nInclui edifícios sem bónus global.", // 36
             "Bónus gerais da cidade", // 37
-            "Conta edifícios emblemáticos com bónus em toda a cidade.\nOs efeitos locais ou próximos não estão incluídos.\nA atratividade da cidade tem uma regra separada.", // 38
+            "**Ativos / Total** = fornecedores aceites pela regra geral / todos os presentes.\n<Bloqueados> = excluídos pela regra, não todas as cópias extra.\n**Atratividade independente:** um fornecedor bloqueado pode ainda contribuir.\nEfeitos próximos são separados.", // 38
             "Mods redundantes detetados", // 39
-            "Anarchy é compatível e não aparece aqui.\nRemove outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 40
+            "<Só a primeira cópia> = um bónus por tipo.\n<Acumulação normal> = todas as cópias.\n<Sem bónus> = desligado.\n<Seguir definição geral> = regra geral.\n**Mostra a regra escolhida, não o total numérico.** Outras fontes contribuem.\nTexto verde não muda. Ver **Sobre > Relatório no registo**.", // 40
             "Nenhuma cidade carregada", // 41
             "A carregar…", // 42
             "Carrega uma cidade para veres o estado", // 43

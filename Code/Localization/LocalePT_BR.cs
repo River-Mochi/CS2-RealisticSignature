@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Informações", // 7
             "Depuração / Registro", // 8
             "Bônus de edifícios emblemáticos em toda a cidade", // 9
-            "<Só a primeira cópia> = cada tipo de edifício emblemático concede seu bônus para a cidade apenas uma vez.\n<Sem bônus para a cidade> = desativa esses bônus.\n<Acúmulo padrão> = cada cópia concede seu bônus.\nOs efeitos próximos têm configuração própria. A atratividade dos edifícios não muda.\nAs linhas verdes de bônus no painel continuam visíveis mesmo com o efeito limitado ou desligado. Consulte Ações > Status ou o relatório do log.", // 10
+            "<Só a primeira cópia> **(padrão)** = um bônus por tipo.\n<Sem bônus globais> = desativa os bônus gerais; atratividade tem regra separada.\n<Acúmulo padrão> = todas as cópias contribuem.\n**O texto verde** do painel continua visível mesmo com o bônus bloqueado.\nVeja **Ações > Status** ou **Sobre > Relatório no log**.", // 10
             "Só a primeira cópia", // 11
             "Sem bônus para a cidade", // 12
             "Acúmulo padrão", // 13
             "Atratividade da cidade", // 14
-            "<Seguir configuração geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = nenhum bônus global dos edifícios emblemáticos.\nA atratividade própria e a descrição não mudam.\nA atratividade da cidade ajuda a atrair turistas. Padrão: só a primeira cópia.\nAs linhas verdes de bônus no painel continuam visíveis mesmo com o efeito limitado ou desligado. Consulte Ações > Status ou o relatório do log.", // 15
+            "<Só a primeira cópia> **(padrão)** = um bônus de atratividade por tipo.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = bônus da cidade desligado.\n<Seguir configuração geral> = usar a regra geral.\n**Atratividade ajuda a atrair turistas.** A atratividade própria do prédio não muda.\n**O texto verde** continua visível.", // 15
             "Seguir configuração geral", // 16
             "Só a primeira cópia", // 17
             "Acúmulo padrão", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Impedir vistas de informação automáticas para edifícios únicos", // 31
             "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: LIGADO.", // 32
             "Regra de construção de objetos únicos", // 33
-            "Mostra se é possível construir várias cópias de objetos únicos.", // 34
+            "**Múltiplas cópias permitidas** = limite de uma por cidade desligado.\n**Uma de cada tipo** = limite normal.\n<Anarchy> também pode liberar cópias.\nIsso não mostra o acúmulo dos bônus.", // 34
             "Edifícios emblemáticos", // 35
-            "Mostra quantos edifícios emblemáticos foram construídos, tipos diferentes e cópias extras.", // 36
+            "**Colocados** = todos os edifícios emblemáticos.\n**Tipos** = modelos diferentes.\n<Cópias extras> = além do primeiro de cada tipo.\nConta edifícios sem bônus global.", // 36
             "Bônus gerais da cidade", // 37
-            "Conta edifícios emblemáticos com bônus para toda a cidade.\nEfeitos locais e próximos não estão incluídos.\nA atratividade da cidade segue uma regra separada.", // 38
+            "**Ativos / Total** = fornecedores incluídos pela regra geral / todos os encontrados.\n<Bloqueados> = excluídos pela regra, não todas as cópias extras.\n**Atratividade independente:** um fornecedor bloqueado ainda pode contribuir.\nEfeitos próximos são separados.", // 38
             "Mods redundantes detectados", // 39
-            "Anarchy é compatível e não aparece aqui.\nRemova outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 40
+            "<Só a primeira cópia> = um bônus por tipo.\n<Acúmulo padrão> = todas as cópias.\n<Sem bônus> = desligado.\n<Seguir configuração geral> = regra geral.\n**Mostra a regra escolhida, não um total numérico.** Outras fontes também contribuem.\nTexto verde não muda. Veja **Sobre > Relatório no log**.", // 40
             "Nenhuma cidade carregada", // 41
             "Carregando…", // 42
             "Carregue uma cidade para ver o status", // 43

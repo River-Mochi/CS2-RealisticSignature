@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Thông tin", // 7
             "Gỡ lỗi / Nhật ký", // 8
             "Thưởng toàn thành phố từ công trình đặc trưng", // 9
-            "<Chỉ bản đầu tiên> = mỗi loại công trình đặc trưng chỉ cộng thưởng toàn thành phố một lần.\n<Không có thưởng toàn thành phố> = tắt các khoản thưởng này.\n<Cộng dồn mặc định> = mỗi bản sao đều cộng thưởng.\nHiệu ứng xung quanh có thiết lập riêng. Độ hấp dẫn của công trình không đổi.\nDòng thưởng màu xanh trong bảng thông tin vẫn hiện dù hiệu ứng bị giới hạn hoặc tắt. Xem Hành động > Trạng thái hoặc báo cáo nhật ký.", // 10
+            "<Chỉ bản đầu tiên> **(mặc định)** = một phần thưởng cho mỗi loại.\n<Không có thưởng toàn thành phố> = tắt thưởng chung; sức hút có quy tắc riêng.\n<Cộng dồn mặc định> = mọi bản đều tính.\n**Dòng thưởng màu xanh** vẫn hiện khi hiệu ứng bị chặn.\nXem **Hành động > Trạng thái** hoặc **Giới thiệu > Báo cáo nhật ký**.", // 10
             "Chỉ bản đầu tiên", // 11
             "Không có thưởng toàn thành phố", // 12
             "Cộng dồn mặc định", // 13
             "Sức hút toàn thành phố", // 14
-            "<Theo cài đặt toàn thành phố> = dùng quy tắc trên.\n<Chỉ bản đầu tiên> = một bản mỗi loại được tính.\n<Cộng dồn mặc định> = mọi bản đều được tính.\n<Không có thưởng sức hút> = tắt thưởng toàn thành phố của công trình đặc trưng.\nSức hút riêng và mô tả công trình không đổi.\nSức hút của thành phố giúp thu hút khách du lịch. Mặc định: chỉ bản đầu tiên.\nDòng thưởng màu xanh trong bảng thông tin vẫn hiện dù hiệu ứng bị giới hạn hoặc tắt. Xem Hành động > Trạng thái hoặc báo cáo nhật ký.", // 15
+            "<Chỉ bản đầu tiên> **(mặc định)** = một thưởng sức hút cho mỗi loại.\n<Cộng dồn mặc định> = mọi bản đều tính.\n<Không có thưởng sức hút> = tắt thưởng toàn thành phố.\n<Theo cài đặt toàn thành phố> = dùng quy tắc chung.\n**Sức hút giúp thu hút khách du lịch.** Giá trị riêng của công trình không đổi.\n**Dòng màu xanh** vẫn hiện.", // 15
             "Theo cài đặt toàn thành phố", // 16
             "Chỉ bản đầu tiên", // 17
             "Cộng dồn mặc định", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Ngăn chế độ xem thông tin tự mở cho công trình độc đáo", // 31
             "Khi đặt công trình độc đáo, kể cả công trình đặc trưng, bảng thông tin và bản đồ màu sẽ không tự mở. Vẫn có thể mở thủ công. Các công cụ xây dựng khác không thay đổi. Toggleable Overlays được ưu tiên nếu đang hoạt động. Mặc định: BẬT.", // 32
             "Quy tắc đặt đối tượng độc đáo", // 33
-            "Cho biết hiện có được đặt nhiều bản sao của đối tượng độc đáo hay không.", // 34
+            "**Cho phép nhiều bản** = bỏ giới hạn một công trình mỗi thành phố.\n**Mỗi loại một bản** = giới hạn bình thường.\n<Anarchy> cũng có thể cho phép bản sao.\nKhông phản ánh cộng dồn thưởng.", // 34
             "Công trình đặc trưng", // 35
-            "Hiển thị tổng công trình đặc trưng, số loại khác nhau và số bản sao thêm.", // 36
+            "**Đã xây** = tổng công trình đặc trưng.\n**Loại** = số kiểu công trình khác nhau.\n<Bản thêm> = bản sau công trình đầu mỗi loại.\nGồm cả công trình không có thưởng toàn thành phố.", // 36
             "Thưởng chung toàn thành phố", // 37
-            "Đếm công trình đặc trưng có thưởng toàn thành phố.\nKhông tính hiệu ứng cục bộ hoặc lân cận.\nSức hút toàn thành phố có quy tắc riêng.", // 38
+            "**Đang hoạt động / Tổng** = nguồn thưởng theo quy tắc chung / tất cả nguồn.\n<Bị chặn> = bị quy tắc chung loại bỏ, không phải mọi công trình thêm.\n**Sức hút độc lập:** nguồn bị chặn vẫn có thể góp sức hút.\nHiệu ứng xung quanh tính riêng.", // 38
             "Phát hiện mod trùng chức năng", // 39
-            "Hỗ trợ Anarchy nên không liệt kê tại đây.\nHãy gỡ các mod cho phép vô hạn công trình độc đáo khác vì tính năng này đã có sẵn.", // 40
+            "<Chỉ bản đầu tiên> = một thưởng sức hút mỗi loại.\n<Cộng dồn mặc định> = mọi bản.\n<Không có thưởng> = tắt.\n<Theo cài đặt toàn thành phố> = quy tắc chung.\n**Hiện quy tắc đã chọn, không phải số tổng.** Nguồn khác cũng góp sức hút.\nDòng màu xanh không đổi. **Giới thiệu > Báo cáo nhật ký**.", // 40
             "Chưa tải thành phố", // 41
             "Đang tải…", // 42
             "Hãy tải thành phố để xem trạng thái", // 43

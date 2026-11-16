@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Bilgi", // 7
             "Hata ayıklama / Günlük", // 8
             "Şehir genelinde imza bina bonusları", // 9
-            "<Yalnızca ilk kopya> = her imza bina türü şehir genelindeki bonusunu yalnızca bir kez verir.\n<Şehir geneli bonusları yok> = bu bonusları kapatır.\n<Vanilla birikimi> = her kopya şehir geneli bonusunu verir.\nYakın çevre etkileri ayrı ayarlanır. Bina çekiciliği değişmez.\nBina panelindeki yeşil bonus açıklamaları, etkileri kısıtlansa veya kapatılsa da görünür. İşlemler > Durum veya günlük raporuna bakın.", // 10
+            "<Yalnızca ilk kopya> **(varsayılan)** = her imza türünden bir bonus.\n<Şehir geneli bonus yok> = genel bonuslar kapalı; çekicilik ayrı ayarlanır.\n<Vanilla birikimi> = tüm kopyalar sayılır.\n**Yeşil bonus yazısı** etkisi kapansa da görünür.\n**İşlemler > Durum** veya **Hakkında > Günlük raporu**.", // 10
             "Yalnızca ilk kopya", // 11
             "Şehir geneli bonusları yok", // 12
             "Vanilla birikimi", // 13
             "Şehir geneli çekicilik", // 14
-            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: yalnızca ilk kopya.\nBina panelindeki yeşil bonus açıklamaları, etkileri kısıtlansa veya kapatılsa da görünür. İşlemler > Durum veya günlük raporuna bakın.", // 15
+            "<Yalnızca ilk kopya> **(varsayılan)** = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar sayılır.\n<Çekicilik bonusu yok> = şehir bonusu kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Çekicilik turist çeker.** Binanın kendi çekiciliği değişmez.\n**Yeşil yazı** sabit kalır.", // 15
             "Şehir geneli ayarını izle", // 16
             "Yalnızca ilk kopya", // 17
             "Vanilla birikimi", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Benzersiz binalar için otomatik bilgi görünümlerini engelle", // 31
             "İmza binalar dâhil benzersiz binalar yerleştirilirken bilgi panelinin ve renkli haritanın otomatik açılmasını önler. Bilgi görünümleri elle açılabilir. Diğer inşa araçları değişmez. Toggleable Overlays etkinse öncelik ondadır. Varsayılan: AÇIK.", // 32
             "Benzersiz nesne yerleştirme kuralı", // 33
-            "Benzersiz nesnelerden birden fazla yerleştirilip yerleştirilemeyeceğini gösterir.", // 34
+            "**Çoklu kopya serbest** = şehir başına tek bina sınırı kapalı.\n**Her türden bir tane** = normal sınır.\n<Anarchy> de kopyalara izin verebilir.\nBonus birikimini göstermez.", // 34
             "İmza binalar", // 35
-            "Yerleştirilen imza bina sayısını, farklı türleri ve ek kopyaları gösterir.", // 36
+            "**Yerleştirilen** = tüm imza binaları.\n**Türler** = farklı bina türleri.\n<Ek kopyalar> = her türün ilki dışındakiler.\nŞehir bonusu olmayan binalar da dahil.", // 36
             "Genel şehir bonusları", // 37
-            "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.\nŞehir geneli çekiciliğin ayrı bir kuralı vardır.", // 38
+            "**Etkin / Toplam** = genel kuralla sayılan bonus kaynakları / tüm kaynaklar.\n<Engelli> = bu kuralla dışlananlar, bütün ek binalar değil.\n**Çekicilik bağımsızdır:** engellenen kaynak yine çekicilik verebilir.\nYakın çevre etkileri ayrıdır.", // 38
             "Gereksiz modlar algılandı", // 39
-            "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 40
+            "<Yalnızca ilk kopya> = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar.\n<Bonus yok> = kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Seçilen kuralı gösterir, sayısal toplamı değil.** Diğer kaynaklar da etkiler.\nYeşil yazı değişmez. **Hakkında > Günlük raporu**.", // 40
             "Şehir yüklenmedi", // 41
             "Yükleniyor…", // 42
             "Durumu görmek için önce bir şehir yükleyin", // 43
