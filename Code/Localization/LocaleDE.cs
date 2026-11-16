@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Vanilla-Stapelung.", // 15
+            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Nur erste Kopie.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18

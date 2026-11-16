@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Sin bonificaciones globales", // 12
             "Acumulación normal", // 13
             "Atractivo de toda la ciudad", // 14
-            "<Seguir ajuste global> = usa la regla anterior.\n<Solo primera copia> = una por tipo aporta atractivo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = los edificios emblemáticos no aportan atractivo global.\nEl atractivo propio y la descripción no cambian.\nEl atractivo de la ciudad ayuda a atraer turistas. Predeterminado: acumulación original.", // 15
+            "<Seguir ajuste global> = usa la regla anterior.\n<Solo primera copia> = una por tipo aporta atractivo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = los edificios emblemáticos no aportan atractivo global.\nEl atractivo propio y la descripción no cambian.\nEl atractivo de la ciudad ayuda a atraer turistas. Predeterminado: solo primera copia.", // 15
             "Seguir ajuste global", // 16
             "Solo primera copia", // 17
             "Acumulación original", // 18
