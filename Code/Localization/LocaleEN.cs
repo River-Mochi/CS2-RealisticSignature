@@ -83,8 +83,8 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
                     "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
-                    "<Vanilla stacking> (default) = every copy adds its city-wide Attractiveness bonus.\n" +
-                    "<First copy only> = one copy of each Signature type adds that bonus.\n" +
+                    "<First copy only> (default) = one copy of each Signature type adds the city-wide Attractiveness bonus.\n" +
+                    "<Vanilla stacking> = every copy adds its city-wide Attractiveness bonus.\n" +
                     "<No attractiveness bonus> = Signature buildings add no city-wide Attractiveness bonus.\n" +
                     "<Follow city-wide setting> = use the bonus rule above.\n" +
                     "City attractiveness helps attract tourists. Each building's own attractiveness and its info-panel description stay unchanged." },

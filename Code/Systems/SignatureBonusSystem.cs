@@ -467,7 +467,7 @@ namespace UniqueBuildings
             SignatureAttractivenessMode? settingOverride = null)
         {
             SignatureAttractivenessMode selected = settingOverride ??
-                Mod.Setting?.AttractivenessBonuses ?? SignatureAttractivenessMode.VanillaStacking;
+                Mod.Setting?.AttractivenessBonuses ?? SignatureAttractivenessMode.FirstCopyOnly;
             return selected switch
             {
                 SignatureAttractivenessMode.FirstCopyOnly => SignatureBonusMode.FirstCopyOnly,

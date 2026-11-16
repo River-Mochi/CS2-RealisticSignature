@@ -265,7 +265,7 @@ namespace UniqueBuildings
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
-            AttractivenessBonuses = SignatureAttractivenessMode.VanillaStacking;
+            AttractivenessBonuses = SignatureAttractivenessMode.FirstCopyOnly;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
@@ -347,15 +347,15 @@ namespace UniqueBuildings
             {
                 new()
                 {
-                    value = (int)SignatureAttractivenessMode.VanillaStacking,
-                    displayName = LocalizedString.Id(
-                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
-                },
-                new()
-                {
                     value = (int)SignatureAttractivenessMode.FirstCopyOnly,
                     displayName = LocalizedString.Id(
                         GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.VanillaStacking,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
                 },
                 new()
                 {
