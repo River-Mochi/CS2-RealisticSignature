@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Informações", // 7
             "Depuração / Registro", // 8
             "Bônus de edifícios emblemáticos em toda a cidade", // 9
-            "<Só a primeira cópia> = cada tipo de edifício emblemático concede seu bônus para a cidade apenas uma vez.\n<Sem bônus para a cidade> = desativa esses bônus.\n<Acúmulo padrão> = cada cópia concede seu bônus.\nOs efeitos próximos têm configuração própria. A atratividade dos edifícios não muda.", // 10
+            "<Só a primeira cópia> = cada tipo de edifício emblemático concede seu bônus para a cidade apenas uma vez.\n<Sem bônus para a cidade> = desativa esses bônus.\n<Acúmulo padrão> = cada cópia concede seu bônus.\nOs efeitos próximos têm configuração própria. A atratividade dos edifícios não muda.\nAs linhas verdes de bônus no painel continuam visíveis mesmo com o efeito limitado ou desligado. Consulte Ações > Status ou o relatório do log.", // 10
             "Só a primeira cópia", // 11
             "Sem bônus para a cidade", // 12
             "Acúmulo padrão", // 13
             "Atratividade da cidade", // 14
-            "<Seguir configuração geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = nenhum bônus global dos edifícios emblemáticos.\nA atratividade própria e a descrição não mudam.\nA atratividade da cidade ajuda a atrair turistas. Padrão: só a primeira cópia.", // 15
+            "<Seguir configuração geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = nenhum bônus global dos edifícios emblemáticos.\nA atratividade própria e a descrição não mudam.\nA atratividade da cidade ajuda a atrair turistas. Padrão: só a primeira cópia.\nAs linhas verdes de bônus no painel continuam visíveis mesmo com o efeito limitado ou desligado. Consulte Ações > Status ou o relatório do log.", // 15
             "Seguir configuração geral", // 16
             "Só a primeira cópia", // 17
             "Acúmulo padrão", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Efeitos próximos padrão", // 22
             "Só a primeira cópia", // 23
             "Sem efeitos próximos", // 24
-            "Desbloquear requisitos de edifícios emblemáticos", // 25
-            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zoneamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.", // 26
+            "Desbloquear todos os edifícios emblemáticos", // 25
+            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zoneamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.\nPadrão: desligado. Só para edifícios emblemáticos, não para todos os únicos.", // 26
             "Ocultar avisos de desbloqueio em massa", // 27
             "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 28
             "Permitir várias cópias", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Mostra se é possível construir várias cópias de objetos únicos.", // 34
             "Edifícios emblemáticos", // 35
             "Mostra quantos edifícios emblemáticos foram construídos, tipos diferentes e cópias extras.", // 36
-            "Efeitos dos bônus da cidade", // 37
-            "Conta edifícios emblemáticos com bônus para toda a cidade.\nEfeitos locais e próximos não estão incluídos.", // 38
+            "Bônus gerais da cidade", // 37
+            "Conta edifícios emblemáticos com bônus para toda a cidade.\nEfeitos locais e próximos não estão incluídos.\nA atratividade da cidade segue uma regra separada.", // 38
             "Mods redundantes detectados", // 39
             "Anarchy é compatível e não aparece aqui.\nRemova outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 40
             "Nenhuma cidade carregada", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Um de cada tipo", // 47
             "Regras mistas", // 48
             "{0} construídos | {1} tipos | {2} cópias extras", // 49
-            "{0} provedores ativos | {1} provedores duplicados", // 50
+            "{0}/{1} ativos | {2} bloqueados", // 50
             "Nenhum", // 51
             "Mod", // 52
             "Nome exibido deste mod.", // 53

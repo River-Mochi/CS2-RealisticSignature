@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Bilgi", // 7
             "Hata ayıklama / Günlük", // 8
             "Şehir genelinde imza bina bonusları", // 9
-            "<Yalnızca ilk kopya> = her imza bina türü şehir genelindeki bonusunu yalnızca bir kez verir.\n<Şehir geneli bonusları yok> = bu bonusları kapatır.\n<Vanilla birikimi> = her kopya şehir geneli bonusunu verir.\nYakın çevre etkileri ayrı ayarlanır. Bina çekiciliği değişmez.", // 10
+            "<Yalnızca ilk kopya> = her imza bina türü şehir genelindeki bonusunu yalnızca bir kez verir.\n<Şehir geneli bonusları yok> = bu bonusları kapatır.\n<Vanilla birikimi> = her kopya şehir geneli bonusunu verir.\nYakın çevre etkileri ayrı ayarlanır. Bina çekiciliği değişmez.\nBina panelindeki yeşil bonus açıklamaları, etkileri kısıtlansa veya kapatılsa da görünür. İşlemler > Durum veya günlük raporuna bakın.", // 10
             "Yalnızca ilk kopya", // 11
             "Şehir geneli bonusları yok", // 12
             "Vanilla birikimi", // 13
             "Şehir geneli çekicilik", // 14
-            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: yalnızca ilk kopya.", // 15
+            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: yalnızca ilk kopya.\nBina panelindeki yeşil bonus açıklamaları, etkileri kısıtlansa veya kapatılsa da görünür. İşlemler > Durum veya günlük raporuna bakın.", // 15
             "Şehir geneli ayarını izle", // 16
             "Yalnızca ilk kopya", // 17
             "Vanilla birikimi", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Vanilla yakın çevre etkileri", // 22
             "Yalnızca ilk kopya", // 23
             "Yakın çevre etkileri yok", // 24
-            "İmza bina açma koşullarını kaldır", // 25
-            "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.", // 26
+            "Tüm imza binalarını aç", // 25
+            "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.\nVarsayılan: KAPALI. Yalnızca imza binaları; tüm eşsiz binalar değil.", // 26
             "Toplu İmza bina açma bildirimlerini gizle", // 27
             "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 28
             "Birden fazla kopyaya izin ver", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Benzersiz nesnelerden birden fazla yerleştirilip yerleştirilemeyeceğini gösterir.", // 34
             "İmza binalar", // 35
             "Yerleştirilen imza bina sayısını, farklı türleri ve ek kopyaları gösterir.", // 36
-            "Şehir geneli bonus etkileri", // 37
-            "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.", // 38
+            "Genel şehir bonusları", // 37
+            "Şehir genelinde bonus sağlayan imza binaları sayar.\nYakın çevre ve yerel bonuslar buna dâhil değildir.\nŞehir geneli çekiciliğin ayrı bir kuralı vardır.", // 38
             "Gereksiz modlar algılandı", // 39
             "Anarchy desteklenir ve burada listelenmez.\nDiğer sınırsız benzersiz bina modlarını kaldırın; bu özellik zaten mevcut.", // 40
             "Şehir yüklenmedi", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Her türden bir tane", // 47
             "Karma kurallar", // 48
             "{0} yerleştirildi | {1} tür | {2} ek kopya", // 49
-            "{0} etkin bonus kaynağı | {1} yinelenen kaynak", // 50
+            "{0}/{1} etkin | {2} engelli", // 50
             "Yok", // 51
             "Mod", // 52
             "Bu modun görünen adı.", // 53
