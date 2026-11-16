@@ -253,7 +253,9 @@ namespace UniqueBuildings
                     SignatureBonusMode.NoBonuses => attractivenessTagged == signatures.Length,
                     _ => false,
                 };
-            report.AppendLine($"  {phase}: {ModeLabel(mode)}");
+            SignatureBonusMode displayedMode =
+                phase == "TEST ATTR" ? attractivenessMode : mode;
+            report.AppendLine($"  {phase}: {ModeLabel(displayedMode)}");
             report.AppendLine($"    Buildings: {signatures.Length} placed | " +
                 $"{byPrefab.Count} types | {extraCopies} extra copies");
             report.AppendLine($"    City-wide providers: {active} active / {providers} total | " +
