@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Sem bônus para a cidade", // 12
             "Acúmulo padrão", // 13
             "Atratividade da cidade", // 14
-            "<Seguir configuração geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = nenhum bônus global dos edifícios emblemáticos.\nA atratividade própria e a descrição não mudam.\nA atratividade da cidade ajuda a atrair turistas. Padrão: acúmulo padrão.", // 15
+            "<Seguir configuração geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = nenhum bônus global dos edifícios emblemáticos.\nA atratividade própria e a descrição não mudam.\nA atratividade da cidade ajuda a atrair turistas. Padrão: só a primeira cópia.", // 15
             "Seguir configuração geral", // 16
             "Só a primeira cópia", // 17
             "Acúmulo padrão", // 18

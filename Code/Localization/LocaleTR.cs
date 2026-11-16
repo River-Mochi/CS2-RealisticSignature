@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Şehir geneli bonusları yok", // 12
             "Vanilla birikimi", // 13
             "Şehir geneli çekicilik", // 14
-            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: vanilla birikimi.", // 15
+            "<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n<Yalnızca ilk kopya> = her türden yalnızca biri katkı sağlar.\n<Vanilla birikimi> = tüm kopyalar katkı sağlar.\n<Çekicilik bonusu yok> = imza binalarının şehir bonusu kapatılır.\nBinanın çekiciliği ve bilgi paneli metni değişmez.\nŞehir çekiciliği turist çekmeye yardımcı olur. Varsayılan: yalnızca ilk kopya.", // 15
             "Şehir geneli ayarını izle", // 16
             "Yalnızca ilk kopya", // 17
             "Vanilla birikimi", // 18

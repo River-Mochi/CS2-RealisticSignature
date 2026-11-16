@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Sem bónus globais", // 12
             "Acumulação normal", // 13
             "Atratividade da cidade", // 14
-            "<Seguir definição geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acumulação normal> = todas as cópias contribuem.\n<Sem bónus de atratividade> = nenhum bónus global dos edifícios emblemáticos.\nA atratividade própria e a descrição mantêm-se.\nA atratividade da cidade ajuda a atrair turistas. Predefinição: acumulação normal.", // 15
+            "<Seguir definição geral> = usa a regra acima.\n<Só a primeira cópia> = apenas uma por tipo contribui.\n<Acumulação normal> = todas as cópias contribuem.\n<Sem bónus de atratividade> = nenhum bónus global dos edifícios emblemáticos.\nA atratividade própria e a descrição mantêm-se.\nA atratividade da cidade ajuda a atrair turistas. Predefinição: só a primeira cópia.", // 15
             "Seguir definição geral", // 16
             "Só a primeira cópia", // 17
             "Acumulação normal", // 18
