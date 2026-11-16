@@ -64,7 +64,7 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 <Screenshot Value="Properties/20-image-Status.jpg" />
 
 <!--Tag, can be set multiple times-->
-<Tag Value="" />
+<Tag Value="Code Mod" />
 <!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
 <!--Version of the mod-->
