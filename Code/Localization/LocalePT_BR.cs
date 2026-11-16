@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Bônus gerais da cidade", // 37
             "**Ativos / Total** = fornecedores incluídos pela regra geral / todos os encontrados.\n<Bloqueados> = excluídos pela regra, não todas as cópias extras.\n**Atratividade independente:** um fornecedor bloqueado ainda pode contribuir.\nEfeitos próximos são separados.", // 38
             "Mods redundantes detectados", // 39
-            "<Só a primeira cópia> = um bônus por tipo.\n<Acúmulo padrão> = todas as cópias.\n<Sem bônus> = desligado.\n<Seguir configuração geral> = regra geral.\n**Mostra a regra escolhida, não um total numérico.** Outras fontes também contribuem.\nTexto verde não muda. Veja **Sobre > Relatório no log**.", // 40
+            "<Só a primeira cópia> = um bônus por tipo.\n<Acúmulo padrão> = todas as cópias.\n<Sem bônus> = desligado.\n<Seguir configuração geral> = regra geral.\n**Mostra a regra escolhida, não o valor do bônus.**\nValores reais: **Sobre > Relatório no log**. Texto verde inalterado.", // 40
             "Nenhuma cidade carregada", // 41
             "Carregando…", // 42
             "Carregue uma cidade para ver o status", // 43

@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Thưởng chung toàn thành phố", // 37
             "**Đang hoạt động / Tổng** = nguồn thưởng theo quy tắc chung / tất cả nguồn.\n<Bị chặn> = bị quy tắc chung loại bỏ, không phải mọi công trình thêm.\n**Sức hút độc lập:** nguồn bị chặn vẫn có thể góp sức hút.\nHiệu ứng xung quanh tính riêng.", // 38
             "Phát hiện mod trùng chức năng", // 39
-            "<Chỉ bản đầu tiên> = một thưởng sức hút mỗi loại.\n<Cộng dồn mặc định> = mọi bản.\n<Không có thưởng> = tắt.\n<Theo cài đặt toàn thành phố> = quy tắc chung.\n**Hiện quy tắc đã chọn, không phải số tổng.** Nguồn khác cũng góp sức hút.\nDòng màu xanh không đổi. **Giới thiệu > Báo cáo nhật ký**.", // 40
+            "<Chỉ bản đầu tiên> = một thưởng sức hút mỗi loại.\n<Cộng dồn mặc định> = mọi bản.\n<Không có thưởng> = tắt.\n<Theo cài đặt toàn thành phố> = quy tắc chung.\n**Hiện quy tắc đã chọn, không phải giá trị thưởng.**\nGiá trị thực: **Giới thiệu > Báo cáo nhật ký**. Dòng xanh không đổi.", // 40
             "Chưa tải thành phố", // 41
             "Đang tải…", // 42
             "Hãy tải thành phố để xem trạng thái", // 43

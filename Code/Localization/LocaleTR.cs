@@ -55,7 +55,7 @@ namespace UniqueBuildings
             "Genel şehir bonusları", // 37
             "**Etkin / Toplam** = genel kuralla sayılan bonus kaynakları / tüm kaynaklar.\n<Engelli> = bu kuralla dışlananlar, bütün ek binalar değil.\n**Çekicilik bağımsızdır:** engellenen kaynak yine çekicilik verebilir.\nYakın çevre etkileri ayrıdır.", // 38
             "Gereksiz modlar algılandı", // 39
-            "<Yalnızca ilk kopya> = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar.\n<Bonus yok> = kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Seçilen kuralı gösterir, sayısal toplamı değil.** Diğer kaynaklar da etkiler.\nYeşil yazı değişmez. **Hakkında > Günlük raporu**.", // 40
+            "<Yalnızca ilk kopya> = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar.\n<Bonus yok> = kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Seçilen kuralı gösterir, bonus değerini değil.**\nGerçek değerler: **Hakkında > Günlük raporu**. Yeşil yazı değişmez.", // 40
             "Şehir yüklenmedi", // 41
             "Yükleniyor…", // 42
             "Durumu görmek için önce bir şehir yükleyin", // 43
