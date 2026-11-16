@@ -115,11 +115,10 @@ namespace UniqueBuildings
                 // Signature Unlocks
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)), "Unlock all Signature buildings" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)),
-                    "**ON** = make loaded Signature buildings available without population, zoning, or other progression requirements.\n" +
+                    "**ON** = make Signature buildings available without meeting population, zoning, or other progression requirements.\n" +
                     "**OFF** (default) = normal game progression. Does not unlock non-Signature Unique buildings or missing DLC."
                 },
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
-                    "Hide bulk unlock pop-ups"
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), "Hide unlock pop-up spam"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)),
                     "**ON** (recommended, default) = hide the flood of pop-ups from this mod's mass Signature unlock.\n" +
