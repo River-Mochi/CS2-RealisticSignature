@@ -38,7 +38,6 @@ namespace UniqueBuildings
             return new Dictionary<string, string>
                 { { m_Setting.GetSettingsLocaleID(), t[0] },
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.ActionsTab), t[1] },
-                { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.StatusTab), t[6] },
                 { m_Setting.GetOptionTabLocaleID(UniqueBldgSettings.AboutTab), t[2] },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.BonusGroup), t[3] },
                 { m_Setting.GetOptionGroupLocaleID(UniqueBldgSettings.UnlockGroup), t[4] },
@@ -76,6 +75,8 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)), t[36] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[37] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[38] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), t[14] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), t[15] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[39] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[40] },
                 { LocaleEN.KeyStatusNoCity, t[41] },

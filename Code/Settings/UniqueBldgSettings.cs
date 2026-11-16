@@ -45,17 +45,16 @@ namespace UniqueBuildings
     }
 
     [FileLocation("ModsSettings/RealisticSignatureBuildings/RealisticSignatureBuildings")]
-    [SettingsUITabOrder(ActionsTab, StatusTab, AboutTab)]
+    [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         AboutInfoGroup, DebugGroup)]
     [SettingsUIShowGroupName(
-        BonusGroup, UnlockGroup, PlacementGroup,
+        BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
         DebugGroup)]
     public sealed class UniqueBldgSettings : ModSetting
     {
         public const string ActionsTab = "Actions";
-        public const string StatusTab = "Status";
         public const string AboutTab = "About";
 
         public const string BonusGroup = "Bonuses";
@@ -117,7 +116,6 @@ namespace UniqueBuildings
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
-        // Keep the saved key so existing users retain their enabled setting.
         public bool PreventAutomaticSignatureInfoviews { get; set; }
 
         // --------------------
@@ -126,7 +124,7 @@ namespace UniqueBuildings
 
         [Exclude]
         [SettingsUIValueVersion(typeof(UniquePlacementState), nameof(UniquePlacementState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public LocalizedString StatusPlacementRule
         {
             get
@@ -144,7 +142,7 @@ namespace UniqueBuildings
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public LocalizedString StatusSignatureSummary
         {
             get
@@ -168,7 +166,7 @@ namespace UniqueBuildings
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public LocalizedString StatusCityWideEffects
         {
             get
@@ -183,15 +181,36 @@ namespace UniqueBuildings
 
                 return LocalizedString.Value(LocaleUtils.SafeFormat(
                     LocaleEN.KeyStatusCityProvidersLine,
-                    "{0} active providers | {1} duplicate providers",
+                    "{0}/{1} active | {2} blocked",
                     SignatureScanState.CityWideEffectProviders,
-                    SignatureScanState.DuplicateCityWideProviders));
+                    SignatureScanState.TotalCityWideProviders,
+                    SignatureScanState.BlockedCityWideProviders));
+            }
+        }
+
+        [Exclude]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public LocalizedString StatusAttractivenessMode
+        {
+            get
+            {
+                if (!IsCityLoaded())
+                    return LocalizedString.Id(LocaleEN.KeyStatusNoCity);
+
+                RefreshStatusIfNeeded();
+
+                if (!SignatureScanState.HasSnapshot)
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
+
+                return LocalizedString.Id(
+                    GetEnumValueLocaleID(AttractivenessBonuses));
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
-        [SettingsUISection(StatusTab, SignatureStatusGroup)]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public LocalizedString StatusRedundantMods =>
             UniqueModsCompatibility.HasRedundantMods
                 ? LocalizedString.Value(UniqueModsCompatibility.StatusText)

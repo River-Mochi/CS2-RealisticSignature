@@ -30,6 +30,11 @@ namespace UniqueBuildings
 
         public static int DuplicateCityWideProviders { get; private set; }
 
+        public static int TotalCityWideProviders { get; private set; }
+
+        public static int BlockedCityWideProviders =>
+            System.Math.Max(0, TotalCityWideProviders - CityWideEffectProviders);
+
         public static int DuplicateSignatureBuildings
         {
             get
@@ -57,7 +62,8 @@ namespace UniqueBuildings
             int signatureBuildings,
             int signatureTypes,
             int cityWideEffectProviders,
-            int duplicateCityWideProviders)
+            int duplicateCityWideProviders,
+            int totalCityWideProviders)
         {
             LastSnapshotSimulationFrame = simulationFrame;
 
@@ -65,6 +71,7 @@ namespace UniqueBuildings
             SignatureTypes = signatureTypes;
             CityWideEffectProviders = cityWideEffectProviders;
             DuplicateCityWideProviders = duplicateCityWideProviders;
+            TotalCityWideProviders = totalCityWideProviders;
 
             HasSnapshot = true;
             s_UiVersion++;
@@ -79,6 +86,7 @@ namespace UniqueBuildings
             SignatureTypes = 0;
             CityWideEffectProviders = 0;
             DuplicateCityWideProviders = 0;
+            TotalCityWideProviders = 0;
 
             s_UiVersion++;
         }

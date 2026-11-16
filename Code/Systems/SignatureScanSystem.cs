@@ -28,6 +28,7 @@ namespace UniqueBuildings
     {
         private EntityQuery m_SignatureQuery;
         private EntityQuery m_BonusProviderQuery;
+        private EntityQuery m_AllBonusProviderQuery;
 
         private SimulationSystem? m_SimulationSystem;
 
@@ -69,6 +70,23 @@ namespace UniqueBuildings
                         SignatureBonusSuppressed>(),
                 },
 
+                });
+
+            m_AllBonusProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Signature>(),
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<PrefabRef>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
                 });
 
             m_SimulationSystem =
@@ -153,14 +171,17 @@ namespace UniqueBuildings
                 signaturePrefabs.Length,
                 signatureTypes.Count,
                 bonusPrefabs.Length,
-                duplicateBonusProviders);
+                duplicateBonusProviders,
+                m_AllBonusProviderQuery.CalculateEntityCount());
 
             LogUtils.Info(
                 $"{Mod.ModTag} Signature Status: " +
                 $"buildings={signaturePrefabs.Length}, " +
                 $"types={signatureTypes.Count}, " +
                 $"cityWideProviders={bonusPrefabs.Length}, " +
-                $"duplicateCityWideProviders={duplicateBonusProviders}.");
+                $"duplicateCityWideProviders={duplicateBonusProviders} | " +
+                $"totalCityProviders={SignatureScanState.TotalCityWideProviders} | " +
+                $"blockedCityProviders={SignatureScanState.BlockedCityWideProviders}.");
         }
     }
 }
