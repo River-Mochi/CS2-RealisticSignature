@@ -12,9 +12,12 @@
 namespace UniqueBuildings
 {
     using System;
+    using System.Collections.Generic;
+    using System.Text;
     using CS2Shared.RiverMochi;
     using Game;
     using Game.Buildings;
+    using Game.Objects;
     using Game.Prefabs;
     using Game.SceneFlow;
     using Unity.Collections;
@@ -33,10 +36,13 @@ namespace UniqueBuildings
 
             NearbySignatureMode selected = Normalize(
                 Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
-            LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT STATUS START =====");
-            LogUtils.Info($"{Mod.ModTag} Current selected mode: {selected}.");
-            LogEffectCounts(selected, "STATUS");
-            LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT STATUS END =====");
+            StringBuilder report = new();
+            report.AppendLine("===== NEARBY STATUS (READ ONLY) =====");
+            LogEffectCounts(selected, "CURRENT", report);
+            report.AppendLine($"Abandoned-building effects are unchanged.");
+            report.AppendLine($"Report did not change any settings or effects.");
+            report.AppendLine("===== END NEARBY STATUS =====");
+            LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
         }
 
         public void RunNearbyReport()
@@ -49,13 +55,14 @@ namespace UniqueBuildings
 
             NearbySignatureMode selected = Normalize(
                 Mod.Setting?.NearbySignatureEffects ?? NearbySignatureMode.Vanilla);
-            LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT REPORT START =====");
-            LogUtils.Info($"{Mod.ModTag} Selected: {selected}; checking three modes and restoring.");
+            StringBuilder report = new();
+            report.AppendLine("===== COMPARE NEARBY EFFECT MODES =====");
+            report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
             try
             {
-                TestMode(NearbySignatureMode.Vanilla);
-                TestMode(NearbySignatureMode.FirstCopyOnly);
-                TestMode(NearbySignatureMode.NoEffects);
+                TestMode(NearbySignatureMode.Vanilla, report);
+                TestMode(NearbySignatureMode.FirstCopyOnly, report);
+                TestMode(NearbySignatureMode.NoEffects, report);
             }
             catch (Exception ex)
             {
@@ -65,56 +72,110 @@ namespace UniqueBuildings
             {
                 try
                 {
-                    ReconcileNow(selected, "nearby report: restore selected mode");
-                    LogEffectCounts(selected, "RESTORED");
+                    report.AppendLine();
+                    ReconcileNow(selected, "nearby report: restore selected mode", logResult: false);
+                    LogEffectCounts(selected, "RESTORED", report);
+                    report.AppendLine($"Selected nearby mode restored.");
                 }
                 catch (Exception ex)
                 {
                     m_NeedsReconcile = true;
                     LogUtils.Warn($"{Mod.ModTag} Nearby restore failed: {ex.Message}", ex);
                 }
-                LogUtils.Info($"{Mod.ModTag} ===== NEARBY EFFECT REPORT END =====");
+                report.AppendLine("===== END NEARBY COMPARISON =====");
+                LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
             }
         }
 
-        private void TestMode(NearbySignatureMode mode)
+        private void TestMode(NearbySignatureMode mode, StringBuilder report)
         {
-            ReconcileNow(mode, "nearby report test");
-            LogEffectCounts(mode, "TEST");
+            report.AppendLine();
+            ReconcileNow(mode, "nearby report test", logResult: false);
+            LogEffectCounts(mode, "TEST", report);
         }
 
-        private void LogEffectCounts(NearbySignatureMode mode, string phase)
+        private void LogEffectCounts(NearbySignatureMode mode, string phase, StringBuilder report)
         {
             using NativeArray<Entity> buildings =
                 m_EligibleQuery.ToEntityArray(Allocator.Temp);
+
+            // Use the same first-copy rule as the actual nearby-effect system.
+            Dictionary<Entity, Entity> firstByPrefab = new();
+            foreach (Entity building in buildings)
+            {
+                Entity prefab =
+                    EntityManager.GetComponentData<PrefabRef>(building).m_Prefab;
+
+                if (!firstByPrefab.TryGetValue(prefab, out Entity first) ||
+                    building.Index < first.Index ||
+                    (building.Index == first.Index && building.Version < first.Version))
+                {
+                    firstByPrefab[prefab] = building;
+                }
+            }
+
             var tree = m_LocalEffects.GetSearchTree(
                 readOnly: true, out JobHandle dependencies);
             dependencies.Complete();
 
             using NativeList<LocalModifierData> modifiers =
                 new(10, Allocator.Temp);
+
             int available = 0;
             int active = 0;
+            int expected = 0;
+
             foreach (Entity building in buildings)
             {
                 Entity prefab =
                     EntityManager.GetComponentData<PrefabRef>(building).m_Prefab;
+
+                bool keep = mode == NearbySignatureMode.Vanilla ||
+                    (mode == NearbySignatureMode.FirstCopyOnly &&
+                     firstByPrefab[prefab] == building);
+
                 FillModifiers(building, prefab, modifiers);
+                Transform transform =
+                    EntityManager.GetComponentData<Transform>(building);
+
                 for (int i = 0; i < modifiers.Length; i++)
                 {
                     LocalModifierData modifier = modifiers[i];
                     available++;
+
+                    if (keep && LocalEffectSystem.GetEffectBounds(
+                        transform, modifier, out _))
+                    {
+                        expected++;
+                    }
+
                     if (tree.TryGet(
                         new LocalEffectSystem.EffectItem(building, modifier.m_Type),
                         out _))
+                    {
                         active++;
+                    }
                 }
             }
 
-            LogUtils.Info($"{Mod.ModTag} [{phase} {mode}] " +
-                $"EligibleSignatureBuildings={buildings.Length} | " +
-                $"NormalEffectEntries={available} | ActiveInSpatialTree={active}. " +
-                "Abandoned providers are deliberately excluded from this test.");
+            report.AppendLine($"  {phase}: {ModeLabel(mode)}");
+            report.AppendLine($"    Signature buildings: {buildings.Length} | " +
+                $"Types: {firstByPrefab.Count}");
+            report.AppendLine($"    Nearby effects: {active}/{available} active | " +
+                $"{available - active} disabled");
+            report.AppendLine($"    Rule check: " +
+                (active == expected ? "PASS" : $"CHECK - expected {expected} active"));
+        }
+
+        private static string ModeLabel(NearbySignatureMode mode)
+        {
+            return mode switch
+            {
+                NearbySignatureMode.Vanilla => "Vanilla nearby effects",
+                NearbySignatureMode.FirstCopyOnly => "First copy only",
+                NearbySignatureMode.NoEffects => "No nearby effects",
+                _ => mode.ToString(),
+            };
         }
     }
 }

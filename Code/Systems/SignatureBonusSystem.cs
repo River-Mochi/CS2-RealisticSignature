@@ -7,8 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureBonusSystem.cs
-// Controls city-wide Signature bonuses while leaving nearby/local effects,
-// attractiveness, and normal building behavior untouched.
+// Filters CityModifiers independently from nearby and building attractiveness.
 
 namespace UniqueBuildings
 {
@@ -37,6 +36,11 @@ namespace UniqueBuildings
     {
     }
 
+    // Runtime only. This does not modify prefab data or saved game data.
+    internal struct SignatureAttractivenessSuppressed : IComponentData, IQueryTypeParameter
+    {
+    }
+
     public sealed partial class SignatureBonusSystem : GameSystemBase
     {
         private readonly Dictionary<Entity, Entity> m_FirstCopyByPrefab =
@@ -44,6 +48,7 @@ namespace UniqueBuildings
 
         private EntityQuery m_SignatureQuery;
         private EntityQuery m_SuppressedQuery;
+        private EntityQuery m_AttractivenessSuppressedQuery;
 
         private bool m_ReconcileRequested;
         private SignatureBonusMode m_RequestedMode;
@@ -71,6 +76,8 @@ namespace UniqueBuildings
 
             m_SuppressedQuery = GetEntityQuery(
                 ComponentType.ReadOnly<SignatureBonusSuppressed>());
+            m_AttractivenessSuppressedQuery = GetEntityQuery(
+                ComponentType.ReadOnly<SignatureAttractivenessSuppressed>());
 
             Enabled = false;
         }
@@ -157,9 +164,13 @@ namespace UniqueBuildings
 
         private void ReconcileNow(
             SignatureBonusMode mode,
-            string reason)
+            string reason,
+            bool logResult = true,
+            SignatureAttractivenessMode? attractivenessOverride = null)
         {
             CompleteDependency();
+            SignatureBonusMode attractivenessMode =
+                GetEffectiveAttractivenessMode(mode, attractivenessOverride);
 
             using NativeArray<Entity> signatures =
                 m_SignatureQuery.ToEntityArray(
@@ -170,7 +181,8 @@ namespace UniqueBuildings
 
             PruneFirstCopyMap(copiesByPrefab);
 
-            if (mode == SignatureBonusMode.FirstCopyOnly)
+            if (mode == SignatureBonusMode.FirstCopyOnly ||
+                attractivenessMode == SignatureBonusMode.FirstCopyOnly)
                 SelectFirstCopies(copiesByPrefab);
 
             int changed;
@@ -188,21 +200,33 @@ namespace UniqueBuildings
                         copiesByPrefab);
             }
 
-            int suppressed =
-                CountSuppressed(signatures);
+            // When both rules match, reuse the existing SignatureBonusSuppressed
+            // tags. Independent tags are only needed for different rules.
+            int attractivenessChanged = attractivenessMode == mode
+                ? RemoveAllAttractivenessTags()
+                : ApplyAttractivenessSuppressionMode(attractivenessMode, copiesByPrefab);
 
-            RefreshCityWideEffects();
+            int suppressed = CountSuppressed(signatures);
+            int attractivenessSuppressed = CountAttractivenessSuppressed(signatures);
+
+            RefreshCityWideEffects(mode, attractivenessMode);
 
             SignatureScanState.Clear();
 
-            LogUtils.Info(
-                $"{Mod.ModTag} City-wide Signature bonus reconcile " +
-                $"({reason}): " +
-                $"Mode={mode} | " +
-                $"Signatures={signatures.Length} | " +
-                $"Types={copiesByPrefab.Count} | " +
-                $"Suppressed={suppressed} | " +
-                $"Changed={changed}.");
+#if DEBUG
+            if (logResult)
+            {
+                LogUtils.Info(
+                    $"{Mod.ModTag} City-wide Signature bonus reconcile " +
+                    $"({reason}): " +
+                    $"Mode={mode} | " +
+                    $"Signatures={signatures.Length} | " +
+                    $"Types={copiesByPrefab.Count} | " +
+                    $"Suppressed={suppressed} | " +
+                    $"Changed={changed} | Attr={attractivenessMode} | " +
+                    $"AttrTagged={attractivenessSuppressed} | AttrChanged={attractivenessChanged}.");
+            }
+#endif
         }
 
         private Dictionary<Entity, List<Entity>>
@@ -382,6 +406,79 @@ namespace UniqueBuildings
             return changed;
         }
 
+        private int ApplyAttractivenessSuppressionMode(
+            SignatureBonusMode mode,
+            Dictionary<Entity, List<Entity>> copiesByPrefab)
+        {
+            if (mode == SignatureBonusMode.VanillaStacking)
+                return RemoveAllAttractivenessTags();
+
+            int changed = 0;
+            foreach (KeyValuePair<Entity, List<Entity>> pair in copiesByPrefab)
+            {
+                Entity winner = Entity.Null;
+                if (mode == SignatureBonusMode.FirstCopyOnly)
+                    m_FirstCopyByPrefab.TryGetValue(pair.Key, out winner);
+
+                foreach (Entity entity in pair.Value)
+                {
+                    bool shouldSuppress = mode == SignatureBonusMode.NoBonuses ||
+                        (mode == SignatureBonusMode.FirstCopyOnly && entity != winner);
+                    bool suppressed = EntityManager.HasComponent<SignatureAttractivenessSuppressed>(entity);
+                    if (shouldSuppress == suppressed)
+                        continue;
+
+                    if (shouldSuppress)
+                        EntityManager.AddComponent<SignatureAttractivenessSuppressed>(entity);
+                    else
+                        EntityManager.RemoveComponent<SignatureAttractivenessSuppressed>(entity);
+                    changed++;
+                }
+            }
+            return changed;
+        }
+
+        private int RemoveAllAttractivenessTags()
+        {
+            using NativeArray<Entity> suppressed =
+                m_AttractivenessSuppressedQuery.ToEntityArray(Allocator.Temp);
+            int changed = 0;
+            foreach (Entity entity in suppressed)
+            {
+                if (!EntityManager.Exists(entity) ||
+                    !EntityManager.HasComponent<SignatureAttractivenessSuppressed>(entity))
+                    continue;
+                EntityManager.RemoveComponent<SignatureAttractivenessSuppressed>(entity);
+                changed++;
+            }
+            return changed;
+        }
+
+        private int CountAttractivenessSuppressed(NativeArray<Entity> signatures)
+        {
+            int count = 0;
+            foreach (Entity entity in signatures)
+                if (EntityManager.Exists(entity) &&
+                    EntityManager.HasComponent<SignatureAttractivenessSuppressed>(entity))
+                    count++;
+            return count;
+        }
+
+        public static SignatureBonusMode GetEffectiveAttractivenessMode(
+            SignatureBonusMode cityMode,
+            SignatureAttractivenessMode? settingOverride = null)
+        {
+            SignatureAttractivenessMode selected = settingOverride ??
+                Mod.Setting?.AttractivenessBonuses ?? SignatureAttractivenessMode.FirstCopyOnly;
+            return selected switch
+            {
+                SignatureAttractivenessMode.FirstCopyOnly => SignatureBonusMode.FirstCopyOnly,
+                SignatureAttractivenessMode.VanillaStacking => SignatureBonusMode.VanillaStacking,
+                SignatureAttractivenessMode.NoBonuses => SignatureBonusMode.NoBonuses,
+                _ => NormalizeMode(cityMode),
+            };
+        }
+
         private int RemoveAllSuppressionTags()
         {
             using NativeArray<Entity> suppressed =
@@ -437,14 +534,16 @@ namespace UniqueBuildings
             return count;
         }
 
-        private void RefreshCityWideEffects()
+        private void RefreshCityWideEffects(
+            SignatureBonusMode cityMode,
+            SignatureBonusMode attractivenessMode)
         {
             SignatureCityModifierFilterSystem?
                 filterSystem =
                     World.GetExistingSystemManaged<
                         SignatureCityModifierFilterSystem>();
 
-            filterSystem?.RefreshNow();
+            filterSystem?.RefreshNow(cityMode, attractivenessMode);
         }
 
         private void RestoreOwnedChangesForDispose(
@@ -452,22 +551,25 @@ namespace UniqueBuildings
         {
             CompleteDependency();
 
-            int changed =
-                RemoveAllSuppressionTags();
+            int changed = RemoveAllSuppressionTags();
+            int attractivenessChanged = RemoveAllAttractivenessTags();
 
-            RefreshCityWideEffects();
+            RefreshCityWideEffects(
+                SignatureBonusMode.VanillaStacking, SignatureBonusMode.VanillaStacking);
 
             m_FirstCopyByPrefab.Clear();
 
             SignatureScanState.Clear();
 
+#if DEBUG
             if (logResult)
             {
                 LogUtils.Info(
                     $"{Mod.ModTag} Restored vanilla city-wide " +
                     $"Signature bonuses: " +
-                    $"RemovedSuppressionTags={changed}.");
+                    $"RemovedSuppressionTags={changed} | RemovedAttrTags={attractivenessChanged}.");
             }
+#endif
         }
 
         private static bool ComesBefore(

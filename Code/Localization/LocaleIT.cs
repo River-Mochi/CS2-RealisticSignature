@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Edifici distintivi realistici)", // 0
+            "Realistic Signature Buildings (Icone)", // 0
             "Azioni", // 1
             "Informazioni", // 2
             "Bonus degli edifici distintivi", // 3
@@ -25,41 +25,58 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Registro", // 8
             "Bonus cittadini degli edifici distintivi", // 9
-            "<Solo la prima copia> = ogni tipo di edificio distintivo fornisce una sola volta il bonus per tutta la città.\n<Nessun bonus cittadino> = disattiva i bonus per tutta la città.\n<Accumulo normale> = ogni copia fornisce il suo bonus cittadino.\nGli effetti nelle vicinanze hanno un'impostazione separata. L'attrattiva degli edifici non cambia.", // 10
+            "<Solo prima copia> **(predefinito)** = un bonus per tipo.\n<Nessun bonus cittadino> = disattiva i bonus generali; l'attrattiva ha una regola separata.\n<Accumulo standard> = ogni copia contribuisce.\n**Il testo verde** nel pannello resta visibile anche quando il bonus è bloccato.\nVedi **Azioni > Stato** o **Informazioni > Rapporto nel registro**.", // 10
             "Solo la prima copia", // 11
             "Nessun bonus cittadino", // 12
             "Accumulo normale", // 13
-            "Effetti nelle vicinanze degli edifici distintivi", // 14
-            "<Effetti vicini normali> = ogni copia fornisce i suoi effetti nelle vicinanze.\n<Solo la prima copia> = una sola copia per tipo fornisce effetti nelle vicinanze.\n<Nessun effetto vicino> = disattiva i normali effetti locali degli edifici distintivi.\nGli effetti degli edifici abbandonati e l'attrattiva restano invariati.", // 15
-            "Effetti vicini normali", // 16
-            "Solo la prima copia", // 17
-            "Nessun effetto vicino", // 18
-            "Sblocca i requisiti degli edifici distintivi", // 19
-            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.", // 20
-            "Consenti più copie", // 21
-            "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 22
-            "Regole per gli edifici unici", // 23
-            "Mostra se gli oggetti unici possono essere collocati più volte.", // 24
-            "Edifici distintivi", // 25
-            "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 26
-            "Effetti bonus per tutta la città", // 27
-            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 28
-            "Mod ridondanti rilevati", // 29
-            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 30
-            "Mod", // 31
-            "Nome visualizzato del mod.", // 32
-            "Versione", // 33
-            "Versione installata e tipo di compilazione.", // 34
-            "Apri registro", // 35
-            "Apre il file di registro del mod oppure la cartella dei registri.", // 36
-            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 37
-            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 38
-            "Impedisci le viste informative automatiche per gli edifici unici", // 39
-            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: DISATTIVO.", // 40
-            "Rapporto di stato nel registro", // 41
-            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 42
-            "Confronta le modalità bonus nel registro", // 43
-            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 44
+            "Attrattiva cittadina", // 14
+            "<Solo prima copia> **(predefinito)** = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = bonus cittadino disattivato.\n<Segui impostazione cittadina> = regola generale.\n**L'attrattiva aiuta ad attirare turisti.** Il valore dell'edificio resta.\n**Il testo verde** non cambia.", // 15
+            "Segui impostazione cittadina", // 16
+            "Solo prima copia", // 17
+            "Accumulo standard", // 18
+            "Nessun bonus attrattiva", // 19
+            "Effetti nelle vicinanze degli edifici distintivi", // 20
+            "<Effetti vicini normali> = ogni copia fornisce i suoi effetti nelle vicinanze.\n<Solo la prima copia> = una sola copia per tipo fornisce effetti nelle vicinanze.\n<Nessun effetto vicino> = disattiva i normali effetti locali degli edifici distintivi.\nGli effetti degli edifici abbandonati e l'attrattiva restano invariati.", // 21
+            "Effetti vicini normali", // 22
+            "Solo la prima copia", // 23
+            "Nessun effetto vicino", // 24
+            "Sblocca tutti gli edifici distintivi", // 25
+            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.\nPredefinito: disattivo. Solo edifici distintivi, non tutti quelli unici.", // 26
+            "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 27
+            "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 28
+            "Consenti più copie", // 29
+            "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 30
+            "Impedisci le viste informative automatiche per gli edifici unici", // 31
+            "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: ATTIVO.", // 32
+            "Regole per gli edifici unici", // 33
+            "**Copie multiple consentite** = limite di uno per città disattivato.\n**Uno per tipo** = limite normale.\n<Anarchy> può consentire copie.\nNon indica se i bonus si sommano.", // 34
+            "Edifici distintivi", // 35
+            "**Collocati** = tutti gli edifici distintivi.\n**Tipi** = modelli diversi.\n<Copie extra> = oltre il primo per tipo.\nConta anche edifici senza bonus cittadino.", // 36
+            "Altri bonus cittadini", // 37
+            "**Attivi / Totale** = fornitori ammessi dalla regola generale / tutti quelli presenti.\n<Bloccati> = esclusi da quella regola, non tutte le copie extra.\n**Attrattiva indipendente:** i fornitori bloccati possono comunque dare attrattiva.\nEffetti locali separati.", // 38
+            "Mod ridondanti rilevati", // 39
+            "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola scelta, non il valore del bonus.**\nValori reali: **Informazioni > Rapporto nel registro**. Il testo verde resta invariato.", // 40
+            "Nessuna città caricata", // 41
+            "Caricamento…", // 42
+            "Carica una città per vedere lo stato", // 43
+            "Copie multiple consentite", // 44
+            "Copie multiple consentite da Anarchy", // 45
+            "Un altro mod consente più edifici unici", // 46
+            "Uno per tipo", // 47
+            "Regole miste", // 48
+            "{0} posizionati | {1} tipi | {2} copie extra", // 49
+            "{0}/{1} attivi | {2} bloccati", // 50
+            "Nessuno", // 51
+            "Mod", // 52
+            "Nome visualizzato del mod.", // 53
+            "Versione", // 54
+            "Versione installata e tipo di compilazione.", // 55
+            "Rapporto di stato nel registro", // 56
+            "Scrive nel registro il numero attuale di edifici distintivi, i bonus cittadini e gli effetti nelle vicinanze. Non modifica impostazioni o effetti. Prima carica una città.", // 57
+            "Confronta le modalità bonus nel registro", // 58
+            "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 59
+            "Apri registro", // 60
+            "Apre il file di registro del mod oppure la cartella dei registri.", // 61
         };
 
         public LocaleIT(UniqueBldgSettings setting)

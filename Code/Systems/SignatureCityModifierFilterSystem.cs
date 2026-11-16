@@ -7,8 +7,8 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureCityModifierFilterSystem.cs
-// Rebuilds derived city modifiers while excluding BUB-suppressed
-// Signature providers.
+// Rebuilds derived city modifiers while excluding suppressed Signature
+// providers, with optional independent city-wide Attractiveness filtering.
 
 namespace UniqueBuildings
 {
@@ -30,6 +30,8 @@ namespace UniqueBuildings
     {
         private EntityQuery m_EffectProviderQuery;
         private EntityQuery m_SuppressedCityProviderQuery;
+        private EntityQuery m_AttractivenessProviderQuery;
+        private EntityQuery m_AttractivenessSuppressedProviderQuery;
         private EntityQuery m_CityQuery;
         private EntityQuery m_UpdatedCityQuery;
 
@@ -81,6 +83,34 @@ namespace UniqueBuildings
                     },
                 });
 
+            m_AttractivenessProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[] { ComponentType.ReadOnly<CityEffectProvider>() },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                        ComponentType.ReadOnly<SignatureAttractivenessSuppressed>(),
+                    },
+                });
+            m_AttractivenessSuppressedProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<SignatureAttractivenessSuppressed>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
             m_CityQuery = GetEntityQuery(
                 ComponentType.ReadOnly<Game.City.City>());
 
@@ -107,15 +137,9 @@ namespace UniqueBuildings
 
         protected override void OnUpdate()
         {
-            SignatureBonusMode mode =
-                Mod.Setting?.SignatureBonuses ??
-                SignatureBonusMode.FirstCopyOnly;
-
-            if (mode == SignatureBonusMode.VanillaStacking ||
-                m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter)
-            {
+            if (m_SuppressedCityProviderQuery.IsEmptyIgnoreFilter &&
+                m_AttractivenessSuppressedProviderQuery.IsEmptyIgnoreFilter)
                 return;
-            }
 
             // In Modification4 we only need to correct a city-wide
             // modifier rebuild when the city was actually updated.
@@ -144,7 +168,9 @@ namespace UniqueBuildings
             }
         }
 
-        public void RefreshNow()
+        public void RefreshNow(
+            SignatureBonusMode? cityModeOverride = null,
+            SignatureBonusMode? attractivenessModeOverride = null)
         {
             if (m_CityQuery.CalculateEntityCount() != 1)
                 return;
@@ -161,6 +187,11 @@ namespace UniqueBuildings
             {
                 return;
             }
+
+            SignatureBonusMode cityMode = cityModeOverride ??
+                Mod.Setting?.SignatureBonuses ?? SignatureBonusMode.FirstCopyOnly;
+            SignatureBonusMode attractivenessMode = attractivenessModeOverride ??
+                SignatureBonusSystem.GetEffectiveAttractivenessMode(cityMode);
 
             m_RefreshData.Update(this);
 
@@ -189,16 +220,76 @@ namespace UniqueBuildings
                         new(10, Allocator.Temp);
 
                 // Use the game's own modifier aggregation math.
-                // BUB only changes which providers are included.
+                // This mod only changes which providers are included.
                 m_RefreshData.RefreshCityModifiers(
                     modifiers,
                     policies,
                     effectProviderChunks,
                     tempModifierList);
+
+                if (attractivenessMode != cityMode)
+                    ReplaceAttractivenessModifier(modifiers, policies);
             }
             finally
             {
                 effectProviderChunks.Dispose();
+            }
+        }
+
+        private void ReplaceAttractivenessModifier(
+            DynamicBuffer<CityModifier> modifiers,
+            DynamicBuffer<Policy> policies)
+        {
+            // NativeArray's indexer mutates the struct, so this must not be
+            // a readonly "using" local (CS1654). Dispose in finally instead.
+            NativeArray<CityModifier> original =
+                new(modifiers.Length, Allocator.Temp);
+            try
+            {
+                for (int i = 0; i < original.Length; i++)
+                    original[i] = modifiers[i];
+
+                NativeList<ArchetypeChunk> chunks =
+                    m_AttractivenessProviderQuery.ToArchetypeChunkListAsync(
+                        Allocator.TempJob, out JobHandle job);
+
+                CityModifier attractiveness = default;
+                int index = (int)CityModifierType.Attractiveness;
+                bool found = false;
+                try
+                {
+                    job.Complete();
+                    using NativeList<CityModifierData> temp =
+                        new(10, Allocator.Temp);
+                    m_RefreshData.RefreshCityModifiers(
+                        modifiers, policies, chunks, temp);
+                    found = index < modifiers.Length;
+                    if (found)
+                        attractiveness = modifiers[index];
+                }
+                finally
+                {
+                    // Keep other city modifiers even if the second pass fails.
+                    modifiers.ResizeUninitialized(original.Length);
+                    for (int i = 0; i < original.Length; i++)
+                        modifiers[i] = original[i];
+                    chunks.Dispose();
+                }
+
+                if (found && index >= modifiers.Length)
+                {
+                    int oldLength = modifiers.Length;
+                    modifiers.ResizeUninitialized(index + 1);
+                    for (int i = oldLength; i < modifiers.Length; i++)
+                        modifiers[i] = default;
+                }
+
+                if (index < modifiers.Length)
+                    modifiers[index] = attractiveness;
+            }
+            finally
+            {
+                original.Dispose();
             }
         }
     }

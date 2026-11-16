@@ -36,7 +36,15 @@ namespace UniqueBuildings
         NoEffects = 2,
     }
 
-    [FileLocation("ModsSettings/BetterUniqueBuildings/BetterUniqueBuildings")]
+    public enum SignatureAttractivenessMode
+    {
+        FollowCityWide = 0,
+        FirstCopyOnly = 1,
+        VanillaStacking = 2,
+        NoBonuses = 3,
+    }
+
+    [FileLocation("ModsSettings/RealisticSignatureBuildings/RealisticSignatureBuildings")]
     [SettingsUITabOrder(ActionsTab, AboutTab)]
     [SettingsUIGroupOrder(
         BonusGroup, UnlockGroup, PlacementGroup, SignatureStatusGroup,
@@ -71,6 +79,11 @@ namespace UniqueBuildings
         [SettingsUISection(ActionsTab, BonusGroup)]
         public SignatureBonusMode SignatureBonuses { get; set; }
 
+        [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetAttractivenessDropdownItems))]
+        [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetAttractivenessBonuses))]
+        [SettingsUISection(ActionsTab, BonusGroup)]
+        public SignatureAttractivenessMode AttractivenessBonuses { get; set; }
+
         [SettingsUIDropdown(typeof(UniqueBldgSettings), nameof(GetNearbyEffectDropdownItems))]
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetNearbySignatureEffects))]
         [SettingsUISection(ActionsTab, BonusGroup)]
@@ -103,7 +116,6 @@ namespace UniqueBuildings
 
         [SettingsUISection(ActionsTab, PlacementGroup)]
         [SettingsUISetter(typeof(UniqueBldgSettings), nameof(SetPreventAutomaticSignatureInfoviews))]
-        // Keep the saved key so existing users retain their enabled setting.
         public bool PreventAutomaticSignatureInfoviews { get; set; }
 
         // --------------------
@@ -113,69 +125,96 @@ namespace UniqueBuildings
         [Exclude]
         [SettingsUIValueVersion(typeof(UniquePlacementState), nameof(UniquePlacementState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusPlacementRule
+        public LocalizedString StatusPlacementRule
         {
             get
             {
                 if (!IsCityLoaded())
-                    return "No city loaded yet";
+                    return LocalizedString.Id(LocaleEN.KeyStatusNoCity);
 
                 RefreshStatusIfNeeded();
 
                 return UniquePlacementState.HasSnapshot
-                    ? UniquePlacementState.StatusText
-                    : "Loading…";
+                    ? LocalizedString.Value(UniquePlacementState.StatusText)
+                    : LocalizedString.Id(LocaleEN.KeyStatusLoading);
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusSignatureSummary
+        public LocalizedString StatusSignatureSummary
         {
             get
             {
                 if (!IsCityLoaded())
-                    return "Load a city first to see status";
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoadCity);
 
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return "Loading…";
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
 
-                return
-                    $"{SignatureScanState.SignatureBuildings} placed | " +
-                    $"{SignatureScanState.SignatureTypes} types | " +
-                    $"{SignatureScanState.DuplicateSignatureBuildings} duplicates";
+                return LocalizedString.Value(LocaleUtils.SafeFormat(
+                    LocaleEN.KeyStatusSignatureSummaryLine,
+                    "{0} placed | {1} types | {2} extra copies",
+                    SignatureScanState.SignatureBuildings,
+                    SignatureScanState.SignatureTypes,
+                    SignatureScanState.DuplicateSignatureBuildings));
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusCityWideEffects
+        public LocalizedString StatusCityWideEffects
         {
             get
             {
                 if (!IsCityLoaded())
-                    return "—";
+                    return LocalizedString.Value("—");
 
                 RefreshStatusIfNeeded();
 
                 if (!SignatureScanState.HasSnapshot)
-                    return "Loading…";
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
 
-                return
-                    $"{SignatureScanState.CityWideEffectProviders} providers | " +
-                    $"{SignatureScanState.DuplicateCityWideProviders} duplicate providers";
+                return LocalizedString.Value(LocaleUtils.SafeFormat(
+                    LocaleEN.KeyStatusCityProvidersLine,
+                    "{0}/{1} active | {2} blocked",
+                    SignatureScanState.CityWideEffectProviders,
+                    SignatureScanState.TotalCityWideProviders,
+                    SignatureScanState.BlockedCityWideProviders));
+            }
+        }
+
+        [Exclude]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public LocalizedString StatusAttractivenessMode
+        {
+            get
+            {
+                if (!IsCityLoaded())
+                    return LocalizedString.Id(LocaleEN.KeyStatusNoCity);
+
+                RefreshStatusIfNeeded();
+
+                if (!SignatureScanState.HasSnapshot)
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
+
+                return LocalizedString.Id(
+                    GetEnumValueLocaleID(AttractivenessBonuses));
             }
         }
 
         [Exclude]
         [SettingsUIValueVersion(typeof(UniqueModsCompatibility), nameof(UniqueModsCompatibility.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
-        public string StatusRedundantMods =>
-            UniqueModsCompatibility.StatusText;
+        public LocalizedString StatusRedundantMods =>
+            UniqueModsCompatibility.HasRedundantMods
+                ? LocalizedString.Value(UniqueModsCompatibility.StatusText)
+                : LocalizedString.Id(LocaleEN.KeyStatusNone);
 
         // --------------------
         // About
@@ -245,17 +284,24 @@ namespace UniqueBuildings
         public override void SetDefaults()
         {
             SignatureBonuses = SignatureBonusMode.FirstCopyOnly;
+            AttractivenessBonuses = SignatureAttractivenessMode.FirstCopyOnly;
             NearbySignatureEffects = NearbySignatureMode.Vanilla;
             UnlockSignatureRequirements = false;
             HideBulkUnlockNotifications = true;
             AllowMultipleUniqueBuildings = true;
-            PreventAutomaticSignatureInfoviews = false;
+            PreventAutomaticSignatureInfoviews = true;
         }
 
         private void SetSignatureBonuses(int value)
         {
             GetSignatureBonusSystem()?.ApplyFromOptions(
                 (SignatureBonusMode)value);
+        }
+
+        private void SetAttractivenessBonuses(int value)
+        {
+            GetSignatureBonusSystem()?.ApplyAttractivenessFromOptions(
+                (SignatureAttractivenessMode)value);
         }
 
         private void SetNearbySignatureEffects(int value)
@@ -310,6 +356,37 @@ namespace UniqueBuildings
                     value = (int)SignatureBonusMode.VanillaStacking,
                     displayName = LocalizedString.Id(
                         GetEnumValueLocaleID(SignatureBonusMode.VanillaStacking)),
+                },
+            };
+        }
+
+        private DropdownItem<int>[] GetAttractivenessDropdownItems()
+        {
+            return new DropdownItem<int>[]
+            {
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.FirstCopyOnly,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.VanillaStacking,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.VanillaStacking)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.NoBonuses,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.NoBonuses)),
+                },
+                new()
+                {
+                    value = (int)SignatureAttractivenessMode.FollowCityWide,
+                    displayName = LocalizedString.Id(
+                        GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide)),
                 },
             };
         }

@@ -1,5 +1,10 @@
 <Solution>
   <Folder Name="/NewFolder1/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="GPL-LICENSE" />
+    <File Path="LICENSE-EXCEPTION" />
     <File Path="README.md" />
   </Folder>
   <Project Path="Code/UniqueBuildings.csproj" />

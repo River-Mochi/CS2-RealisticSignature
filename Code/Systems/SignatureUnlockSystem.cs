@@ -191,6 +191,7 @@ namespace UniqueBuildings
             int lockedAfter =
                 CountLocked(signatures, ref lockedLookup);
 
+#if DEBUG
             LogUtils.Info(
                 $"{Mod.ModTag} Signature unlock reconcile ({reason}): " +
                 $"Unlock={(unlock ? "ON" : "OFF")} | " +
@@ -201,6 +202,7 @@ namespace UniqueBuildings
                 $"VanillaAvailable={vanillaAvailable} | " +
                 $"LockedAfter={lockedAfter} | " +
                 $"BulkPopupsQueued={popupsQueued}.");
+#endif
         }
 
         private void RestoreVanillaLockState(bool logResult)
@@ -243,6 +245,7 @@ namespace UniqueBuildings
                 NotifyToolbar(entity);
             }
 
+#if DEBUG
             if (logResult)
             {
                 LogUtils.Info(
@@ -250,6 +253,7 @@ namespace UniqueBuildings
                     $"SignaturePrefabs={signatures.Length} | " +
                     $"Changed={changed}.");
             }
+#endif
         }
 
         private static bool ShouldBeLockedByVanilla(

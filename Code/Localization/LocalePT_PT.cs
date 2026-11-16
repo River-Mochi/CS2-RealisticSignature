@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePT_PT.cs
-// All 45 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -15,7 +15,7 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
-            "Realistic Signature Buildings (Edifícios emblemáticos realistas)", // 0
+            "Realistic Signature Buildings (Ícones)", // 0
             "Ações", // 1
             "Sobre", // 2
             "Bónus de edifícios emblemáticos", // 3
@@ -25,41 +25,58 @@ namespace UniqueBuildings
             "Informações", // 7
             "Depuração / Registo", // 8
             "Bónus dos edifícios emblemáticos em toda a cidade", // 9
-            "<Só a primeira cópia> = cada tipo de edifício emblemático concede o seu bónus à cidade apenas uma vez.\n<Sem bónus globais> = desativa esses bónus.\n<Acumulação normal> = cada cópia concede o seu bónus.\nOs efeitos nas proximidades têm uma definição própria. A atratividade dos edifícios mantém-se.", // 10
+            "<Só a primeira cópia> **(predefinição)** = um bónus por tipo.\n<Sem bónus globais> = desliga os bónus gerais; atratividade tem regra própria.\n<Acumulação normal> = todas as cópias contam.\n**O texto verde** permanece mesmo que o bónus esteja bloqueado.\nVer **Ações > Estado** ou **Sobre > Relatório no registo**.", // 10
             "Só a primeira cópia", // 11
             "Sem bónus globais", // 12
             "Acumulação normal", // 13
-            "Efeitos dos edifícios emblemáticos nas proximidades", // 14
-            "<Efeitos normais nas proximidades> = cada cópia produz os seus efeitos locais habituais.\n<Só a primeira cópia> = apenas uma cópia de cada tipo produz efeitos próximos.\n<Sem efeitos nas proximidades> = desativa os efeitos locais habituais desses edifícios.\nOs efeitos dos edifícios abandonados e a atratividade mantêm-se.", // 15
-            "Efeitos normais nas proximidades", // 16
+            "Atratividade da cidade", // 14
+            "<Só a primeira cópia> **(predefinição)** = um bónus de atratividade por tipo.\n<Acumulação normal> = todas as cópias.\n<Sem bónus de atratividade> = bónus global desligado.\n<Seguir definição geral> = regra geral.\n**A atratividade ajuda a atrair turistas.** O valor próprio do edifício mantém-se.\n**O texto verde** não muda.", // 15
+            "Seguir definição geral", // 16
             "Só a primeira cópia", // 17
-            "Sem efeitos nas proximidades", // 18
-            "Desbloquear requisitos dos edifícios emblemáticos", // 19
-            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zonamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.", // 20
-            "Permitir várias cópias", // 21
-            "**LIGADO** = permite colocar várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = uma cópia por cidade, a menos que outro mod permita mais.", // 22
-            "Regra de colocação de objetos únicos", // 23
-            "Indica se é possível colocar várias cópias de objetos únicos.", // 24
-            "Edifícios emblemáticos", // 25
-            "Mostra os edifícios emblemáticos construídos, os tipos diferentes e as cópias adicionais.", // 26
-            "Efeitos dos bónus globais", // 27
-            "Conta edifícios emblemáticos com bónus em toda a cidade.\nOs efeitos locais ou próximos não estão incluídos.", // 28
-            "Mods redundantes detetados", // 29
-            "Anarchy é compatível e não aparece aqui.\nRemove outros mods de edifícios únicos ilimitados: esta função já está incluída.", // 30
-            "Mod", // 31
-            "Nome apresentado deste mod.", // 32
-            "Versão", // 33
-            "Versão instalada e tipo de compilação.", // 34
-            "Abrir registo", // 35
-            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 36
-            "Ocultar avisos de desbloqueio em massa", // 37
-            "**LIGADO** (recomendado, predefinição) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso por cada edifício emblemático desbloqueado pelo mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam a aparecer, incluindo edifícios novos de atualizações, DLC, pacotes regionais e progresso da cidade.", // 38
-            "Impedir vistas de informação automáticas para edifícios únicos", // 39
-            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informação e o mapa colorido durante a colocação. As vistas podem continuar a ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Predefinição: DESLIGADO.", // 40
-            "Relatório de estado no registo", // 41
-            "Regista no log a quantidade atual de edifícios emblemáticos, os bónus da cidade e os efeitos próximos. Não altera definições nem efeitos. Carrega primeiro uma cidade.", // 42
-            "Comparar modos de bónus no log", // 43
-            "Testa temporariamente todos os modos de bónus da cidade e efeitos próximos enquanto o jogo está em pausa nas Opções. Depois volta a aplicar os modos escolhidos. Os resultados ficam no log do mod. Carrega primeiro uma cidade.", // 44
+            "Acumulação normal", // 18
+            "Sem bónus de atratividade", // 19
+            "Efeitos dos edifícios emblemáticos nas proximidades", // 20
+            "<Efeitos normais nas proximidades> = cada cópia produz os seus efeitos locais habituais.\n<Só a primeira cópia> = apenas uma cópia de cada tipo produz efeitos próximos.\n<Sem efeitos nas proximidades> = desativa os efeitos locais habituais desses edifícios.\nOs efeitos dos edifícios abandonados e a atratividade mantêm-se.", // 21
+            "Efeitos normais nas proximidades", // 22
+            "Só a primeira cópia", // 23
+            "Sem efeitos nas proximidades", // 24
+            "Desbloquear todos os edifícios emblemáticos", // 25
+            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zonamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.\nPredefinição: desligado. Apenas edifícios emblemáticos, não todos os únicos.", // 26
+            "Ocultar avisos de desbloqueio em massa", // 27
+            "**LIGADO** (recomendado, predefinição) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso por cada edifício emblemático desbloqueado pelo mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam a aparecer, incluindo edifícios novos de atualizações, DLC, pacotes regionais e progresso da cidade.", // 28
+            "Permitir várias cópias", // 29
+            "**LIGADO** = permite colocar várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = uma cópia por cidade, a menos que outro mod permita mais.", // 30
+            "Impedir vistas de informação automáticas para edifícios únicos", // 31
+            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informação e o mapa colorido durante a colocação. As vistas podem continuar a ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Predefinição: LIGADO.", // 32
+            "Regra de colocação de objetos únicos", // 33
+            "**Várias cópias permitidas** = limite de uma por cidade desligado.\n**Uma de cada tipo** = limite normal.\n<Anarchy> também pode permitir cópias.\nNão indica a acumulação de bónus.", // 34
+            "Edifícios emblemáticos", // 35
+            "**Colocados** = todos os edifícios emblemáticos.\n**Tipos** = modelos diferentes.\n<Cópias extra> = além do primeiro de cada tipo.\nInclui edifícios sem bónus global.", // 36
+            "Bónus gerais da cidade", // 37
+            "**Ativos / Total** = fornecedores aceites pela regra geral / todos os presentes.\n<Bloqueados> = excluídos pela regra, não todas as cópias extra.\n**Atratividade independente:** um fornecedor bloqueado pode ainda contribuir.\nEfeitos próximos são separados.", // 38
+            "Mods redundantes detetados", // 39
+            "<Só a primeira cópia> = um bónus por tipo.\n<Acumulação normal> = todas as cópias.\n<Sem bónus> = desligado.\n<Seguir definição geral> = regra geral.\n**Mostra a regra escolhida, não o valor do bónus.**\nValores reais: **Sobre > Relatório no registo**. Texto verde inalterado.", // 40
+            "Nenhuma cidade carregada", // 41
+            "A carregar…", // 42
+            "Carrega uma cidade para veres o estado", // 43
+            "Várias cópias permitidas", // 44
+            "Anarchy permite várias cópias", // 45
+            "Outro mod permite vários edifícios únicos", // 46
+            "Um de cada tipo", // 47
+            "Regras mistas", // 48
+            "{0} construídos | {1} tipos | {2} cópias extra", // 49
+            "{0}/{1} ativos | {2} bloqueados", // 50
+            "Nenhum", // 51
+            "Mod", // 52
+            "Nome apresentado deste mod.", // 53
+            "Versão", // 54
+            "Versão instalada e tipo de compilação.", // 55
+            "Relatório de estado no registo", // 56
+            "Regista no log a quantidade atual de edifícios emblemáticos, os bónus da cidade e os efeitos próximos. Não altera definições nem efeitos. Carrega primeiro uma cidade.", // 57
+            "Comparar modos de bónus no log", // 58
+            "Testa temporariamente todos os modos de bónus da cidade e efeitos próximos enquanto o jogo está em pausa nas Opções. Depois volta a aplicar os modos escolhidos. Os resultados ficam no log do mod. Carrega primeiro uma cidade.", // 59
+            "Abrir registo", // 60
+            "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 61
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)

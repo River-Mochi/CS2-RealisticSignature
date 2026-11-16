@@ -146,7 +146,8 @@ namespace UniqueBuildings
                 ? mode : NearbySignatureMode.Vanilla;
         }
 
-        private void ReconcileNow(NearbySignatureMode mode, string reason)
+        private void ReconcileNow(
+            NearbySignatureMode mode, string reason, bool logResult = true)
         {
             CompleteDependency();
             using NativeArray<Entity> buildings =
@@ -203,9 +204,14 @@ namespace UniqueBuildings
             }
 
             m_AppliedMode = mode;
-            LogUtils.Info($"{Mod.ModTag} Nearby Signature reconcile ({reason}): " +
-                $"Mode={mode} | Eligible={buildings.Length} | " +
-                $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
+#if DEBUG
+            if (logResult)
+            {
+                LogUtils.Info($"{Mod.ModTag} Nearby Signature reconcile ({reason}): " +
+                    $"Mode={mode} | Eligible={buildings.Length} | " +
+                    $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
+            }
+#endif
         }
 
         private void FillModifiers(Entity building, Entity prefab,

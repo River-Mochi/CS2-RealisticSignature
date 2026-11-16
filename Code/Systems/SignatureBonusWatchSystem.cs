@@ -73,7 +73,9 @@ namespace UniqueBuildings
                 Mod.Setting?.SignatureBonuses ??
                 SignatureBonusMode.VanillaStacking;
 
-            if (mode == SignatureBonusMode.VanillaStacking)
+            if (mode == SignatureBonusMode.VanillaStacking &&
+                SignatureBonusSystem.GetEffectiveAttractivenessMode(mode) ==
+                    SignatureBonusMode.VanillaStacking)
                 return;
 
             bool changed =

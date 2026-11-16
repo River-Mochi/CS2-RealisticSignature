@@ -2,56 +2,58 @@
 <!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
 <ModId Value="" />
 <!--Name of the mod to display to players-->
-<DisplayName Value="Realistic Signature Buildings" />
+<DisplayName Value="Realistic Signature + Unique Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Unlock all Signature, place multiple Unique buildings, and customize city-wide and local effects to be vanilla or non-stacking bonuses." />
+<ShortDescription Value="Unlock Signature buildings, place multiple Unique buildings, and control city-wide and nearby bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
-## Realistic Signature Buildings
-## :cityscape:  Realistic Signature Buildings — Testers Wanted!
+# 🏙️
+## Realistic Signature Buildings Fix
 
 **Unlimited buildings without making the economy unrealistic and broken!**
 
-Duplicate Signature buildings stack powerful city-wide bonuses, making CS2's economy too easy.
-**Now YOU control the bonuses!**
+Duplicate Signature buildings stack strong city-wide bonuses, making CS2's economy too easy.
 
-### 1. City-wide bonuses — 3 choices
+### 1. Control City-wide bonuses: 3 choices
 
-- **Vanilla Stacking:** every copy contributes normal bonuses. Want super-easy mode? Keep stacking!
+- **Vanilla Stacking:** every copy has normal game bonuses. Want super-easy mode? Keep stacking!
 - **First Copy Only (mod default):** only one copy of each building contributes city-wide bonuses. More Realistic, 5 building copies no longer has 5x stacked bonuses!
-- **No City Bonuses:** disable Signature city-wide bonuses for a bigger challenge.
+- **No City Bonuses:** disable general Signature city-wide bonuses for a bigger challenge.
+
+**City-wide Attractiveness is controlled separately.** Choose First copy only (default), Vanilla stacking, No attractiveness bonus, or Follow city-wide setting.
 
 ### 2. Nearby Local Effects — Separate controls!
-- Keep neighborhood "aoe" benefits w/out stacking city-wide broken bonuses!
+- Keep neighborhood "aoe" benefits w/out stacking multiplying whole city broken bonuses!
 - Choose **Vanilla, First-Copy Only, or Off** independent of your city-wide bonus setting.
 
 ### 3. More Options - You choose!
-:white_check_mark: Allow unlimited unique buildings. no need for 3 separate mods just to deal with buildings.
-:white_check_mark: QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
-:white_check_mark: Unlock all buildings without meeting normal population, zoning, or progression requirements. I want it NOW!
-:white_check_mark: See buildings CLEARLY: hide auto Infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings! You can still open infoviews manually if you miss it or disable this toggle [x]  (was a player request).
+✅ Allow unlimited unique buildings.
+✅ Unlock Signature buildings without meeting their population, zoning, or other progression requirements. I want it NOW!
+✅ QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
+✅ See Clearly: hide auto infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings!
+You can still open infoviews manually as needed or disable this toggle [x] in Options menu (was a player request).
 
 ### Compatibility
 - Compatible with **Anarchy**, including its multiple unique setting.
-- Avoid installing other mods that have the same unique-placement features, no need for 3-4 mods just for Signature. See Options Status, mod detects if you have duplicate mod installed.
-- Safe to remove: existing building copies stay, normal vanilla rules return. No Harmony patching, all vanilla.
-
+- Designed for safe removal: placed copies stay; vanilla bonuses and placement rules return after reload. No Harmony patches.
+- Combines many features to reduce the need for 3 separate mods.
 
 ### Notes
-
-- To read diagnostic results: Options > About > Debug / Logging > Open Log.
-- Hover over Options rows for explanations.
+- Hover over Options menu rows for tool tips (see the 3rd panel to the right).
+- Green bonus text in the building info panel stays visible even when this mod limits or disables a bonus. It may not reflect the active effect.
+- To verify, check the mod Options → Actions → Status to see: how many Signature buildings and extra copies are placed, which general city-wide bonus providers are active or blocked, and the selected Attractiveness rule.
+For even more detailed calculations and actual city-wide modifier values, use About → Status report to log and open the log file.
 
 ## Support and Feedback
 - Support by clicking Like (top right), no donations requested, just a like for many days of work.
-- For feedback, use the GitHub or Discord links on this page. PRs are welcome.
+- For feedback, use the [Discord](https://discord.gg/gwXgvtyhjc) | [GitHub](https://github.com/River-Mochi/CS2-RealisticSignature) links on this page. PRs are welcome, GPL-3.0 license.
 
 ### Languages
 English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Português (Portugal), Türkçe, ไทย, Tiếng Việt, 日本語, 한국어, 简体中文, 繁體中文
 
-### Credits and feedback
-Created by RiverMochi. License GPL-3.0
-Thumbnail image of the 8House in Copenhagen designed by Bjarke Ingels
+### Credits
+- RiverMochi: mod author and maintainer
+- Thumbnail image of the 8House in Copenhagen designed by Bjarke Ingels [Wikipedia](https://en.wikipedia.org/wiki/8_House)
 
 
 </LongDescription>
@@ -66,7 +68,7 @@ Thumbnail image of the 8House in Copenhagen designed by Bjarke Ingels
 <!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
 <!--Version of the mod-->
-<ModVersion Value="0.7.0" />
+<ModVersion Value="0.8.0" />
 <!--Recommended version of the base game to use the mod-->
 <GameVersion Value="1.6.*" />
 <!--Dependency for the mod, can be set multiple times-->

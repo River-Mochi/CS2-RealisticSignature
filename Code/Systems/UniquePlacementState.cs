@@ -11,6 +11,7 @@
 
 namespace UniqueBuildings
 {
+    using CS2Shared.RiverMochi;
     internal static class UniquePlacementState
     {
         private static int s_UiVersion;
@@ -38,31 +39,31 @@ namespace UniqueBuildings
                     GetCurrentAnarchyState();
 
                 if (ourSetting && s_RestrictedUnique == 0)
-                    return "Multiple allowed";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusMultipleAllowed, "Multiple copies allowed");
 
                 if (!ourSetting &&
                     anarchyState == AnarchyMultipleUniqueState.On)
                 {
-                    return "Multiple allowed by Anarchy";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnarchy, "Multiple allowed by Anarchy");
                 }
 
                 if (!ourSetting &&
                     UniqueModsCompatibility.HasRedundantMods)
                 {
-                    return "Multiple unique enabled by another mod";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod");
                 }
 
                 if (s_RestrictedUnique == 0)
                 {
                     return ourSetting
-                        ? "Multiple copies allowed"
-                        : "Multiple unique enabled by another mod";
+                        ? LocaleUtils.Localize(LocaleEN.KeyStatusMultipleAllowed, "Multiple copies allowed")
+                        : LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod");
                 }
 
                 if (s_RestrictedUnique == s_TotalKnownUnique)
-                    return "One of each";
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusOneOfEach, "One of each");
 
-                return "Mixed rules";
+                return LocaleUtils.Localize(LocaleEN.KeyStatusMixedRules, "Mixed rules");
             }
         }
 
@@ -92,7 +93,7 @@ namespace UniqueBuildings
             if (changed)
                 s_UiVersion++;
 
-            return s_UiVersion;
+            return unchecked((s_UiVersion * 397) + LocaleUtils.GetLocaleVersion());
         }
 
         public static void SetSnapshot(

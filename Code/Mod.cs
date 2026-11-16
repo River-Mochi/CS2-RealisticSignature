@@ -30,7 +30,8 @@ namespace UniqueBuildings
     {
         public const string ModName = "Realistic Signature Buildings";
         public const string ShortName = "Realistic Signature";
-        public const string ModId = "BetterUniqueBuildings";
+        public const string ModId = "RealisticSignatureBuildings";
+        public const string LogName = "RealisticSignatureBuildings";
         public const string ModTag = "[RSB]";
 
 #if DEBUG
@@ -45,7 +46,7 @@ namespace UniqueBuildings
             Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.1.0";
 
         public static readonly ILog s_Log =
-            LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
+            LogManager.GetLogger(LogName).SetShowsErrorsInUI(false);
 
         public static UniqueBldgSettings? Setting { get; private set; }
         public static string BuildDisplayName =>
@@ -53,7 +54,7 @@ namespace UniqueBuildings
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            ShellOpen.Configure(s_Log, ModId, ModTag);
+            ShellOpen.Configure(s_Log, LogName, ModTag);
 
             if (!s_BannerLogged)
             {
