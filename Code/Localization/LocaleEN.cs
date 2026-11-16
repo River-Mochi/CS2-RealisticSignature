@@ -173,8 +173,8 @@ namespace UniqueBuildings
                     "<Vanilla stacking> = every copy contributes.\n" +
                     "<No attractiveness bonus> = Signature contributions disabled.\n" +
                     "<Follow city-wide setting> = use the general rule above.\n" +
-                    "**This row shows the selected rule, not a numeric total.** Other buildings also contribute to city attractiveness.\n" +
-                    "Green building descriptions stay unchanged; use **About > Status report to log** for actual city values." },
+                    "**Shows the selected rule, not a bonus number.**\n" +
+                    "For actual city modifier values, use **About > Status report to log**. Green building descriptions stay unchanged." },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)),
                     "**None** = no known redundant Unique-placement mod detected.\n" +

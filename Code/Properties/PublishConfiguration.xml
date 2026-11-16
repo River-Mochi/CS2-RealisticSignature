@@ -18,7 +18,9 @@ Duplicate Signature buildings stack strong city-wide bonuses, making CS2's econo
 
 - **Vanilla Stacking:** every copy has normal game bonuses. Want super-easy mode? Keep stacking!
 - **First Copy Only (mod default):** only one copy of each building contributes city-wide bonuses. More Realistic, 5 building copies no longer has 5x stacked bonuses!
-- **No City Bonuses:** disable Signature city-wide bonuses for a bigger challenge.
+- **No City Bonuses:** disable general Signature city-wide bonuses for a bigger challenge.
+
+**City-wide Attractiveness is controlled separately.** Choose First copy only (default), Vanilla stacking, No attractiveness bonus, or Follow city-wide setting.
 
 ### 2. Nearby Local Effects — Separate controls!
 - Keep neighborhood "aoe" benefits w/out stacking multiplying whole city broken bonuses!
@@ -38,8 +40,8 @@ You can still open infoviews manually as needed or disable this toggle [x] in Op
 
 ### Notes
 - Hover over Options menu rows for tool tips (see the 3rd panel to the right).
-- The building info panel bonus text details remain visible even when this mod reduces or disables them. The displayed text does not reflect the active bonus.
-- To verify, check the mod Options → Actions → Status to see: how many unique buildings and extra copies are placed, which city-wide bonus providers are active or bonuses blocked.
+- Green bonus text in the building info panel stays visible even when this mod limits or disables a bonus. It may not reflect the active effect.
+- To verify, check the mod Options → Actions → Status to see: how many Signature buildings and extra copies are placed, which general city-wide bonus providers are active or blocked, and the selected Attractiveness rule.
 For even more detailed calculations and actual city-wide modifier values, use About → Status report to log and open the log file.
 
 ## Support and Feedback
