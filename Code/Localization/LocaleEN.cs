@@ -62,11 +62,11 @@ namespace UniqueBuildings
                     "City-wide bonuses"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "<First copy only> = each Signature building type gives its city-wide bonus once even if many copies are built.\n" +
-                    "<No city-wide bonuses> = disables Signature city-wide bonuses.\n" +
-                    "<Vanilla Stacked Bonuses> = every copy gives its city-wide bonus.\n" +
-                    "Nearby effects and city-wide Attractiveness have separate settings.\n" +
-                    "Green bonus lines in building info panels are static descriptions; they remain even if a bonus is limited or disabled. Check Actions > Status or Status report to log."
+                    "<First copy only> **(default)** = count the city-wide bonus once per Signature type.\n" +
+                    "<No city-wide bonuses> = disable general city-wide Signature bonuses. Attractiveness uses its separate rule below.\n" +
+                    "<Vanilla Stacked Bonuses> = count the bonus from every placed copy.\n" +
+                    "**Green bonus text** in building panels describes the original building, even when its bonus is blocked.\n" +
+                    "See **Actions > Status** for counts, or **About > Status report to log** for actual city modifier values."
                 },
 
                 { m_Setting.GetEnumValueLocaleID(SignatureBonusMode.FirstCopyOnly),
@@ -83,12 +83,12 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
                     "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
-                    "<First copy only> (default) = one copy of each Signature type adds the city-wide Attractiveness bonus.\n" +
-                    "<Vanilla stacking> = every copy adds its city-wide Attractiveness bonus.\n" +
-                    "<No attractiveness bonus> = Signature buildings add no city-wide Attractiveness bonus.\n" +
-                    "<Follow city-wide setting> = use the bonus rule above.\n" +
-                    "City attractiveness helps attract tourists.\n" +
-                    "Green bonus lines in building info panels describe prefab bonuses, not live effects. They remain visible when limited or disabled. Check Actions > Status or Status report to log." },
+                    "<First copy only> **(default)** = one city-wide Attractiveness bonus per Signature building type.\n" +
+                    "<Vanilla stacking> = every copy contributes its city-wide Attractiveness bonus.\n" +
+                    "<No attractiveness bonus> = Signature city-wide Attractiveness bonuses are ignored.\n" +
+                    "<Follow city-wide setting> = use the general city-wide rule above.\n" +
+                    "**Attractiveness helps attract tourists.** Each building's own attractiveness is unchanged.\n" +
+                    "**Green bonus text** in a building's information panel stays visible, even if its bonus is blocked." },
                 { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FollowCityWide),
                     "Follow city-wide setting" },
                 { m_Setting.GetEnumValueLocaleID(SignatureAttractivenessMode.FirstCopyOnly),
@@ -145,26 +145,41 @@ namespace UniqueBuildings
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)),
-                    "Shows whether Unique items can currently be placed more than once."
+                    "**Multiple copies allowed** = Unique placement restrictions are disabled.\n" +
+                    "**One of each** = the usual one-per-city restriction applies.\n" +
+                    "<Anarchy> may also allow multiple copies independently of this mod.\n" +
+                    "Placement rules do not tell you which city-wide bonuses are active."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)), "Signature buildings" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)),
-                    "Shows total placed Signature buildings, different Signature types, and extra duplicate copies."
+                    "**Placed** = total Signature buildings in your city.\n" +
+                    "**Types** = different Signature building types.\n" +
+                    "<Extra copies> = additional buildings beyond the first of each type.\n" +
+                    "Copies without city-wide bonuses are included in this count."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "General city-wide bonuses" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
-                    "Counts active general city-wide Signature bonus providers and blocked copies. City-wide Attractiveness follows its separate rule below. Nearby effects are separate."
+                    "**Active / Total** = Signature city-wide providers counted by the general bonus rule / found in the city.\n" +
+                    "<Blocked> = providers excluded by the general rule, not the total number of extra buildings.\n" +
+                    "**Attractiveness is independent:** a blocked general provider may still add Attractiveness if its rule allows it.\n" +
+                    "Nearby effects and each building's own attractiveness are separate."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)),
-                    "Shows the selected city-wide Signature Attractiveness rule. Building green bonus lines are static descriptions. See Status report to log for actual city values." },
+                    "<First copy only> = one city-wide Attractiveness bonus per Signature type.\n" +
+                    "<Vanilla stacking> = every copy contributes.\n" +
+                    "<No attractiveness bonus> = Signature contributions disabled.\n" +
+                    "<Follow city-wide setting> = use the general rule above.\n" +
+                    "**This row shows the selected rule, not a numeric total.** Other buildings also contribute to city attractiveness.\n" +
+                    "Green building descriptions stay unchanged; use **About > Status report to log** for actual city values." },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), "Redundant mods detected" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)),
-                    "Anarchy is supported and is not listed here.\n" +
-                    "Remove other Unlimited/Multiple Unique mods because this mod already provides that feature."
+                    "**None** = no known redundant Unique-placement mod detected.\n" +
+                    "<Anarchy> is compatible and is not listed.\n" +
+                    "Remove other Unlimited/Multiple Unique mods to avoid overlapping placement behavior."
                 },
 
                 // Localized Status values (not translated in log reports)
