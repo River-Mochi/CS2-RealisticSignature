@@ -25,21 +25,22 @@ Duplicate Signature buildings stack strong city-wide bonuses, making CS2's econo
 - Choose **Vanilla, First-Copy Only, or Off** independent of your city-wide bonus setting.
 
 ### 3. More Options - You choose!
-:white_check_mark: Allow unlimited unique buildings. no need for 3 mods just to deal with signature/unique buildings economy + placement rules.
-:white_check_mark: QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
-:white_check_mark: Unlock Signature buildings without meeting their population, zoning, or other progression requirements. I want it NOW!
-:white_check_mark: See Clearly: hide auto infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings!
+✅ Allow unlimited unique buildings.
+✅ Unlock Signature buildings without meeting their population, zoning, or other progression requirements. I want it NOW!
+✅ QoL,  Hide mass unlock pop-ups: Stop the Spam when unlocking many Signature buildings at once. Save your click finger!
+✅ See Clearly: hide auto infoview overlays when placing Unique buildings, disables colored ground overlay and black-out of buildings!
 You can still open infoviews manually as needed or disable this toggle [x] in Options menu (was a player request).
 
 ### Compatibility
 - Compatible with **Anarchy**, including its multiple unique setting.
 - Designed for safe removal: placed copies stay; vanilla bonuses and placement rules return after reload. No Harmony patches.
-- Avoid conflicts. See Options status, mod detects if you have duplicate mod installed.
+- Combines many features to reduce the need for 3 separate mods.
 
 ### Notes
-- Hover over Options menu rows for explanations (on 3rd panel to the right).
-- To read diagnostic results: Options > About > Debug / Logging > Open Log.
-
+- Hover over Options menu rows for tool tips (see the 3rd panel to the right).
+- The building info panel bonus text details remain visible even when this mod reduces or disables them. The displayed text does not reflect the active bonus.
+- To verify, check the mod Options → Actions → Status to see: how many unique buildings and extra copies are placed, which city-wide bonus providers are active or bonuses blocked.
+For even more detailed calculations and actual city-wide modifier values, use About → Status report to log and open the log file.
 
 ## Support and Feedback
 - Support by clicking Like (top right), no donations requested, just a like for many days of work.
@@ -65,7 +66,7 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 <!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
 <!--Version of the mod-->
-<ModVersion Value="0.7.0" />
+<ModVersion Value="0.8.0" />
 <!--Recommended version of the base game to use the mod-->
 <GameVersion Value="1.6.*" />
 <!--Dependency for the mod, can be set multiple times-->
