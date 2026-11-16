@@ -204,13 +204,15 @@ namespace UniqueBuildings
             }
 
             m_AppliedMode = mode;
+#if DEBUG
             if (logResult)
             {
                 LogUtils.Info($"{Mod.ModTag} Nearby Signature reconcile ({reason}): " +
                     $"Mode={mode} | Eligible={buildings.Length} | " +
                     $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
-    
-            }        }
+            }
+#endif
+        }
 
         private void FillModifiers(Entity building, Entity prefab,
             NativeList<LocalModifierData> modifiers)

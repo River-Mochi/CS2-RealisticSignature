@@ -240,6 +240,7 @@ namespace UniqueBuildings
             int unrestrictedBefore =
                 totalKnownUnique - restrictedBefore;
 
+#if DEBUG
             LogUtils.Info(
                 $"{Mod.ModTag} Unique placement reconcile ({reason}): " +
                 $"Mod={(allowMultiple ? "ON" : "OFF")} | " +
@@ -252,6 +253,7 @@ namespace UniqueBuildings
                 $"OwnedByMod={m_UniqueRemovedByUs.Count} | " +
                 $"Anarchy={AnarchyCompatibility.GetLogText(anarchyState)} | " +
                 $"RedundantMods={UniqueModsCompatibility.StatusText}.");
+#endif
         }
 
         private void RefreshKnownUniquePrefabs(

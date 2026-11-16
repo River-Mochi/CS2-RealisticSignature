@@ -213,6 +213,7 @@ namespace UniqueBuildings
 
             SignatureScanState.Clear();
 
+#if DEBUG
             if (logResult)
             {
                 LogUtils.Info(
@@ -224,8 +225,9 @@ namespace UniqueBuildings
                     $"Suppressed={suppressed} | " +
                     $"Changed={changed} | Attr={attractivenessMode} | " +
                     $"AttrTagged={attractivenessSuppressed} | AttrChanged={attractivenessChanged}.");
-    
-            }        }
+            }
+#endif
+        }
 
         private Dictionary<Entity, List<Entity>>
             BuildCopiesByPrefab(
@@ -559,6 +561,7 @@ namespace UniqueBuildings
 
             SignatureScanState.Clear();
 
+#if DEBUG
             if (logResult)
             {
                 LogUtils.Info(
@@ -566,6 +569,7 @@ namespace UniqueBuildings
                     $"Signature bonuses: " +
                     $"RemovedSuppressionTags={changed} | RemovedAttrTags={attractivenessChanged}.");
             }
+#endif
         }
 
         private static bool ComesBefore(

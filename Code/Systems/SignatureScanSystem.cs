@@ -174,6 +174,7 @@ namespace UniqueBuildings
                 duplicateBonusProviders,
                 m_AllBonusProviderQuery.CalculateEntityCount());
 
+#if DEBUG
             LogUtils.Info(
                 $"{Mod.ModTag} Signature Status: " +
                 $"buildings={signaturePrefabs.Length}, " +
@@ -182,6 +183,7 @@ namespace UniqueBuildings
                 $"duplicateCityWideProviders={duplicateBonusProviders} | " +
                 $"totalCityProviders={SignatureScanState.TotalCityWideProviders} | " +
                 $"blockedCityProviders={SignatureScanState.BlockedCityWideProviders}.");
+#endif
         }
     }
 }
