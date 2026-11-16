@@ -1,63 +1,95 @@
 # Realistic Signature Buildings
 
-**Build the city you want, without making its economy unrealistically easy.**
+**Build the city you want without multiplying Signature bonuses unrealistically.**
 
 A [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines-ii/about) code mod by RiverMochi.
-Place multiple Unique and Signature buildings for their appearance, without necessarily multiplying the same bonuses. Choose a more balanced simulation **or** keep the game's original stacked effects.
+
+Place multiple Unique and Signature buildings for their appearance while choosing how their bonuses affect the city. Keep the game's stacked bonuses if you prefer, or prevent extra copies from stacking the same city-wide benefits.
 
 ## Features and defaults
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| **City-wide Signature bonuses** | **First copy only** | Apply each Signature type's city-wide bonuses once, instead of stacking bonuses from duplicate copies. |
-| **Nearby Signature effects** | **Vanilla nearby effects** | Keep each copy's normal local effects; this is independent of the city-wide setting. |
-| **Unlock Signature requirements** | **OFF** | Optionally unlock condition-gated Signature buildings without progression requirements. |
-| **Allow multiple copies** | **ON** | Place extra copies of objects marked Unique, including Signature buildings. |
-| **Hide bulk Signature unlock pop-ups** | **ON** | Shown only when Signature unlocking is ON; prevents a flood of unlock notices. |
+| **City-wide bonuses** | **First copy only** | Count general city-wide Signature bonuses once per building type. |
+| **City-wide Attractiveness** | **First copy only** | Count city-wide Signature Attractiveness once per building type, independently of other city-wide bonuses. |
+| **Nearby neighborhood effects** | **Vanilla nearby effects** | Preserve each eligible copy's normal nearby/local effects. |
+| **Unlock all Signature buildings** | **OFF** | Optionally bypass Signature progression requirements; does not unlock unrelated Unique buildings or missing DLC. |
+| **Hide unlock pop-up spam** | **ON** | Suppress mass notifications caused by this mod's Signature unlock option; shown only when that option is enabled. |
+| **Allow multiple copies** | **ON** | Allow extra copies of buildings marked Unique, including Signature buildings. |
+| **Prevent automatic infoviews for Unique buildings** | **ON** | Prevent automatic infoview overlays during placement; manual infoviews remain available. |
 
-### City-wide Signature bonuses
+Saved settings from an earlier version may keep the player's previous choices instead of using these new-install defaults.
 
-- **First copy only** (default): only one copy of each Signature building type contributes its city-wide bonus.
-- **No city-wide bonuses**: disable those city-wide Signature bonuses.
-- **Vanilla Stacked Bonuses**: let every eligible Signature copy contribute its city-wide bonus, just as in the base game.
+## Signature bonus controls
 
-### Nearby Local effects
+### 1. General city-wide bonuses
 
-- **Vanilla nearby effects** (default): normal local effects from every eligible copy.
-- **First copy only**: one copy of each Signature type provides nearby effects.
-- **No nearby effects**: disable normal nearby Signature effects.
+- **First copy only (default):** count each Signature building type's general city-wide bonuses once, even with multiple copies.
+- **No city-wide bonuses:** disable general Signature city-wide bonuses.
+- **Vanilla Stacked Bonuses:** count eligible bonuses from every copy.
 
-**The two controls are independent.** You can prevent duplicate city-wide economic bonuses while keeping local happiness or other nearby effects from each copy. Building attractiveness and abandoned-building effects are preserved.
+### 2. City-wide Attractiveness
 
-### Signature unlocking and unique placement
+City-wide Signature Attractiveness is controlled separately. City attractiveness can help attract tourists.
 
-- Enable **Unlock Signature requirements** to make eligible Signature prefabs available without meeting population, zoning, building-count, or other progression requirements. It works on existing cities.
-- **Hide bulk Signature unlock pop-ups** is shown only when **Unlock Signature requirements** is ON, and is ON by default (recommended). Turn it OFF to show notices for newly unlocked Signature buildings; that can create dozens or hundreds of pop-ups when a city loads. Normal vanilla unlock notifications are unaffected.
-- **Allow multiple copies** lets you place additional Unique buildings. Disabling it later does **not** bulldoze copies already built.
-- Custom Signature assets that use the game's `SignatureBuildingData` component are included when the city loads; their actual available effects depend on the asset.
+- **First copy only (default):** count the city-wide Attractiveness bonus once per Signature type.
+- **Vanilla stacking:** count the city-wide Attractiveness bonus from every copy.
+- **No attractiveness bonus:** ignore Signature city-wide Attractiveness bonuses.
+- **Follow city-wide setting:** use the general city-wide bonus rule above.
 
-## Status and diagnostics
+These choices do **not** remove a building's own attractiveness.
 
-The Options page shows Signature building counts, different types, duplicate copies, and active city-wide bonus providers.
+### 3. Nearby neighborhood effects
 
-**Bonus Report to log** and **Nearby Report to log** check the three modes and restore the player's selected settings. Find the logs using **Options → About → Debug / Logging → Open Log**.
+- **Vanilla nearby effects (default):** keep nearby/local effects from every eligible Signature copy.
+- **First copy only:** allow nearby effects from one copy of each Signature type.
+- **No nearby effects:** disable normal Signature nearby effects.
 
-## Compatibility
+Nearby effects are independent of the city-wide bonus settings. Abandoned-building local effects are unchanged.
 
-- Supports Anarchy's Multiple Unique setting. Separate mods devoted solely to unlimited Unique building placement can overlap with this feature.
-- No Harmony patching and no required third-party mods.
-- Keep a backup save before changing mods or testing combinations. Some custom buildings may have different effects or no applicable bonuses.
+## Unique placement and Signature unlocking
+
+- **Allow multiple copies** works for buildings the game marks Unique, including Signature and non-Signature buildings. Turning the option OFF later does not bulldoze copies you have already built.
+- **Unlock all Signature buildings** optionally makes loaded Signature buildings available without their usual population, zoning, or other progression requirements. It does not grant missing DLC or unlock unrelated Unique buildings.
+- **Hide unlock pop-up spam** prevents mass notifications triggered by this mod's Signature unlocking. Normal game unlock notifications are not suppressed by this option.
+- **Prevent automatic infoviews for Unique buildings** stops the automatic map overlay when placing Unique buildings. You can still open infoviews manually.
+- Custom Signature assets are supported when they use the game's corresponding Signature components; available effects depend on the asset.
+
+## Options Status and diagnostics
+
+Go to **Options → Actions → Status** to see:
+
+- **Signature buildings:** the number placed, the number of distinct types, and extra copies beyond the first of each type.
+- **General city-wide bonuses:** active/total Signature bonus providers and how many are blocked by the general city-wide rule. Blocked providers are **not** the same as extra building copies.
+- **City-wide Attractiveness:** the selected rule, **not** a numeric attractiveness total. This rule is independent of the general provider count.
+- **Unique placement rule** and any detected redundant placement mods.
+
+**Important:** Green bonus descriptions in the game's building information panel remain visible even when this mod limits or disables the corresponding bonus. They describe the original building, **not necessarily the bonus currently applied**.
+
+Under **Options → About → Debug / Logging**:
+
+- **Status report to log:** read-only report of current Signature counts, applied bonus rules, nearby effects, and actual whole-city modifier values. The numeric city Attractiveness modifier includes contributions beyond Signature buildings.
+- **Compare bonus modes to log:** temporarily compares the available city-wide, Attractiveness, and nearby modes, then restores your selected rules.
+- **Open Log:** opens the mod log (or Logs folder if the log is unavailable).
+
+You do not need to run comparison reports during normal play.
+
+## Compatibility and safe removal
+
+- Compatible with **Anarchy**, including its Multiple Unique option. Other unlimited-Unique placement mods may be redundant.
+- No Harmony patches and no required third-party mods.
+- Removing the mod does not bulldoze placed duplicate buildings. Vanilla placement rules and bonuses return when the mod is no longer active and the city is reloaded.
+- Back up your save before changing your mod setup. Different game updates, DLC, and custom assets may provide different bonuses.
 
 ## Localization
 
-English, French, German, Spanish, Italian, Polish, Brazilian and European Portuguese, Turkish, Thai, Vietnamese, Japanese, Korean, Simplified Chinese, and Traditional Chinese. Some live Status text is still displayed in English.
+English, French, German, Spanish, Italian, Polish, Brazilian and European Portuguese, Turkish, Thai, Vietnamese, Japanese, Korean, Simplified Chinese, and Traditional Chinese. Diagnostic log reports are in English.
 
 Contributions to improve translations are welcome.
 
 ## Feedback and development
 
-Report bugs and suggestions through [GitHub Issues](https://github.com/River-Mochi/CS2-RealisticSignature/issues), or join the [Discord](https://discord.gg/gwXgvtyhjc). Include the mod version, exact settings, mod log file and Player.log.
-
+Report issues through [GitHub Issues](https://github.com/River-Mochi/CS2-RealisticSignature/issues) or [Discord](https://discord.gg/gwXgvtyhjc). Include the mod version, selected settings, the mod log, and Player.log when relevant.
 
 ## Credits and license
 
