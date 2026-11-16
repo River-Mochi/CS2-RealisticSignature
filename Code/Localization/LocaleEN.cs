@@ -136,11 +136,12 @@ namespace UniqueBuildings
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
-                    "Prevent automatic infoviews for Unique buildings" },
+                    "Prevent auto black-out and overlays when placing Unique buildings" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
+                    " Default: ON. See buildings clearly!\n" +
                     "Stops Unique and Signature buildings from automatically opening the infoview panel and colored map overlay during placement. " +
                     "You can still open infoviews manually. Other building tools are unaffected. " +
-                    "Toggleable Overlays takes priority when active. Default: ON." },
+                    "Toggle Overlays mod takes priority when active." },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
