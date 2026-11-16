@@ -84,7 +84,9 @@ namespace UniqueBuildings
                 if (!m_SuppressionLogged)
                 {
                     m_SuppressionLogged = true;
+#if DEBUG
                     LogUtils.Info($"{Mod.ModTag} Suppressed automatic Unique infoview (non-Harmony test).");
+#endif
                 }
             }
             catch (System.Exception ex)
