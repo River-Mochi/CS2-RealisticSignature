@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Información", // 7
             "Depuración / Registro", // 8
             "Bonificaciones globales de edificios emblemáticos", // 9
-            "<Solo la primera copia> = cada tipo de edificio emblemático aporta su bonificación global una vez.\n<Sin bonificaciones globales> = desactiva las bonificaciones globales de los edificios emblemáticos.\n<Acumulación normal> = cada copia aporta su bonificación global.\nLos efectos cercanos tienen otro ajuste. El atractivo del edificio no cambia.\nLos textos verdes de bonos del edificio siguen visibles aunque se limite o desactive el efecto. Consulta Acciones > Estado o el informe del registro.", // 10
+            "<Solo primera copia> **(predeterminado)** = un bono por tipo.\n<Sin bonos globales> = desactiva los bonos generales; el atractivo tiene su propia regla.\n<Acumulación original> = todas las copias cuentan.\n**El texto verde** del panel sigue visible incluso si el bono se bloquea.\nConsulta **Acciones > Estado** o **Acerca de > Informe al registro**.", // 10
             "Solo la primera copia", // 11
             "Sin bonificaciones globales", // 12
             "Acumulación normal", // 13
             "Atractivo de toda la ciudad", // 14
-            "<Seguir ajuste global> = usa la regla anterior.\n<Solo primera copia> = una por tipo aporta atractivo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = los edificios emblemáticos no aportan atractivo global.\nEl atractivo propio y la descripción no cambian.\nEl atractivo de la ciudad ayuda a atraer turistas. Predeterminado: solo primera copia.\nLos textos verdes de bonos del edificio siguen visibles aunque se limite o desactive el efecto. Consulta Acciones > Estado o el informe del registro.", // 15
+            "<Solo primera copia> **(predeterminado)** = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = desactiva el bono global.\n<Seguir ajuste global> = aplica la regla general.\n**El atractivo ayuda a atraer turistas.** El atractivo propio del edificio sigue activo.\n**El texto verde** no cambia.", // 15
             "Seguir ajuste global", // 16
             "Solo primera copia", // 17
             "Acumulación original", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Evitar vistas de información automáticas para edificios únicos", // 31
             "Evita que los edificios únicos, incluidos los emblemáticos, abran automáticamente el panel de información y la superposición de colores al colocarlos. Las vistas pueden abrirse manualmente. Las demás herramientas no cambian. Toggleable Overlays tiene prioridad si está activo. Predeterminado: ACTIVADO.", // 32
             "Regla de colocación de objetos únicos", // 33
-            "Indica si actualmente se pueden colocar varias copias de objetos únicos.", // 34
+            "**Copias permitidas** = se quitó el límite de un edificio por ciudad.\n**Uno de cada tipo** = límite normal activo.\n<Anarchy> también puede permitir copias.\nNo indica si los bonos se acumulan.", // 34
             "Edificios emblemáticos", // 35
-            "Muestra los edificios emblemáticos colocados, los tipos distintos y las copias adicionales.", // 36
+            "**Colocados** = total de edificios emblemáticos.\n**Tipos** = modelos diferentes.\n<Copias extra> = edificios adicionales al primero de cada tipo.\nTambién cuenta edificios sin bonos globales.", // 36
             "Bonos generales de la ciudad", // 37
-            "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.\nEl atractivo global tiene su propia regla.", // 38
+            "**Activos / Total** = proveedores incluidos por la regla global / todos los encontrados.\n<Bloqueados> = excluidos por esa regla, no el total de edificios extra.\n**El atractivo es independiente:** un proveedor bloqueado aún puede aportar atractivo.\nLos efectos cercanos son aparte.", // 38
             "Mods redundantes detectados", // 39
-            "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 40
+            "<Solo primera copia> = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias.\n<Sin bonus> = desactivado.\n<Seguir ajuste global> = usar la regla general.\n**Muestra la regla elegida, no un total numérico.** Otras fuentes también aportan atractivo.\nEl texto verde permanece. Valores: **Acerca de > Informe al registro**.", // 40
             "No hay ninguna ciudad cargada", // 41
             "Cargando…", // 42
             "Carga una ciudad para ver el estado", // 43

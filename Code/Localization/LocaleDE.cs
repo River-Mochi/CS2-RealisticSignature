@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Protokoll", // 8
             "Stadtweite Signaturgebäude-Boni", // 9
-            "<Nur erstes Exemplar> = jeder Signaturgebäudetyp gewährt seinen stadtweiten Bonus nur einmal.\n<Keine stadtweiten Boni> = deaktiviert stadtweite Signaturgebäude-Boni.\n<Vanilla-Stapelung> = jedes Exemplar gewährt den stadtweiten Bonus.\nNahbereichseffekte haben eine eigene Einstellung. Die Gebäudeattraktivität bleibt unverändert.\nGrüne Bonustexte im Gebäude-Infobereich bleiben trotz Sperrung oder Begrenzung sichtbar. Tatsächliche Werte: Aktionen > Status oder Protokollbericht.", // 10
+            "<Nur erste Kopie> **(Standard)** = Bonus pro Signaturtyp einmal zählen.\n<Keine stadtweiten Boni> = allgemeine Stadtboni ausschalten; Attraktivität hat eine eigene Regel.\n<Vanilla-Stapelung> = alle Kopien zählen.\n**Grüne Bonuszeilen** bleiben im Gebäude-Infobereich sichtbar, selbst wenn der Bonus blockiert ist.\nWerte: **Aktionen > Status** oder **Über > Statusbericht ins Protokoll**.", // 10
             "Nur erstes Exemplar", // 11
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Nur erste Kopie.\nGrüne Bonustexte im Gebäude-Infobereich bleiben trotz Sperrung oder Begrenzung sichtbar. Tatsächliche Werte: Aktionen > Status oder Protokollbericht.", // 15
+            "<Nur erste Kopie> **(Standard)** = Stadtattraktivität einmal je Typ.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = Stadtbonus von Signaturgebäuden aus.\n<Stadtweite Einstellung übernehmen> = allgemeine Regel nutzen.\n**Attraktivität hilft, Touristen anzuziehen.** Der eigene Gebäudewert bleibt.\n**Grüne Bonuszeilen** sind feste Beschreibungen.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Automatische Infoviews für einzigartige Gebäude verhindern", // 31
             "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: EIN.", // 32
             "Platzierungsregel für einzigartige Objekte", // 33
-            "Zeigt an, ob einzigartige Objekte derzeit mehrfach platziert werden dürfen.", // 34
+            "**Mehrere Kopien erlaubt** = Einmal-pro-Stadt-Sperre ist aus.\n**Nur eines je Typ** = normale Sperre aktiv.\n<Anarchy> kann Kopien ebenfalls erlauben.\nDies betrifft Platzierung, nicht Bonus-Stapelung.", // 34
             "Signaturgebäude", // 35
-            "Zeigt platzierte Signaturgebäude, verschiedene Typen und zusätzliche Kopien.", // 36
+            "**Gebäude** = alle platzierten Signaturgebäude.\n**Typen** = unterschiedliche Signaturtypen.\n<Extra-Kopien> = weitere Exemplare über das erste hinaus.\nAuch Gebäude ohne Stadtbonus zählen.", // 36
             "Allgemeine stadtweite Boni", // 37
-            "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.\nDie stadtweite Attraktivität hat eine eigene Regel.", // 38
+            "**Aktiv / Gesamt** = Stadtbonus-Quellen gemäß allgemeiner Regel / alle vorhandenen.\n<Blockiert> = durch diese Regel ausgeschlossen, nicht alle Extra-Gebäude.\n**Attraktivität ist unabhängig:** blockierte Quellen können trotzdem Attraktivität geben.\nNahbereich und Gebäudewert sind getrennt.", // 38
             "Überflüssige Mods erkannt", // 39
-            "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 40
+            "**Erste Kopie** = ein Attraktivitätsbonus je Typ.\n<Vanilla-Stapelung> = alle Kopien.\n<Kein Bonus> = Signatur-Stadtbonus aus.\n<Einstellung übernehmen> = allgemeine Regel.\n**Dies zeigt die gewählte Regel, keinen Gesamtwert.** Andere Gebäude wirken mit.\nGrüner Infotext bleibt. Echte Werte: **Über > Statusbericht ins Protokoll**.", // 40
             "Noch keine Stadt geladen", // 41
             "Wird geladen…", // 42
             "Lade zuerst eine Stadt, um den Status zu sehen", // 43

@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Infos", // 7
             "Débogage / Journal", // 8
             "Bonus des bâtiments emblématiques à l'échelle de la ville", // 9
-            "<Première copie uniquement> = chaque type de bâtiment emblématique accorde son bonus global une seule fois.\n<Aucun bonus global> = désactive les bonus globaux des bâtiments emblématiques.\n<Cumul normal du jeu> = chaque copie accorde son bonus global.\nLes effets de proximité ont un réglage distinct. L'attrait du bâtiment reste inchangé.\nLes lignes vertes des bonus restent affichées même quand leur effet est limité ou bloqué. Voir Actions > Statut ou le rapport du journal.", // 10
+            "<Première copie uniquement> **(défaut)** = un bonus par type emblématique.\n<Aucun bonus global> = désactive les bonus globaux généraux ; l'attrait suit sa propre règle.\n<Cumul normal du jeu> = toutes les copies comptent.\n**Les lignes vertes** du panneau restent visibles même si le bonus est bloqué.\nVoir **Actions > Statut** ou **À propos > Rapport dans le journal**.", // 10
             "Première copie uniquement", // 11
             "Aucun bonus global", // 12
             "Cumul normal du jeu", // 13
             "Attrait dans toute la ville", // 14
-            "<Suivre le réglage global> = applique la règle ci-dessus.\n<Première copie uniquement> = une seule copie par type apporte de l'attrait global.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = aucun bonus global des bâtiments emblématiques.\nL'attrait propre et le descriptif restent inchangés.\nL'attrait de la ville aide à attirer des touristes. Par défaut : première copie uniquement.\nLes lignes vertes des bonus restent affichées même quand leur effet est limité ou bloqué. Voir Actions > Statut ou le rapport du journal.", // 15
+            "<Première copie uniquement> **(défaut)** = un bonus d'attrait global par type.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = désactive ce bonus global.\n<Suivre le réglage global> = applique la règle générale.\n**L'attrait aide à attirer les touristes.** L'attrait propre du bâtiment reste actif.\n**Les lignes vertes** restent inchangées.", // 15
             "Suivre le réglage global", // 16
             "Première copie uniquement", // 17
             "Cumul normal du jeu", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Empêcher l'ouverture automatique des infovues pour les bâtiments uniques", // 31
             "Empêche les bâtiments uniques, y compris les bâtiments emblématiques, d'ouvrir automatiquement l'infovue et la carte colorée lors du placement. Les infovues peuvent toujours être ouvertes manuellement. Les autres outils restent inchangés. Toggleable Overlays est prioritaire s'il est actif. Par défaut : ACTIVÉ.", // 32
             "Règle de placement des éléments uniques", // 33
-            "Indique si les éléments uniques peuvent actuellement être placés plusieurs fois.", // 34
+            "**Copies multiples autorisées** = la limite d'un bâtiment par ville est levée.\n**Un de chaque** = limite normale active.\n<Anarchy> peut aussi autoriser des copies.\nCela concerne le placement, pas le cumul des bonus.", // 34
             "Bâtiments emblématiques", // 35
-            "Affiche le nombre de bâtiments emblématiques placés, de types différents et de copies supplémentaires.", // 36
+            "**Placés** = nombre total de bâtiments emblématiques.\n**Types** = modèles différents.\n<Copies supplémentaires> = bâtiments au-delà du premier de chaque type.\nInclut ceux sans bonus global.", // 36
             "Autres bonus globaux", // 37
-            "Compte les bâtiments emblématiques fournissant un bonus global.\nLes bonus locaux et de proximité ne sont pas inclus.\nL'attrait global a sa propre règle.", // 38
+            "**Actifs / Total** = fournisseurs comptés par la règle générale / tous ceux présents.\n<Bloqués> = exclus par cette règle, pas toutes les copies supplémentaires.\n**L'attrait est indépendant :** un fournisseur bloqué peut encore apporter de l'attrait.\nLes effets de proximité sont séparés.", // 38
             "Mods redondants détectés", // 39
-            "Anarchy est compatible et n'apparaît pas ici.\nRetirez les autres mods de bâtiments uniques illimités : cette fonction est déjà incluse.", // 40
+            "<Première copie uniquement> = un bonus d'attrait par type.\n<Cumul normal du jeu> = toutes les copies.\n<Aucun bonus> = bonus global désactivé.\n<Suivre le réglage global> = règle générale.\n**Affiche la règle choisie, pas un total chiffré.** D'autres sources influencent l'attrait.\nTexte vert inchangé. Valeurs : **À propos > Rapport dans le journal**.", // 40
             "Aucune ville chargée", // 41
             "Chargement…", // 42
             "Chargez d'abord une ville pour voir l'état", // 43

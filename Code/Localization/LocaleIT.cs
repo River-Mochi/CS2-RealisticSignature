@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Registro", // 8
             "Bonus cittadini degli edifici distintivi", // 9
-            "<Solo la prima copia> = ogni tipo di edificio distintivo fornisce una sola volta il bonus per tutta la città.\n<Nessun bonus cittadino> = disattiva i bonus per tutta la città.\n<Accumulo normale> = ogni copia fornisce il suo bonus cittadino.\nGli effetti nelle vicinanze hanno un'impostazione separata. L'attrattiva degli edifici non cambia.\nLe righe verdi dei bonus restano visibili anche se l'effetto è limitato o disattivato. Consulta Azioni > Stato o il rapporto nel registro.", // 10
+            "<Solo prima copia> **(predefinito)** = un bonus per tipo.\n<Nessun bonus cittadino> = disattiva i bonus generali; l'attrattiva ha una regola separata.\n<Accumulo standard> = ogni copia contribuisce.\n**Il testo verde** nel pannello resta visibile anche quando il bonus è bloccato.\nVedi **Azioni > Stato** o **Informazioni > Rapporto nel registro**.", // 10
             "Solo la prima copia", // 11
             "Nessun bonus cittadino", // 12
             "Accumulo normale", // 13
             "Attrattiva cittadina", // 14
-            "<Segui impostazione cittadina> = usa la regola sopra.\n<Solo prima copia> = una copia per tipo contribuisce.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = nessun bonus cittadino dagli edifici distintivi.\nAttrattiva del singolo edificio e descrizione invariate.\nL'attrattiva della città aiuta ad attirare turisti. Predefinito: solo prima copia.\nLe righe verdi dei bonus restano visibili anche se l'effetto è limitato o disattivato. Consulta Azioni > Stato o il rapporto nel registro.", // 15
+            "<Solo prima copia> **(predefinito)** = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = bonus cittadino disattivato.\n<Segui impostazione cittadina> = regola generale.\n**L'attrattiva aiuta ad attirare turisti.** Il valore dell'edificio resta.\n**Il testo verde** non cambia.", // 15
             "Segui impostazione cittadina", // 16
             "Solo prima copia", // 17
             "Accumulo standard", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Impedisci le viste informative automatiche per gli edifici unici", // 31
             "Impedisce agli edifici unici, compresi quelli distintivi, di aprire automaticamente il pannello informativo e la mappa colorata durante il posizionamento. Le viste informative possono essere aperte manualmente. Gli altri strumenti restano invariati. Toggleable Overlays ha la precedenza se attivo. Predefinito: ATTIVO.", // 32
             "Regole per gli edifici unici", // 33
-            "Mostra se gli oggetti unici possono essere collocati più volte.", // 34
+            "**Copie multiple consentite** = limite di uno per città disattivato.\n**Uno per tipo** = limite normale.\n<Anarchy> può consentire copie.\nNon indica se i bonus si sommano.", // 34
             "Edifici distintivi", // 35
-            "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 36
+            "**Collocati** = tutti gli edifici distintivi.\n**Tipi** = modelli diversi.\n<Copie extra> = oltre il primo per tipo.\nConta anche edifici senza bonus cittadino.", // 36
             "Altri bonus cittadini", // 37
-            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.\nL'attrattiva cittadina ha una regola separata.", // 38
+            "**Attivi / Totale** = fornitori ammessi dalla regola generale / tutti quelli presenti.\n<Bloccati> = esclusi da quella regola, non tutte le copie extra.\n**Attrattiva indipendente:** i fornitori bloccati possono comunque dare attrattiva.\nEffetti locali separati.", // 38
             "Mod ridondanti rilevati", // 39
-            "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 40
+            "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola selezionata, non un totale.** Anche altre fonti contribuiscono.\nTesto verde invariato. Vedi **Informazioni > Rapporto nel registro**.", // 40
             "Nessuna città caricata", // 41
             "Caricamento…", // 42
             "Carica una città per vedere lo stato", // 43

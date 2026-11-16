@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Informacje", // 7
             "Debugowanie / Dziennik", // 8
             "Ogólnomiejskie premie budynków charakterystycznych", // 9
-            "<Tylko pierwszy egzemplarz> = każdy typ budynku charakterystycznego przyznaje premię ogólnomiejską tylko raz.\n<Bez premii ogólnomiejskich> = wyłącza te premie.\n<Zwykłe sumowanie> = każdy egzemplarz przyznaje swoją premię.\nEfekty w pobliżu mają osobne ustawienie. Atrakcyjność budynku pozostaje bez zmian.\nZielone opisy premii w panelu budynku pozostają widoczne, nawet gdy efekt jest ograniczony lub wyłączony. Sprawdź Akcje > Status albo raport w dzienniku.", // 10
+            "<Tylko pierwszy egzemplarz> **(domyślnie)** = jedna premia na typ.\n<Bez premii miejskich> = ogólne premie wyłączone; atrakcyjność jest osobno.\n<Normalne sumowanie> = każda kopia się liczy.\n**Zielony opis** pozostaje widoczny także po blokadzie premii.\nSprawdź **Akcje > Status** lub **Informacje > Raport w dzienniku**.", // 10
             "Tylko pierwszy egzemplarz", // 11
             "Bez premii ogólnomiejskich", // 12
             "Zwykłe sumowanie", // 13
             "Atrakcyjność całego miasta", // 14
-            "<Zgodnie z ustawieniem miasta> = używa powyższej zasady.\n<Tylko pierwszy egzemplarz> = jeden budynek danego typu daje premię.\n<Normalne sumowanie> = każdy egzemplarz daje premię.\n<Bez premii atrakcyjności> = brak premii globalnej od budynków charakterystycznych.\nAtrakcyjność budynku i opis pozostają bez zmian.\nAtrakcyjność miasta pomaga przyciągać turystów. Domyślnie: tylko pierwszy egzemplarz.\nZielone opisy premii w panelu budynku pozostają widoczne, nawet gdy efekt jest ograniczony lub wyłączony. Sprawdź Akcje > Status albo raport w dzienniku.", // 15
+            "<Tylko pierwszy egzemplarz> **(domyślnie)** = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii atrakcyjności> = premia miejska wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**Atrakcyjność pomaga przyciągać turystów.** Wartość budynku pozostaje.\n**Zielony opis** się nie zmienia.", // 15
             "Zgodnie z ustawieniem miasta", // 16
             "Tylko pierwszy egzemplarz", // 17
             "Normalne sumowanie", // 18
@@ -49,13 +49,13 @@ namespace UniqueBuildings
             "Zablokuj automatyczne widoki informacji dla budynków unikatowych", // 31
             "Podczas stawiania budynków unikatowych, w tym charakterystycznych, panel informacji i kolorowa mapa nie otworzą się automatycznie. Widoki można nadal otwierać ręcznie. Inne narzędzia pozostają bez zmian. Aktywny mod Toggleable Overlays ma pierwszeństwo. Domyślnie: WŁ.", // 32
             "Zasady stawiania obiektów unikatowych", // 33
-            "Pokazuje, czy można obecnie stawiać wiele egzemplarzy obiektów unikatowych.", // 34
+            "**Wiele kopii dozwolonych** = limit jednego na miasto wyłączony.\n**Jeden z każdego typu** = normalny limit.\n<Anarchy> też może dopuścić kopie.\nNie określa sumowania premii.", // 34
             "Budynki charakterystyczne", // 35
-            "Pokazuje liczbę postawionych budynków charakterystycznych, różnych typów i dodatkowych kopii.", // 36
+            "**Ustawione** = wszystkie budynki charakterystyczne.\n**Typy** = różne rodzaje.\n<Dodatkowe kopie> = kolejne po pierwszej danego typu.\nWlicza budynki bez premii miejskich.", // 36
             "Ogólne premie miejskie", // 37
-            "Zlicza budynki charakterystyczne z premiami ogólnomiejskimi.\nEfekty lokalne i w pobliżu nie są tutaj uwzględnione.\nAtrakcyjność całego miasta ma osobną zasadę.", // 38
+            "**Aktywne / Wszystkie** = dostawcy premii według zasady ogólnej / wszyscy w mieście.\n<Zablokowane> = wykluczeni przez tę zasadę, nie wszystkie dodatkowe kopie.\n**Atrakcyjność osobno:** zablokowany dostawca może nadal ją zwiększać.\nEfekty lokalne są osobne.", // 38
             "Wykryte zbędne mody", // 39
-            "Anarchy jest obsługiwany i nie pojawia się tutaj.\nUsuń inne mody zezwalające na nieograniczone budynki unikatowe — ta funkcja jest już dostępna.", // 40
+            "<Tylko pierwszy egzemplarz> = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii> = wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**To wybrana zasada, nie wynik liczbowy.** Inne budynki też zwiększają atrakcyjność.\nZielony tekst pozostaje. Wyniki: **Informacje > Raport w dzienniku**.", // 40
             "Nie wczytano miasta", // 41
             "Wczytywanie…", // 42
             "Najpierw wczytaj miasto, aby zobaczyć stan", // 43
