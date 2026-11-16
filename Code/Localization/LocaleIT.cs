@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Registro", // 8
             "Bonus cittadini degli edifici distintivi", // 9
-            "<Solo la prima copia> = ogni tipo di edificio distintivo fornisce una sola volta il bonus per tutta la città.\n<Nessun bonus cittadino> = disattiva i bonus per tutta la città.\n<Accumulo normale> = ogni copia fornisce il suo bonus cittadino.\nGli effetti nelle vicinanze hanno un'impostazione separata. L'attrattiva degli edifici non cambia.", // 10
+            "<Solo la prima copia> = ogni tipo di edificio distintivo fornisce una sola volta il bonus per tutta la città.\n<Nessun bonus cittadino> = disattiva i bonus per tutta la città.\n<Accumulo normale> = ogni copia fornisce il suo bonus cittadino.\nGli effetti nelle vicinanze hanno un'impostazione separata. L'attrattiva degli edifici non cambia.\nLe righe verdi dei bonus restano visibili anche se l'effetto è limitato o disattivato. Consulta Azioni > Stato o il rapporto nel registro.", // 10
             "Solo la prima copia", // 11
             "Nessun bonus cittadino", // 12
             "Accumulo normale", // 13
             "Attrattiva cittadina", // 14
-            "<Segui impostazione cittadina> = usa la regola sopra.\n<Solo prima copia> = una copia per tipo contribuisce.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = nessun bonus cittadino dagli edifici distintivi.\nAttrattiva del singolo edificio e descrizione invariate.\nL'attrattiva della città aiuta ad attirare turisti. Predefinito: solo prima copia.", // 15
+            "<Segui impostazione cittadina> = usa la regola sopra.\n<Solo prima copia> = una copia per tipo contribuisce.\n<Accumulo standard> = ogni copia contribuisce.\n<Nessun bonus attrattiva> = nessun bonus cittadino dagli edifici distintivi.\nAttrattiva del singolo edificio e descrizione invariate.\nL'attrattiva della città aiuta ad attirare turisti. Predefinito: solo prima copia.\nLe righe verdi dei bonus restano visibili anche se l'effetto è limitato o disattivato. Consulta Azioni > Stato o il rapporto nel registro.", // 15
             "Segui impostazione cittadina", // 16
             "Solo prima copia", // 17
             "Accumulo standard", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Effetti vicini normali", // 22
             "Solo la prima copia", // 23
             "Nessun effetto vicino", // 24
-            "Sblocca i requisiti degli edifici distintivi", // 25
-            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.", // 26
+            "Sblocca tutti gli edifici distintivi", // 25
+            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.\nPredefinito: disattivo. Solo edifici distintivi, non tutti quelli unici.", // 26
             "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 27
             "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 28
             "Consenti più copie", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Mostra se gli oggetti unici possono essere collocati più volte.", // 34
             "Edifici distintivi", // 35
             "Mostra gli edifici distintivi costruiti, i tipi diversi e le copie extra.", // 36
-            "Effetti bonus per tutta la città", // 37
-            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.", // 38
+            "Altri bonus cittadini", // 37
+            "Conta gli edifici distintivi con bonus per tutta la città.\nGli effetti locali non sono inclusi.\nL'attrattiva cittadina ha una regola separata.", // 38
             "Mod ridondanti rilevati", // 39
             "Anarchy è supportato e non compare qui.\nRimuovi gli altri mod per edifici unici illimitati: questa funzione è già inclusa.", // 40
             "Nessuna città caricata", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Uno per tipo", // 47
             "Regole miste", // 48
             "{0} posizionati | {1} tipi | {2} copie extra", // 49
-            "{0} fornitori attivi | {1} fornitori duplicati", // 50
+            "{0}/{1} attivi | {2} bloccati", // 50
             "Nessuno", // 51
             "Mod", // 52
             "Nome visualizzato del mod.", // 53

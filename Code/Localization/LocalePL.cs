@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Informacje", // 7
             "Debugowanie / Dziennik", // 8
             "Ogólnomiejskie premie budynków charakterystycznych", // 9
-            "<Tylko pierwszy egzemplarz> = każdy typ budynku charakterystycznego przyznaje premię ogólnomiejską tylko raz.\n<Bez premii ogólnomiejskich> = wyłącza te premie.\n<Zwykłe sumowanie> = każdy egzemplarz przyznaje swoją premię.\nEfekty w pobliżu mają osobne ustawienie. Atrakcyjność budynku pozostaje bez zmian.", // 10
+            "<Tylko pierwszy egzemplarz> = każdy typ budynku charakterystycznego przyznaje premię ogólnomiejską tylko raz.\n<Bez premii ogólnomiejskich> = wyłącza te premie.\n<Zwykłe sumowanie> = każdy egzemplarz przyznaje swoją premię.\nEfekty w pobliżu mają osobne ustawienie. Atrakcyjność budynku pozostaje bez zmian.\nZielone opisy premii w panelu budynku pozostają widoczne, nawet gdy efekt jest ograniczony lub wyłączony. Sprawdź Akcje > Status albo raport w dzienniku.", // 10
             "Tylko pierwszy egzemplarz", // 11
             "Bez premii ogólnomiejskich", // 12
             "Zwykłe sumowanie", // 13
             "Atrakcyjność całego miasta", // 14
-            "<Zgodnie z ustawieniem miasta> = używa powyższej zasady.\n<Tylko pierwszy egzemplarz> = jeden budynek danego typu daje premię.\n<Normalne sumowanie> = każdy egzemplarz daje premię.\n<Bez premii atrakcyjności> = brak premii globalnej od budynków charakterystycznych.\nAtrakcyjność budynku i opis pozostają bez zmian.\nAtrakcyjność miasta pomaga przyciągać turystów. Domyślnie: tylko pierwszy egzemplarz.", // 15
+            "<Zgodnie z ustawieniem miasta> = używa powyższej zasady.\n<Tylko pierwszy egzemplarz> = jeden budynek danego typu daje premię.\n<Normalne sumowanie> = każdy egzemplarz daje premię.\n<Bez premii atrakcyjności> = brak premii globalnej od budynków charakterystycznych.\nAtrakcyjność budynku i opis pozostają bez zmian.\nAtrakcyjność miasta pomaga przyciągać turystów. Domyślnie: tylko pierwszy egzemplarz.\nZielone opisy premii w panelu budynku pozostają widoczne, nawet gdy efekt jest ograniczony lub wyłączony. Sprawdź Akcje > Status albo raport w dzienniku.", // 15
             "Zgodnie z ustawieniem miasta", // 16
             "Tylko pierwszy egzemplarz", // 17
             "Normalne sumowanie", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Zwykłe efekty w pobliżu", // 22
             "Tylko pierwszy egzemplarz", // 23
             "Bez efektów w pobliżu", // 24
-            "Pomiń wymagania odblokowania budynków charakterystycznych", // 25
-            "**WŁ.** = udostępnia wszystkie budynki charakterystyczne bez wymagań dotyczących ludności, stref i postępów.\n**WYŁ.** = normalne zasady rozwoju miasta.", // 26
+            "Odblokuj wszystkie budynki charakterystyczne", // 25
+            "**WŁ.** = udostępnia wszystkie budynki charakterystyczne bez wymagań dotyczących ludności, stref i postępów.\n**WYŁ.** = normalne zasady rozwoju miasta.\nDomyślnie: WYŁ. Dotyczy tylko budynków charakterystycznych, nie wszystkich unikalnych.", // 26
             "Ukryj powiadomienia o zbiorczym odblokowaniu", // 27
             "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 28
             "Zezwalaj na wiele egzemplarzy", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Pokazuje, czy można obecnie stawiać wiele egzemplarzy obiektów unikatowych.", // 34
             "Budynki charakterystyczne", // 35
             "Pokazuje liczbę postawionych budynków charakterystycznych, różnych typów i dodatkowych kopii.", // 36
-            "Ogólnomiejskie efekty premii", // 37
-            "Zlicza budynki charakterystyczne z premiami ogólnomiejskimi.\nEfekty lokalne i w pobliżu nie są tutaj uwzględnione.", // 38
+            "Ogólne premie miejskie", // 37
+            "Zlicza budynki charakterystyczne z premiami ogólnomiejskimi.\nEfekty lokalne i w pobliżu nie są tutaj uwzględnione.\nAtrakcyjność całego miasta ma osobną zasadę.", // 38
             "Wykryte zbędne mody", // 39
             "Anarchy jest obsługiwany i nie pojawia się tutaj.\nUsuń inne mody zezwalające na nieograniczone budynki unikatowe — ta funkcja jest już dostępna.", // 40
             "Nie wczytano miasta", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Po jednym z każdego typu", // 47
             "Mieszane zasady", // 48
             "Postawiono {0} | typy: {1} | dodatkowe kopie: {2}", // 49
-            "Aktywne źródła premii: {0} | powielone: {1}", // 50
+            "Aktywne {0}/{1} | zablokowane {2}", // 50
             "Brak", // 51
             "Mod", // 52
             "Wyświetlana nazwa moda.", // 53

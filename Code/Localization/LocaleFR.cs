@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Infos", // 7
             "Débogage / Journal", // 8
             "Bonus des bâtiments emblématiques à l'échelle de la ville", // 9
-            "<Première copie uniquement> = chaque type de bâtiment emblématique accorde son bonus global une seule fois.\n<Aucun bonus global> = désactive les bonus globaux des bâtiments emblématiques.\n<Cumul normal du jeu> = chaque copie accorde son bonus global.\nLes effets de proximité ont un réglage distinct. L'attrait du bâtiment reste inchangé.", // 10
+            "<Première copie uniquement> = chaque type de bâtiment emblématique accorde son bonus global une seule fois.\n<Aucun bonus global> = désactive les bonus globaux des bâtiments emblématiques.\n<Cumul normal du jeu> = chaque copie accorde son bonus global.\nLes effets de proximité ont un réglage distinct. L'attrait du bâtiment reste inchangé.\nLes lignes vertes des bonus restent affichées même quand leur effet est limité ou bloqué. Voir Actions > Statut ou le rapport du journal.", // 10
             "Première copie uniquement", // 11
             "Aucun bonus global", // 12
             "Cumul normal du jeu", // 13
             "Attrait dans toute la ville", // 14
-            "<Suivre le réglage global> = applique la règle ci-dessus.\n<Première copie uniquement> = une seule copie par type apporte de l'attrait global.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = aucun bonus global des bâtiments emblématiques.\nL'attrait propre et le descriptif restent inchangés.\nL'attrait de la ville aide à attirer des touristes. Par défaut : première copie uniquement.", // 15
+            "<Suivre le réglage global> = applique la règle ci-dessus.\n<Première copie uniquement> = une seule copie par type apporte de l'attrait global.\n<Cumul normal du jeu> = toutes les copies comptent.\n<Aucun bonus d'attrait> = aucun bonus global des bâtiments emblématiques.\nL'attrait propre et le descriptif restent inchangés.\nL'attrait de la ville aide à attirer des touristes. Par défaut : première copie uniquement.\nLes lignes vertes des bonus restent affichées même quand leur effet est limité ou bloqué. Voir Actions > Statut ou le rapport du journal.", // 15
             "Suivre le réglage global", // 16
             "Première copie uniquement", // 17
             "Cumul normal du jeu", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Effets de proximité normaux", // 22
             "Première copie uniquement", // 23
             "Aucun effet de proximité", // 24
-            "Débloquer les conditions des bâtiments emblématiques", // 25
-            "**ACTIVÉ** = rend tous les bâtiments emblématiques disponibles sans conditions de population, de zonage ou de progression.\n**DÉSACTIVÉ** = progression normale du jeu.", // 26
+            "Débloquer tous les bâtiments emblématiques", // 25
+            "**ACTIVÉ** = rend tous les bâtiments emblématiques disponibles sans conditions de population, de zonage ou de progression.\n**DÉSACTIVÉ** = progression normale du jeu.\nPar défaut : désactivé. Uniquement les bâtiments emblématiques, pas tous les bâtiments uniques.", // 26
             "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 27
             "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 28
             "Autoriser plusieurs copies", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Indique si les éléments uniques peuvent actuellement être placés plusieurs fois.", // 34
             "Bâtiments emblématiques", // 35
             "Affiche le nombre de bâtiments emblématiques placés, de types différents et de copies supplémentaires.", // 36
-            "Effets des bonus globaux", // 37
-            "Compte les bâtiments emblématiques fournissant un bonus global.\nLes bonus locaux et de proximité ne sont pas inclus.", // 38
+            "Autres bonus globaux", // 37
+            "Compte les bâtiments emblématiques fournissant un bonus global.\nLes bonus locaux et de proximité ne sont pas inclus.\nL'attrait global a sa propre règle.", // 38
             "Mods redondants détectés", // 39
             "Anarchy est compatible et n'apparaît pas ici.\nRetirez les autres mods de bâtiments uniques illimités : cette fonction est déjà incluse.", // 40
             "Aucune ville chargée", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Un seul de chaque", // 47
             "Règles mixtes", // 48
             "{0} placés | {1} types | {2} copies supplémentaires", // 49
-            "{0} fournisseurs actifs | {1} fournisseurs en double", // 50
+            "{0}/{1} actifs | {2} bloqués", // 50
             "Aucun", // 51
             "Mod", // 52
             "Nom affiché de ce mod.", // 53

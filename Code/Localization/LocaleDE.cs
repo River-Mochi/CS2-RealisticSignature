@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Protokoll", // 8
             "Stadtweite Signaturgebäude-Boni", // 9
-            "<Nur erstes Exemplar> = jeder Signaturgebäudetyp gewährt seinen stadtweiten Bonus nur einmal.\n<Keine stadtweiten Boni> = deaktiviert stadtweite Signaturgebäude-Boni.\n<Vanilla-Stapelung> = jedes Exemplar gewährt den stadtweiten Bonus.\nNahbereichseffekte haben eine eigene Einstellung. Die Gebäudeattraktivität bleibt unverändert.", // 10
+            "<Nur erstes Exemplar> = jeder Signaturgebäudetyp gewährt seinen stadtweiten Bonus nur einmal.\n<Keine stadtweiten Boni> = deaktiviert stadtweite Signaturgebäude-Boni.\n<Vanilla-Stapelung> = jedes Exemplar gewährt den stadtweiten Bonus.\nNahbereichseffekte haben eine eigene Einstellung. Die Gebäudeattraktivität bleibt unverändert.\nGrüne Bonustexte im Gebäude-Infobereich bleiben trotz Sperrung oder Begrenzung sichtbar. Tatsächliche Werte: Aktionen > Status oder Protokollbericht.", // 10
             "Nur erstes Exemplar", // 11
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Nur erste Kopie.", // 15
+            "<Stadtweite Einstellung übernehmen> = nutzt die Regel oben.\n<Nur erste Kopie> = nur ein Gebäude je Typ zählt.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = kein stadtweiter Bonus durch Signaturgebäude.\nGebäudewert und Infotext bleiben unverändert.\nStadtattraktivität hilft, Touristen anzuziehen. Standard: Nur erste Kopie.\nGrüne Bonustexte im Gebäude-Infobereich bleiben trotz Sperrung oder Begrenzung sichtbar. Tatsächliche Werte: Aktionen > Status oder Protokollbericht.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Vanilla-Nahbereichseffekte", // 22
             "Nur erstes Exemplar", // 23
             "Keine Nahbereichseffekte", // 24
-            "Freischaltbedingungen für Signaturgebäude aufheben", // 25
-            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.", // 26
+            "Alle Signaturgebäude freischalten", // 25
+            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.\nStandard: AUS. Gilt nur für Signaturgebäude, nicht für andere einzigartige Gebäude.", // 26
             "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 27
             "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 28
             "Mehrere Exemplare erlauben", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Zeigt an, ob einzigartige Objekte derzeit mehrfach platziert werden dürfen.", // 34
             "Signaturgebäude", // 35
             "Zeigt platzierte Signaturgebäude, verschiedene Typen und zusätzliche Kopien.", // 36
-            "Stadtweite Bonuseffekte", // 37
-            "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.", // 38
+            "Allgemeine stadtweite Boni", // 37
+            "Zählt Signaturgebäude mit stadtweiten Bonuseffekten.\nLokale und Nahbereichseffekte sind nicht enthalten.\nDie stadtweite Attraktivität hat eine eigene Regel.", // 38
             "Überflüssige Mods erkannt", // 39
             "Anarchy wird unterstützt und hier nicht aufgeführt.\nEntferne andere Mods für unbegrenzt einzigartige Gebäude; diese Funktion ist bereits enthalten.", // 40
             "Noch keine Stadt geladen", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Nur eines pro Typ", // 47
             "Gemischte Regeln", // 48
             "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 49
-            "{0} aktive Bonusgeber | {1} doppelte Bonusgeber", // 50
+            "{0}/{1} aktiv | {2} gesperrt", // 50
             "Keine", // 51
             "Mod", // 52
             "Anzeigename dieses Mods.", // 53

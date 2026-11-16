@@ -25,12 +25,12 @@ namespace UniqueBuildings
             "Información", // 7
             "Depuración / Registro", // 8
             "Bonificaciones globales de edificios emblemáticos", // 9
-            "<Solo la primera copia> = cada tipo de edificio emblemático aporta su bonificación global una vez.\n<Sin bonificaciones globales> = desactiva las bonificaciones globales de los edificios emblemáticos.\n<Acumulación normal> = cada copia aporta su bonificación global.\nLos efectos cercanos tienen otro ajuste. El atractivo del edificio no cambia.", // 10
+            "<Solo la primera copia> = cada tipo de edificio emblemático aporta su bonificación global una vez.\n<Sin bonificaciones globales> = desactiva las bonificaciones globales de los edificios emblemáticos.\n<Acumulación normal> = cada copia aporta su bonificación global.\nLos efectos cercanos tienen otro ajuste. El atractivo del edificio no cambia.\nLos textos verdes de bonos del edificio siguen visibles aunque se limite o desactive el efecto. Consulta Acciones > Estado o el informe del registro.", // 10
             "Solo la primera copia", // 11
             "Sin bonificaciones globales", // 12
             "Acumulación normal", // 13
             "Atractivo de toda la ciudad", // 14
-            "<Seguir ajuste global> = usa la regla anterior.\n<Solo primera copia> = una por tipo aporta atractivo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = los edificios emblemáticos no aportan atractivo global.\nEl atractivo propio y la descripción no cambian.\nEl atractivo de la ciudad ayuda a atraer turistas. Predeterminado: solo primera copia.", // 15
+            "<Seguir ajuste global> = usa la regla anterior.\n<Solo primera copia> = una por tipo aporta atractivo.\n<Acumulación original> = todas las copias cuentan.\n<Sin bonus de atractivo> = los edificios emblemáticos no aportan atractivo global.\nEl atractivo propio y la descripción no cambian.\nEl atractivo de la ciudad ayuda a atraer turistas. Predeterminado: solo primera copia.\nLos textos verdes de bonos del edificio siguen visibles aunque se limite o desactive el efecto. Consulta Acciones > Estado o el informe del registro.", // 15
             "Seguir ajuste global", // 16
             "Solo primera copia", // 17
             "Acumulación original", // 18
@@ -40,8 +40,8 @@ namespace UniqueBuildings
             "Efectos cercanos normales", // 22
             "Solo la primera copia", // 23
             "Sin efectos cercanos", // 24
-            "Desbloquear requisitos de edificios emblemáticos", // 25
-            "**ACTIVADO** = todos los edificios emblemáticos disponibles sin cumplir requisitos de población, zonificación o progreso.\n**DESACTIVADO** = progresión normal del juego.", // 26
+            "Desbloquear todos los edificios emblemáticos", // 25
+            "**ACTIVADO** = todos los edificios emblemáticos disponibles sin cumplir requisitos de población, zonificación o progreso.\n**DESACTIVADO** = progresión normal del juego.\nPor defecto: desactivado. Solo edificios emblemáticos, no otros edificios únicos.", // 26
             "Ocultar avisos de desbloqueo masivo de edificios emblemáticos", // 27
             "**ACTIVADO** (recomendado, predeterminado) = oculta los avisos del desbloqueo masivo realizado por este mod.\n**DESACTIVADO** = muestra un aviso por cada edificio emblemático que este mod desbloquee; pueden ser decenas o cientos.\nSiguen apareciendo los avisos normales del juego, incluidos edificios nuevos de actualizaciones, DLC, paquetes regionales y progreso de la ciudad.", // 28
             "Permitir varias copias", // 29
@@ -52,8 +52,8 @@ namespace UniqueBuildings
             "Indica si actualmente se pueden colocar varias copias de objetos únicos.", // 34
             "Edificios emblemáticos", // 35
             "Muestra los edificios emblemáticos colocados, los tipos distintos y las copias adicionales.", // 36
-            "Bonificaciones globales", // 37
-            "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.", // 38
+            "Bonos generales de la ciudad", // 37
+            "Cuenta los edificios emblemáticos que aportan bonificaciones globales.\nNo incluye los efectos locales o cercanos.\nEl atractivo global tiene su propia regla.", // 38
             "Mods redundantes detectados", // 39
             "Anarchy es compatible y no aparece aquí.\nElimina otros mods de edificios únicos ilimitados: este mod ya incluye esa función.", // 40
             "No hay ninguna ciudad cargada", // 41
@@ -65,7 +65,7 @@ namespace UniqueBuildings
             "Uno de cada tipo", // 47
             "Reglas mixtas", // 48
             "{0} colocados | {1} tipos | {2} copias extra", // 49
-            "{0} proveedores activos | {1} proveedores duplicados", // 50
+            "{0}/{1} activos | {2} bloqueados", // 50
             "Ninguno", // 51
             "Mod", // 52
             "Nombre que se muestra para este mod.", // 53
