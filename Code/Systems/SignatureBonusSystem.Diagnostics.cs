@@ -222,6 +222,28 @@ namespace UniqueBuildings
                 if (!suppressed) { active++; counts[2]++; }
             }
 
+            // Non-Signature Unique service buildings have their own bonus
+            // providers. Report them separately from Signature statistics.
+            List<Entity> otherUniques = GetNonSignatureUniqueCityProviders();
+            Dictionary<Entity, int[]> otherByPrefab = new();
+            int otherActive = 0;
+            int otherTagged = 0;
+            foreach (Entity entity in otherUniques)
+            {
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (!otherByPrefab.TryGetValue(prefab, out int[]? counts))
+                    otherByPrefab.Add(prefab, counts = new int[2]);
+                counts[0]++;
+                bool suppressed = EntityManager.HasComponent<SignatureBonusSuppressed>(entity);
+                if (suppressed)
+                    otherTagged++;
+                else
+                {
+                    otherActive++;
+                    counts[1]++;
+                }
+            }
+
             int extraCopies = signatures.Length - byPrefab.Count;
             bool oneCityProviderPerType = true;
             foreach (int[] counts in byPrefab.Values)
@@ -262,6 +284,23 @@ namespace UniqueBuildings
                 $"{providers - active} blocked");
             report.AppendLine($"    Rule check: {(correct ? "PASS" : "CHECK")} " +
                 $"({tagged} buildings tagged for bonus suppression)");
+
+            if (otherUniques.Count > 0)
+            {
+                bool otherCorrect = mode switch
+                {
+                    SignatureBonusMode.VanillaStacking => otherTagged == 0,
+                    SignatureBonusMode.FirstCopyOnly =>
+                        otherActive == otherByPrefab.Count,
+                    SignatureBonusMode.NoBonuses =>
+                        otherActive == 0 && otherTagged == otherUniques.Count,
+                    _ => false,
+                };
+
+                report.AppendLine(
+                    $"    Other Unique city-wide providers: {otherActive}/{otherUniques.Count} active | " +
+                    $"{otherByPrefab.Count} types | Rule check: {(otherCorrect ? "PASS" : "CHECK")}");
+            }
             report.AppendLine($"    City-wide Attractiveness: {ModeLabel(attractivenessMode)} | " +
                 $"Rule check: {(attractivenessCorrect ? "PASS" : "CHECK")} " +
                 (sameAttractivenessRule
@@ -275,6 +314,21 @@ namespace UniqueBuildings
             if (phase == "CURRENT")
             {
                 PrefabSystem? prefabs = World.GetExistingSystemManaged<PrefabSystem>();
+                foreach (KeyValuePair<Entity, int[]> pair in otherByPrefab)
+                {
+                    int[] counts = pair.Value;
+                    if (counts[0] < 2)
+                        continue;
+
+                    string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
+                    if (prefabs != null &&
+                        prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                        name = prefab.name;
+
+                    report.AppendLine(
+                        $"    Other Unique duplicate {name}: {counts[1]}/{counts[0]} city-wide providers active");
+                }
+
                 foreach (KeyValuePair<Entity, int[]> pair in byPrefab)
                 {
                     int[] counts = pair.Value;
