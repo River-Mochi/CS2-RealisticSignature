@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Chỉ bản đầu tiên", // 23
             "Không có hiệu ứng xung quanh", // 24
             "Mở khóa mọi công trình đặc trưng", // 25
-            "**BẬT** = mở tất cả công trình đặc trưng mà không cần đáp ứng dân số, phân vùng hay tiến trình.\n**TẮT** = mở khóa theo quy tắc gốc.\nMặc định: TẮT. Chỉ áp dụng cho công trình đặc trưng, không phải mọi công trình độc nhất.", // 26
+            "**BẬT** = mở tất cả công trình đặc trưng mà không cần đáp ứng dân số, phân vùng hay tiến trình.\n**TẮT** = mở khóa theo quy tắc gốc.\nMặc định: TẮT. Chỉ áp dụng cho công trình đặc trưng, không phải mọi công trình độc nhất.\n**Lưu ý:** Các công trình dịch vụ độc đáo khác như Trụ sở Cảnh sát và Cục Tình báo Trung ương vẫn cần <điểm phát triển> trong **Tiến trình > Phát triển**. Tùy chọn này chỉ mở khóa công trình đặc trưng.", // 26
             "Ẩn thông báo khi mở khóa hàng loạt công trình đặc trưng", // 27
             "**BẬT** (khuyến nghị, mặc định) = ẩn thông báo do mod này mở khóa hàng loạt công trình đặc trưng.\n**TẮT** = hiện thông báo cho từng công trình vừa được mod mở khóa; có thể có hàng chục hoặc hàng trăm thông báo.\nThông báo mở khóa thông thường của trò chơi vẫn hiện, kể cả công trình mới từ bản cập nhật, DLC, gói khu vực và tiến trình thành phố.", // 28
             "Cho phép nhiều bản sao", // 29
