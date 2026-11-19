@@ -62,8 +62,8 @@ namespace UniqueBuildings
                     "City-wide bonuses"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.SignatureBonuses)),
-                    "<First copy only> **(default)** = count the city-wide bonus once per Signature type.\n" +
-                    "<No city-wide bonuses> = disable general city-wide Signature bonuses. Attractiveness uses its separate rule below.\n" +
+                    "<First copy only> **(default)** = one city-wide bonus provider per Unique or Signature type.\n" +
+                    "<No city-wide bonuses> = disable general city-wide bonuses from Unique and Signature buildings. Attractiveness is separate.\n" +
                     "<Vanilla Stacked Bonuses> = count the bonus from every placed copy.\n" +
                     "**Green bonus text** in building panels describes the original building, even when its bonus is blocked.\n" +
                     "See **Actions > Status** for counts, or **About > Status report to log** for actual city modifier values."
@@ -83,9 +83,9 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
                     "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AttractivenessBonuses)),
-                    "<First copy only> **(default)** = one city-wide Attractiveness bonus per Signature building type.\n" +
+                    "<First copy only> **(default)** = one city-wide Attractiveness bonus per eligible Unique or Signature type.\n" +
                     "<Vanilla stacking> = every copy contributes its city-wide Attractiveness bonus.\n" +
-                    "<No attractiveness bonus> = Signature city-wide Attractiveness bonuses are ignored.\n" +
+                    "<No attractiveness bonus> = city-wide Attractiveness from eligible Unique and Signature buildings is ignored.\n" +
                     "<Follow city-wide setting> = use the general city-wide rule above.\n" +
                     "**Attractiveness helps attract tourists.** Each building's own attractiveness is unchanged.\n" +
                     "**Green bonus text** in a building's information panel stays visible, even if its bonus is blocked." },
@@ -103,10 +103,10 @@ namespace UniqueBuildings
                     "Nearby neighborhood effects"
                 },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.NearbySignatureEffects)),
-                    "<■ Vanilla nearby effects> = every Signature copy provides nearby effects.\n" +
-                    "<■ First copy only> = one copy of each Signature type provides nearby effects.\n" +
-                    "<■ No nearby effects> = disables normal Signature nearby effects.\n" +
-                    "Building attractiveness and other features are not touched."
+                    "<Vanilla nearby effects> **(default)** = every eligible Unique or Signature copy keeps nearby effects.\n" +
+                    "<First copy only> = one copy per building type keeps nearby effects.\n" +
+                    "<No nearby effects> = disables their normal nearby effects, not abandoned-building penalties.\n" +
+                    "**Building attractiveness** is unchanged."
                 },
                 { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.Vanilla), "Vanilla nearby effects" },
                 { m_Setting.GetEnumValueLocaleID(NearbySignatureMode.FirstCopyOnly), "First copy only" },
@@ -131,24 +131,25 @@ namespace UniqueBuildings
                 // Multiple Unique
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.AllowMultipleUniqueBuildings)), "Allow multiple copies" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.AllowMultipleUniqueBuildings)),
-                    "**ON** = place multiple copies of anything the game marks Unique, including Signature buildings.\n" +
-                    "**OFF** = normal one-per-city rules unless another mod allows multiple Unique items."
+                    "**ON (default)** = place multiple copies of any building the game marks Unique, including Signatures.\n" +
+                    "**OFF** = restore normal one-per-city restrictions where possible. <Anarchy> may also affect placement."
                 },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
-                    "Prevent auto black-out and overlays when placing Unique buildings" },
+                    "Show buildings clearly when placing" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.PreventAutomaticSignatureInfoviews)),
-                    " Default: ON. See buildings clearly!\n" +
-                    "Stops Unique and Signature buildings from automatically opening the infoview panel and colored map overlay during placement. " +
-                    "You can still open infoviews manually. Other building tools are unaffected. " +
-                    "Toggle Overlays mod takes priority when active." },
+                    "**ON (default)** = <clear building view> when placing Unique or Signature buildings: " +
+                    "no automatic black-out, colored map overlay, or infoview panel popping up.\n" +
+                    "**OFF** = restore automatic infoview behavior.\n" +
+                    "You can still open infoviews manually. <Toggle Overlays> takes priority if enabled." },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)),
                     "**Multiple copies allowed** = Unique placement restrictions are disabled.\n" +
                     "**One of each** = the usual one-per-city restriction applies.\n" +
-                    "<Anarchy> may also allow multiple copies independently of this mod.\n" +
+                    "<Anarchy> may also allow multiple copies independently.\n" +
+                    "**Unique restrictions still disabled** = some placement flags are still cleared; it does not identify another mod.\n" +
                     "Placement rules do not tell you which city-wide bonuses are active."
                 },
 
@@ -196,7 +197,7 @@ namespace UniqueBuildings
                 { KeyStatusLoadCity, "Load a city first to see status" },
                 { KeyStatusMultipleAllowed, "Multiple copies allowed" },
                 { KeyStatusAllowedByAnarchy, "Multiple allowed by Anarchy" },
-                { KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod" },
+                { KeyStatusAllowedByAnotherMod, "Unique restrictions still disabled" },
                 { KeyStatusOneOfEach, "One of each" },
                 { KeyStatusMixedRules, "Mixed rules" },
                 { KeyStatusSignatureSummaryLine, "{0} placed | {1} types | {2} extra copies" },
