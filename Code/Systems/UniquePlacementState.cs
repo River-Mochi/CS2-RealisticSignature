@@ -51,14 +51,14 @@ namespace UniqueBuildings
                     UniqueModsCompatibility.HasRedundantMods)
                 {
                     return LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod,
-                        "Unique restrictions still disabled");
+                        "Unlimited copies still active");
                 }
 
                 if (s_RestrictedUnique == 0)
                 {
                     return ourSetting
                         ? LocaleUtils.Localize(LocaleEN.KeyStatusMultipleAllowed, "Multiple copies allowed")
-                        : LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Unique restrictions still disabled");
+                        : LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Unlimited copies still active");
                 }
 
                 if (s_RestrictedUnique == s_TotalKnownUnique)
