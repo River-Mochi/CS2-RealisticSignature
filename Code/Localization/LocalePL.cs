@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Tylko pierwszy egzemplarz", // 23
             "Bez efektów w pobliżu", // 24
             "Odblokuj wszystkie budynki charakterystyczne", // 25
-            "**WŁ.** = udostępnia wszystkie budynki charakterystyczne bez wymagań dotyczących ludności, stref i postępów.\n**WYŁ.** = normalne zasady rozwoju miasta.\nDomyślnie: WYŁ. Dotyczy tylko budynków charakterystycznych, nie wszystkich unikalnych.", // 26
+            "**WŁ.** = udostępnia wszystkie budynki charakterystyczne bez wymagań dotyczących ludności, stref i postępów.\n**WYŁ.** = normalne zasady rozwoju miasta.\nDomyślnie: WYŁ. Dotyczy tylko budynków charakterystycznych, nie wszystkich unikalnych.\n**Ważne:** Inne unikatowe budynki usługowe, np. komenda policji i centrala wywiadu, nadal wymagają <punktów rozwoju> w **Postępy > Rozwój**. Ta opcja odblokowuje tylko budynki charakterystyczne.", // 26
             "Ukryj powiadomienia o zbiorczym odblokowaniu", // 27
             "**WŁ.** (zalecane, domyślnie) = ukrywa powiadomienia o zbiorczym odblokowaniu przez ten mod.\n**WYŁ.** = pokazuje powiadomienie o każdym budynku charakterystycznym nowo odblokowanym przez mod; może ich być kilkadziesiąt lub kilkaset.\nZwykłe powiadomienia gry nadal się pojawiają, także o budynkach z aktualizacji, DLC, pakietów regionalnych i postępów miasta.", // 28
             "Zezwalaj na wiele egzemplarzy", // 29
