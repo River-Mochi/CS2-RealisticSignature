@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Mehrere Exemplare durch Anarchy erlaubt", // 45
             "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 46
             "Nur eines pro Typ", // 47
-            "Einzigartigkeitsbeschränkungen noch deaktiviert", // 48
+            "Unbegrenzte Exemplare weiterhin möglich", // 48
             "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 49
             "{0}/{1} aktiv | {2} gesperrt", // 50
             "Keine", // 51
