@@ -32,8 +32,8 @@ namespace UniqueBuildings
             Dictionary<string, int> indexCounts)
         {
             string[] t = Text;
-            if (t.Length != 62)
-                throw new InvalidOperationException("Signature locale must have all 62 entries.");
+            if (t.Length != 64)
+                throw new InvalidOperationException("Signature locale must have all 64 entries.");
 
             return new Dictionary<string, string>
                 { { m_Setting.GetSettingsLocaleID(), t[0] },
@@ -75,6 +75,8 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusSignatureSummary)), t[36] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[37] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), t[38] },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusOtherUniqueBonuses)), t[62] },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusOtherUniqueBonuses)), t[63] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), t[14] },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), t[15] },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusRedundantMods)), t[39] },
