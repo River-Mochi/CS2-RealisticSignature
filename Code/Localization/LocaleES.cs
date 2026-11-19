@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleES.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Copias permitidas** = se quitó el límite de un edificio por ciudad.\n**Uno de cada tipo** = límite normal activo.\n<Anarchy> también puede permitir copias.\nNo indica si los bonos se acumulan.", // 34
             "Edificios emblemáticos", // 35
             "**Colocados** = total de edificios emblemáticos.\n**Tipos** = modelos diferentes.\n<Copias extra> = edificios adicionales al primero de cada tipo.\nTambién cuenta edificios sin bonos globales.", // 36
-            "Bonos generales de la ciudad", // 37
+            "Bonificaciones urbanas de edificios Signature", // 37
             "**Activos / Total** = proveedores incluidos por la regla global / todos los encontrados.\n<Bloqueados> = excluidos por esa regla, no el total de edificios extra.\n**El atractivo es independiente:** un proveedor bloqueado aún puede aportar atractivo.\nLos efectos cercanos son aparte.", // 38
             "Mods redundantes detectados", // 39
             "<Solo primera copia> = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias.\n<Sin bonus> = desactivado.\n<Seguir ajuste global> = usar la regla general.\n**Muestra la regla elegida, no el valor del bono.**\nValores reales: **Acerca de > Informe al registro**. El texto verde permanece.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Prueba temporalmente todos los modos de bonificación global y efectos cercanos mientras el juego está pausado en Opciones. Después vuelve a aplicar tus modos elegidos. Los resultados se guardan en el registro. Primero carga una ciudad.", // 59
             "Abrir registro", // 60
             "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 61
+            "Bonificaciones urbanas de otros edificios únicos", // 62
+            "Bonificaciones de edificios únicos que no son de tipo Signature, como el Ayuntamiento.\\nActivas / Total = fuentes que cuentan / existentes. Bloqueadas = excluidas por la regla. Los servicios normales no se incluyen.", // 63
         };
 
         public LocaleES(UniqueBldgSettings setting)
