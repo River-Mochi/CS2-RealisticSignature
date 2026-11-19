@@ -25,29 +25,29 @@ namespace UniqueBuildings
             "Bilgi", // 7
             "Hata ayıklama / Günlük", // 8
             "Benzersiz binaların şehir geneli bonusları", // 9
-            "<Yalnızca ilk kopya> **(varsayılan)** = benzersiz bina türü başına bir şehir geneli bonus.\n<Şehir geneli bonus yok> = genel bonuslar kapalı; çekicilik ayrı ayarlanır.\n<Vanilla birikimi> = tüm kopyalar katkıda bulunur.\n**Yeşil bonus yazıları** bonus engellense bile orijinal açıklamayı gösterir.\n**İşlemler > Durum** veya günlük raporuna bakın.", // 10
+            "<Yalnızca ilk kopya> **(varsayılan)** = benzersiz bina türü başına bir şehir geneli bonus.\n<Şehir geneli bonusları yok> = genel bonuslar kapalı; çekicilik ayrı ayarlanır.\n<Vanilla birikimi> = tüm kopyalar katkıda bulunur.\n**Yeşil bonus yazıları** bonus engellense bile orijinal açıklamayı gösterir.\n**İşlemler > Durum** veya günlük raporuna bakın.", // 10
             "Yalnızca ilk kopya", // 11
             "Şehir geneli bonusları yok", // 12
             "Vanilla birikimi", // 13
             "Şehir geneli çekicilik", // 14
-            "<Yalnızca ilk kopya> **(varsayılan)** = uygun benzersiz bina türü başına bir şehir geneli çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar sayılır.\n<Çekicilik bonusu yok> = bu şehir bonuslarını kapatır.\n<Şehir ayarını izle> = yukarıdaki kuralı kullanır.\n**Çekicilik turist çeker.** Binanın kendi çekiciliği değişmez.\n**Yeşil yazılar** sabit açıklamalardır.", // 15
+            "<Yalnızca ilk kopya> **(varsayılan)** = uygun benzersiz bina türü başına bir şehir geneli çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar sayılır.\n<Çekicilik bonusu yok> = bu şehir bonuslarını kapatır.\n<Şehir geneli ayarını izle> = yukarıdaki kuralı kullanır.\n**Çekicilik turist çeker.** Binanın kendi çekiciliği değişmez.\n**Yeşil yazılar** sabit açıklamalardır.", // 15
             "Şehir geneli ayarını izle", // 16
             "Yalnızca ilk kopya", // 17
             "Vanilla birikimi", // 18
             "Çekicilik bonusu yok", // 19
             "Benzersiz binaların yakın çevre etkileri", // 20
-            "<Vanilla yakın etkiler> **(varsayılan)** = her benzersiz bina kopyası yerel etkilerini korur.\n<Yalnızca ilk kopya> = tür başına bir kopya.\n<Yakın etki yok> = normal etkileri kapatır; terk edilmiş binaların cezaları korunur.\n**Bina çekiciliği** değişmez.", // 21
+            "<Vanilla yakın çevre etkileri> **(varsayılan)** = her benzersiz bina kopyası yerel etkilerini korur.\n<Yalnızca ilk kopya> = tür başına bir kopya.\n<Yakın çevre etkileri yok> = normal etkileri kapatır; terk edilmiş binaların cezaları korunur.\n**Bina çekiciliği** değişmez.", // 21
             "Vanilla yakın çevre etkileri", // 22
             "Yalnızca ilk kopya", // 23
             "Yakın çevre etkileri yok", // 24
             "Tüm imza binalarını aç", // 25
-            "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.\nVarsayılan: KAPALI. Yalnızca imza binaları; tüm eşsiz binalar değil.\n**Önemli:** Polis Merkezi ve Merkezi İstihbarat Bürosu gibi diğer benzersiz hizmet binaları için **İlerleme > Gelişim** bölümünde <gelişim puanları> harcamanız gerekir. Bu seçenek yalnızca imza binalarını açar.", // 26
+            "**AÇIK** = imza binalarını ilerleme şartı olmadan açar.\n**KAPALI (varsayılan)** = normal kilit açma.\n**Diğer benzersiz binalar**, ör. Polis Merkezi, **İlerleme > Gelişim** bölümünde <gelişim puanları> gerektirir.", // 26
             "Toplu İmza bina açma bildirimlerini gizle", // 27
             "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 28
             "Birden fazla kopyaya izin ver", // 29
             "**AÇIK** = imza binalar dâhil benzersiz olarak işaretlenen nesnelerin birden fazla kopyasını yerleştirir.\n**KAPALI** = başka bir mod izin vermedikçe şehirde her nesneden bir tane.", // 30
             "Yerleştirirken binaları net göster", // 31
-            "**AÇIK (varsayılan)** = <net bina görünümü>: benzersiz bina yerleştirirken otomatik karartmayı, renkli haritayı ve bilgi görünümünü engeller.\n**KAPALI** = normal otomatik gösterim.\nBilgi görünümleri elle açılabilir. <Toggle Overlays> önceliklidir.", // 32
+            "**AÇIK (varsayılan)** = <net bina görünümü>: benzersiz bina yerleştirirken otomatik karartmayı, renkli haritayı ve bilgi görünümünü engeller.\n**KAPALI** = normal otomatik gösterim.\nBilgi panelini istediğiniz zaman elle açabilirsiniz. <Toggle Overlays> önceliklidir.", // 32
             "Benzersiz nesne yerleştirme kuralı", // 33
             "**Çoklu kopya serbest** = şehir başına tek bina sınırı kapalı.\n**Her türden bir tane** = normal sınır.\n<Anarchy> de kopyalara izin verebilir.\nBonus birikimini göstermez.", // 34
             "İmza binalar", // 35
