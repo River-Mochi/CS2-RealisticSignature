@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Solo la prima copia", // 23
             "Nessun effetto vicino", // 24
             "Sblocca tutti gli edifici distintivi", // 25
-            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.\nPredefinito: disattivo. Solo edifici distintivi, non tutti quelli unici.", // 26
+            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.\nPredefinito: disattivo. Solo edifici distintivi, non tutti quelli unici.\n**Importante:** Gli altri edifici unici di servizio, come il quartier generale della polizia e l'ufficio centrale d'intelligence, richiedono ancora <punti sviluppo> in **Progressione > Sviluppo**. Questa opzione sblocca solo gli edifici distintivi.", // 26
             "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 27
             "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 28
             "Consenti più copie", // 29
