@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Anarchy cho phép nhiều bản sao", // 45
             "Mod khác cho phép xây nhiều công trình độc nhất", // 46
             "Mỗi loại một công trình", // 47
-            "Hạn chế đặt công trình độc đáo vẫn đang bị tắt", // 48
+            "Vẫn cho phép đặt nhiều bản sao", // 48
             "Đã xây {0} | {1} loại | {2} bản sao thêm", // 49
             "Hoạt động {0}/{1} | chặn {2}", // 50
             "Không có", // 51
