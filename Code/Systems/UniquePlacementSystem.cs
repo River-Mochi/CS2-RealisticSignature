@@ -127,6 +127,33 @@ namespace UniqueBuildings
             Enabled = false;
         }
 
+        public void ApplyFromOptions(bool allowMultiple)
+        {
+            const string reason = "Options setting changed";
+
+            if (GameManager.instance?.gameMode.IsGame() != true)
+            {
+                ScheduleReconcile(allowMultiple, reason);
+                return;
+            }
+
+            try
+            {
+                // Options pauses simulation. Apply immediately rather than
+                // waiting for the next PrefabUpdate after closing Options.
+                CompleteDependency();
+                ReconcileNow(allowMultiple, reason);
+                m_ReconcileRequested = false;
+                Enabled = false;
+            }
+            catch (System.Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{Mod.ModTag} Live Unique placement update failed: {ex.Message}", ex);
+                ScheduleReconcile(allowMultiple, "retry Options setting change");
+            }
+        }
+
         public void ScheduleReconcile(bool allowMultiple, string reason)
         {
             m_RequestedAllowMultiple = allowMultiple;
