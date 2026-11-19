@@ -189,6 +189,13 @@ namespace UniqueBuildings
                         LocalEffectSystem>(
                             SystemUpdatePhase.Modification5);
 
+                    // Vanilla periodically refreshes service-building local
+                    // effects, so reapply non-Vanilla Unique rules afterward.
+                    updateSystem.UpdateAfter<
+                        SignatureNearbyEffectSystem,
+                        LocalEffectUpdateSystem>(
+                            SystemUpdatePhase.GameSimulation);
+
                     updateSystem.UpdateAt<SignatureScanSystem>(
                         SystemUpdatePhase.PrefabUpdate);
 
