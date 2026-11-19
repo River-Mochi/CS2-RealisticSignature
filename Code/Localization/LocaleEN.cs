@@ -117,9 +117,10 @@ namespace UniqueBuildings
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.UnlockSignatureRequirements)),
                     "**ON** = make Signature buildings available without meeting population, zoning, or other progression requirements.\n" +
                     "**OFF** (default) = normal game progression.\n" +
-                    "**Important:** This only unlocks <Signature buildings>. Other Unique service buildings, " +
-                    "such as Police Headquarters and the Central Intelligence Bureau, still require " +
-                    "<Development points> under **Progression > Development**. DLC ownership is still required."
+                    "**Important:** This only unlocks <Signature buildings>.\n" +
+                    "Other Unique service buildings, " +
+                    "such as Police Headquarters or the Central Intelligence Bureau, still require\n" +
+                    "<Development points> which you can add/unlock in the game's Progression tree."
                 },
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.HideBulkUnlockNotifications)), "Hide unlock pop-up spam"
                 },
