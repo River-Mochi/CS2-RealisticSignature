@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Yalnızca ilk kopya", // 23
             "Yakın çevre etkileri yok", // 24
             "Tüm imza binalarını aç", // 25
-            "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.\nVarsayılan: KAPALI. Yalnızca imza binaları; tüm eşsiz binalar değil.", // 26
+            "**AÇIK** = nüfus, imar veya ilerleme şartı olmadan tüm imza binaları açar.\n**KAPALI** = normal oyun ilerlemesi.\nVarsayılan: KAPALI. Yalnızca imza binaları; tüm eşsiz binalar değil.\n**Önemli:** Polis Merkezi ve Merkezi İstihbarat Bürosu gibi diğer benzersiz hizmet binaları için **İlerleme > Gelişim** bölümünde <gelişim puanları> harcamanız gerekir. Bu seçenek yalnızca imza binalarını açar.", // 26
             "Toplu İmza bina açma bildirimlerini gizle", // 27
             "**AÇIK** (önerilen, varsayılan) = bu modun toplu İmza bina açma bildirimlerini gizler.\n**KAPALI** = modun yeni açtığı her bina için bildirim gösterir; onlarca veya yüzlerce bildirim olabilir.\nOyun güncellemeleri, DLC, bölge paketleri ve şehrin ilerlemesiyle gelen binalar dahil normal oyun bildirimleri görünmeye devam eder.", // 28
             "Birden fazla kopyaya izin ver", // 29
