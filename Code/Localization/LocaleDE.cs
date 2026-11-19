@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Protokoll öffnen", // 60
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 61
             "Stadtweite Boni der anderen einzigartigen Gebäude", // 62
-            "Stadtweite Boni einzigartiger Gebäude außerhalb der Signatur-Kategorie, z. B. Rathaus.\\nAktiv / Gesamt = berücksichtigte / vorhandene Bonusquellen. Blockiert = durch die Regel ausgeschlossen. Normale Gebäude zählen nicht.", // 63
+            "Stadtweite Boni einzigartiger Gebäude außerhalb der Signatur-Kategorie, z. B. Rathaus.\nAktiv / Gesamt = berücksichtigte / vorhandene Bonusquellen. Blockiert = durch die Regel ausgeschlossen. Normale Gebäude zählen nicht.", // 63
         };
 
         public LocaleDE(UniqueBldgSettings setting)
