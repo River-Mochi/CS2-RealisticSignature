@@ -13,15 +13,15 @@
 
 **随心建造多个特色建筑，同时避免城市经济失衡！**
 
-Duplicate Signature buildings stack powerful city-wide bonuses, making CS2's economy too easy.
+Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, making CS2's economy too easy.
 
-### 1. Control all Signature buildings
+### 1. Control Unique + Signature city-wide bonuses
 
 *   **Vanilla Stacking:** every copy has all normal bonuses (game default). Want super-easy mode? Keep stacking!
-*   **First Copy Only**: only one copy of each Signature building type adds city-wide bonuses. More Realistic, 5 copies no longer has 5x stacked bonuses!
+*   **First Copy Only**: only one copy of each Unique or Signature building type adds city-wide bonuses (where available). More Realistic, 5 copies no longer has 5x stacked bonuses!
 *   **No City Bonuses:** disable general Signature city-wide bonuses for a bigger challenge.
 
-**City-wide Attractiveness is controlled separately.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
+**City-wide Attractiveness is controlled separately for eligible Unique and Signature buildings.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
 ### 2. Nearby Local Effects — Separate controls!
 
@@ -30,7 +30,7 @@ Duplicate Signature buildings stack powerful city-wide bonuses, making CS2's eco
 
 ### 3. More Options - You choose!
 
-*   ✅ Allow Unlimited Unique buildings.
+*   ✅ Allow Unlimited Unique buildings — base game, DLC, Region Packs, and compatible custom assets marked Unique by the game.
 *   ✅ Unlock Signature buildings without meeting their population, zoning, or other progression requirements.
 *   ✅ QoL, Hide mass unlock pop-ups: Stop the spam when unlocking many at once. Save your click finger!
 *   ✅ See Clearly: when placing Unique buildings, hide info panels including colored ground overlay and blacked-out buildings. You can still open info panels manually as needed or disable this toggle \[x\] in Options menu (this was a player request).
@@ -64,13 +64,13 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 
 **自由建造多个独特建筑，同时避免重复加成破坏城市经济平衡！**
 
-*   **全市加成：** 默认每种标志性建筑只计算一栋的加成，避免重复叠加。也可选择原版叠加或关闭全市加成。
+*   **全市加成：** 默认每种独特或标志性建筑只计算一栋的加成，避免重复叠加。也可选择原版叠加或关闭全市加成。
 
-*   **城市吸引力：** 可单独设置，默认每种建筑只计算一栋的吸引力加成。
+*   **城市吸引力：** 可单独设置，默认每种符合条件的建筑只计算一栋的吸引力加成。
 
 *   **周边效果：** 默认保留所有建筑的正常区域效果，也可选择仅保留一栋或全部关闭。
 
-*   **自由建造：** 默认允许重复建造所有独特建筑，不限于标志性建筑。
+*   **自由建造：** 默认允许重复建造游戏认定的独特建筑，包括本体、DLC、地区建筑包和兼容的自定义资产。
 
 *   **解锁建筑：** 可选择跳过标志性建筑的解锁条件，无需满足人口或其他要求。
 
@@ -103,7 +103,7 @@ tags: unlimited signature buildings
 <!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 <RequiredDLC Value="" />
 <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog Value="" />
+<ChangeLog Value="Fix bonus stacking for non-Signature Unique buildings, including city-wide and nearby effects." />
 <!--<ChangeLog>
 </ChangeLog>-->
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
