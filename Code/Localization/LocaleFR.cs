@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Première copie uniquement", // 23
             "Aucun effet de proximité", // 24
             "Débloquer tous les bâtiments emblématiques", // 25
-            "**ACTIVÉ** = rend tous les bâtiments emblématiques disponibles sans conditions de population, de zonage ou de progression.\n**DÉSACTIVÉ** = progression normale du jeu.\nPar défaut : désactivé. Uniquement les bâtiments emblématiques, pas tous les bâtiments uniques.", // 26
+            "**ACTIVÉ** = rend tous les bâtiments emblématiques disponibles sans conditions de population, de zonage ou de progression.\n**DÉSACTIVÉ** = progression normale du jeu.\nPar défaut : désactivé. Uniquement les bâtiments emblématiques, pas tous les bâtiments uniques.\n**Important :** Les autres bâtiments uniques de service, comme le quartier général de la police et le Bureau central du renseignement, nécessitent toujours des <points de développement> dans **Progression > Développement**. Cette option ne débloque que les bâtiments emblématiques.", // 26
             "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 27
             "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 28
             "Autoriser plusieurs copies", // 29
