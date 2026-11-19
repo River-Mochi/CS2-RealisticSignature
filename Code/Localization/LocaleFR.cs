@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Bonus urbains des bâtiments Signature", // 37
             "**Actifs / Total** = fournisseurs comptés par la règle générale / tous ceux présents.\n<Bloqués> = exclus par cette règle, pas toutes les copies supplémentaires.\n**L'attrait est indépendant :** un fournisseur bloqué peut encore apporter de l'attrait.\nLes effets de proximité sont séparés.", // 38
             "Mods redondants détectés", // 39
-            "<Première copie uniquement> = un bonus d'attrait par type.\n<Cumul normal du jeu> = toutes les copies.\n<Aucun bonus> = bonus global désactivé.\n<Suivre le réglage global> = règle générale.\n**Affiche la règle choisie, pas le montant du bonus.**\nValeurs réelles : **À propos > Rapport dans le journal**. Le texte vert reste inchangé.", // 40
+            "**Aucun** = aucun autre mod connu de placement multiple détecté.\n<Anarchy> est compatible et n'apparaît pas ici.\nÉvite les autres mods qui remplissent la même fonction.", // 40
             "Aucune ville chargée", // 41
             "Chargement…", // 42
             "Chargez d'abord une ville pour voir l'état", // 43
             "Copies multiples autorisées", // 44
             "Copies multiples autorisées par Anarchy", // 45
-            "Un autre mod autorise plusieurs bâtiments uniques", // 46
+            "Copies illimitées toujours possibles", // 46
             "Un seul de chaque", // 47
-            "Copies illimitées toujours autorisées", // 48
+            "Règles de placement mixtes", // 48
             "{0} placés | {1} types | {2} copies supplémentaires", // 49
             "{0}/{1} actifs | {2} bloqués", // 50
             "Aucun", // 51
