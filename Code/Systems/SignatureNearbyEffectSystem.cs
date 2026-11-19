@@ -22,6 +22,7 @@ namespace UniqueBuildings
     using Game.Objects;
     using Game.Prefabs;
     using Game.SceneFlow;
+    using Game.Simulation;
     using Game.Tools;
     using Unity.Collections;
     using Unity.Entities;
@@ -33,6 +34,7 @@ namespace UniqueBuildings
         private EntityQuery m_ChangedQuery;
         private EntityQuery m_ChangedOtherUniqueQuery;
         private LocalEffectSystem m_LocalEffects = null!;
+        private UpdateSystem m_UpdateSystem = null!;
         private NearbySignatureMode m_AppliedMode = NearbySignatureMode.Vanilla;
         private bool m_NeedsReconcile = true;
 
@@ -40,6 +42,7 @@ namespace UniqueBuildings
         {
             base.OnCreate();
             m_LocalEffects = World.GetOrCreateSystemManaged<LocalEffectSystem>();
+            m_UpdateSystem = World.GetOrCreateSystemManaged<UpdateSystem>();
 
             // Never touch abandoned entities: vanilla has additional penalty effects.
             m_EligibleQuery = GetEntityQuery(new EntityQueryDesc
@@ -93,6 +96,13 @@ namespace UniqueBuildings
             });
         }
 
+        public override int GetUpdateInterval(SystemUpdatePhase phase)
+        {
+            // Vanilla LocalEffectUpdateSystem rebuilds non-Signature
+            // nearby effects every 256 simulation ticks.
+            return phase == SystemUpdatePhase.GameSimulation ? 256 : 1;
+        }
+
         protected override void OnGameLoaded(Colossal.Serialization.Entities.Context context)
         {
             base.OnGameLoaded(context);
@@ -117,7 +127,14 @@ namespace UniqueBuildings
                 return;
             }
 
-            if (!m_NeedsReconcile && mode == m_AppliedMode &&
+            bool afterVanillaSimulation =
+                m_UpdateSystem.currentPhase == SystemUpdatePhase.GameSimulation;
+
+            // Non-Signature local effects can reappear when vanilla updates
+            // building efficiency every 256 ticks, without an Updated tag.
+            // Always reapply a non-Vanilla rule after that refresh.
+            if (!afterVanillaSimulation &&
+                !m_NeedsReconcile && mode == m_AppliedMode &&
                 m_ChangedQuery.IsEmptyIgnoreFilter &&
                 !HasChangedOtherUniqueProviders())
                 return;
@@ -125,7 +142,9 @@ namespace UniqueBuildings
             m_NeedsReconcile = false;
             try
             {
-                ReconcileNow(mode, "city update");
+                ReconcileNow(
+                    mode,
+                    afterVanillaSimulation ? "vanilla periodic effects" : "city update");
             }
             catch (Exception ex)
             {
