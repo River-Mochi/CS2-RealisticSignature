@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleFR.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Copies multiples autorisées** = la limite d'un bâtiment par ville est levée.\n**Un de chaque** = limite normale active.\n<Anarchy> peut aussi autoriser des copies.\nCela concerne le placement, pas le cumul des bonus.", // 34
             "Bâtiments emblématiques", // 35
             "**Placés** = nombre total de bâtiments emblématiques.\n**Types** = modèles différents.\n<Copies supplémentaires> = bâtiments au-delà du premier de chaque type.\nInclut ceux sans bonus global.", // 36
-            "Autres bonus globaux", // 37
+            "Bonus urbains des bâtiments Signature", // 37
             "**Actifs / Total** = fournisseurs comptés par la règle générale / tous ceux présents.\n<Bloqués> = exclus par cette règle, pas toutes les copies supplémentaires.\n**L'attrait est indépendant :** un fournisseur bloqué peut encore apporter de l'attrait.\nLes effets de proximité sont séparés.", // 38
             "Mods redondants détectés", // 39
             "<Première copie uniquement> = un bonus d'attrait par type.\n<Cumul normal du jeu> = toutes les copies.\n<Aucun bonus> = bonus global désactivé.\n<Suivre le réglage global> = règle générale.\n**Affiche la règle choisie, pas le montant du bonus.**\nValeurs réelles : **À propos > Rapport dans le journal**. Le texte vert reste inchangé.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 59
             "Ouvrir le journal", // 60
             "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 61
+            "Bonus urbains des autres bâtiments uniques", // 62
+            "Bonus des bâtiments uniques non Signature, comme l'hôtel de ville.\\nActifs / Total = sources prises en compte / présentes. Bloqués = sources exclues par le réglage. Les services ordinaires ne sont pas comptés.", // 63
         };
 
         public LocaleFR(UniqueBldgSettings setting)
