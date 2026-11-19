@@ -29,6 +29,7 @@ namespace UniqueBuildings
         private EntityQuery m_SignatureQuery;
         private EntityQuery m_BonusProviderQuery;
         private EntityQuery m_AllBonusProviderQuery;
+        private EntityQuery m_OtherUniqueProviderQuery;
 
         private SimulationSystem? m_SimulationSystem;
 
@@ -83,6 +84,24 @@ namespace UniqueBuildings
                     },
                     None = new ComponentType[]
                     {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
+            m_OtherUniqueProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Building>(),
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<PrefabRef>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Signature>(),
                         ComponentType.ReadOnly<Deleted>(),
                         ComponentType.ReadOnly<Destroyed>(),
                         ComponentType.ReadOnly<Temp>(),
@@ -166,13 +185,38 @@ namespace UniqueBuildings
             if (duplicateBonusProviders < 0)
                 duplicateBonusProviders = 0;
 
+            int otherTotal = 0;
+            int otherActive = 0;
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+
+            if (placement != null)
+            {
+                using NativeArray<Entity> others =
+                    m_OtherUniqueProviderQuery.ToEntityArray(Allocator.Temp);
+
+                foreach (Entity entity in others)
+                {
+                    Entity prefab =
+                        EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                    if (!placement.IsKnownUniqueBuilding(prefab))
+                        continue;
+
+                    otherTotal++;
+                    if (!EntityManager.HasComponent<SignatureBonusSuppressed>(entity))
+                        otherActive++;
+                }
+            }
+
             SignatureScanState.SetSnapshot(
                 simulationFrame,
                 signaturePrefabs.Length,
                 signatureTypes.Count,
                 bonusPrefabs.Length,
                 duplicateBonusProviders,
-                m_AllBonusProviderQuery.CalculateEntityCount());
+                m_AllBonusProviderQuery.CalculateEntityCount(),
+                otherActive,
+                otherTotal);
 
 #if DEBUG
             LogUtils.Info(
