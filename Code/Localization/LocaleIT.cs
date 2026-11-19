@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Bonus cittadini degli edifici Signature", // 37
             "**Attivi / Totale** = fornitori ammessi dalla regola generale / tutti quelli presenti.\n<Bloccati> = esclusi da quella regola, non tutte le copie extra.\n**Attrattiva indipendente:** i fornitori bloccati possono comunque dare attrattiva.\nEffetti locali separati.", // 38
             "Mod ridondanti rilevati", // 39
-            "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola scelta, non il valore del bonus.**\nValori reali: **Informazioni > Rapporto nel registro**. Il testo verde resta invariato.", // 40
+            "**Nessuno** = nessun altro mod noto per piazzare più edifici unici rilevato.\n<Anarchy> è compatibile e non compare qui.\nEvita altri mod con la stessa funzione.", // 40
             "Nessuna città caricata", // 41
             "Caricamento…", // 42
             "Carica una città per vedere lo stato", // 43
             "Copie multiple consentite", // 44
             "Copie multiple consentite da Anarchy", // 45
-            "Un altro mod consente più edifici unici", // 46
+            "Copie illimitate ancora consentite", // 46
             "Uno per tipo", // 47
-            "Copie illimitate ancora consentite", // 48
+            "Regole di posizionamento miste", // 48
             "{0} posizionati | {1} tipi | {2} copie extra", // 49
             "{0}/{1} attivi | {2} bloccati", // 50
             "Nessuno", // 51
