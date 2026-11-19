@@ -19,7 +19,7 @@ Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, m
 
 *   **Vanilla Stacking:** every copy has all normal bonuses (game default). Want super-easy mode? Keep stacking!
 *   **First Copy Only**: only one copy of each Unique or Signature building type adds city-wide bonuses (where available). More Realistic, 5 copies no longer has 5x stacked bonuses!
-*   **No City Bonuses:** disable general Signature city-wide bonuses for a bigger challenge.
+*   **No City Bonuses:** disable general city-wide bonuses from Unique and Signature buildings.
 
 **City-wide Attractiveness is controlled separately for eligible Unique and Signature buildings.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
@@ -31,9 +31,9 @@ Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, m
 ### 3. More Options - You choose!
 
 *   ✅ Allow Unlimited Unique buildings — base game, DLC, Region Packs, and compatible custom assets marked Unique by the game.
-*   ✅ Unlock Signature buildings without meeting their population, zoning, or other progression requirements.
+*   ✅ Unlock Signature buildings without meeting their requirements. Other Unique service buildings still need Development points.
 *   ✅ QoL, Hide mass unlock pop-ups: Stop the spam when unlocking many at once. Save your click finger!
-*   ✅ See Clearly: when placing Unique buildings, hide info panels including colored ground overlay and blacked-out buildings. You can still open info panels manually as needed or disable this toggle \[x\] in Options menu (this was a player request).
+*   ✅ See Clearly: prevent blacked-out buildings and colored overlays while placing Unique buildings. You can still open the infoview panel manually.
 
 ### Compatibility
 
@@ -72,7 +72,7 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 
 *   **自由建造：** 默认允许重复建造游戏认定的独特建筑，包括本体、DLC、地区建筑包和兼容的自定义资产。
 
-*   **解锁建筑：** 可选择跳过标志性建筑的解锁条件，无需满足人口或其他要求。
+*   **解锁建筑：** 可跳过标志性建筑的解锁条件。其他独特公共服务建筑仍需使用发展点数解锁。
 
 *   **界面优化：** 可隐藏大量解锁弹窗，以及放置独特建筑时自动出现的地图信息覆盖层。
 
@@ -104,7 +104,8 @@ tags: unlimited signature buildings
 <RequiredDLC Value="" />
 <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 <ChangeLog>
-- all unique building bonuses like City Hall are controlable, not just signature buildings.
+- Fixed city-wide and nearby bonus controls for other Unique buildings, not just Signatures.
+- Improved Multiple Copies switching and Options Status.
 </ChangeLog>
 
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
