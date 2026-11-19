@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Stadtweite Boni von Signaturgebäuden", // 37
             "**Aktiv / Gesamt** = Stadtbonus-Quellen gemäß allgemeiner Regel / alle vorhandenen.\n<Blockiert> = durch diese Regel ausgeschlossen, nicht alle Extra-Gebäude.\n**Attraktivität ist unabhängig:** blockierte Quellen können trotzdem Attraktivität geben.\nNahbereich und Gebäudewert sind getrennt.", // 38
             "Überflüssige Mods erkannt", // 39
-            "**Erste Kopie** = ein Attraktivitätsbonus je Typ.\n<Vanilla-Stapelung> = alle Kopien.\n<Kein Bonus> = Signatur-Stadtbonus aus.\n<Einstellung übernehmen> = allgemeine Regel.\n**Zeigt die gewählte Regel, keinen Bonuswert.**\nTatsächliche Stadtwerte: **Über > Statusbericht ins Protokoll**. Grüner Infotext bleibt.", // 40
+            "**Keine** = kein bekannter Mod mit derselben Mehrfachplatzierungsfunktion erkannt.\n<Anarchy> ist kompatibel und wird hier nicht angezeigt.\nAndere Mods für unbegrenzte einzigartige Gebäude können sich überschneiden.", // 40
             "Noch keine Stadt geladen", // 41
             "Wird geladen…", // 42
             "Lade zuerst eine Stadt, um den Status zu sehen", // 43
             "Mehrere Exemplare erlaubt", // 44
             "Mehrere Exemplare durch Anarchy erlaubt", // 45
-            "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 46
+            "Unbegrenzte Exemplare weiterhin möglich", // 46
             "Nur eines pro Typ", // 47
-            "Unbegrenzte Exemplare weiterhin möglich", // 48
+            "Gemischte Platzierungsregeln", // 48
             "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 49
             "{0}/{1} aktiv | {2} gesperrt", // 50
             "Keine", // 51
