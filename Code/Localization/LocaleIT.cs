@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Apri registro", // 60
             "Apre il file di registro del mod oppure la cartella dei registri.", // 61
             "Bonus cittadini degli altri edifici unici", // 62
-            "Bonus degli edifici unici non Signature, come il Municipio.\\nAttivi / Totale = fonti conteggiate / presenti. Bloccati = fonti escluse dalla regola. I servizi normali non sono inclusi.", // 63
+            "Bonus degli edifici unici non Signature, come il Municipio.\nAttivi / Totale = fonti conteggiate / presenti. Bloccati = fonti escluse dalla regola. I servizi normali non sono inclusi.", // 63
         };
 
         public LocaleIT(UniqueBldgSettings setting)
