@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePL.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Wiele kopii dozwolonych** = limit jednego na miasto wyłączony.\n**Jeden z każdego typu** = normalny limit.\n<Anarchy> też może dopuścić kopie.\nNie określa sumowania premii.", // 34
             "Budynki charakterystyczne", // 35
             "**Ustawione** = wszystkie budynki charakterystyczne.\n**Typy** = różne rodzaje.\n<Dodatkowe kopie> = kolejne po pierwszej danego typu.\nWlicza budynki bez premii miejskich.", // 36
-            "Ogólne premie miejskie", // 37
+            "Bonusy ogólnomiejskie budynków Signature", // 37
             "**Aktywne / Wszystkie** = dostawcy premii według zasady ogólnej / wszyscy w mieście.\n<Zablokowane> = wykluczeni przez tę zasadę, nie wszystkie dodatkowe kopie.\n**Atrakcyjność osobno:** zablokowany dostawca może nadal ją zwiększać.\nEfekty lokalne są osobne.", // 38
             "Wykryte zbędne mody", // 39
             "<Tylko pierwszy egzemplarz> = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii> = wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**Pokazuje wybraną zasadę, a nie wartość premii.**\nRzeczywiste wartości: **Informacje > Raport w dzienniku**. Zielony tekst pozostaje.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Tymczasowo testuje wszystkie tryby premii ogólnomiejskich i efektów pobliskich, gdy gra jest wstrzymana w Opcjach. Następnie ponownie stosuje wybrane tryby. Wyniki trafiają do dziennika moda. Najpierw wczytaj miasto.", // 59
             "Otwórz dziennik", // 60
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 61
+            "Bonusy ogólnomiejskie innych unikatowych budynków", // 62
+            "Bonusy unikatowych budynków innych niż Signature, np. ratusza.\\nAktywne / Razem = uwzględniane / wszystkie źródła. Zablokowane = wyłączone przez regułę. Zwykłe budynki usługowe nie są liczone.", // 63
         };
 
         public LocalePL(UniqueBldgSettings setting)
