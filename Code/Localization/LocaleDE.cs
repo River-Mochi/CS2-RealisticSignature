@@ -30,7 +30,7 @@ namespace UniqueBuildings
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Nur erstes Exemplar> **(Standard)** = Stadtattraktivität einmal pro geeignetem einzigartigem Gebäudetyp.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = diese Stadtboni aus.\n<Stadtweite Einstellung übernehmen> = allgemeine Regel nutzen.\n**Attraktivität lockt Touristen an.** Der eigene Gebäudewert bleibt.\n**Grüne Bonuszeilen** sind feste Beschreibungen.", // 15
+            "<Nur erste Kopie> **(Standard)** = Stadtattraktivität einmal pro geeignetem einzigartigem Gebäudetyp.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = diese Stadtboni aus.\n<Stadtweite Einstellung übernehmen> = allgemeine Regel nutzen.\n**Attraktivität lockt Touristen an.** Der eigene Gebäudewert bleibt.\n**Grüne Bonuszeilen** sind feste Beschreibungen.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18
@@ -41,13 +41,13 @@ namespace UniqueBuildings
             "Nur erstes Exemplar", // 23
             "Keine Nahbereichseffekte", // 24
             "Alle Signaturgebäude freischalten", // 25
-            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.\nStandard: AUS. Gilt nur für Signaturgebäude, nicht für andere einzigartige Gebäude.\n**Wichtig:** Andere einzigartige Dienstgebäude wie Polizeipräsidium und Geheimdienstzentrale brauchen weiterhin <Entwicklungspunkte> unter **Fortschritt > Entwicklung**. Diese Option schaltet nur Signaturgebäude frei.", // 26
+            "**EIN** = Signaturgebäude ohne Fortschrittsbedingungen freischalten.\n**AUS (Standard)** = normale Freischaltung.\n**Andere einzigartige Dienstgebäude** wie das Polizeipräsidium benötigen weiterhin <Entwicklungspunkte> unter **Fortschritt > Entwicklung**.", // 26
             "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 27
             "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 28
             "Mehrere Exemplare erlauben", // 29
             "**EIN** = mehrere Exemplare aller als einzigartig markierten Objekte platzieren, einschließlich Signaturgebäuden.\n**AUS** = normalerweise nur ein Exemplar pro Stadt, sofern kein anderer Mod mehrere erlaubt.", // 30
             "Gebäude beim Platzieren klar anzeigen", // 31
-            "**EIN (Standard)** = <freie Sicht auf Gebäude>: keine automatische Abdunklung, farbige Kartenansicht oder Infoview beim Platzieren einzigartiger Gebäude.\n**AUS** = normale automatische Infoviews.\nManuell bleiben Infoviews verfügbar. <Toggle Overlays> hat Vorrang.", // 32
+            "**EIN (Standard)** = <freie Sicht auf Gebäude>: keine automatische Abdunklung, farbige Kartenansicht oder Infoview beim Platzieren einzigartiger Gebäude.\n**AUS** = normale automatische Infoviews.\nDie Infoansicht lässt sich weiterhin manuell öffnen. <Toggle Overlays> hat Vorrang.", // 32
             "Platzierungsregel für einzigartige Objekte", // 33
             "**Mehrere Kopien erlaubt** = Einmal-pro-Stadt-Sperre ist aus.\n**Nur eines je Typ** = normale Sperre aktiv.\n<Anarchy> kann Kopien ebenfalls erlauben.\nDies betrifft Platzierung, nicht Bonus-Stapelung.", // 34
             "Signaturgebäude", // 35
