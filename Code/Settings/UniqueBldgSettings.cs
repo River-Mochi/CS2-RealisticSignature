@@ -342,9 +342,7 @@ namespace UniqueBuildings
 
         private void SetAllowMultipleUniqueBuildings(bool value)
         {
-            GetPlacementSystem()?.ScheduleReconcile(
-                value,
-                "Options setting changed");
+            GetPlacementSystem()?.ApplyFromOptions(value);
         }
 
 
