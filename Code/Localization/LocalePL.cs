@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Otwórz dziennik", // 60
             "Otwiera dziennik moda, a jeśli jest niedostępny — folder dzienników.", // 61
             "Bonusy ogólnomiejskie innych unikatowych budynków", // 62
-            "Bonusy unikatowych budynków innych niż Signature, np. ratusza.\\nAktywne / Razem = uwzględniane / wszystkie źródła. Zablokowane = wyłączone przez regułę. Zwykłe budynki usługowe nie są liczone.", // 63
+            "Bonusy unikatowych budynków innych niż Signature, np. ratusza.\nAktywne / Razem = uwzględniane / wszystkie źródła. Zablokowane = wyłączone przez regułę. Zwykłe budynki usługowe nie są liczone.", // 63
         };
 
         public LocalePL(UniqueBldgSettings setting)
