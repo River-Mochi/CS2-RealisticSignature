@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureNearbyEffectSystem.cs
-// Filters only placed Signature local effects in vanilla's spatial tree.
+// Filters Signature and other Unique building local effects in vanilla's spatial tree.
 // Never edits prefab data, LocalEffectProvider, or abandoned-building effects.
 
 namespace UniqueBuildings
@@ -31,6 +31,7 @@ namespace UniqueBuildings
     {
         private EntityQuery m_EligibleQuery;
         private EntityQuery m_ChangedQuery;
+        private EntityQuery m_ChangedOtherUniqueQuery;
         private LocalEffectSystem m_LocalEffects = null!;
         private NearbySignatureMode m_AppliedMode = NearbySignatureMode.Vanilla;
         private bool m_NeedsReconcile = true;
@@ -45,7 +46,6 @@ namespace UniqueBuildings
             {
                 All = new ComponentType[]
                 {
-                    ComponentType.ReadOnly<Signature>(),
                     ComponentType.ReadOnly<LocalEffectProvider>(),
                     ComponentType.ReadOnly<PrefabRef>(),
                     ComponentType.ReadOnly<Transform>(),
@@ -69,6 +69,27 @@ namespace UniqueBuildings
                     ComponentType.ReadOnly<Deleted>(),
                 },
                 None = new ComponentType[] { ComponentType.ReadOnly<Temp>() },
+            });
+
+            m_ChangedOtherUniqueQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Building>(),
+                    ComponentType.ReadOnly<LocalEffectProvider>(),
+                    ComponentType.ReadOnly<PrefabRef>(),
+                },
+                Any = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Created>(),
+                    ComponentType.ReadOnly<Updated>(),
+                    ComponentType.ReadOnly<Deleted>(),
+                },
+                None = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Signature>(),
+                    ComponentType.ReadOnly<Temp>(),
+                },
             });
         }
 
@@ -97,7 +118,8 @@ namespace UniqueBuildings
             }
 
             if (!m_NeedsReconcile && mode == m_AppliedMode &&
-                m_ChangedQuery.IsEmptyIgnoreFilter)
+                m_ChangedQuery.IsEmptyIgnoreFilter &&
+                !HasChangedOtherUniqueProviders())
                 return;
 
             m_NeedsReconcile = false;
@@ -146,14 +168,61 @@ namespace UniqueBuildings
                 ? mode : NearbySignatureMode.Vanilla;
         }
 
+        private bool HasChangedOtherUniqueProviders()
+        {
+            if (m_ChangedOtherUniqueQuery.IsEmptyIgnoreFilter)
+                return false;
+
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+            if (placement == null)
+                return false;
+
+            using NativeArray<Entity> candidates =
+                m_ChangedOtherUniqueQuery.ToEntityArray(Allocator.Temp);
+
+            foreach (Entity entity in candidates)
+            {
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (placement.IsKnownUniqueBuilding(prefab))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private List<Entity> GetEligibleUniqueBuildings()
+        {
+            using NativeArray<Entity> candidates =
+                m_EligibleQuery.ToEntityArray(Allocator.Temp);
+
+            List<Entity> result = new();
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+
+            foreach (Entity entity in candidates)
+            {
+                if (EntityManager.HasComponent<Signature>(entity))
+                {
+                    result.Add(entity);
+                    continue;
+                }
+
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (placement != null && placement.IsKnownUniqueBuilding(prefab))
+                    result.Add(entity);
+            }
+
+            return result;
+        }
+
         private void ReconcileNow(
             NearbySignatureMode mode, string reason, bool logResult = true)
         {
             CompleteDependency();
-            using NativeArray<Entity> buildings =
-                m_EligibleQuery.ToEntityArray(Allocator.Temp);
+            List<Entity> buildings = GetEligibleUniqueBuildings();
 
-            // Deterministic winner per active Signature prefab; no serialized state.
+            // Deterministic winner per eligible Unique prefab; no serialized state.
             Dictionary<Entity, Entity> firstByPrefab = new();
             foreach (Entity building in buildings)
             {
@@ -208,7 +277,7 @@ namespace UniqueBuildings
             if (logResult)
             {
                 LogUtils.Info($"{Mod.ModTag} Nearby Signature reconcile ({reason}): " +
-                    $"Mode={mode} | Eligible={buildings.Length} | " +
+                    $"Mode={mode} | Eligible={buildings.Count} | " +
                     $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
             }
 #endif
