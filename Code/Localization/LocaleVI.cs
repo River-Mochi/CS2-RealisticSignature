@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleVI.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Cho phép nhiều bản** = bỏ giới hạn một công trình mỗi thành phố.\n**Mỗi loại một bản** = giới hạn bình thường.\n<Anarchy> cũng có thể cho phép bản sao.\nKhông phản ánh cộng dồn thưởng.", // 34
             "Công trình đặc trưng", // 35
             "**Đã xây** = tổng công trình đặc trưng.\n**Loại** = số kiểu công trình khác nhau.\n<Bản thêm> = bản sau công trình đầu mỗi loại.\nGồm cả công trình không có thưởng toàn thành phố.", // 36
-            "Thưởng chung toàn thành phố", // 37
+            "Thưởng toàn thành phố từ công trình Signature", // 37
             "**Đang hoạt động / Tổng** = nguồn thưởng theo quy tắc chung / tất cả nguồn.\n<Bị chặn> = bị quy tắc chung loại bỏ, không phải mọi công trình thêm.\n**Sức hút độc lập:** nguồn bị chặn vẫn có thể góp sức hút.\nHiệu ứng xung quanh tính riêng.", // 38
             "Phát hiện mod trùng chức năng", // 39
             "<Chỉ bản đầu tiên> = một thưởng sức hút mỗi loại.\n<Cộng dồn mặc định> = mọi bản.\n<Không có thưởng> = tắt.\n<Theo cài đặt toàn thành phố> = quy tắc chung.\n**Hiện quy tắc đã chọn, không phải giá trị thưởng.**\nGiá trị thực: **Giới thiệu > Báo cáo nhật ký**. Dòng xanh không đổi.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Tạm thời thử tất cả chế độ phần thưởng toàn thành phố và hiệu ứng lân cận khi trò chơi đang tạm dừng trong Tùy chọn. Sau đó áp dụng lại các chế độ bạn đã chọn. Kết quả được ghi vào nhật ký mod. Hãy tải thành phố trước.", // 59
             "Mở nhật ký", // 60
             "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 61
+            "Thưởng toàn thành phố từ công trình độc đáo khác", // 62
+            "Thưởng từ công trình độc đáo không thuộc nhóm Signature, như Tòa thị chính.\\nĐang áp dụng / Tổng = số nguồn thưởng có hiệu lực / hiện có. Bị chặn = số nguồn bị loại theo thiết lập. Không tính công trình dịch vụ thông thường.", // 63
         };
 
         public LocaleVI(UniqueBldgSettings setting)
