@@ -139,12 +139,19 @@ namespace UniqueBuildings
                 !HasChangedOtherUniqueProviders())
                 return;
 
+            // In the periodic pass vanilla already maintains allowed effects.
+            // Only blocked duplicates need our intervention.
+            bool periodicRemovalOnly =
+                afterVanillaSimulation && !m_NeedsReconcile &&
+                mode == m_AppliedMode;
+
             m_NeedsReconcile = false;
             try
             {
                 ReconcileNow(
                     mode,
-                    afterVanillaSimulation ? "vanilla periodic effects" : "city update");
+                    afterVanillaSimulation ? "vanilla periodic effects" : "city update",
+                    periodicRemovalOnly: periodicRemovalOnly);
             }
             catch (Exception ex)
             {
@@ -236,7 +243,8 @@ namespace UniqueBuildings
         }
 
         private void ReconcileNow(
-            NearbySignatureMode mode, string reason, bool logResult = true)
+            NearbySignatureMode mode, string reason,
+            bool logResult = true, bool periodicRemovalOnly = false)
         {
             CompleteDependency();
             List<Entity> buildings = GetEligibleUniqueBuildings();
@@ -265,6 +273,12 @@ namespace UniqueBuildings
                 bool keep = mode == NearbySignatureMode.Vanilla ||
                     (mode == NearbySignatureMode.FirstCopyOnly &&
                      firstByPrefab[prefab] == building);
+
+                // Vanilla just refreshed active effects. In a periodic pass
+                // don't allocate modifier lists or rewrite the providers we keep.
+                if (periodicRemovalOnly && keep)
+                    continue;
+
                 FillModifiers(building, prefab, modifiers);
                 Transform transform = EntityManager.GetComponentData<Transform>(building);
                 float efficiency = GetProviderEfficiency(building);
