@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Anarchy birden fazla kopyaya izin veriyor", // 45
             "Başka bir mod birden fazla benzersiz binaya izin veriyor", // 46
             "Her türden bir tane", // 47
-            "Benzersiz bina kısıtlamaları hâlâ kapalı", // 48
+            "Sınırsız kopyaya hâlâ izin veriliyor", // 48
             "{0} yerleştirildi | {1} tür | {2} ek kopya", // 49
             "{0}/{1} etkin | {2} engelli", // 50
             "Yok", // 51
