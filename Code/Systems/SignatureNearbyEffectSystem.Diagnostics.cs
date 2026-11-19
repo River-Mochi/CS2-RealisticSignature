@@ -108,23 +108,81 @@ namespace UniqueBuildings
             if (copiesByPrefab.Count == 0)
             {
                 report.AppendLine("  None currently placed (eligible local-effect providers only).");
-                return;
+            }
+            else
+            {
+                PrefabSystem? prefabs =
+                    World.GetExistingSystemManaged<PrefabSystem>();
+
+                foreach (KeyValuePair<Entity, int> pair in copiesByPrefab)
+                {
+                    string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
+                    if (prefabs != null &&
+                        prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                    {
+                        name = prefab.name;
+                    }
+
+                    report.AppendLine(
+                        $"  {name} | placed={pair.Value} | " +
+                        $"duplicate={(pair.Value > 1 ? "YES" : "no")}");
+                }
             }
 
-            PrefabSystem? prefabs = World.GetExistingSystemManaged<PrefabSystem>();
-            foreach (KeyValuePair<Entity, int> pair in copiesByPrefab)
+            // Prefab data identifies possible nearby-effect test buildings
+            // even when none are currently placed in the city.
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+            if (placement == null)
+                return;
+
+            EntityQuery prefabQuery = GetEntityQuery(new EntityQueryDesc
             {
-                string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
-                if (prefabs != null &&
-                    prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<BuildingData>(),
+                    ComponentType.ReadOnly<PlaceableObjectData>(),
+                    ComponentType.ReadOnly<LocalModifierData>(),
+                },
+                None = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<SignatureBuildingData>(),
+                },
+            });
+
+            using NativeArray<Entity> candidates =
+                prefabQuery.ToEntityArray(Allocator.Temp);
+
+            List<string> names = new();
+            PrefabSystem? prefabSystem =
+                World.GetExistingSystemManaged<PrefabSystem>();
+            foreach (Entity prefabEntity in candidates)
+            {
+                if (!placement.IsKnownUniqueBuilding(prefabEntity) ||
+                    EntityManager.GetBuffer<LocalModifierData>(prefabEntity).Length == 0)
+                {
+                    continue;
+                }
+
+                string name =
+                    $"Prefab {prefabEntity.Index}:{prefabEntity.Version}";
+                if (prefabSystem != null &&
+                    prefabSystem.TryGetPrefab<PrefabBase>(prefabEntity, out PrefabBase prefab))
                 {
                     name = prefab.name;
                 }
 
-                report.AppendLine(
-                    $"  {name} | placed={pair.Value} | " +
-                    $"duplicate={(pair.Value > 1 ? "YES" : "no")}");
+                names.Add(name);
             }
+
+            names.Sort(StringComparer.OrdinalIgnoreCase);
+            report.AppendLine(
+                $"Available non-Signature Unique prefab types with local effects: {names.Count}");
+            for (int i = 0; i < names.Count && i < 20; i++)
+                report.AppendLine($"  Candidate: {names[i]}");
+
+            if (names.Count > 20)
+                report.AppendLine($"  ... {names.Count - 20} more (showing first 20).");
         }
 
         private void TestMode(NearbySignatureMode mode, StringBuilder report)
