@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocalePT_PT.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Várias cópias permitidas** = limite de uma por cidade desligado.\n**Uma de cada tipo** = limite normal.\n<Anarchy> também pode permitir cópias.\nNão indica a acumulação de bónus.", // 34
             "Edifícios emblemáticos", // 35
             "**Colocados** = todos os edifícios emblemáticos.\n**Tipos** = modelos diferentes.\n<Cópias extra> = além do primeiro de cada tipo.\nInclui edifícios sem bónus global.", // 36
-            "Bónus gerais da cidade", // 37
+            "Bónus urbanos de edifícios Signature", // 37
             "**Ativos / Total** = fornecedores aceites pela regra geral / todos os presentes.\n<Bloqueados> = excluídos pela regra, não todas as cópias extra.\n**Atratividade independente:** um fornecedor bloqueado pode ainda contribuir.\nEfeitos próximos são separados.", // 38
             "Mods redundantes detetados", // 39
             "<Só a primeira cópia> = um bónus por tipo.\n<Acumulação normal> = todas as cópias.\n<Sem bónus> = desligado.\n<Seguir definição geral> = regra geral.\n**Mostra a regra escolhida, não o valor do bónus.**\nValores reais: **Sobre > Relatório no registo**. Texto verde inalterado.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Testa temporariamente todos os modos de bónus da cidade e efeitos próximos enquanto o jogo está em pausa nas Opções. Depois volta a aplicar os modos escolhidos. Os resultados ficam no log do mod. Carrega primeiro uma cidade.", // 59
             "Abrir registo", // 60
             "Abre o registo do mod ou, se indisponível, a pasta dos registos.", // 61
+            "Bónus urbanos de outros edifícios únicos", // 62
+            "Bónus de edifícios únicos que não são Signature, como a Câmara Municipal.\\nAtivos / Total = fontes aplicadas / existentes. Bloqueados = fontes excluídas pela regra. Os serviços comuns não são contabilizados.", // 63
         };
 
         public LocalePT_PT(UniqueBldgSettings setting)
