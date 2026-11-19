@@ -96,8 +96,7 @@ namespace UniqueBuildings
 
         private void LogEffectCounts(NearbySignatureMode mode, string phase, StringBuilder report)
         {
-            using NativeArray<Entity> buildings =
-                m_EligibleQuery.ToEntityArray(Allocator.Temp);
+            List<Entity> buildings = GetEligibleUniqueBuildings();
 
             // Use the same first-copy rule as the actual nearby-effect system.
             Dictionary<Entity, Entity> firstByPrefab = new();
@@ -159,7 +158,7 @@ namespace UniqueBuildings
             }
 
             report.AppendLine($"  {phase}: {ModeLabel(mode)}");
-            report.AppendLine($"    Signature buildings: {buildings.Length} | " +
+            report.AppendLine($"    Unique/Signature buildings: {buildings.Count} | " +
                 $"Types: {firstByPrefab.Count}");
             report.AppendLine($"    Nearby effects: {active}/{available} active | " +
                 $"{available - active} disabled");
