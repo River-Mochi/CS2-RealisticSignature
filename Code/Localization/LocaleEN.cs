@@ -160,13 +160,20 @@ namespace UniqueBuildings
                     "Copies without city-wide bonuses are included in this count."
                 },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "General city-wide bonuses" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)), "Signature city-wide bonuses" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusCityWideEffects)),
                     "**Active / Total** = Signature city-wide providers counted by the general bonus rule / found in the city.\n" +
                     "<Blocked> = providers excluded by the general rule, not the total number of extra buildings.\n" +
                     "**Attractiveness is independent:** a blocked general provider may still add Attractiveness if its rule allows it.\n" +
                     "Nearby effects and each building's own attractiveness are separate."
                 },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusOtherUniqueBonuses)),
+                    "Other Unique city-wide bonuses" },
+                { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusOtherUniqueBonuses)),
+                    "City-wide bonuses from non-Signature Unique buildings, such as City Hall.\n" +
+                    "**Active / Total** = providers counted by the general bonus rule / found in the city.\n" +
+                    "<Blocked> = providers excluded by the rule. Ordinary non-Unique services are not counted." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)),
