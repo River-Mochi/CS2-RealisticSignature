@@ -24,19 +24,19 @@ namespace UniqueBuildings
             "Status", // 6
             "Info", // 7
             "Debug / Protokoll", // 8
-            "Stadtweite Signaturgebäude-Boni", // 9
-            "<Nur erste Kopie> **(Standard)** = Bonus pro Signaturtyp einmal zählen.\n<Keine stadtweiten Boni> = allgemeine Stadtboni ausschalten; Attraktivität hat eine eigene Regel.\n<Vanilla-Stapelung> = alle Kopien zählen.\n**Grüne Bonuszeilen** bleiben im Gebäude-Infobereich sichtbar, selbst wenn der Bonus blockiert ist.\nWerte: **Aktionen > Status** oder **Über > Statusbericht ins Protokoll**.", // 10
+            "Stadtweite Boni einzigartiger Gebäude", // 9
+            "<Nur erstes Exemplar> **(Standard)** = ein Stadtbonus pro einzigartigem Gebäudetyp.\n<Keine stadtweiten Boni> = allgemeine Boni einzigartiger Gebäude aus; Attraktivität separat.\n<Vanilla-Stapelung> = jede Kopie zählt.\n**Grüne Bonuszeilen** bleiben im Gebäude-Infobereich sichtbar, auch wenn der Bonus blockiert ist.\nWerte: **Aktionen > Status** oder **Über > Statusbericht ins Protokoll**.", // 10
             "Nur erstes Exemplar", // 11
             "Keine stadtweiten Boni", // 12
             "Vanilla-Stapelung", // 13
             "Stadtweite Attraktivität", // 14
-            "<Nur erste Kopie> **(Standard)** = Stadtattraktivität einmal je Typ.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = Stadtbonus von Signaturgebäuden aus.\n<Stadtweite Einstellung übernehmen> = allgemeine Regel nutzen.\n**Attraktivität hilft, Touristen anzuziehen.** Der eigene Gebäudewert bleibt.\n**Grüne Bonuszeilen** sind feste Beschreibungen.", // 15
+            "<Nur erstes Exemplar> **(Standard)** = Stadtattraktivität einmal pro geeignetem einzigartigem Gebäudetyp.\n<Vanilla-Stapelung> = jede Kopie zählt.\n<Kein Attraktivitätsbonus> = diese Stadtboni aus.\n<Stadtweite Einstellung übernehmen> = allgemeine Regel nutzen.\n**Attraktivität lockt Touristen an.** Der eigene Gebäudewert bleibt.\n**Grüne Bonuszeilen** sind feste Beschreibungen.", // 15
             "Stadtweite Einstellung übernehmen", // 16
             "Nur erste Kopie", // 17
             "Vanilla-Stapelung", // 18
             "Kein Attraktivitätsbonus", // 19
-            "Nahbereichseffekte von Signaturgebäuden", // 20
-            "<Vanilla-Nahbereichseffekte> = jedes Exemplar erzeugt seine normalen Effekte in der Umgebung.\n<Nur erstes Exemplar> = nur ein Exemplar je Gebäudetyp erzeugt Nahbereichseffekte.\n<Keine Nahbereichseffekte> = deaktiviert die normalen Nahbereichseffekte von Signaturgebäuden.\nEffekte verlassener Gebäude und die Gebäudeattraktivität bleiben erhalten.", // 21
+            "Nahbereichseffekte einzigartiger Gebäude", // 20
+            "<Vanilla-Nahbereichseffekte> **(Standard)** = jede einzigartige Gebäudekopie behält ihre Effekte.\n<Nur erstes Exemplar> = eine Kopie je Gebäudetyp.\n<Keine Nahbereichseffekte> = normale Effekte aus, Strafen verlassener Gebäude bleiben.\n**Gebäudeattraktivität** bleibt unverändert.", // 21
             "Vanilla-Nahbereichseffekte", // 22
             "Nur erstes Exemplar", // 23
             "Keine Nahbereichseffekte", // 24
@@ -46,8 +46,8 @@ namespace UniqueBuildings
             "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 28
             "Mehrere Exemplare erlauben", // 29
             "**EIN** = mehrere Exemplare aller als einzigartig markierten Objekte platzieren, einschließlich Signaturgebäuden.\n**AUS** = normalerweise nur ein Exemplar pro Stadt, sofern kein anderer Mod mehrere erlaubt.", // 30
-            "Automatische Infoviews für einzigartige Gebäude verhindern", // 31
-            "Verhindert beim Platzieren einzigartiger Gebäude einschließlich Signaturgebäuden das automatische Öffnen des Infoview-Fensters und der farbigen Karte. Infoviews lassen sich weiterhin manuell öffnen. Andere Bauwerkzeuge bleiben unverändert. Ist Toggleable Overlays aktiv, hat es Vorrang. Standard: EIN.", // 32
+            "Gebäude beim Platzieren klar anzeigen", // 31
+            "**EIN (Standard)** = <freie Sicht auf Gebäude>: keine automatische Abdunklung, farbige Kartenansicht oder Infoview beim Platzieren einzigartiger Gebäude.\n**AUS** = normale automatische Infoviews.\nManuell bleiben Infoviews verfügbar. <Toggle Overlays> hat Vorrang.", // 32
             "Platzierungsregel für einzigartige Objekte", // 33
             "**Mehrere Kopien erlaubt** = Einmal-pro-Stadt-Sperre ist aus.\n**Nur eines je Typ** = normale Sperre aktiv.\n<Anarchy> kann Kopien ebenfalls erlauben.\nDies betrifft Platzierung, nicht Bonus-Stapelung.", // 34
             "Signaturgebäude", // 35
@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Mehrere Exemplare durch Anarchy erlaubt", // 45
             "Mehrere einzigartige Gebäude durch anderen Mod erlaubt", // 46
             "Nur eines pro Typ", // 47
-            "Gemischte Regeln", // 48
+            "Einzigartigkeitsbeschränkungen noch deaktiviert", // 48
             "{0} platziert | {1} Typen | {2} zusätzliche Exemplare", // 49
             "{0}/{1} aktiv | {2} gesperrt", // 50
             "Keine", // 51
