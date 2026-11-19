@@ -25,29 +25,29 @@ namespace UniqueBuildings
             "Info", // 7
             "Debug / Registro", // 8
             "Bonus cittadini degli edifici unici", // 9
-            "<Solo prima copia> **(predefinito)** = un bonus cittadino per tipo di edificio unico.\n<Nessun bonus cittadino> = disattiva i bonus generali; attrattività separata.\n<Accumulo originale> = ogni copia contribuisce.\n**Le righe verdi** restano visibili anche se il bonus è bloccato.\nControlla **Azioni > Stato** o il rapporto nel registro.", // 10
+            "<Solo la prima copia> **(predefinito)** = un bonus cittadino per tipo di edificio unico.\n<Nessun bonus cittadino> = disattiva i bonus generali; attrattività separata.\n<Accumulo normale> = ogni copia contribuisce.\n**Le righe verdi** restano visibili anche se il bonus è bloccato.\nControlla **Azioni > Stato** o il rapporto nel registro.", // 10
             "Solo la prima copia", // 11
             "Nessun bonus cittadino", // 12
             "Accumulo normale", // 13
             "Attrattiva cittadina", // 14
-            "<Solo prima copia> **(predefinito)** = un bonus cittadino di attrattività per tipo unico idoneo.\n<Accumulo originale> = tutte le copie contribuiscono.\n<Nessun bonus di attrattività> = questi bonus sono disattivati.\n<Segui impostazione generale> = applica la regola precedente.\n**L'attrattività richiama turisti.** Quella del singolo edificio resta invariata.\n**Le righe verdi** sono descrizioni statiche.", // 15
+            "<Solo prima copia> **(predefinito)** = un bonus cittadino di attrattività per tipo unico idoneo.\n<Accumulo standard> = tutte le copie contribuiscono.\n<Nessun bonus attrattiva> = questi bonus sono disattivati.\n<Segui impostazione cittadina> = applica la regola precedente.\n**L'attrattività richiama turisti.** Quella del singolo edificio resta invariata.\n**Le righe verdi** sono descrizioni statiche.", // 15
             "Segui impostazione cittadina", // 16
             "Solo prima copia", // 17
             "Accumulo standard", // 18
             "Nessun bonus attrattiva", // 19
             "Effetti nelle vicinanze degli edifici unici", // 20
-            "<Effetti originali> **(predefinito)** = ogni copia unica conserva gli effetti locali.\n<Solo prima copia> = una copia per tipo.\n<Nessun effetto nelle vicinanze> = disattiva gli effetti normali, non le penalità da abbandono.\n**L'attrattività dell'edificio** non cambia.", // 21
+            "<Effetti vicini normali> **(predefinito)** = ogni copia unica conserva gli effetti locali.\n<Solo la prima copia> = una copia per tipo.\n<Nessun effetto vicino> = disattiva gli effetti normali, non le penalità da abbandono.\n**L'attrattività dell'edificio** non cambia.", // 21
             "Effetti vicini normali", // 22
             "Solo la prima copia", // 23
             "Nessun effetto vicino", // 24
             "Sblocca tutti gli edifici distintivi", // 25
-            "**ATTIVO** = rende disponibili tutti gli edifici distintivi senza requisiti di popolazione, zone o progressione.\n**DISATTIVO** = progressione normale del gioco.\nPredefinito: disattivo. Solo edifici distintivi, non tutti quelli unici.\n**Importante:** Gli altri edifici unici di servizio, come il quartier generale della polizia e l'ufficio centrale d'intelligence, richiedono ancora <punti sviluppo> in **Progressione > Sviluppo**. Questa opzione sblocca solo gli edifici distintivi.", // 26
+            "**ATTIVO** = sblocca gli edifici distintivi senza requisiti di progresso.\n**DISATTIVO (predefinito)** = sblocco normale.\n**Gli altri edifici unici**, come il quartier generale della polizia, richiedono ancora <punti sviluppo> in **Progressione > Sviluppo**.", // 26
             "Nascondi notifiche di sblocco in massa degli edifici distintivi", // 27
             "**ATTIVO** (consigliato, predefinito) = nasconde le notifiche dello sblocco in massa effettuato da questo mod.\n**DISATTIVO** = mostra una notifica per ogni edificio distintivo appena sbloccato dal mod; possono essercene decine o centinaia.\nRestano visibili le normali notifiche del gioco, comprese quelle per nuovi edifici da aggiornamenti, DLC, pacchetti regionali e progressione della città.", // 28
             "Consenti più copie", // 29
             "**ATTIVO** = consente di costruire più copie degli oggetti unici, inclusi gli edifici distintivi.\n**DISATTIVO** = una copia per città, salvo che un altro mod lo consenta.", // 30
             "Mostra chiaramente gli edifici durante il posizionamento", // 31
-            "**ATTIVO (predefinito)** = <visuale libera>: niente oscuramento automatico, sovrapposizioni colorate o pannelli informativi automatici quando posizioni edifici unici.\n**DISATTIVO** = comportamento automatico normale.\nPuoi aprire le visualizzazioni manualmente. <Toggle Overlays> ha priorità.", // 32
+            "**ATTIVO (predefinito)** = <visuale libera>: niente oscuramento automatico, sovrapposizioni colorate o pannelli informativi automatici quando posizioni edifici unici.\n**DISATTIVO** = comportamento automatico normale.\nPuoi comunque aprire il pannello informativo manualmente. <Toggle Overlays> ha priorità.", // 32
             "Regole per gli edifici unici", // 33
             "**Copie multiple consentite** = limite di uno per città disattivato.\n**Uno per tipo** = limite normale.\n<Anarchy> può consentire copie.\nNon indica se i bonus si sommano.", // 34
             "Edifici distintivi", // 35
