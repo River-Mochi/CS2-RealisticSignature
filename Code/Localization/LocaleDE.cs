@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Nur erstes Exemplar", // 23
             "Keine Nahbereichseffekte", // 24
             "Alle Signaturgebäude freischalten", // 25
-            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.\nStandard: AUS. Gilt nur für Signaturgebäude, nicht für andere einzigartige Gebäude.", // 26
+            "**EIN** = alle Signaturgebäude ohne Einwohner-, Zonen- oder Fortschrittsanforderungen verfügbar machen.\n**AUS** = normaler Spielfortschritt.\nStandard: AUS. Gilt nur für Signaturgebäude, nicht für andere einzigartige Gebäude.\n**Wichtig:** Andere einzigartige Dienstgebäude wie Polizeipräsidium und Geheimdienstzentrale brauchen weiterhin <Entwicklungspunkte> unter **Fortschritt > Entwicklung**. Diese Option schaltet nur Signaturgebäude frei.", // 26
             "Pop-ups beim Massenfreischalten von Signaturgebäuden ausblenden", // 27
             "**EIN** (empfohlen, Standard) = Pop-ups beim massenhaften Freischalten durch diesen Mod ausblenden.\n**AUS** = für jedes durch diesen Mod neu freigeschaltete Signaturgebäude ein Pop-up zeigen. Es können Dutzende oder Hunderte erscheinen.\nNormale Spielmeldungen bleiben sichtbar, auch für neue Gebäude aus Spielupdates, DLC, Region-Paketen oder dem Stadtfortschritt.", // 28
             "Mehrere Exemplare erlauben", // 29
