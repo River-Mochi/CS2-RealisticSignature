@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Ouvrir le journal", // 60
             "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 61
             "Bonus urbains des autres bâtiments uniques", // 62
-            "Bonus des bâtiments uniques non Signature, comme l'hôtel de ville.\\nActifs / Total = sources prises en compte / présentes. Bloqués = sources exclues par le réglage. Les services ordinaires ne sont pas comptés.", // 63
+            "Bonus des bâtiments uniques non Signature, comme l'hôtel de ville.\nActifs / Total = sources prises en compte / présentes. Bloqués = sources exclues par le réglage. Les services ordinaires ne sont pas comptés.", // 63
         };
 
         public LocaleFR(UniqueBldgSettings setting)
