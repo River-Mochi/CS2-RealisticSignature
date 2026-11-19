@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Thưởng toàn thành phố từ công trình Signature", // 37
             "**Đang hoạt động / Tổng** = nguồn thưởng theo quy tắc chung / tất cả nguồn.\n<Bị chặn> = bị quy tắc chung loại bỏ, không phải mọi công trình thêm.\n**Sức hút độc lập:** nguồn bị chặn vẫn có thể góp sức hút.\nHiệu ứng xung quanh tính riêng.", // 38
             "Phát hiện mod trùng chức năng", // 39
-            "<Chỉ bản đầu tiên> = một thưởng sức hút mỗi loại.\n<Cộng dồn mặc định> = mọi bản.\n<Không có thưởng> = tắt.\n<Theo cài đặt toàn thành phố> = quy tắc chung.\n**Hiện quy tắc đã chọn, không phải giá trị thưởng.**\nGiá trị thực: **Giới thiệu > Báo cáo nhật ký**. Dòng xanh không đổi.", // 40
+            "**Không có** = không phát hiện mod quen thuộc nào có cùng chức năng đặt nhiều công trình độc đáo.\n<Anarchy> tương thích nên không liệt kê.\nTránh dùng thêm mod có chức năng trùng lặp.", // 40
             "Chưa tải thành phố", // 41
             "Đang tải…", // 42
             "Hãy tải thành phố để xem trạng thái", // 43
             "Cho phép nhiều bản sao", // 44
             "Anarchy cho phép nhiều bản sao", // 45
-            "Mod khác cho phép xây nhiều công trình độc nhất", // 46
+            "Vẫn cho phép đặt nhiều bản sao", // 46
             "Mỗi loại một công trình", // 47
-            "Vẫn cho phép đặt nhiều bản sao", // 48
+            "Quy tắc đặt công trình không đồng nhất", // 48
             "Đã xây {0} | {1} loại | {2} bản sao thêm", // 49
             "Hoạt động {0}/{1} | chặn {2}", // 50
             "Không có", // 51
