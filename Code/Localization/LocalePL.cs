@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Bonusy ogólnomiejskie budynków Signature", // 37
             "**Aktywne / Wszystkie** = dostawcy premii według zasady ogólnej / wszyscy w mieście.\n<Zablokowane> = wykluczeni przez tę zasadę, nie wszystkie dodatkowe kopie.\n**Atrakcyjność osobno:** zablokowany dostawca może nadal ją zwiększać.\nEfekty lokalne są osobne.", // 38
             "Wykryte zbędne mody", // 39
-            "<Tylko pierwszy egzemplarz> = jedna premia atrakcyjności na typ.\n<Normalne sumowanie> = wszystkie kopie.\n<Bez premii> = wyłączona.\n<Zgodnie z ustawieniem miasta> = zasada ogólna.\n**Pokazuje wybraną zasadę, a nie wartość premii.**\nRzeczywiste wartości: **Informacje > Raport w dzienniku**. Zielony tekst pozostaje.", // 40
+            "**Brak** = nie wykryto znanych modów z tą samą funkcją wielokrotnego stawiania.\n<Anarchy> jest zgodny i nie pojawia się tutaj.\nUnikaj innych modów o tej samej funkcji.", // 40
             "Nie wczytano miasta", // 41
             "Wczytywanie…", // 42
             "Najpierw wczytaj miasto, aby zobaczyć stan", // 43
             "Można stawiać wiele kopii", // 44
             "Anarchy pozwala na wiele kopii", // 45
-            "Inny mod pozwala na wiele unikalnych budynków", // 46
+            "Nadal można stawiać wiele egzemplarzy", // 46
             "Po jednym z każdego typu", // 47
-            "Nadal można stawiać nieograniczoną liczbę kopii", // 48
+            "Mieszane zasady stawiania", // 48
             "Postawiono {0} | typy: {1} | dodatkowe kopie: {2}", // 49
             "Aktywne {0}/{1} | zablokowane {2}", // 50
             "Brak", // 51
