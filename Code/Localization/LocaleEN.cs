@@ -182,9 +182,9 @@ namespace UniqueBuildings
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)), "City-wide Attractiveness" },
                 { m_Setting.GetOptionDescLocaleID(nameof(UniqueBldgSettings.StatusAttractivenessMode)),
-                    "<First copy only> = one city-wide Attractiveness bonus per Signature type.\n" +
+                    "<First copy only> = one city-wide Attractiveness bonus per eligible Unique or Signature type.\n" +
                     "<Vanilla stacking> = every copy contributes.\n" +
-                    "<No attractiveness bonus> = Signature contributions disabled.\n" +
+                    "<No attractiveness bonus> = eligible Unique and Signature contributions disabled.\n" +
                     "<Follow city-wide setting> = use the general rule above.\n" +
                     "**Shows the selected rule, not a bonus number.**\n" +
                     "For actual city modifier values, use **About > Status report to log**. Green building descriptions stay unchanged." },
