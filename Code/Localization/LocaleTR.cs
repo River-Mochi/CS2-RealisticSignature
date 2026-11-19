@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Signature binalarının şehir geneli bonusları", // 37
             "**Etkin / Toplam** = genel kuralla sayılan bonus kaynakları / tüm kaynaklar.\n<Engelli> = bu kuralla dışlananlar, bütün ek binalar değil.\n**Çekicilik bağımsızdır:** engellenen kaynak yine çekicilik verebilir.\nYakın çevre etkileri ayrıdır.", // 38
             "Gereksiz modlar algılandı", // 39
-            "<Yalnızca ilk kopya> = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar.\n<Bonus yok> = kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Seçilen kuralı gösterir, bonus değerini değil.**\nGerçek değerler: **Hakkında > Günlük raporu**. Yeşil yazı değişmez.", // 40
+            "**Yok** = aynı çoklu yerleştirme işlevine sahip bilinen bir mod algılanmadı.\n<Anarchy> uyumludur ve burada listelenmez.\nAynı işlevi yapan diğer modları birlikte kullanmayın.", // 40
             "Şehir yüklenmedi", // 41
             "Yükleniyor…", // 42
             "Durumu görmek için önce bir şehir yükleyin", // 43
             "Birden fazla kopyaya izin veriliyor", // 44
             "Anarchy birden fazla kopyaya izin veriyor", // 45
-            "Başka bir mod birden fazla benzersiz binaya izin veriyor", // 46
+            "Sınırsız kopyaya hâlâ izin veriliyor", // 46
             "Her türden bir tane", // 47
-            "Sınırsız kopyaya hâlâ izin veriliyor", // 48
+            "Karışık yerleştirme kuralları", // 48
             "{0} yerleştirildi | {1} tür | {2} ek kopya", // 49
             "{0}/{1} etkin | {2} engelli", // 50
             "Yok", // 51
