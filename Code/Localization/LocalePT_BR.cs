@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Abrir registro", // 60
             "Abre o registro do mod ou, se não estiver disponível, a pasta de registros.", // 61
             "Bônus urbanos de outros edifícios únicos", // 62
-            "Bônus de edifícios únicos que não são Signature, como a Prefeitura.\\nAtivos / Total = fontes aplicadas / existentes. Bloqueados = fontes excluídas pela regra. Serviços comuns não entram na contagem.", // 63
+            "Bônus de edifícios únicos que não são Signature, como a Prefeitura.\nAtivos / Total = fontes aplicadas / existentes. Bloqueados = fontes excluídas pela regra. Serviços comuns não entram na contagem.", // 63
         };
 
         public LocalePT_BR(UniqueBldgSettings setting)
