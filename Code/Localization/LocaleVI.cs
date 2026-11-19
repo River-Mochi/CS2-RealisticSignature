@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Mở nhật ký", // 60
             "Mở tệp nhật ký của mod hoặc thư mục nhật ký nếu tệp không có.", // 61
             "Thưởng toàn thành phố từ công trình độc đáo khác", // 62
-            "Thưởng từ công trình độc đáo không thuộc nhóm Signature, như Tòa thị chính.\\nĐang áp dụng / Tổng = số nguồn thưởng có hiệu lực / hiện có. Bị chặn = số nguồn bị loại theo thiết lập. Không tính công trình dịch vụ thông thường.", // 63
+            "Thưởng từ công trình độc đáo không thuộc nhóm Signature, như Tòa thị chính.\nĐang áp dụng / Tổng = số nguồn thưởng có hiệu lực / hiện có. Bị chặn = số nguồn bị loại theo thiết lập. Không tính công trình dịch vụ thông thường.", // 63
         };
 
         public LocaleVI(UniqueBldgSettings setting)
