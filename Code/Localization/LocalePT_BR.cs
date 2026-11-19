@@ -41,7 +41,7 @@ namespace UniqueBuildings
             "Só a primeira cópia", // 23
             "Sem efeitos próximos", // 24
             "Desbloquear todos os edifícios emblemáticos", // 25
-            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zoneamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.\nPadrão: desligado. Só para edifícios emblemáticos, não para todos os únicos.", // 26
+            "**LIGADO** = disponibiliza todos os edifícios emblemáticos sem requisitos de população, zoneamento ou progresso.\n**DESLIGADO** = progressão normal do jogo.\nPadrão: desligado. Só para edifícios emblemáticos, não para todos os únicos.\n**Importante:** Outros edifícios únicos de serviços, como a Sede da Polícia e a Agência Central de Inteligência, ainda exigem <pontos de desenvolvimento> em **Progressão > Desenvolvimento**. Esta opção libera apenas edifícios emblemáticos.", // 26
             "Ocultar avisos de desbloqueio em massa", // 27
             "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 28
             "Permitir várias cópias", // 29
