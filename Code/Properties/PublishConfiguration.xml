@@ -103,9 +103,10 @@ tags: unlimited signature buildings
 <!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 <RequiredDLC Value="" />
 <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog Value="Fix bonus stacking for non-Signature Unique buildings, including city-wide and nearby effects." />
-<!--<ChangeLog>
-</ChangeLog>-->
+<ChangeLog>
+- all unique building bonuses like City Hall are controlable, not just signature buildings.
+</ChangeLog>
+
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 <ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
 <ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-RealisticSignature" />
