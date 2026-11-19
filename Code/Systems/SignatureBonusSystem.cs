@@ -291,7 +291,7 @@ namespace UniqueBuildings
             Dictionary<Entity, List<Entity>> result =
                 new();
 
-            for (int i = 0; i < signatures.Length; i++)
+            for (int i = 0; i < signatures.Count; i++)
             {
                 Entity entity = signatures[i];
 
