@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Bônus urbanos de edifícios Signature", // 37
             "**Ativos / Total** = fornecedores incluídos pela regra geral / todos os encontrados.\n<Bloqueados> = excluídos pela regra, não todas as cópias extras.\n**Atratividade independente:** um fornecedor bloqueado ainda pode contribuir.\nEfeitos próximos são separados.", // 38
             "Mods redundantes detectados", // 39
-            "<Só a primeira cópia> = um bônus por tipo.\n<Acúmulo padrão> = todas as cópias.\n<Sem bônus> = desligado.\n<Seguir configuração geral> = regra geral.\n**Mostra a regra escolhida, não o valor do bônus.**\nValores reais: **Sobre > Relatório no log**. Texto verde inalterado.", // 40
+            "**Nenhum** = nenhum outro mod conhecido de construção ilimitada de edifícios únicos foi detectado.\n<Anarchy> é compatível e não aparece aqui.\nEvite outros mods com a mesma função.", // 40
             "Nenhuma cidade carregada", // 41
             "Carregando…", // 42
             "Carregue uma cidade para ver o status", // 43
             "Várias cópias permitidas", // 44
             "Anarchy permite várias cópias", // 45
-            "Outro mod permite vários edifícios únicos", // 46
+            "Cópias ilimitadas ainda permitidas", // 46
             "Um de cada tipo", // 47
-            "Cópias ilimitadas ainda permitidas", // 48
+            "Regras de construção mistas", // 48
             "{0} construídos | {1} tipos | {2} cópias extras", // 49
             "{0}/{1} ativos | {2} bloqueados", // 50
             "Nenhum", // 51
