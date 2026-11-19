@@ -234,6 +234,7 @@ namespace UniqueBuildings
                 FillModifiers(building, prefab, modifiers);
                 Transform transform =
                     EntityManager.GetComponentData<Transform>(building);
+                float efficiency = GetProviderEfficiency(building);
 
                 for (int i = 0; i < modifiers.Length; i++)
                 {
@@ -241,7 +242,7 @@ namespace UniqueBuildings
                     available++;
 
                     if (keep && LocalEffectSystem.GetEffectBounds(
-                        transform, modifier, out _))
+                        transform, efficiency, modifier, out _))
                     {
                         expected++;
                     }
