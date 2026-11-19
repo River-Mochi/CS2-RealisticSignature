@@ -24,19 +24,19 @@ namespace UniqueBuildings
             "Status", // 6
             "Informações", // 7
             "Depuração / Registro", // 8
-            "Bônus de edifícios emblemáticos em toda a cidade", // 9
-            "<Só a primeira cópia> **(padrão)** = um bônus por tipo.\n<Sem bônus globais> = desativa os bônus gerais; atratividade tem regra separada.\n<Acúmulo padrão> = todas as cópias contribuem.\n**O texto verde** do painel continua visível mesmo com o bônus bloqueado.\nVeja **Ações > Status** ou **Sobre > Relatório no log**.", // 10
+            "Bônus urbanos de edifícios únicos", // 9
+            "<Só a primeira cópia> **(padrão)** = um bônus urbano por tipo de edifício único.\n<Sem bônus urbanos> = desativa os bônus gerais; atratividade separada.\n<Acúmulo original> = todas as cópias contam.\n**O texto verde** continua mostrando os bônus originais, mesmo quando bloqueados.\nConfira **Ações > Status** ou o relatório no log.", // 10
             "Só a primeira cópia", // 11
             "Sem bônus para a cidade", // 12
             "Acúmulo padrão", // 13
             "Atratividade da cidade", // 14
-            "<Só a primeira cópia> **(padrão)** = um bônus de atratividade por tipo.\n<Acúmulo padrão> = todas as cópias contribuem.\n<Sem bônus de atratividade> = bônus da cidade desligado.\n<Seguir configuração geral> = usar a regra geral.\n**Atratividade ajuda a atrair turistas.** A atratividade própria do prédio não muda.\n**O texto verde** continua visível.", // 15
+            "<Só a primeira cópia> **(padrão)** = um bônus urbano de atratividade por tipo de edifício único elegível.\n<Acúmulo original> = todas as cópias contam.\n<Sem bônus de atratividade> = desativa esses bônus urbanos.\n<Seguir ajuste geral> = usa a regra acima.\n**Atratividade atrai turistas.** A atratividade própria do edifício não muda.\n**O texto verde** é uma descrição fixa.", // 15
             "Seguir configuração geral", // 16
             "Só a primeira cópia", // 17
             "Acúmulo padrão", // 18
             "Sem bônus de atratividade", // 19
-            "Efeitos próximos de edifícios emblemáticos", // 20
-            "<Efeitos próximos padrão> = cada cópia fornece seus efeitos locais normais.\n<Só a primeira cópia> = apenas uma cópia de cada tipo fornece efeitos próximos.\n<Sem efeitos próximos> = desativa os efeitos locais normais desses edifícios.\nEfeitos de edifícios abandonados e atratividade são preservados.", // 21
+            "Efeitos locais de edifícios únicos", // 20
+            "<Efeitos originais> **(padrão)** = toda cópia de edifício único mantém os efeitos próximos.\n<Só a primeira cópia> = uma por tipo.\n<Sem efeitos locais> = desativa os efeitos normais; penalidades de edifícios abandonados continuam.\n**A atratividade do edifício** não muda.", // 21
             "Efeitos próximos padrão", // 22
             "Só a primeira cópia", // 23
             "Sem efeitos próximos", // 24
@@ -46,8 +46,8 @@ namespace UniqueBuildings
             "**LIGADO** (recomendado, padrão) = oculta os avisos do desbloqueio em massa feito por este mod.\n**DESLIGADO** = mostra um aviso para cada edifício emblemático recém-desbloqueado por este mod; podem ser dezenas ou centenas.\nOs avisos normais do jogo continuam aparecendo, inclusive novos edifícios de atualizações, DLC, pacotes regionais e progresso da cidade.", // 28
             "Permitir várias cópias", // 29
             "**LIGADO** = permite construir várias cópias de objetos únicos, incluindo edifícios emblemáticos.\n**DESLIGADO** = apenas uma cópia por cidade, exceto se outro mod permitir mais.", // 30
-            "Impedir vistas de informação automáticas para edifícios únicos", // 31
-            "Impede que edifícios únicos, incluindo os emblemáticos, abram automaticamente o painel de informações e o mapa colorido ao serem posicionados. As vistas ainda podem ser abertas manualmente. As outras ferramentas não mudam. Toggleable Overlays tem prioridade quando ativo. Padrão: LIGADO.", // 32
+            "Mostrar edifícios claramente ao posicionar", // 31
+            "**LIGADO (padrão)** = <visual livre>: evita escurecimento automático, mapa colorido e painel de informações ao posicionar edifícios únicos.\n**DESLIGADO** = comportamento automático original.\nAs visualizações podem ser abertas manualmente. <Toggle Overlays> tem prioridade.", // 32
             "Regra de construção de objetos únicos", // 33
             "**Múltiplas cópias permitidas** = limite de uma por cidade desligado.\n**Uma de cada tipo** = limite normal.\n<Anarchy> também pode liberar cópias.\nIsso não mostra o acúmulo dos bônus.", // 34
             "Edifícios emblemáticos", // 35
@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Anarchy permite várias cópias", // 45
             "Outro mod permite vários edifícios únicos", // 46
             "Um de cada tipo", // 47
-            "Regras mistas", // 48
+            "Restrições de edifícios únicos ainda desativadas", // 48
             "{0} construídos | {1} tipos | {2} cópias extras", // 49
             "{0}/{1} ativos | {2} bloqueados", // 50
             "Nenhum", // 51
