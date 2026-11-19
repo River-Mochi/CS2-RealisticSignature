@@ -6,6 +6,8 @@
     <File Path="GPL-LICENSE" />
     <File Path="LICENSE-EXCEPTION" />
     <File Path="README.md" />
+    <File Path="Scripts/check_locales.py" />
+    <File Path="Scripts/check_rs_locales.py" />
   </Folder>
   <Project Path="Code/UniqueBuildings.csproj" />
 </Solution>
