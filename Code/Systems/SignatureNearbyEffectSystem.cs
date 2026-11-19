@@ -267,6 +267,7 @@ namespace UniqueBuildings
                      firstByPrefab[prefab] == building);
                 FillModifiers(building, prefab, modifiers);
                 Transform transform = EntityManager.GetComponentData<Transform>(building);
+                float efficiency = GetProviderEfficiency(building);
 
                 for (int i = 0; i < modifiers.Length; i++)
                 {
@@ -275,7 +276,8 @@ namespace UniqueBuildings
                         new(building, modifier.m_Type);
 
                     if (keep && LocalEffectSystem.GetEffectBounds(
-                        transform, modifier, out LocalEffectSystem.EffectBounds bounds))
+                        transform, efficiency, modifier,
+                        out LocalEffectSystem.EffectBounds bounds))
                     {
                         tree.AddOrUpdate(item, bounds);
                         enabled++;
@@ -300,6 +302,20 @@ namespace UniqueBuildings
                     $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
             }
 #endif
+        }
+
+        private float GetProviderEfficiency(Entity building)
+        {
+            // Vanilla applies local-effect efficiency to ordinary services,
+            // but Signature effects use full strength.
+            if (EntityManager.HasComponent<Signature>(building) ||
+                !EntityManager.HasBuffer<Efficiency>(building))
+            {
+                return 1f;
+            }
+
+            return BuildingUtils.GetEfficiency(
+                EntityManager.GetBuffer<Efficiency>(building, isReadOnly: true));
         }
 
         private void FillModifiers(Entity building, Entity prefab,
