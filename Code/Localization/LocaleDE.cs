@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleDE.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Mehrere Kopien erlaubt** = Einmal-pro-Stadt-Sperre ist aus.\n**Nur eines je Typ** = normale Sperre aktiv.\n<Anarchy> kann Kopien ebenfalls erlauben.\nDies betrifft Platzierung, nicht Bonus-Stapelung.", // 34
             "Signaturgebäude", // 35
             "**Gebäude** = alle platzierten Signaturgebäude.\n**Typen** = unterschiedliche Signaturtypen.\n<Extra-Kopien> = weitere Exemplare über das erste hinaus.\nAuch Gebäude ohne Stadtbonus zählen.", // 36
-            "Allgemeine stadtweite Boni", // 37
+            "Stadtweite Boni von Signaturgebäuden", // 37
             "**Aktiv / Gesamt** = Stadtbonus-Quellen gemäß allgemeiner Regel / alle vorhandenen.\n<Blockiert> = durch diese Regel ausgeschlossen, nicht alle Extra-Gebäude.\n**Attraktivität ist unabhängig:** blockierte Quellen können trotzdem Attraktivität geben.\nNahbereich und Gebäudewert sind getrennt.", // 38
             "Überflüssige Mods erkannt", // 39
             "**Erste Kopie** = ein Attraktivitätsbonus je Typ.\n<Vanilla-Stapelung> = alle Kopien.\n<Kein Bonus> = Signatur-Stadtbonus aus.\n<Einstellung übernehmen> = allgemeine Regel.\n**Zeigt die gewählte Regel, keinen Bonuswert.**\nTatsächliche Stadtwerte: **Über > Statusbericht ins Protokoll**. Grüner Infotext bleibt.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Testet vorübergehend alle stadtweiten und Nahbereichsmodi, während das Spiel im Optionsmenü pausiert ist. Danach werden deine gewählten Modi erneut angewendet. Ergebnisse stehen im Mod-Log. Zuerst eine Stadt laden.", // 59
             "Protokoll öffnen", // 60
             "Öffnet die Protokolldatei des Mods oder andernfalls den Protokollordner.", // 61
+            "Stadtweite Boni der anderen einzigartigen Gebäude", // 62
+            "Stadtweite Boni einzigartiger Gebäude außerhalb der Signatur-Kategorie, z. B. Rathaus.\\nAktiv / Gesamt = berücksichtigte / vorhandene Bonusquellen. Blockiert = durch die Regel ausgeschlossen. Normale Gebäude zählen nicht.", // 63
         };
 
         public LocaleDE(UniqueBldgSettings setting)
