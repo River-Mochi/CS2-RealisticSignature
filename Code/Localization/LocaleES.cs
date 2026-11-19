@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Abrir registro", // 60
             "Abre el registro del mod o, si no está disponible, la carpeta de registros.", // 61
             "Bonificaciones urbanas de otros edificios únicos", // 62
-            "Bonificaciones de edificios únicos que no son de tipo Signature, como el Ayuntamiento.\\nActivas / Total = fuentes que cuentan / existentes. Bloqueadas = excluidas por la regla. Los servicios normales no se incluyen.", // 63
+            "Bonificaciones de edificios únicos que no son de tipo Signature, como el Ayuntamiento.\nActivas / Total = fuentes que cuentan / existentes. Bloqueadas = excluidas por la regla. Los servicios normales no se incluyen.", // 63
         };
 
         public LocaleES(UniqueBldgSettings setting)
