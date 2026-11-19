@@ -78,7 +78,7 @@ namespace UniqueBuildings
             "Günlüğü aç", // 60
             "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 61
             "Diğer benzersiz binaların şehir geneli bonusları", // 62
-            "Belediye Binası gibi Signature olmayan benzersiz binaların bonusları.\\nAktif / Toplam = uygulanan / mevcut bonus kaynakları. Engellenen = ayar gereği sayılmayanlar. Normal hizmet binaları dahil değildir.", // 63
+            "Belediye Binası gibi Signature olmayan benzersiz binaların bonusları.\nAktif / Toplam = uygulanan / mevcut bonus kaynakları. Engellenen = ayar gereği sayılmayanlar. Normal hizmet binaları dahil değildir.", // 63
         };
 
         public LocaleTR(UniqueBldgSettings setting)
