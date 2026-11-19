@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleTR.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Çoklu kopya serbest** = şehir başına tek bina sınırı kapalı.\n**Her türden bir tane** = normal sınır.\n<Anarchy> de kopyalara izin verebilir.\nBonus birikimini göstermez.", // 34
             "İmza binalar", // 35
             "**Yerleştirilen** = tüm imza binaları.\n**Türler** = farklı bina türleri.\n<Ek kopyalar> = her türün ilki dışındakiler.\nŞehir bonusu olmayan binalar da dahil.", // 36
-            "Genel şehir bonusları", // 37
+            "Signature binalarının şehir geneli bonusları", // 37
             "**Etkin / Toplam** = genel kuralla sayılan bonus kaynakları / tüm kaynaklar.\n<Engelli> = bu kuralla dışlananlar, bütün ek binalar değil.\n**Çekicilik bağımsızdır:** engellenen kaynak yine çekicilik verebilir.\nYakın çevre etkileri ayrıdır.", // 38
             "Gereksiz modlar algılandı", // 39
             "<Yalnızca ilk kopya> = tür başına bir çekicilik bonusu.\n<Vanilla birikimi> = tüm kopyalar.\n<Bonus yok> = kapalı.\n<Şehir geneli ayarını izle> = genel kural.\n**Seçilen kuralı gösterir, bonus değerini değil.**\nGerçek değerler: **Hakkında > Günlük raporu**. Yeşil yazı değişmez.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Oyun Seçenekler menüsünde duraklatılmışken tüm şehir geneli bonus ve yakın çevre etkisi modlarını geçici olarak dener. Ardından seçtiğiniz modları yeniden uygular. Sonuçlar mod günlüğüne yazılır. Önce bir şehir yükleyin.", // 59
             "Günlüğü aç", // 60
             "Mod günlüğünü veya yoksa günlükler klasörünü açar.", // 61
+            "Diğer benzersiz binaların şehir geneli bonusları", // 62
+            "Belediye Binası gibi Signature olmayan benzersiz binaların bonusları.\\nAktif / Toplam = uygulanan / mevcut bonus kaynakları. Engellenen = ayar gereği sayılmayanlar. Normal hizmet binaları dahil değildir.", // 63
         };
 
         public LocaleTR(UniqueBldgSettings setting)
