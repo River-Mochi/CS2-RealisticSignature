@@ -63,7 +63,7 @@ namespace UniqueBuildings
             "Anarchy pozwala na wiele kopii", // 45
             "Inny mod pozwala na wiele unikalnych budynków", // 46
             "Po jednym z każdego typu", // 47
-            "Ograniczenia unikatowych budynków nadal wyłączone", // 48
+            "Nadal można stawiać nieograniczoną liczbę kopii", // 48
             "Postawiono {0} | typy: {1} | dodatkowe kopie: {2}", // 49
             "Aktywne {0}/{1} | zablokowane {2}", // 50
             "Brak", // 51
