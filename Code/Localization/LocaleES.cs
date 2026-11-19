@@ -55,15 +55,15 @@ namespace UniqueBuildings
             "Bonificaciones urbanas de edificios Signature", // 37
             "**Activos / Total** = proveedores incluidos por la regla global / todos los encontrados.\n<Bloqueados> = excluidos por esa regla, no el total de edificios extra.\n**El atractivo es independiente:** un proveedor bloqueado aún puede aportar atractivo.\nLos efectos cercanos son aparte.", // 38
             "Mods redundantes detectados", // 39
-            "<Solo primera copia> = un bono de atractivo por tipo.\n<Acumulación original> = todas las copias.\n<Sin bonus> = desactivado.\n<Seguir ajuste global> = usar la regla general.\n**Muestra la regla elegida, no el valor del bono.**\nValores reales: **Acerca de > Informe al registro**. El texto verde permanece.", // 40
+            "**Ninguno** = no se detectan otros mods conocidos que permitan edificios únicos repetidos.\n<Anarchy> es compatible y no se incluye aquí.\nEvita otros mods con la misma función.", // 40
             "No hay ninguna ciudad cargada", // 41
             "Cargando…", // 42
             "Carga una ciudad para ver el estado", // 43
             "Se permiten varias copias", // 44
             "Anarchy permite varias copias", // 45
-            "Otro mod permite varios edificios únicos", // 46
+            "Siguen permitidas las copias ilimitadas", // 46
             "Uno de cada tipo", // 47
-            "Se siguen permitiendo copias ilimitadas", // 48
+            "Reglas de colocación mixtas", // 48
             "{0} colocados | {1} tipos | {2} copias extra", // 49
             "{0}/{1} activos | {2} bloqueados", // 50
             "Ninguno", // 51
