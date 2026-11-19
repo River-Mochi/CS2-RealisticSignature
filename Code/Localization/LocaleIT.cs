@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Localization/LocaleIT.cs
-// All 62 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
+// All 64 translation entries follow LocaleEN.cs order via LocaleTranslatedSource.
 
 namespace UniqueBuildings
 {
@@ -52,7 +52,7 @@ namespace UniqueBuildings
             "**Copie multiple consentite** = limite di uno per città disattivato.\n**Uno per tipo** = limite normale.\n<Anarchy> può consentire copie.\nNon indica se i bonus si sommano.", // 34
             "Edifici distintivi", // 35
             "**Collocati** = tutti gli edifici distintivi.\n**Tipi** = modelli diversi.\n<Copie extra> = oltre il primo per tipo.\nConta anche edifici senza bonus cittadino.", // 36
-            "Altri bonus cittadini", // 37
+            "Bonus cittadini degli edifici Signature", // 37
             "**Attivi / Totale** = fornitori ammessi dalla regola generale / tutti quelli presenti.\n<Bloccati> = esclusi da quella regola, non tutte le copie extra.\n**Attrattiva indipendente:** i fornitori bloccati possono comunque dare attrattiva.\nEffetti locali separati.", // 38
             "Mod ridondanti rilevati", // 39
             "<Solo prima copia> = un bonus attrattiva per tipo.\n<Accumulo standard> = ogni copia.\n<Nessun bonus> = disattivato.\n<Segui impostazione cittadina> = regola generale.\n**Mostra la regola scelta, non il valore del bonus.**\nValori reali: **Informazioni > Rapporto nel registro**. Il testo verde resta invariato.", // 40
@@ -77,6 +77,8 @@ namespace UniqueBuildings
             "Prova temporaneamente tutte le modalità dei bonus cittadini e degli effetti vicini mentre il gioco è in pausa nelle Opzioni. Poi riapplica le modalità selezionate. Risultati nel registro del mod. Prima carica una città.", // 59
             "Apri registro", // 60
             "Apre il file di registro del mod oppure la cartella dei registri.", // 61
+            "Bonus cittadini degli altri edifici unici", // 62
+            "Bonus degli edifici unici non Signature, come il Municipio.\\nAttivi / Totale = fonti conteggiate / presenti. Bloccati = fonti escluse dalla regola. I servizi normali non sono inclusi.", // 63
         };
 
         public LocaleIT(UniqueBldgSettings setting)
