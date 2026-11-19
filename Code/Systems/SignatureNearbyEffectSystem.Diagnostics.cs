@@ -58,6 +58,7 @@ namespace UniqueBuildings
             StringBuilder report = new();
             report.AppendLine("===== COMPARE NEARBY EFFECT MODES =====");
             report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
+            LogNonSignatureUniqueCandidates(report);
             try
             {
                 TestMode(NearbySignatureMode.Vanilla, report);
@@ -84,6 +85,45 @@ namespace UniqueBuildings
                 }
                 report.AppendLine("===== END NEARBY COMPARISON =====");
                 LogUtils.Info($"{Mod.ModTag} {report.ToString().TrimEnd()}");
+            }
+        }
+
+        private void LogNonSignatureUniqueCandidates(StringBuilder report)
+        {
+            List<Entity> eligible = GetEligibleUniqueBuildings();
+            Dictionary<Entity, int> copiesByPrefab = new();
+            foreach (Entity building in eligible)
+            {
+                if (EntityManager.HasComponent<Signature>(building))
+                    continue;
+
+                Entity prefab =
+                    EntityManager.GetComponentData<PrefabRef>(building).m_Prefab;
+
+                copiesByPrefab.TryGetValue(prefab, out int count);
+                copiesByPrefab[prefab] = count + 1;
+            }
+
+            report.AppendLine("Non-Signature Unique buildings with nearby effects:");
+            if (copiesByPrefab.Count == 0)
+            {
+                report.AppendLine("  None currently placed (eligible local-effect providers only).");
+                return;
+            }
+
+            PrefabSystem? prefabs = World.GetExistingSystemManaged<PrefabSystem>();
+            foreach (KeyValuePair<Entity, int> pair in copiesByPrefab)
+            {
+                string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
+                if (prefabs != null &&
+                    prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                {
+                    name = prefab.name;
+                }
+
+                report.AppendLine(
+                    $"  {name} | placed={pair.Value} | " +
+                    $"duplicate={(pair.Value > 1 ? "YES" : "no")}");
             }
         }
 
