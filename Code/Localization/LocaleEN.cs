@@ -141,7 +141,7 @@ namespace UniqueBuildings
                     "**ON (default)** = <clear building view> when placing Unique or Signature buildings: " +
                     "no automatic black-out, colored map overlay, or infoview panel popping up.\n" +
                     "**OFF** = restore automatic infoview behavior.\n" +
-                    "You can still open infoviews manually. <Toggle Overlays> takes priority if enabled." },
+                    "You can still open the infoview panel manually whenever you want. <Toggle Overlays> takes priority if enabled." },
 
                 // Status
                 { m_Setting.GetOptionLabelLocaleID(nameof(UniqueBldgSettings.StatusPlacementRule)), "Unique placement rule" },
@@ -149,7 +149,7 @@ namespace UniqueBuildings
                     "**Multiple copies allowed** = Unique placement restrictions are disabled.\n" +
                     "**One of each** = the usual one-per-city restriction applies.\n" +
                     "<Anarchy> may also allow multiple copies independently.\n" +
-                    "**Unique restrictions still disabled** = some placement flags are still cleared; it does not identify another mod.\n" +
+                    "**Unlimited copies still active** = the Unique restriction is still OFF. Another mod may affect this, but its source is not confirmed.\n" +
                     "Placement rules do not tell you which city-wide bonuses are active."
                 },
 
@@ -197,7 +197,7 @@ namespace UniqueBuildings
                 { KeyStatusLoadCity, "Load a city first to see status" },
                 { KeyStatusMultipleAllowed, "Multiple copies allowed" },
                 { KeyStatusAllowedByAnarchy, "Multiple allowed by Anarchy" },
-                { KeyStatusAllowedByAnotherMod, "Unique restrictions still disabled" },
+                { KeyStatusAllowedByAnotherMod, "Unlimited copies still active" },
                 { KeyStatusOneOfEach, "One of each" },
                 { KeyStatusMixedRules, "Mixed rules" },
                 { KeyStatusSignatureSummaryLine, "{0} placed | {1} types | {2} extra copies" },
