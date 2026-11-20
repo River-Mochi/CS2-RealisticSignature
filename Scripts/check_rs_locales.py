@@ -139,11 +139,11 @@ def check() -> int:
                 )
 
         # These three statuses must not accidentally reuse bonus mode text.
-        if "<Anarchy>" not in translations[40]:
+        if "<Anarchy>" not in translations[42]:
             errors.append(
-                f"{path.name} #40: redundant-mod tooltip must mention Anarchy"
+                f"{path.name} #42: redundant-mod tooltip must mention Anarchy"
             )
-        if translations[46] == translations[48]:
+        if translations[48] == translations[50]:
             errors.append(
                 f"{path.name}: 'Unlimited copies still active' and "
                 "'Mixed rules' need different translations"

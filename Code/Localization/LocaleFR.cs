@@ -15,70 +15,95 @@ namespace UniqueBuildings
     {
         private static readonly string[] s_Text =
         {
+            // Mod title
             "Realistic Signature Buildings (Emblèmes)", // 0
+
+            // Tabs
             "Actions", // 1
             "À propos", // 2
+
+            // Groups
             "Bonus des bâtiments emblématiques", // 3
             "Déblocage des bâtiments emblématiques", // 4
             "Placement", // 5
             "Statut", // 6
             "Infos", // 7
             "Débogage / Journal", // 8
+
+            // Signature Bonuses
             "Bonus urbains des bâtiments uniques", // 9
             "<Première copie uniquement> **(par défaut)** = un bonus urbain par type de bâtiment unique.\n<Aucun bonus global> = désactive les bonus généraux; attractivité séparée.\n<Cumul normal du jeu> = chaque exemplaire compte.\n**Les bonus verts** restent affichés dans la fiche même si leur effet est bloqué.\nVoir **Actions > Statut** ou le rapport dans le journal.", // 10
             "Première copie uniquement", // 11
             "Aucun bonus global", // 12
             "Cumul normal du jeu", // 13
+
+            // Independent city-wide Attractiveness
             "Attrait dans toute la ville", // 14
             "<Première copie uniquement> **(par défaut)** = un bonus d'attractivité urbaine par type de bâtiment unique éligible.\n<Cumul normal du jeu> = chaque exemplaire compte.\n<Aucun bonus d'attrait> = ces bonus urbains sont désactivés.\n<Suivre le réglage global> = applique la règle précédente.\n**L'attractivité attire les touristes.** La valeur propre des bâtiments ne change pas.\n**Les lignes vertes** restent descriptives.", // 15
             "Suivre le réglage global", // 16
             "Première copie uniquement", // 17
             "Cumul normal du jeu", // 18
             "Aucun bonus d'attrait", // 19
+
+            // Nearby Signature effects
             "Effets de proximité des bâtiments uniques", // 20
             "<Effets de proximité normaux> **(par défaut)** = chaque exemplaire unique conserve ses effets locaux.\n<Première copie uniquement> = un exemplaire par type.\n<Aucun effet de proximité> = désactive les effets normaux, mais conserve les pénalités d'abandon.\n**L'attractivité propre** du bâtiment ne change pas.", // 21
             "Effets de proximité normaux", // 22
             "Première copie uniquement", // 23
             "Aucun effet de proximité", // 24
+
+            // Signature Unlocks
             "Débloquer tous les bâtiments emblématiques", // 25
             "**ACTIVÉ** = débloque les bâtiments emblématiques sans conditions de progression.\n**DÉSACTIVÉ (par défaut)** = déblocage normal.\n**Les autres bâtiments uniques**, comme le quartier général de la police, nécessitent toujours des <points de développement> dans **Progression > Développement**.", // 26
             "Masquer les notifications de déblocage groupé des bâtiments emblématiques", // 27
             "**ACTIVÉ** (recommandé, par défaut) = masque les notifications du déblocage groupé effectué par ce mod.\n**DÉSACTIVÉ** = affiche une notification par bâtiment emblématique nouvellement débloqué par ce mod ; des dizaines ou centaines peuvent apparaître.\nLes notifications normales du jeu restent visibles, notamment celles des mises à jour, DLC, packs régionaux et de la progression de la ville.", // 28
+
+            // Multiple Unique
             "Autoriser plusieurs copies", // 29
             "**ACTIVÉ** = permet de placer plusieurs exemplaires des éléments uniques, y compris les bâtiments emblématiques.\n**DÉSACTIVÉ** = règle normale d'un exemplaire par ville, sauf si un autre mod l'autorise.", // 30
             "Bien voir les bâtiments pendant le placement", // 31
             "**ACTIVÉ (par défaut)** = <vue dégagée> : empêche le noircissement, les cartes colorées et l'ouverture automatique de l'infovue lors du placement de bâtiments uniques.\n**DÉSACTIVÉ** = comportement automatique normal.\nTu peux toujours ouvrir le panneau d'information manuellement. <Toggle Overlays> reste prioritaire.", // 32
+
+            // Status
             "Règle de placement des éléments uniques", // 33
             "**Copies multiples autorisées** = la limite d'un bâtiment par ville est levée.\n**Un de chaque** = limite normale active.\n<Anarchy> peut aussi autoriser des copies.\nCela concerne le placement, pas le cumul des bonus.", // 34
             "Bâtiments emblématiques", // 35
             "**Placés** = nombre total de bâtiments emblématiques.\n**Types** = modèles différents.\n<Copies supplémentaires> = bâtiments au-delà du premier de chaque type.\nInclut ceux sans bonus global.", // 36
             "Bonus urbains des bâtiments Signature", // 37
             "**Actifs / Total** = fournisseurs comptés par la règle générale / tous ceux présents.\n<Bloqués> = exclus par cette règle, pas toutes les copies supplémentaires.\n**L'attrait est indépendant :** un fournisseur bloqué peut encore apporter de l'attrait.\nLes effets de proximité sont séparés.", // 38
-            "Mods redondants détectés", // 39
-            "**Aucun** = aucun autre mod connu de placement multiple détecté.\n<Anarchy> est compatible et n'apparaît pas ici.\nÉvite les autres mods qui remplissent la même fonction.", // 40
-            "Aucune ville chargée", // 41
-            "Chargement…", // 42
-            "Chargez d'abord une ville pour voir l'état", // 43
-            "Copies multiples autorisées", // 44
-            "Copies multiples autorisées par Anarchy", // 45
-            "Copies illimitées toujours possibles", // 46
-            "Un seul de chaque", // 47
-            "Règles de placement mixtes", // 48
-            "{0} placés | {1} types | {2} copies supplémentaires", // 49
-            "{0}/{1} actifs | {2} bloqués", // 50
-            "Aucun", // 51
-            "Mod", // 52
-            "Nom affiché de ce mod.", // 53
-            "Version", // 54
-            "Version installée et type de compilation.", // 55
-            "Rapport d'état dans le journal", // 56
-            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 57
-            "Comparer les modes de bonus dans le journal", // 58
-            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 59
-            "Ouvrir le journal", // 60
-            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 61
-            "Bonus urbains des autres bâtiments uniques", // 62
-            "Bonus des bâtiments uniques non Signature, comme l'hôtel de ville.\nActifs / Total = sources prises en compte / présentes. Bloqués = sources exclues par le réglage. Les services ordinaires ne sont pas comptés.", // 63
+
+            // Other Unique city-wide bonuses
+            "Bonus urbains des autres bâtiments uniques", // 39
+            "Bonus des bâtiments uniques non Signature, comme l'hôtel de ville.\nActifs / Total = sources prises en compte / présentes. Bloqués = sources exclues par le réglage. Les services ordinaires ne sont pas comptés.", // 40
+
+            // Redundant mods
+            "Mods redondants détectés", // 41
+            "**Aucun** = aucun autre mod connu de placement multiple détecté.\n<Anarchy> est compatible et n'apparaît pas ici.\nÉvite les autres mods qui remplissent la même fonction.", // 42
+
+            // Localized Status values (not translated in log reports)
+            "Aucune ville chargée", // 43
+            "Chargement…", // 44
+            "Chargez d'abord une ville pour voir l'état", // 45
+            "Copies multiples autorisées", // 46
+            "Copies multiples autorisées par Anarchy", // 47
+            "Copies illimitées toujours possibles", // 48
+            "Un seul de chaque", // 49
+            "Règles de placement mixtes", // 50
+            "{0} placés | {1} types | {2} copies supplémentaires", // 51
+            "{0}/{1} actifs | {2} bloqués", // 52
+            "Aucun", // 53
+
+            // About
+            "Mod", // 54
+            "Nom affiché de ce mod.", // 55
+            "Version", // 56
+            "Version installée et type de compilation.", // 57
+            "Rapport d'état dans le journal", // 58
+            "Inscrit dans le journal le nombre actuel de bâtiments emblématiques, les bonus globaux et les effets de proximité. Ne change aucun réglage ni effet. Chargez d'abord une ville.", // 59
+            "Comparer les modes de bonus dans le journal", // 60
+            "Teste temporairement tous les modes de bonus globaux et d'effets de proximité pendant que le jeu est en pause dans les Options. Réapplique ensuite vos modes choisis. Résultats dans le journal du mod. Chargez d'abord une ville.", // 61
+            "Ouvrir le journal", // 62
+            "Ouvre le journal du mod ou, à défaut, le dossier des journaux.", // 63
         };
 
         public LocaleFR(UniqueBldgSettings setting)
