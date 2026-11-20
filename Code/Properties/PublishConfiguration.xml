@@ -4,7 +4,7 @@
 <!--Name of the mod to display to players-->
 <DisplayName Value="Realistic Signature + Unique Buildings" />
 <!--Short description of the mod-->
-<ShortDescription Value="Unlock Signature buildings, place multiple Unique buildings, and control city-wide and nearby bonuses." />
+<ShortDescription Value="Unlock Signature buildings, allow unlimited copies of Unique buildings, and control city-wide and nearby bonuses." />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
 # 🏙️
@@ -16,7 +16,7 @@
 🇨🇳 完整中文介绍请往下看 ↓
 
 CS2 does not anticipate many copies of the same Unique buildings so powerful city-wide bonuses quickly multiply and make the game very easy.
-Now you can build unlimited copies of Unique buildings, keep vanilla bonuses as-is or reduce unrealistic stacking.
+Now you can build unlimited copies of Unique buildings, keep vanilla bonuses as-is, reduce unrealistic stacking, or mix-and-match bonus settings!
 
 ### 1. Control Unique + Signature city-wide bonuses
 
