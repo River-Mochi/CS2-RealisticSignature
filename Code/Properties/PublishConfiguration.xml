@@ -11,10 +11,12 @@
 ### Realistic Signature Buildings Fix
 #### Place unlimited buildings without breaking the city's economy!
 
-**随心建造多个特色建筑，同时避免城市经济失衡！**
+独特建筑 / 标志性建筑不限数量！想建多少就建多少，还能控制建筑加成，避免城市经济失衡！
+
+🇨🇳 完整中文介绍请往下看 ↓
 
 CS2 does not anticipate many copies of the same Unique buildings so powerful city-wide bonuses quickly multiply and make the game very easy.
-Now you can unlock all Unique buildings and leave the bonuses as-is or reduce them or mix-and-match.
+Now you can build unlimited copies of Unique buildings, keep vanilla bonuses as-is or reduce unrealistic stacking.
 
 ### 1. Control Unique + Signature city-wide bonuses
 
@@ -60,31 +62,24 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 *   Thumbnail of the 8House in Copenhagen by Bjarke Ingels [Wikipedia](https://en.wikipedia.org/wiki/8_House), CC license photo by Jens Lindhe.
 *   UnhingedWolf: testing and feedback
 
-tags: unlimited signature buildings
-
 ┌───────────────────────────────────────────────┐
 
-**自由建造多个独特建筑，同时避免重复加成破坏城市经济平衡！**
+## 🏙️ 独特建筑 / 标志性建筑不限数量！
 
-*   **全市加成：** 默认每种独特或标志性建筑只计算一栋的加成，避免重复叠加。也可选择原版叠加或关闭全市加成。
+**想建多少就建多少！默认开启，无需额外模组！**
 
-*   **城市吸引力：** 可单独设置，默认每种符合条件的建筑只计算一栋的吸引力加成。
+- **✅ 无限建造：** 解除独特建筑和标志性建筑的重复建造限制。支持原版、DLC、地区建筑包及兼容的自定义资产。
+- **✅ 全市加成：** 自由选择原版叠加、每种建筑仅计算一栋（默认），或完全关闭，避免经济失衡。
+- **✅ 城市吸引力：** 独立控制吸引力加成，可保留原版效果或防止重复叠加。
+- **✅ 周边效果：** 可选择原版效果（默认）、仅一栋生效或关闭。
+- **✅ 解锁建筑：** 可选择跳过标志性建筑的解锁条件。其他独特公共服务建筑仍需发展点数。
+- **✅ 界面优化：** 减少解锁弹窗，防止放置建筑时自动出现遮挡视线的信息覆盖层。
 
-*   **周边效果：** 默认保留所有建筑的正常区域效果，也可选择仅保留一栋或全部关闭。
+**兼容 Anarchy，无需 Harmony 补丁。** 移除模组不会删除已建造的建筑。
 
-*   **自由建造：** 默认允许重复建造游戏认定的独特建筑，包括本体、DLC、地区建筑包和兼容的自定义资产。
-
-*   **解锁建筑：** 可跳过标志性建筑的解锁条件。其他独特公共服务建筑仍需使用发展点数解锁。
-
-*   **界面优化：** 可隐藏大量解锁弹窗，以及放置独特建筑时自动出现的地图信息覆盖层。
-
-
-**重要提示：** 建筑信息面板中的绿色加成文字仍会显示原版数值，即使模组已限制或关闭该加成。**这只是显示上的限制，不代表模组失效。** 可在模组选项的“操作 → 状态”中查看，或通过日志报告确认实际效果。
-
-**兼容 Anarchy，无需 Harmony 补丁。** 移除模组不会删除已建造的建筑副本。
+**注意：** 建筑信息面板的绿色加成文字仍显示原版数值，但模组实际加成控制正常生效。可在选项中的状态报告查看。
 
 tags: unlimited signature buildings
-
 </LongDescription>
 <!--Thumbnail-->
 <Thumbnail Value="Properties/Thumbnail-8house.jpg" />
