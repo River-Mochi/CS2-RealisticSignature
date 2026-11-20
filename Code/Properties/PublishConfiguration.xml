@@ -21,7 +21,7 @@ Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, m
 *   **First Copy Only**: only one copy of each Unique or Signature building type adds city-wide bonuses (where available). More Realistic, 5 copies no longer has 5x stacked bonuses!
 *   **No City Bonuses:** disable general city-wide bonuses from Unique and Signature buildings.
 
-**City-wide Attractiveness is controlled separately for eligible Unique and Signature buildings.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
+**Control City-wide Attractiveness** for eligible Unique and Signature buildings: choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
 ### 2. Control Nearby Effects for Unique Buildings
 
