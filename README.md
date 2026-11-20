@@ -2,7 +2,7 @@
 
 **Build freely without stacking unrealistic bonuses.**
 
-A [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines-ii/about) mod by RiverMochi. Place multiple **Unique and Signature buildings**, and choose how their bonuses work. Version **0.8.1** extends bonus controls to eligible **non-Signature Unique buildings** too (for example, City Hall).
+A Cities: Skylines II mod by RiverMochi. Place multiple **Unique and Signature buildings**, and choose how their bonuses work. Version **0.8.1** extends bonus controls to eligible **non-Signature Unique buildings** too (for example, City Hall).
 
 ## Features and defaults
 
