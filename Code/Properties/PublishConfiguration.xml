@@ -23,7 +23,7 @@ Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, m
 
 **Control City-wide Attractiveness** for eligible Unique and Signature buildings: choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
-### 2. Control Nearby Effects for Unique Buildings
+### 2. Control Nearby local effects for Unique Buildings
 
 * Keep neighborhood "aoe" benefits while limiting city-wide bonus stacking.
 * Choose Vanilla, First-Copy Only, or Off (independent of city-wide bonuses).
