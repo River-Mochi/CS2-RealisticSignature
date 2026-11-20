@@ -32,6 +32,13 @@ namespace UniqueBuildings
 
         public static int TotalCityWideProviders { get; private set; }
 
+        public static int OtherUniqueActiveProviders { get; private set; }
+
+        public static int OtherUniqueTotalProviders { get; private set; }
+
+        public static int OtherUniqueBlockedProviders =>
+            System.Math.Max(0, OtherUniqueTotalProviders - OtherUniqueActiveProviders);
+
         public static int BlockedCityWideProviders =>
             System.Math.Max(0, TotalCityWideProviders - CityWideEffectProviders);
 
@@ -63,7 +70,9 @@ namespace UniqueBuildings
             int signatureTypes,
             int cityWideEffectProviders,
             int duplicateCityWideProviders,
-            int totalCityWideProviders)
+            int totalCityWideProviders,
+            int otherUniqueActiveProviders,
+            int otherUniqueTotalProviders)
         {
             LastSnapshotSimulationFrame = simulationFrame;
 
@@ -72,6 +81,8 @@ namespace UniqueBuildings
             CityWideEffectProviders = cityWideEffectProviders;
             DuplicateCityWideProviders = duplicateCityWideProviders;
             TotalCityWideProviders = totalCityWideProviders;
+            OtherUniqueActiveProviders = otherUniqueActiveProviders;
+            OtherUniqueTotalProviders = otherUniqueTotalProviders;
 
             HasSnapshot = true;
             s_UiVersion++;
@@ -87,6 +98,8 @@ namespace UniqueBuildings
             CityWideEffectProviders = 0;
             DuplicateCityWideProviders = 0;
             TotalCityWideProviders = 0;
+            OtherUniqueActiveProviders = 0;
+            OtherUniqueTotalProviders = 0;
 
             s_UiVersion++;
         }

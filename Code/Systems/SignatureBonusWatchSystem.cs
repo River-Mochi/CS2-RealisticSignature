@@ -14,7 +14,9 @@ namespace UniqueBuildings
     using Game;
     using Game.Buildings;
     using Game.Common;
+    using Game.Prefabs;
     using Game.Tools;
+    using Unity.Collections;
     using Unity.Entities;
 
     public sealed partial class SignatureBonusWatchSystem :
@@ -22,6 +24,8 @@ namespace UniqueBuildings
     {
         private EntityQuery m_ChangedSignatureQuery;
         private EntityQuery m_DestroyedSignatureQuery;
+        private EntityQuery m_ChangedUniqueCityProviderQuery;
+        private EntityQuery m_DestroyedUniqueCityProviderQuery;
 
         protected override void OnCreate()
         {
@@ -65,6 +69,48 @@ namespace UniqueBuildings
 
             m_DestroyedSignatureQuery.SetChangedVersionFilter(
                 ComponentType.ReadOnly<Destroyed>());
+
+            m_ChangedUniqueCityProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Building>(),
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<PrefabRef>(),
+                    },
+                    Any = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Created>(),
+                        ComponentType.ReadOnly<Updated>(),
+                        ComponentType.ReadOnly<Deleted>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Signature>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
+            m_DestroyedUniqueCityProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Building>(),
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<PrefabRef>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Signature>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
+            m_DestroyedUniqueCityProviderQuery.SetChangedVersionFilter(
+                ComponentType.ReadOnly<Destroyed>());
         }
 
         protected override void OnUpdate()
@@ -80,7 +126,9 @@ namespace UniqueBuildings
 
             bool changed =
                 !m_ChangedSignatureQuery.IsEmptyIgnoreFilter ||
-                m_DestroyedSignatureQuery.CalculateEntityCount() > 0;
+                m_DestroyedSignatureQuery.CalculateEntityCount() > 0 ||
+                HasChangedUniqueCityProviders(m_ChangedUniqueCityProviderQuery) ||
+                HasChangedUniqueCityProviders(m_DestroyedUniqueCityProviderQuery);
 
             if (!changed)
                 return;
@@ -91,7 +139,31 @@ namespace UniqueBuildings
 
             bonusSystem?.ScheduleReconcile(
                 mode,
-                "Signature building changed");
+                "Unique bonus provider changed");
+        }
+
+        private bool HasChangedUniqueCityProviders(EntityQuery query)
+        {
+            if (query.CalculateEntityCount() == 0)
+                return false;
+
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+            if (placement == null)
+                return false;
+
+            using NativeArray<Entity> buildings =
+                query.ToEntityArray(Allocator.Temp);
+
+            foreach (Entity building in buildings)
+            {
+                Entity prefab =
+                    EntityManager.GetComponentData<PrefabRef>(building).m_Prefab;
+                if (placement.IsKnownUniqueBuilding(prefab))
+                    return true;
+            }
+
+            return false;
         }
     }
 }

@@ -50,14 +50,15 @@ namespace UniqueBuildings
                 if (!ourSetting &&
                     UniqueModsCompatibility.HasRedundantMods)
                 {
-                    return LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod");
+                    return LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod,
+                        "Unlimited copies still active");
                 }
 
                 if (s_RestrictedUnique == 0)
                 {
                     return ourSetting
                         ? LocaleUtils.Localize(LocaleEN.KeyStatusMultipleAllowed, "Multiple copies allowed")
-                        : LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Multiple unique enabled by another mod");
+                        : LocaleUtils.Localize(LocaleEN.KeyStatusAllowedByAnotherMod, "Unlimited copies still active");
                 }
 
                 if (s_RestrictedUnique == s_TotalKnownUnique)

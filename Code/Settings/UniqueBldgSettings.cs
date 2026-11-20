@@ -191,6 +191,30 @@ namespace UniqueBuildings
         [Exclude]
         [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
         [SettingsUISection(ActionsTab, SignatureStatusGroup)]
+        public LocalizedString StatusOtherUniqueBonuses
+        {
+            get
+            {
+                if (!IsCityLoaded())
+                    return LocalizedString.Value("—");
+
+                RefreshStatusIfNeeded();
+
+                if (!SignatureScanState.HasSnapshot)
+                    return LocalizedString.Id(LocaleEN.KeyStatusLoading);
+
+                return LocalizedString.Value(LocaleUtils.SafeFormat(
+                    LocaleEN.KeyStatusCityProvidersLine,
+                    "{0}/{1} active | {2} blocked",
+                    SignatureScanState.OtherUniqueActiveProviders,
+                    SignatureScanState.OtherUniqueTotalProviders,
+                    SignatureScanState.OtherUniqueBlockedProviders));
+            }
+        }
+
+        [Exclude]
+        [SettingsUIValueVersion(typeof(SignatureScanState), nameof(SignatureScanState.GetUiVersion))]
+        [SettingsUISection(ActionsTab, SignatureStatusGroup)]
         public LocalizedString StatusAttractivenessMode
         {
             get
@@ -318,9 +342,7 @@ namespace UniqueBuildings
 
         private void SetAllowMultipleUniqueBuildings(bool value)
         {
-            GetPlacementSystem()?.ScheduleReconcile(
-                value,
-                "Options setting changed");
+            GetPlacementSystem()?.ApplyFromOptions(value);
         }
 
 

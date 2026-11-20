@@ -13,27 +13,27 @@
 
 **随心建造多个特色建筑，同时避免城市经济失衡！**
 
-Duplicate Signature buildings stack powerful city-wide bonuses, making CS2's economy too easy.
+Duplicate Unique and Signature buildings can stack powerful city-wide bonuses, making CS2's economy too easy.
 
-### 1. Control all Signature buildings
+### 1. Control Unique + Signature city-wide bonuses
 
 *   **Vanilla Stacking:** every copy has all normal bonuses (game default). Want super-easy mode? Keep stacking!
-*   **First Copy Only**: only one copy of each Signature building type adds city-wide bonuses. More Realistic, 5 copies no longer has 5x stacked bonuses!
-*   **No City Bonuses:** disable general Signature city-wide bonuses for a bigger challenge.
+*   **First Copy Only**: only one copy of each Unique or Signature building type adds city-wide bonuses (where available). More Realistic, 5 copies no longer has 5x stacked bonuses!
+*   **No City Bonuses:** disable general city-wide bonuses from Unique and Signature buildings.
 
-**City-wide Attractiveness is controlled separately.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
+**City-wide Attractiveness is controlled separately for eligible Unique and Signature buildings.** Choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
-### 2. Nearby Local Effects — Separate controls!
+### 2. Control Nearby Effects for Unique Buildings
 
-*   Keep neighborhood "aoe" benefits w/out stacking multiplying whole city bonuses!
-*   Choose **Vanilla, First-Copy Only, or Off** independent of your city-wide bonus setting.
+* Keep neighborhood "aoe" benefits while limiting city-wide bonus stacking.
+* Choose Vanilla, First-Copy Only, or Off (independent of city-wide bonuses).
 
 ### 3. More Options - You choose!
 
-*   ✅ Allow Unlimited Unique buildings.
-*   ✅ Unlock Signature buildings without meeting their population, zoning, or other progression requirements.
+*   ✅ Allow Unlimited Unique buildings — base game, DLC, Region Packs, and compatible custom assets marked Unique by the game.
+*   ✅ Unlock Signature buildings without meeting their requirements. Other Unique service buildings still need Development points.
 *   ✅ QoL, Hide mass unlock pop-ups: Stop the spam when unlocking many at once. Save your click finger!
-*   ✅ See Clearly: when placing Unique buildings, hide info panels including colored ground overlay and blacked-out buildings. You can still open info panels manually as needed or disable this toggle \[x\] in Options menu (this was a player request).
+*   ✅ See Clearly: prevent blacked-out buildings and colored overlays while placing Unique buildings. You can still open the infoview panel manually.
 
 ### Compatibility
 
@@ -64,15 +64,15 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 
 **自由建造多个独特建筑，同时避免重复加成破坏城市经济平衡！**
 
-*   **全市加成：** 默认每种标志性建筑只计算一栋的加成，避免重复叠加。也可选择原版叠加或关闭全市加成。
+*   **全市加成：** 默认每种独特或标志性建筑只计算一栋的加成，避免重复叠加。也可选择原版叠加或关闭全市加成。
 
-*   **城市吸引力：** 可单独设置，默认每种建筑只计算一栋的吸引力加成。
+*   **城市吸引力：** 可单独设置，默认每种符合条件的建筑只计算一栋的吸引力加成。
 
 *   **周边效果：** 默认保留所有建筑的正常区域效果，也可选择仅保留一栋或全部关闭。
 
-*   **自由建造：** 默认允许重复建造所有独特建筑，不限于标志性建筑。
+*   **自由建造：** 默认允许重复建造游戏认定的独特建筑，包括本体、DLC、地区建筑包和兼容的自定义资产。
 
-*   **解锁建筑：** 可选择跳过标志性建筑的解锁条件，无需满足人口或其他要求。
+*   **解锁建筑：** 可跳过标志性建筑的解锁条件。其他独特公共服务建筑仍需使用发展点数解锁。
 
 *   **界面优化：** 可隐藏大量解锁弹窗，以及放置独特建筑时自动出现的地图信息覆盖层。
 
@@ -95,7 +95,7 @@ tags: unlimited signature buildings
 <!--Link to the forum post where the mod can be discussed-->
 <ForumLink Value="" />
 <!--Version of the mod-->
-<ModVersion Value="0.8.0" />
+<ModVersion Value="0.8.1" />
 <!--Recommended version of the base game to use the mod-->
 <GameVersion Value="1.6.*" />
 <!--Dependency for the mod, can be set multiple times-->
@@ -103,9 +103,11 @@ tags: unlimited signature buildings
 <!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 <RequiredDLC Value="" />
 <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog Value="" />
-<!--<ChangeLog>
-</ChangeLog>-->
+<ChangeLog>
+- Fixed city-wide and nearby bonus controls for other Unique buildings, not just Signatures.
+- Improved Multiple Copies switching and Options Status.
+</ChangeLog>
+
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 <ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc"/>
 <ExternalLink Type="github" Url="https://github.com/River-Mochi/CS2-RealisticSignature" />

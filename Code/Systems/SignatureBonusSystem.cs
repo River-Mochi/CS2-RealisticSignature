@@ -47,6 +47,7 @@ namespace UniqueBuildings
             new();
 
         private EntityQuery m_SignatureQuery;
+        private EntityQuery m_OtherUniqueCityProviderQuery;
         private EntityQuery m_SuppressedQuery;
         private EntityQuery m_AttractivenessSuppressedQuery;
 
@@ -68,6 +69,27 @@ namespace UniqueBuildings
                     },
                     None = new ComponentType[]
                     {
+                        ComponentType.ReadOnly<Deleted>(),
+                        ComponentType.ReadOnly<Destroyed>(),
+                        ComponentType.ReadOnly<Temp>(),
+                    },
+                });
+
+            // Non-Signature Unique service buildings can also have CityEffects.
+            // Include only actual city providers, and verify that their prefabs
+            // were originally Unique before placement restrictions were removed.
+            m_OtherUniqueCityProviderQuery = GetEntityQuery(
+                new EntityQueryDesc
+                {
+                    All = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Building>(),
+                        ComponentType.ReadOnly<CityEffectProvider>(),
+                        ComponentType.ReadOnly<PrefabRef>(),
+                    },
+                    None = new ComponentType[]
+                    {
+                        ComponentType.ReadOnly<Signature>(),
                         ComponentType.ReadOnly<Deleted>(),
                         ComponentType.ReadOnly<Destroyed>(),
                         ComponentType.ReadOnly<Temp>(),
@@ -172,12 +194,10 @@ namespace UniqueBuildings
             SignatureBonusMode attractivenessMode =
                 GetEffectiveAttractivenessMode(mode, attractivenessOverride);
 
-            using NativeArray<Entity> signatures =
-                m_SignatureQuery.ToEntityArray(
-                    Allocator.Temp);
+            List<Entity> buildings = GetBonusEligibleBuildings();
 
             Dictionary<Entity, List<Entity>> copiesByPrefab =
-                BuildCopiesByPrefab(signatures);
+                BuildCopiesByPrefab(buildings);
 
             PruneFirstCopyMap(copiesByPrefab);
 
@@ -206,8 +226,8 @@ namespace UniqueBuildings
                 ? RemoveAllAttractivenessTags()
                 : ApplyAttractivenessSuppressionMode(attractivenessMode, copiesByPrefab);
 
-            int suppressed = CountSuppressed(signatures);
-            int attractivenessSuppressed = CountAttractivenessSuppressed(signatures);
+            int suppressed = CountSuppressed(buildings);
+            int attractivenessSuppressed = CountAttractivenessSuppressed(buildings);
 
             RefreshCityWideEffects(mode, attractivenessMode);
 
@@ -220,7 +240,7 @@ namespace UniqueBuildings
                     $"{Mod.ModTag} City-wide Signature bonus reconcile " +
                     $"({reason}): " +
                     $"Mode={mode} | " +
-                    $"Signatures={signatures.Length} | " +
+                    $"BonusEligibleBuildings={buildings.Count} | " +
                     $"Types={copiesByPrefab.Count} | " +
                     $"Suppressed={suppressed} | " +
                     $"Changed={changed} | Attr={attractivenessMode} | " +
@@ -229,14 +249,49 @@ namespace UniqueBuildings
 #endif
         }
 
+        private List<Entity> GetNonSignatureUniqueCityProviders()
+        {
+            List<Entity> result = new();
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+
+            if (placement == null)
+                return result;
+
+            using NativeArray<Entity> candidates =
+                m_OtherUniqueCityProviderQuery.ToEntityArray(Allocator.Temp);
+
+            foreach (Entity entity in candidates)
+            {
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (placement.IsKnownUniqueBuilding(prefab))
+                    result.Add(entity);
+            }
+
+            return result;
+        }
+
+        private List<Entity> GetBonusEligibleBuildings()
+        {
+            using NativeArray<Entity> signatures =
+                m_SignatureQuery.ToEntityArray(Allocator.Temp);
+
+            List<Entity> result = new(signatures.Length + 16);
+            foreach (Entity entity in signatures)
+                result.Add(entity);
+
+            result.AddRange(GetNonSignatureUniqueCityProviders());
+            return result;
+        }
+
         private Dictionary<Entity, List<Entity>>
             BuildCopiesByPrefab(
-                NativeArray<Entity> signatures)
+                List<Entity> signatures)
         {
             Dictionary<Entity, List<Entity>> result =
                 new();
 
-            for (int i = 0; i < signatures.Length; i++)
+            for (int i = 0; i < signatures.Count; i++)
             {
                 Entity entity = signatures[i];
 
@@ -454,7 +509,7 @@ namespace UniqueBuildings
             return changed;
         }
 
-        private int CountAttractivenessSuppressed(NativeArray<Entity> signatures)
+        private int CountAttractivenessSuppressed(List<Entity> signatures)
         {
             int count = 0;
             foreach (Entity entity in signatures)
@@ -512,12 +567,12 @@ namespace UniqueBuildings
         }
 
         private int CountSuppressed(
-            NativeArray<Entity> signatures)
+            List<Entity> signatures)
         {
             int count = 0;
 
             for (int i = 0;
-                 i < signatures.Length;
+                 i < signatures.Count;
                  i++)
             {
                 Entity entity = signatures[i];

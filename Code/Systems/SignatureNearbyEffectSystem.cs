@@ -7,7 +7,7 @@
 // ================= </copyright> ======================
 
 // File: Systems/SignatureNearbyEffectSystem.cs
-// Filters only placed Signature local effects in vanilla's spatial tree.
+// Filters Signature and other Unique building local effects in vanilla's spatial tree.
 // Never edits prefab data, LocalEffectProvider, or abandoned-building effects.
 
 namespace UniqueBuildings
@@ -22,6 +22,7 @@ namespace UniqueBuildings
     using Game.Objects;
     using Game.Prefabs;
     using Game.SceneFlow;
+    using Game.Simulation;
     using Game.Tools;
     using Unity.Collections;
     using Unity.Entities;
@@ -31,7 +32,9 @@ namespace UniqueBuildings
     {
         private EntityQuery m_EligibleQuery;
         private EntityQuery m_ChangedQuery;
+        private EntityQuery m_ChangedOtherUniqueQuery;
         private LocalEffectSystem m_LocalEffects = null!;
+        private UpdateSystem m_UpdateSystem = null!;
         private NearbySignatureMode m_AppliedMode = NearbySignatureMode.Vanilla;
         private bool m_NeedsReconcile = true;
 
@@ -39,13 +42,13 @@ namespace UniqueBuildings
         {
             base.OnCreate();
             m_LocalEffects = World.GetOrCreateSystemManaged<LocalEffectSystem>();
+            m_UpdateSystem = World.GetOrCreateSystemManaged<UpdateSystem>();
 
             // Never touch abandoned entities: vanilla has additional penalty effects.
             m_EligibleQuery = GetEntityQuery(new EntityQueryDesc
             {
                 All = new ComponentType[]
                 {
-                    ComponentType.ReadOnly<Signature>(),
                     ComponentType.ReadOnly<LocalEffectProvider>(),
                     ComponentType.ReadOnly<PrefabRef>(),
                     ComponentType.ReadOnly<Transform>(),
@@ -70,6 +73,34 @@ namespace UniqueBuildings
                 },
                 None = new ComponentType[] { ComponentType.ReadOnly<Temp>() },
             });
+
+            m_ChangedOtherUniqueQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Building>(),
+                    ComponentType.ReadOnly<LocalEffectProvider>(),
+                    ComponentType.ReadOnly<PrefabRef>(),
+                },
+                Any = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Created>(),
+                    ComponentType.ReadOnly<Updated>(),
+                    ComponentType.ReadOnly<Deleted>(),
+                },
+                None = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<Signature>(),
+                    ComponentType.ReadOnly<Temp>(),
+                },
+            });
+        }
+
+        public override int GetUpdateInterval(SystemUpdatePhase phase)
+        {
+            // Vanilla LocalEffectUpdateSystem rebuilds non-Signature
+            // nearby effects every 256 simulation ticks.
+            return phase == SystemUpdatePhase.GameSimulation ? 256 : 1;
         }
 
         protected override void OnGameLoaded(Colossal.Serialization.Entities.Context context)
@@ -96,14 +127,31 @@ namespace UniqueBuildings
                 return;
             }
 
-            if (!m_NeedsReconcile && mode == m_AppliedMode &&
-                m_ChangedQuery.IsEmptyIgnoreFilter)
+            bool afterVanillaSimulation =
+                m_UpdateSystem.currentPhase == SystemUpdatePhase.GameSimulation;
+
+            // Non-Signature local effects can reappear when vanilla updates
+            // building efficiency every 256 ticks, without an Updated tag.
+            // Always reapply a non-Vanilla rule after that refresh.
+            if (!afterVanillaSimulation &&
+                !m_NeedsReconcile && mode == m_AppliedMode &&
+                m_ChangedQuery.IsEmptyIgnoreFilter &&
+                !HasChangedOtherUniqueProviders())
                 return;
+
+            // In the periodic pass vanilla already maintains allowed effects.
+            // Only blocked duplicates need our intervention.
+            bool periodicRemovalOnly =
+                afterVanillaSimulation && !m_NeedsReconcile &&
+                mode == m_AppliedMode;
 
             m_NeedsReconcile = false;
             try
             {
-                ReconcileNow(mode, "city update");
+                ReconcileNow(
+                    mode,
+                    afterVanillaSimulation ? "vanilla periodic effects" : "city update",
+                    periodicRemovalOnly: periodicRemovalOnly);
             }
             catch (Exception ex)
             {
@@ -146,14 +194,62 @@ namespace UniqueBuildings
                 ? mode : NearbySignatureMode.Vanilla;
         }
 
-        private void ReconcileNow(
-            NearbySignatureMode mode, string reason, bool logResult = true)
+        private bool HasChangedOtherUniqueProviders()
         {
-            CompleteDependency();
-            using NativeArray<Entity> buildings =
+            if (m_ChangedOtherUniqueQuery.IsEmptyIgnoreFilter)
+                return false;
+
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+            if (placement == null)
+                return false;
+
+            using NativeArray<Entity> candidates =
+                m_ChangedOtherUniqueQuery.ToEntityArray(Allocator.Temp);
+
+            foreach (Entity entity in candidates)
+            {
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (placement.IsKnownUniqueBuilding(prefab))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private List<Entity> GetEligibleUniqueBuildings()
+        {
+            using NativeArray<Entity> candidates =
                 m_EligibleQuery.ToEntityArray(Allocator.Temp);
 
-            // Deterministic winner per active Signature prefab; no serialized state.
+            List<Entity> result = new();
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+
+            foreach (Entity entity in candidates)
+            {
+                if (EntityManager.HasComponent<Signature>(entity))
+                {
+                    result.Add(entity);
+                    continue;
+                }
+
+                Entity prefab = EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;
+                if (placement != null && placement.IsKnownUniqueBuilding(prefab))
+                    result.Add(entity);
+            }
+
+            return result;
+        }
+
+        private void ReconcileNow(
+            NearbySignatureMode mode, string reason,
+            bool logResult = true, bool periodicRemovalOnly = false)
+        {
+            CompleteDependency();
+            List<Entity> buildings = GetEligibleUniqueBuildings();
+
+            // Deterministic winner per eligible Unique prefab; no serialized state.
             Dictionary<Entity, Entity> firstByPrefab = new();
             foreach (Entity building in buildings)
             {
@@ -177,8 +273,15 @@ namespace UniqueBuildings
                 bool keep = mode == NearbySignatureMode.Vanilla ||
                     (mode == NearbySignatureMode.FirstCopyOnly &&
                      firstByPrefab[prefab] == building);
+
+                // Vanilla just refreshed active effects. In a periodic pass
+                // don't allocate modifier lists or rewrite the providers we keep.
+                if (periodicRemovalOnly && keep)
+                    continue;
+
                 FillModifiers(building, prefab, modifiers);
                 Transform transform = EntityManager.GetComponentData<Transform>(building);
+                float efficiency = GetProviderEfficiency(building);
 
                 for (int i = 0; i < modifiers.Length; i++)
                 {
@@ -187,7 +290,8 @@ namespace UniqueBuildings
                         new(building, modifier.m_Type);
 
                     if (keep && LocalEffectSystem.GetEffectBounds(
-                        transform, modifier, out LocalEffectSystem.EffectBounds bounds))
+                        transform, efficiency, modifier,
+                        out LocalEffectSystem.EffectBounds bounds))
                     {
                         tree.AddOrUpdate(item, bounds);
                         enabled++;
@@ -208,10 +312,24 @@ namespace UniqueBuildings
             if (logResult)
             {
                 LogUtils.Info($"{Mod.ModTag} Nearby Signature reconcile ({reason}): " +
-                    $"Mode={mode} | Eligible={buildings.Length} | " +
+                    $"Mode={mode} | Eligible={buildings.Count} | " +
                     $"Types={firstByPrefab.Count} | ActiveEffects={enabled} | Removed={removed}.");
             }
 #endif
+        }
+
+        private float GetProviderEfficiency(Entity building)
+        {
+            // Vanilla applies local-effect efficiency to ordinary services,
+            // but Signature effects use full strength.
+            if (EntityManager.HasComponent<Signature>(building) ||
+                !EntityManager.HasBuffer<Efficiency>(building))
+            {
+                return 1f;
+            }
+
+            return BuildingUtils.GetEfficiency(
+                EntityManager.GetBuffer<Efficiency>(building, isReadOnly: true));
         }
 
         private void FillModifiers(Entity building, Entity prefab,

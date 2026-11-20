@@ -58,6 +58,7 @@ namespace UniqueBuildings
             StringBuilder report = new();
             report.AppendLine("===== COMPARE NEARBY EFFECT MODES =====");
             report.AppendLine($"Selected: {ModeLabel(selected)}. Comparing 3 modes, then restoring.");
+            LogNonSignatureUniqueCandidates(report);
             try
             {
                 TestMode(NearbySignatureMode.Vanilla, report);
@@ -87,6 +88,103 @@ namespace UniqueBuildings
             }
         }
 
+        private void LogNonSignatureUniqueCandidates(StringBuilder report)
+        {
+            List<Entity> eligible = GetEligibleUniqueBuildings();
+            Dictionary<Entity, int> copiesByPrefab = new();
+            foreach (Entity building in eligible)
+            {
+                if (EntityManager.HasComponent<Signature>(building))
+                    continue;
+
+                Entity prefab =
+                    EntityManager.GetComponentData<PrefabRef>(building).m_Prefab;
+
+                copiesByPrefab.TryGetValue(prefab, out int count);
+                copiesByPrefab[prefab] = count + 1;
+            }
+
+            report.AppendLine("Non-Signature Unique buildings with nearby effects:");
+            if (copiesByPrefab.Count == 0)
+            {
+                report.AppendLine("  None currently placed (eligible local-effect providers only).");
+            }
+            else
+            {
+                PrefabSystem? prefabs =
+                    World.GetExistingSystemManaged<PrefabSystem>();
+
+                foreach (KeyValuePair<Entity, int> pair in copiesByPrefab)
+                {
+                    string name = $"Prefab {pair.Key.Index}:{pair.Key.Version}";
+                    if (prefabs != null &&
+                        prefabs.TryGetPrefab<PrefabBase>(pair.Key, out PrefabBase prefab))
+                    {
+                        name = prefab.name;
+                    }
+
+                    report.AppendLine(
+                        $"  {name} | placed={pair.Value} | " +
+                        $"duplicate={(pair.Value > 1 ? "YES" : "no")}");
+                }
+            }
+
+            // Prefab data identifies possible nearby-effect test buildings
+            // even when none are currently placed in the city.
+            UniquePlacementSystem? placement =
+                World.GetExistingSystemManaged<UniquePlacementSystem>();
+            if (placement == null)
+                return;
+
+            EntityQuery prefabQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<BuildingData>(),
+                    ComponentType.ReadOnly<PlaceableObjectData>(),
+                    ComponentType.ReadOnly<LocalModifierData>(),
+                },
+                None = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<SignatureBuildingData>(),
+                },
+            });
+
+            using NativeArray<Entity> candidates =
+                prefabQuery.ToEntityArray(Allocator.Temp);
+
+            List<string> names = new();
+            PrefabSystem? prefabSystem =
+                World.GetExistingSystemManaged<PrefabSystem>();
+            foreach (Entity prefabEntity in candidates)
+            {
+                if (!placement.IsKnownUniqueBuilding(prefabEntity) ||
+                    EntityManager.GetBuffer<LocalModifierData>(prefabEntity).Length == 0)
+                {
+                    continue;
+                }
+
+                string name =
+                    $"Prefab {prefabEntity.Index}:{prefabEntity.Version}";
+                if (prefabSystem != null &&
+                    prefabSystem.TryGetPrefab<PrefabBase>(prefabEntity, out PrefabBase prefab))
+                {
+                    name = prefab.name;
+                }
+
+                names.Add(name);
+            }
+
+            names.Sort(StringComparer.OrdinalIgnoreCase);
+            report.AppendLine(
+                $"Available non-Signature Unique prefab types with local effects: {names.Count}");
+            for (int i = 0; i < names.Count && i < 20; i++)
+                report.AppendLine($"  Candidate: {names[i]}");
+
+            if (names.Count > 20)
+                report.AppendLine($"  ... {names.Count - 20} more (showing first 20).");
+        }
+
         private void TestMode(NearbySignatureMode mode, StringBuilder report)
         {
             report.AppendLine();
@@ -96,8 +194,7 @@ namespace UniqueBuildings
 
         private void LogEffectCounts(NearbySignatureMode mode, string phase, StringBuilder report)
         {
-            using NativeArray<Entity> buildings =
-                m_EligibleQuery.ToEntityArray(Allocator.Temp);
+            List<Entity> buildings = GetEligibleUniqueBuildings();
 
             // Use the same first-copy rule as the actual nearby-effect system.
             Dictionary<Entity, Entity> firstByPrefab = new();
@@ -137,6 +234,7 @@ namespace UniqueBuildings
                 FillModifiers(building, prefab, modifiers);
                 Transform transform =
                     EntityManager.GetComponentData<Transform>(building);
+                float efficiency = GetProviderEfficiency(building);
 
                 for (int i = 0; i < modifiers.Length; i++)
                 {
@@ -144,7 +242,7 @@ namespace UniqueBuildings
                     available++;
 
                     if (keep && LocalEffectSystem.GetEffectBounds(
-                        transform, modifier, out _))
+                        transform, efficiency, modifier, out _))
                     {
                         expected++;
                     }
@@ -159,7 +257,7 @@ namespace UniqueBuildings
             }
 
             report.AppendLine($"  {phase}: {ModeLabel(mode)}");
-            report.AppendLine($"    Signature buildings: {buildings.Length} | " +
+            report.AppendLine($"    Unique/Signature buildings: {buildings.Count} | " +
                 $"Types: {firstByPrefab.Count}");
             report.AppendLine($"    Nearby effects: {active}/{available} active | " +
                 $"{available - active} disabled");

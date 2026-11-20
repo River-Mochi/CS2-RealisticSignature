@@ -127,6 +127,33 @@ namespace UniqueBuildings
             Enabled = false;
         }
 
+        public void ApplyFromOptions(bool allowMultiple)
+        {
+            const string reason = "Options setting changed";
+
+            if (GameManager.instance?.gameMode.IsGame() != true)
+            {
+                ScheduleReconcile(allowMultiple, reason);
+                return;
+            }
+
+            try
+            {
+                // Options pauses simulation. Apply immediately rather than
+                // waiting for the next PrefabUpdate after closing Options.
+                CompleteDependency();
+                ReconcileNow(allowMultiple, reason);
+                m_ReconcileRequested = false;
+                Enabled = false;
+            }
+            catch (System.Exception ex)
+            {
+                LogUtils.Warn(
+                    $"{Mod.ModTag} Live Unique placement update failed: {ex.Message}", ex);
+                ScheduleReconcile(allowMultiple, "retry Options setting change");
+            }
+        }
+
         public void ScheduleReconcile(bool allowMultiple, string reason)
         {
             m_RequestedAllowMultiple = allowMultiple;
@@ -222,8 +249,10 @@ namespace UniqueBuildings
             }
             else
             {
-                restoredByUs =
-                    RestoreOwnedUniqueFlags(notifyUi: true);
+                // Recover vanilla uniqueness on canonical Unique/Signature
+                // prefabs even when our ownership list was reset by a city load.
+                restoredByUs = RestoreOwnedUniqueFlags(
+                    notifyUi: true, recoverVanillaFlags: true);
             }
 
             RefreshKnownUniquePrefabs(placeablePrefabs);
@@ -239,6 +268,20 @@ namespace UniqueBuildings
 
             int unrestrictedBefore =
                 totalKnownUnique - restrictedBefore;
+
+            // OFF is uncommon: include this in Release logs so a player can
+            // tell whether restrictions were actually restored.
+            if (!allowMultiple)
+            {
+                LogUtils.Info(
+                    $"{Mod.ModTag} Unique placement OFF: " +
+                    $"Known={totalKnownUnique} | " +
+                    $"RestrictedBefore={restrictedBefore} | " +
+                    $"Restored={restoredByUs} | " +
+                    $"RestrictedAfter={restrictedAfter} | " +
+                    $"Anarchy={AnarchyCompatibility.GetLogText(anarchyState)} | " +
+                    $"KnownRedundantMods={UniqueModsCompatibility.StatusText}.");
+            }
 
 #if DEBUG
             LogUtils.Info(
@@ -291,9 +334,10 @@ namespace UniqueBuildings
                    EntityManager.HasComponent<UniqueObjectData>(entity);
         }
 
-        private int RestoreOwnedUniqueFlags(bool notifyUi)
+        private int RestoreOwnedUniqueFlags(
+            bool notifyUi, bool recoverVanillaFlags = false)
         {
-            if (m_UniqueRemovedByUs.Count == 0)
+            if (m_UniqueRemovedByUs.Count == 0 && !recoverVanillaFlags)
                 return 0;
 
             // A dedicated Unlimited/Multiple Unique mod is explicitly trying
@@ -337,6 +381,38 @@ namespace UniqueBuildings
 
             for (int i = 0; i < remove.Count; i++)
                 m_UniqueRemovedByUs.Remove(remove[i]);
+
+            if (recoverVanillaFlags)
+            {
+                // Decompiled vanilla UniqueObject.Initialize and
+                // SignatureBuilding.Initialize both unconditionally set Unique.
+                // Therefore these two prefab components prove the original
+                // vanilla flag, even if our ownership was lost on city load.
+                // Do not guess for prefabs with neither component.
+                foreach (Entity prefab in m_KnownUniquePrefabs)
+                {
+                    if (!EntityManager.Exists(prefab) ||
+                        !EntityManager.HasComponent<PlaceableObjectData>(prefab) ||
+                        (!EntityManager.HasComponent<UniqueObjectData>(prefab) &&
+                         !EntityManager.HasComponent<SignatureBuildingData>(prefab)))
+                    {
+                        continue;
+                    }
+
+                    PlaceableObjectData data =
+                        EntityManager.GetComponentData<PlaceableObjectData>(prefab);
+
+                    if ((data.m_Flags & PlacementFlags.Unique) != 0)
+                        continue;
+
+                    data.m_Flags |= PlacementFlags.Unique;
+                    EntityManager.SetComponentData(prefab, data);
+                    restored++;
+
+                    if (notifyUi)
+                        NotifyUniqueUi(prefab);
+                }
+            }
 
             return restored;
         }
