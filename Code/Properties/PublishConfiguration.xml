@@ -15,15 +15,11 @@
 
 **独特建筑 / 标志性建筑不限数量！还能自由控制建筑加成！** 🇨🇳 中文详情见下方 ↓
 
-┌─────────────────────────────────────────────────────────────┐
-
 CS2 wasn't designed for unlimited copies of unique. Their powerful bonuses stack and make the game too easy.
 
 **Build unlimited copies!** Keep vanilla bonuses, or reduce unrealistic stacking, or mix and match settings!
 
-└─────────────────────────────────────────────────────────────┘
-
-### 1\. Control Unique + Signature city-wide bonuses
+### 1. Control Unique + Signature city-wide bonuses
 
 *   **Vanilla Stacking:** every copy has all normal bonuses (game default). Want super-easy mode? Keep stacking!
 *   **First Copy Only**: only one copy of each Unique or Signature building type adds its city-wide bonuses. More Realistic, 5 copies no longer has 5x stacked bonuses!
@@ -31,12 +27,12 @@ CS2 wasn't designed for unlimited copies of unique. Their powerful bonuses stack
 
 **Control City-wide Attractiveness** for eligible Unique and Signature buildings: choose First copy only (default), Vanilla stacking, No bonus, or Follow city-wide setting.
 
-### 2\. Control Nearby local effects for Unique Buildings
+### 2. Control Nearby local effects for Unique Buildings
 
 *   Keep neighborhood "aoe" benefits while limiting city-wide bonus stacking.
 *   Choose Vanilla, First-Copy Only, or Off (independent of city-wide bonuses).
 
-### 3\. Allow Unlimited Unique buildings + More!
+### 3. Allow Unlimited Unique buildings + More!
 
 *   ✅ **Unlock Signatures**: Skip zoning and progression requirements. Other Unique buildings, like City Hall, still need Development points.
 *   ✅ **Hide mass unlock pop-ups**: Stop the spam when unlocking many at once. Save your click finger!
@@ -67,8 +63,6 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 *   Thumbnail of the 8House in Copenhagen by Bjarke Ingels [Wikipedia](https://en.wikipedia.org/wiki/8_House), CC license photo by Jens Lindhe.
 *   UnhingedWolf: testing and feedback
 
-┌───────────────────────────────────────────────┐
-
 ## 独特建筑 / 标志性建筑不限数量！
 
 **想建多少就建多少！默认开启，无需额外模组！**
@@ -80,7 +74,7 @@ English, Français, Deutsch, Español, Italiano, Polski, Português (Brasil), Po
 *   **✅ 解锁建筑：** 可选择跳过标志性建筑的解锁条件。其他独特公共服务建筑仍需发展点数。
 *   **✅ 界面优化：** 减少解锁弹窗，防止放置建筑时自动出现遮挡视线的信息覆盖层。
 
-\*\*兼容 Anarchy，无需 Harmony 补丁。\*\* 移除模组不会删除已建造的建筑。
+**兼容 Anarchy，无需 Harmony 补丁。** 移除模组不会删除已建造的建筑。
 
 **注意：** 建筑信息面板的绿色加成文字仍显示原版数值，但模组实际加成控制正常生效。可在选项中的状态报告查看。
 
